@@ -1,0 +1,66 @@
+<h2>Listing users</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Username</th>
+      <th>Description</th>
+      <th>Email</th>
+      <th>Photo video</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>Address</th>
+      <th>Password</th>
+      <th>Hash</th>
+      <th>Recovery hash</th>
+      <th>Fb</th>
+      <th>Fb token</th>
+      <th>Stripe</th>
+      <th>User type</th>
+      <th>Organization name</th>
+      <th>Website</th>
+      <th>Logo</th>
+      <th>Is admin</th>
+      <th>U constraint</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.username %></td>
+      <td><%= user.description %></td>
+      <td><%= user.email %></td>
+      <td><%= user.photo_video %></td>
+      <td><%= user.country %></td>
+      <td><%= user.state %></td>
+      <td><%= user.address %></td>
+      <td><%= user.password %></td>
+      <td><%= user.hash %></td>
+      <td><%= user.recovery_hash %></td>
+      <td><%= user.fb_id %></td>
+      <td><%= user.fb_token %></td>
+      <td><%= user.stripe_id %></td>
+      <td><%= user.user_type %></td>
+      <td><%= user.organization_name %></td>
+      <td><%= user.website %></td>
+      <td><%= user.logo %></td>
+      <td><%= user.is_admin %></td>
+      <td><%= user.u_constraint %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New user", to: user_path(@conn, :new) %>

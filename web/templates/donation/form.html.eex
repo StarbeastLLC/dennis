@@ -1,0 +1,36 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :miles_bought, "Miles bought", class: "control-label" %>
+    <%= number_input f, :miles_bought, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :tip, "Tip", class: "control-label" %>
+    <%= number_input f, :tip, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :total_donated, "Total donated", class: "control-label" %>
+    <%= number_input f, :total_donated, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_anonymous, "Is anonymous", class: "control-label" %>
+    <%= checkbox f, :is_anonymous, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

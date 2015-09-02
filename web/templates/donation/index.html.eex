@@ -1,0 +1,32 @@
+<h2>Listing donations</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Miles bought</th>
+      <th>Tip</th>
+      <th>Total donated</th>
+      <th>Is anonymous</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for donation <- @donations do %>
+    <tr>
+      <td><%= donation.miles_bought %></td>
+      <td><%= donation.tip %></td>
+      <td><%= donation.total_donated %></td>
+      <td><%= donation.is_anonymous %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: donation_path(@conn, :show, donation), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: donation_path(@conn, :edit, donation), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: donation_path(@conn, :delete, donation), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New donation", to: donation_path(@conn, :new) %>

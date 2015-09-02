@@ -1,0 +1,51 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, "Name", class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, "Description", class: "control-label" %>
+    <%= text_input f, :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :photo, "Photo", class: "control-label" %>
+    <%= text_input f, :photo, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :shares_count, "Shares count", class: "control-label" %>
+    <%= number_input f, :shares_count, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :miles, "Miles", class: "control-label" %>
+    <%= number_input f, :miles, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :mile_price, "Mile price", class: "control-label" %>
+    <%= number_input f, :mile_price, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_active, "Is active", class: "control-label" %>
+    <%= checkbox f, :is_active, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<h2>Listing permissions</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Resource</th>
+      <th>Resource type</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for permission <- @permissions do %>
+    <tr>
+      <td><%= permission.name %></td>
+      <td><%= permission.resource_id %></td>
+      <td><%= permission.resource_type %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: permission_path(@conn, :show, permission), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: permission_path(@conn, :edit, permission), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: permission_path(@conn, :delete, permission), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New permission", to: permission_path(@conn, :new) %>

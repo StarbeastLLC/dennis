@@ -1,0 +1,23 @@
+<h2>Show permission</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @permission.name %>
+  </li>
+
+  <li>
+    <strong>Resource:</strong>
+    <%= @permission.resource_id %>
+  </li>
+
+  <li>
+    <strong>Resource type:</strong>
+    <%= @permission.resource_type %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: permission_path(@conn, :edit, @permission) %>
+<%= link "Back", to: permission_path(@conn, :index) %>

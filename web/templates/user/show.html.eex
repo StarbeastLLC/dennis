@@ -1,0 +1,113 @@
+<h2>Show user</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @user.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @user.last_name %>
+  </li>
+
+  <li>
+    <strong>Username:</strong>
+    <%= @user.username %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @user.description %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Photo video:</strong>
+    <%= @user.photo_video %>
+  </li>
+
+  <li>
+    <strong>Country:</strong>
+    <%= @user.country %>
+  </li>
+
+  <li>
+    <strong>State:</strong>
+    <%= @user.state %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @user.address %>
+  </li>
+
+  <li>
+    <strong>Password:</strong>
+    <%= @user.password %>
+  </li>
+
+  <li>
+    <strong>Hash:</strong>
+    <%= @user.hash %>
+  </li>
+
+  <li>
+    <strong>Recovery hash:</strong>
+    <%= @user.recovery_hash %>
+  </li>
+
+  <li>
+    <strong>Fb:</strong>
+    <%= @user.fb_id %>
+  </li>
+
+  <li>
+    <strong>Fb token:</strong>
+    <%= @user.fb_token %>
+  </li>
+
+  <li>
+    <strong>Stripe:</strong>
+    <%= @user.stripe_id %>
+  </li>
+
+  <li>
+    <strong>User type:</strong>
+    <%= @user.user_type %>
+  </li>
+
+  <li>
+    <strong>Organization name:</strong>
+    <%= @user.organization_name %>
+  </li>
+
+  <li>
+    <strong>Website:</strong>
+    <%= @user.website %>
+  </li>
+
+  <li>
+    <strong>Logo:</strong>
+    <%= @user.logo %>
+  </li>
+
+  <li>
+    <strong>Is admin:</strong>
+    <%= @user.is_admin %>
+  </li>
+
+  <li>
+    <strong>U constraint:</strong>
+    <%= @user.u_constraint %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: user_path(@conn, :edit, @user) %>
+<%= link "Back", to: user_path(@conn, :index) %>
