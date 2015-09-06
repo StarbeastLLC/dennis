@@ -17,6 +17,11 @@ defmodule Dennis.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+  end
+
+  scope "/admin", Dennis do
+    pipe_through :browser # Use the default browser stack
+
     resources "/users", UserController
     resources "/permissions", PermissionController
     resources "/challenges", ChallengeController
