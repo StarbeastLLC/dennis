@@ -45,6 +45,8 @@ defmodule Dennis.Web do
       use Phoenix.HTML
 
       import Dennis.Router.Helpers
+
+      import Dennis.Session, only: [current_user: 1, logged_in?: 1]
     end
   end
 
