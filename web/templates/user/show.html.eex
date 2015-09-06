@@ -9,7 +9,7 @@
 
   <li>
     <strong>Hash:</strong>
-    <%= @user.hash %>
+    <%= @user.hashed_pswd %>
   </li>
 
   <li>

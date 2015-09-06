@@ -30,7 +30,7 @@
 <%= for user <- @users do %>
     <tr>
       <td><%= user.email %></td>
-      <td><%= user.hash %></td>
+      <td><%= user.hashed_pswd %></td>
       <td><%= user.reset_token %></td>
       <td><%= user.is_admin %></td>
       <td><%= user.is_active %></td>

@@ -16,8 +16,8 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :hash, "Hash", class: "control-label" %>
-    <%= text_input f, :hash, class: "form-control" %>
+    <%= label f, :hashed_pswd, "Hashed password", class: "control-label" %>
+    <%= text_input f, :hashed_pswd, class: "form-control" %>
   </div>
 
   <div class="form-group">

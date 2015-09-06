@@ -1,10 +1,10 @@
 defmodule Dennis.Registration do
   import Ecto.Changeset, only: [put_change: 3]
 
-  def create(changeset, repo) do
+  def create(changeset) do
     changeset
-    |> put_change(:hash, hashed_password(changeset.params["password"]))
-    |> repo.insert()
+    |> put_change(:hashed_pswd, hashed_password(changeset.params["password"]))
+    |> Dennis.Repo.insert()
   end
 
   defp hashed_password(password) do

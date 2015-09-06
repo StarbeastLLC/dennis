@@ -4,7 +4,7 @@ defmodule Dennis.Repo.Migrations.CreateUser do
   def change do
     create table(:users) do
       add :email,         :string
-      add :hash,          :string
+      add :hashed_pswd,   :string
       add :reset_token,   :string
       add :is_admin,      :boolean, default: false
       add :is_active,     :boolean, default: false

@@ -10,7 +10,7 @@ defmodule Dennis.User do
     field :email,         :string
     field :password,      :string, virtual: true
     field :password_conf, :string, virtual: true
-    field :hash,          :string
+    field :hashed_pswd,   :string
     field :reset_token,   :string
     field :is_admin,      :boolean, default: false
     field :is_active,     :boolean, default: false
@@ -32,7 +32,7 @@ defmodule Dennis.User do
     timestamps
   end
 
-  @required_fields ~w(email hash is_admin is_active first_name last_name country user_type)
+  @required_fields ~w(email hashed_pswd is_admin is_active first_name last_name country user_type)
   @optional_fields ~w(reset_token fb_id fb_token description state address stripe_id website org_name logo photo_video)
 
   @doc """
@@ -49,7 +49,7 @@ defmodule Dennis.User do
   def register_changeset(model, params \\ :empty) do
     model
     |> cast(params, ~w(email password password_conf), ~w())
-    |> unique_constraint(:email, on: Blog.Repo, downcase: true)
+    |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 5)
   end

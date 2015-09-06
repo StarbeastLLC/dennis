@@ -15,7 +15,8 @@
     <div class="container" role="main">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <%= link "Sign up", to: registration_path(@conn, :new) %>
+          <%= link "Sign up", to: registration_path(@conn, :new) %> | 
+          <%= link "Sign in", to: session_path(@conn, :new) %>
         </ul>
         <span class="logo"></span>
       </div>

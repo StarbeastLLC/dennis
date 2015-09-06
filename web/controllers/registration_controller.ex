@@ -3,6 +3,7 @@ defmodule Dennis.RegistrationController do
   alias Dennis.User
 
   plug :scrub_params, "user" when action in [:create, :update]
+
   def new(conn, _params) do
     changeset = User.changeset(%User{})
     render conn, changeset: changeset
@@ -13,7 +14,7 @@ defmodule Dennis.RegistrationController do
 
     if changeset.valid? do
       # save new user and sign them in
-      user = Dennis.Registration.create(changeset, Dennis.Repo)
+      _user = Dennis.Registration.create(changeset)
       conn
       |> put_flash(:info, "Your account was created")
       |> redirect(to: "/")

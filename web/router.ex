@@ -20,17 +20,21 @@ defmodule Dennis.Router do
 
     get  "/register", RegistrationController, :new
     post "/register", RegistrationController, :create
+
+    get    "/login",  SessionController, :new
+    post   "/login",  SessionController, :create
+    delete "/logout", SessionController, :delete
   end
 
   scope "/admin", Dennis do
     pipe_through :browser # Use the default browser stack
 
-    resources "/users", UserController
+    resources "/users",       UserController
     resources "/permissions", PermissionController
-    resources "/challenges", ChallengeController
-    resources "/causes", CauseController
-    resources "/donations", DonationController
-    resources "/races", RaceController
+    resources "/challenges",  ChallengeController
+    resources "/causes",      CauseController
+    resources "/donations",   DonationController
+    resources "/races",       RaceController
   end
 
   # Other scopes may use custom stacks.
