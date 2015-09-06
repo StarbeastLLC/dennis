@@ -32,8 +32,8 @@ defmodule Dennis.User do
     timestamps
   end
 
-  @required_fields ~w(first_name last_name username description email photo_video country state address password hash recovery_hash fb_id fb_token stripe_id user_type organization_name website logo is_admin )
-  @optional_fields ~w()
+  @required_fields ~w(email hash is_admin is_active first_name last_name country user_type)
+  @optional_fields ~w(reset_token fb_id fb_token description state address stripe_id website org_name logo photo_video)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -45,4 +45,13 @@ defmodule Dennis.User do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  def register_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(email password password_conf), ~w())
+    |> unique_constraint(:email, on: Blog.Repo, downcase: true)
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 5)
+  end
+
 end
