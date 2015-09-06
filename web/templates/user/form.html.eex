@@ -11,6 +11,41 @@
   <% end %>
 
   <div class="form-group">
+    <%= label f, :email, "Email", class: "control-label" %>
+    <%= text_input f, :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :hash, "Hash", class: "control-label" %>
+    <%= text_input f, :hash, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :reset_token, "Reset token", class: "control-label" %>
+    <%= text_input f, :reset_token, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_admin, "Is admin", class: "control-label" %>
+    <%= checkbox f, :is_admin, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_active, "Is active", class: "control-label" %>
+    <%= checkbox f, :is_active, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :fb_id, "Fb", class: "control-label" %>
+    <%= text_input f, :fb_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :fb_token, "Fb token", class: "control-label" %>
+    <%= text_input f, :fb_token, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :first_name, "First name", class: "control-label" %>
     <%= text_input f, :first_name, class: "form-control" %>
   </div>
@@ -21,23 +56,8 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :username, "Username", class: "control-label" %>
-    <%= text_input f, :username, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
     <%= label f, :description, "Description", class: "control-label" %>
     <%= text_input f, :description, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :email, "Email", class: "control-label" %>
-    <%= text_input f, :email, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :photo_video, "Photo video", class: "control-label" %>
-    <%= text_input f, :photo_video, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -56,31 +76,6 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :password, "Password", class: "control-label" %>
-    <%= text_input f, :password, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :hash, "Hash", class: "control-label" %>
-    <%= text_input f, :hash, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :recovery_hash, "Recovery hash", class: "control-label" %>
-    <%= text_input f, :recovery_hash, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :fb_id, "Fb", class: "control-label" %>
-    <%= text_input f, :fb_id, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :fb_token, "Fb token", class: "control-label" %>
-    <%= text_input f, :fb_token, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
     <%= label f, :stripe_id, "Stripe", class: "control-label" %>
     <%= text_input f, :stripe_id, class: "form-control" %>
   </div>
@@ -91,13 +86,13 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :organization_name, "Organization name", class: "control-label" %>
-    <%= text_input f, :organization_name, class: "form-control" %>
+    <%= label f, :website, "Website", class: "control-label" %>
+    <%= text_input f, :website, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= label f, :website, "Website", class: "control-label" %>
-    <%= text_input f, :website, class: "form-control" %>
+    <%= label f, :org, "Organization name", class: "control-label" %>
+    <%= text_input f, :org, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -106,8 +101,8 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :is_admin, "Is admin", class: "control-label" %>
-    <%= checkbox f, :is_admin, class: "form-control" %>
+    <%= label f, :photo_video, "Photo video", class: "control-label" %>
+    <%= text_input f, :photo_video, class: "form-control" %>
   </div>
 
   <div class="form-group">

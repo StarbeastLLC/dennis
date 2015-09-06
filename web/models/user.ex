@@ -2,30 +2,32 @@ defmodule Dennis.User do
   use Dennis.Web, :model
 
   schema "users" do
-    has_one :permission, Dennis.Permission
+    has_one  :permission, Dennis.Permission
     has_many :challenges, Dennis.Challenge
-    has_many :causes, Dennis.Cause
-    has_many :donations, Dennis.Donation
-    field :first_name, :string
-    field :last_name, :string
-    field :username, :string
-    field :description, :string
-    field :email, :string
-    field :photo_video, :binary
-    field :country, :string
-    field :state, :string
-    field :address, :string
-    field :password, :string
-    field :hash, :string
-    field :recovery_hash, :string
-    field :fb_id, :string
-    field :fb_token, :string
-    field :stripe_id, :string
-    field :user_type, :string
-    field :organization_name, :string
-    field :website, :string
-    field :logo, :binary
-    field :is_admin, :boolean, default: false
+    has_many :causes,     Dennis.Cause
+    has_many :donations,  Dennis.Donation
+
+    field :email,         :string
+    field :password,      :string, virtual: true
+    field :password_conf, :string, virtual: true
+    field :hash,          :string
+    field :reset_token,   :string
+    field :is_admin,      :boolean, default: false
+    field :is_active,     :boolean, default: false
+    field :fb_id,         :string
+    field :fb_token,      :string
+    field :first_name,    :string
+    field :last_name,     :string
+    field :description,   :string
+    field :country,       :string
+    field :state,         :string
+    field :address,       :string
+    field :stripe_id,     :string
+    field :user_type,     :string
+    field :website,       :string
+    field :org_name,      :string
+    field :logo,          :binary
+    field :photo_video,   :binary
 
     timestamps
   end

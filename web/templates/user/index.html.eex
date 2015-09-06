@@ -3,27 +3,25 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Email</th>
+      <th>Hash</th>
+      <th>Reset token</th>
+      <th>Is admin</th>
+      <th>Is active</th>
+      <th>Fb</th>
+      <th>Fb token</th>
       <th>First name</th>
       <th>Last name</th>
-      <th>Username</th>
       <th>Description</th>
-      <th>Email</th>
-      <th>Photo video</th>
       <th>Country</th>
       <th>State</th>
       <th>Address</th>
-      <th>Password</th>
-      <th>Hash</th>
-      <th>Recovery hash</th>
-      <th>Fb</th>
-      <th>Fb token</th>
-      <th>Stripe</th>
+      <th>Stripe id</th>
       <th>User type</th>
-      <th>Organization name</th>
       <th>Website</th>
+      <th>Organization name</th>
       <th>Logo</th>
-      <th>Is admin</th>
-      <th>U constraint</th>
+      <th>Photo video</th>
 
       <th></th>
     </tr>
@@ -31,27 +29,25 @@
   <tbody>
 <%= for user <- @users do %>
     <tr>
+      <td><%= user.email %></td>
+      <td><%= user.hash %></td>
+      <td><%= user.reset_token %></td>
+      <td><%= user.is_admin %></td>
+      <td><%= user.is_active %></td>
+      <td><%= user.fb_id %></td>
+      <td><%= user.fb_token %></td>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
-      <td><%= user.username %></td>
       <td><%= user.description %></td>
-      <td><%= user.email %></td>
-      <td><%= user.photo_video %></td>
       <td><%= user.country %></td>
       <td><%= user.state %></td>
       <td><%= user.address %></td>
-      <td><%= user.password %></td>
-      <td><%= user.hash %></td>
-      <td><%= user.recovery_hash %></td>
-      <td><%= user.fb_id %></td>
-      <td><%= user.fb_token %></td>
       <td><%= user.stripe_id %></td>
       <td><%= user.user_type %></td>
-      <td><%= user.organization_name %></td>
       <td><%= user.website %></td>
+      <td><%= user.organization_name %></td>
       <td><%= user.logo %></td>
-      <td><%= user.is_admin %></td>
-      <td><%= user.u_constraint %></td>
+      <td><%= user.photo_video %></td>
 
       <td class="text-right">
         <%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %>

@@ -3,6 +3,41 @@
 <ul>
 
   <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Hash:</strong>
+    <%= @user.hash %>
+  </li>
+
+  <li>
+    <strong>Reset token:</strong>
+    <%= @user.reset_token %>
+  </li>
+
+  <li>
+    <strong>Is admin:</strong>
+    <%= @user.is_admin %>
+  </li>
+
+  <li>
+    <strong>Is active:</strong>
+    <%= @user.is_active %>
+  </li>
+
+  <li>
+    <strong>Fb:</strong>
+    <%= @user.fb_id %>
+  </li>
+
+  <li>
+    <strong>Fb token:</strong>
+    <%= @user.fb_token %>
+  </li>
+
+  <li>
     <strong>First name:</strong>
     <%= @user.first_name %>
   </li>
@@ -13,23 +48,8 @@
   </li>
 
   <li>
-    <strong>Username:</strong>
-    <%= @user.username %>
-  </li>
-
-  <li>
     <strong>Description:</strong>
     <%= @user.description %>
-  </li>
-
-  <li>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </li>
-
-  <li>
-    <strong>Photo video:</strong>
-    <%= @user.photo_video %>
   </li>
 
   <li>
@@ -48,31 +68,6 @@
   </li>
 
   <li>
-    <strong>Password:</strong>
-    <%= @user.password %>
-  </li>
-
-  <li>
-    <strong>Hash:</strong>
-    <%= @user.hash %>
-  </li>
-
-  <li>
-    <strong>Recovery hash:</strong>
-    <%= @user.recovery_hash %>
-  </li>
-
-  <li>
-    <strong>Fb:</strong>
-    <%= @user.fb_id %>
-  </li>
-
-  <li>
-    <strong>Fb token:</strong>
-    <%= @user.fb_token %>
-  </li>
-
-  <li>
     <strong>Stripe:</strong>
     <%= @user.stripe_id %>
   </li>
@@ -83,13 +78,13 @@
   </li>
 
   <li>
-    <strong>Organization name:</strong>
-    <%= @user.organization_name %>
+    <strong>Website:</strong>
+    <%= @user.website %>
   </li>
 
   <li>
-    <strong>Website:</strong>
-    <%= @user.website %>
+    <strong>Organization name:</strong>
+    <%= @user.org%>
   </li>
 
   <li>
@@ -98,13 +93,8 @@
   </li>
 
   <li>
-    <strong>Is admin:</strong>
-    <%= @user.is_admin %>
-  </li>
-
-  <li>
-    <strong>U constraint:</strong>
-    <%= @user.u_constraint %>
+    <strong>Photo video:</strong>
+    <%= @user.photo_video %>
   </li>
 
 </ul>
