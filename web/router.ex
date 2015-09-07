@@ -24,6 +24,11 @@ defmodule Dennis.Router do
     get    "/login",  SessionController, :new
     post   "/login",  SessionController, :create
     delete "/logout", SessionController, :delete
+
+    get "/athlete", AthleteController,      :index
+    get "/donor",   DonorController,        :index
+    get "/org",     OrganizationController, :index
+
   end
 
   scope "/admin", Dennis do
