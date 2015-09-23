@@ -14,8 +14,9 @@ defmodule Dennis.RegistrationController do
 
     if changeset.valid? do
       # save new user and sign them in
-      _user = Dennis.Registration.create(changeset)
+      {:ok, user} = Dennis.Registration.create(changeset)
       conn
+      |> put_session(:current_user, user.id)
       |> put_flash(:info, "Your account was created")
       |> redirect(to: "/")
     else
