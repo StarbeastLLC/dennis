@@ -14,6 +14,7 @@ defmodule Dennis.RegistrationController do
 
     if changeset.valid? do
       # save new user and sign them in
+      # TO-DO: add {:error, user} case
       {:ok, user} = Dennis.Registration.create(changeset)
       conn
       |> put_session(:current_user, user.id)
@@ -25,4 +26,6 @@ defmodule Dennis.RegistrationController do
       |> render("new.html", changeset: changeset)
     end
   end
+
+
 end

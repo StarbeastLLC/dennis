@@ -10,29 +10,36 @@ window.fbAsyncInit = function() {
 
 $(document).on('ready', function () {
 
-	$(document).on('click', '.fb-login', function (e) {
+	// obtains fb current user and creates a session
+	// at our app.
+	function fbAuth(statusResponse) {
+		FB.api('/me', {fields: 'email,first_name,last_name'}, function (response) {
+		  console.log('fb-me', response);
+		  $.post('/facebook', {
+		  	fb_id: response.id,
+		  	fb_token: statusResponse.authResponse.accessToken,
+		  	email: response.email,
+		  	first_name: response.first_name,
+		  	last_name: response.last_name
+		  });
+		})
+	}
 
-	  // obtains fb current user and creates a session
-	  // at our app.
-      function fbLogin() {
-        FB.api('/me', {fields: 'email,first_name,last_name'}, function (response) {
-          console.log('fb-me', response);
-        })
-      }
-
-	  FB.getLoginStatus(function (response) {
-	  	if (response.status === 'connected') {
-			fbLogin();	  		
+	function fbLogin() {
+	  FB.getLoginStatus(function (statusResponse) {
+	  	if (statusResponse.status === 'connected') {
+	  		fbAuth(statusResponse);
 	  	} else {
-	  		FB.login(function (response) {
-	  			console.log('fb-login', response);
-	  			if (response.authResponse) {
+	  		FB.login(function (loginResponse) {
+	  			if (loginResponse.authResponse) {
 	  				fbLogin();
 	  			}
 	  		}, {scope: 'email'});
 	  	}
-	  })
-	});
+	  });
+	}
+
+	$(document).on('click', '.fb-login', fbLogin);
 
 });
 

@@ -54,4 +54,12 @@ defmodule Dennis.User do
     |> validate_length(:password, min: 5)
   end
 
+  def fb_auth_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(email fb_id fb_token first_name last_name), ~w())
+    |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
+    |> unique_constraint(:fb_id, on: Dennis.Repo)
+    |> validate_format(:email, ~r/@/)
+  end
+
 end
