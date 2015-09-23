@@ -35,7 +35,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :dennis, Dennis.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "hiphoox",
-  password: "",
+  username: "postgres",
+  password: "postgres",
   database: "dennis_dev",
   pool_size: 10
