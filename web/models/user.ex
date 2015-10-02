@@ -23,7 +23,7 @@ defmodule Dennis.User do
     field :state,         :string
     field :address,       :string
     field :stripe_id,     :string
-    field :user_type,     :string
+    field :user_type,     :string, default: "athlete"
     field :website,       :string
     field :org_name,      :string
     field :logo,          :binary
@@ -48,7 +48,7 @@ defmodule Dennis.User do
 
   def register_changeset(model, params \\ :empty) do
     model
-    |> cast(params, ~w(email password password_conf), ~w())
+    |> cast(params, ~w(email password password_conf first_name last_name country user_type), @optional_fields)
     |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 5)

@@ -84,7 +84,7 @@
 
   <li>
     <strong>Organization name:</strong>
-    <%= @user.org%>
+    <%= @user.org_name%>
   </li>
 
   <li>

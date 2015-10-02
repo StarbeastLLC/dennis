@@ -45,7 +45,7 @@
       <td><%= user.stripe_id %></td>
       <td><%= user.user_type %></td>
       <td><%= user.website %></td>
-      <td><%= user.organization_name %></td>
+      <td><%= user.org_name %></td>
       <td><%= user.logo %></td>
       <td><%= user.photo_video %></td>
 

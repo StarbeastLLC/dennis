@@ -20,7 +20,7 @@ defmodule Dennis.Router do
 
     get  "/register", RegistrationController, :new
     post "/register", RegistrationController, :create
-    #post "/facebook", RegistrationController, :fb_auth
+    post "/facebook", RegistrationController, :fb_auth
 
     get    "/login",  SessionController, :new
     post   "/login",  SessionController, :create

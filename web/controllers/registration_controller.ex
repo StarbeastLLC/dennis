@@ -27,5 +27,23 @@ defmodule Dennis.RegistrationController do
     end
   end
 
+  def fb_auth(conn, %{"user" => user_params}) do
+    changeset = User.register_changeset(%User{}, user_params)
+
+    if changeset.valid? do
+      # save new user and sign them in
+      # TO-DO: add {:error, user} case
+      {:ok, user} = Dennis.Registration.create(changeset)
+      conn
+      |> put_session(:current_user, user.id)
+      |> put_flash(:info, "Your account was created")
+      |> redirect(to: "/")
+    else
+      conn
+      |> put_flash(:info, "Unable to create account")
+      |> render("new.html", changeset: changeset)
+    end
+  end
+
 
 end
