@@ -21,7 +21,6 @@
       <td><%= challenge.description %></td>
       <td><%= challenge.photo %></td>
       <td><%= challenge.shares_count %></td>
-      <td><%= challenge.miles %></td>
       <td><%= challenge.mile_price %></td>
       <td><%= challenge.is_active %></td>
 

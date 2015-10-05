@@ -1,0 +1,3 @@
+<a href="/dashboard/challenge">CREATE A NEW CHALLENGE!</a>
+
+<%= inspect(@challenges) %>

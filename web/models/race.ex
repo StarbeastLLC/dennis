@@ -2,14 +2,15 @@ defmodule Dennis.Race do
   use Dennis.Web, :model
 
   schema "races" do
-    belongs_to :challenge, Dennis.Challenge
+    has_many :challenges, Dennis.Challenge
     field :name, :string
+    field :miles, :integer
     field :date, Ecto.DateTime
 
     timestamps
   end
 
-  @required_fields ~w(name date)
+  @required_fields ~w(name date miles)
   @optional_fields ~w()
 
   @doc """

@@ -1,0 +1,24 @@
+<h1>Create a new challenge here!</h1>
+<%= form_tag("/dashboard/challenge", method: :post) do %>
+
+	<label>Select your cause</label>
+	<br>
+	<%= select :challenge, :cause_id, ["Save The Puppies": 1, "Save The Satanic Puppies": 2] %>
+	<br>
+	<label>Name your challenge</label>
+	<%= text_input :challenge, :name, class: "form-control" %>
+	<label>Description</label>
+	<%= textarea :challenge, :description, class: "form-control" %>
+	<label>Which race are you running</label>
+	<br>
+	<%= select :challenge, :race_id, ["A Famous Race": 1, "Another Well-Known Race": 2, "Your Local Marathon": 3] %>
+	<br>
+	<label>Price per mile</label>
+	<%= text_input :challenge, :mile_price, class: "form-control" %>
+
+	<%= checkbox :challenge, :is_active, value: "true" %>
+
+	<br>
+	<%= submit "Create challenge" %>
+
+<% end %>
