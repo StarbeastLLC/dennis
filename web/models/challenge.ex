@@ -16,7 +16,7 @@ defmodule Dennis.Challenge do
     timestamps
   end
 
-  @required_fields ~w(name description mile_price is_active race_id cause_id)
+  @required_fields ~w(name description mile_price is_active race_id cause_id user_id)
   @optional_fields ~w(photo shares_count)
 
   @doc """

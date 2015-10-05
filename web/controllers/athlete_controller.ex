@@ -7,17 +7,19 @@ defmodule Dennis.AthleteController do
 
 	def show(conn, _params) do
 		user_id = get_session(conn, :current_user)
-    	challenges = Challenge.user_challenges(user_id)
+    challenges = Challenge.user_challenges(user_id)
 		render(conn, "athlete.html", challenges: challenges)
 	end
 
 	def new_challenge(conn, _params) do
 		changeset = Challenge.changeset(%Challenge{})
-	    render(conn, "new-challenge.html", changeset: changeset)
+	  render(conn, "new-challenge.html", changeset: changeset)
 	end
 
 	def create_challenge(conn, %{"challenge" => challenge_params}) do
-    changeset = Challenge.changeset(%Challenge{}, challenge_params)
+    user_id = get_session(conn, :current_user)
+
+    changeset = Challenge.changeset(%Challenge{user_id: user_id}, challenge_params)
 
     case Repo.insert(changeset) do
       {:ok, challenge} ->
