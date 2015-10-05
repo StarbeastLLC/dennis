@@ -30,6 +30,8 @@ defmodule Dennis.Router do
     get "/donor",   DonorController,        :index
     get "/org",     OrganizationController, :index
 
+    get "/dashboard", DashboardController, :index
+
   end
 
   scope "/admin", Dennis do

@@ -14,8 +14,8 @@ defmodule Dennis.Cause do
     timestamps
   end
 
-  @required_fields ~w(name country state description more_info photo_video)
-  @optional_fields ~w()
+  @required_fields ~w(name country state description more_info )
+  @optional_fields ~w(photo_video)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
