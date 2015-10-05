@@ -11,7 +11,7 @@ defmodule Dennis.SessionController do
         conn
         |> put_session(:current_user, user.id)
         |> put_flash(:info, "Logged in")
-        |> redirect(to: athlete_path(conn, :index))
+        |> redirect(to: "/dashboard")
       :error ->
         conn
         |> put_flash(:info, "Wrong email or password")

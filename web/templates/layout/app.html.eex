@@ -16,6 +16,7 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <%= if logged_in?(@conn) do %>
+            <li><%= link "Dashboard", to: "/dashboard" %></li>
             <li><%= current_user(@conn).email %></li>
             <li><%= link "Logout", to: session_path(@conn, :delete), method: :delete %></li>
           <% else %>

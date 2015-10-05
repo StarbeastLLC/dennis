@@ -33,7 +33,7 @@ defmodule Dennis.AthleteController do
 
   def show_challenge(conn, %{"id" => id}) do
     challenge = Repo.get!(Challenge, id)
-    render(conn, "show.html", challenge: challenge)
+    render(conn, "challenge-preview.html", challenge: challenge)
   end
 
 end

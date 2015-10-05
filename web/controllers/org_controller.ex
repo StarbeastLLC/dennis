@@ -34,7 +34,7 @@ defmodule Dennis.OrgController do
 
   def show_cause(conn, %{"id" => id}) do
     cause = Repo.get!(Cause, id)
-    render(conn, "cause.html", cause: cause)
+    render(conn, "cause-preview.html", cause: cause)
   end
 	
 end

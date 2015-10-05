@@ -1,0 +1,36 @@
+<h2>Show challenge</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @challenge.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @challenge.description %>
+  </li>
+
+  <li>
+    <strong>Photo:</strong>
+    <%= @challenge.photo %>
+  </li>
+
+  <li>
+    <strong>Shares count:</strong>
+    <%= @challenge.shares_count %>
+  </li>
+
+
+  <li>
+    <strong>Mile price:</strong>
+    <%= @challenge.mile_price %>
+  </li>
+
+  <li>
+    <strong>Is active:</strong>
+    <%= @challenge.is_active %>
+  </li>
+
+</ul>
