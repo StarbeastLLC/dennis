@@ -31,9 +31,16 @@ defmodule Dennis.Router do
     get "/org",     OrganizationController, :index
 
     get "/dashboard", DashboardController, :index
+
     get "/dashboard/challenge", AthleteController, :new_challenge
     post "/dashboard/challenge", AthleteController, :create_challenge
-    get "dashboard/challenge/:id", AthleteController, :show_challenge
+    get "dashboard/challenge/:id", AthleteController, :show_challenge # Double-check
+
+    get "/dashboard/cause", OrgController, :new_cause
+    post "/dashboard/cause", OrgController, :create_cause
+    get "/dashboard/cause/:id", OrgController, :show_cause
+
+    get "/cause/:id", CauseController, :show
 
   end
 

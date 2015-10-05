@@ -14,7 +14,7 @@ defmodule Dennis.Cause do
     timestamps
   end
 
-  @required_fields ~w(name country state description more_info )
+  @required_fields ~w(name country state description more_info user_id)
   @optional_fields ~w(photo_video)
 
   @doc """
@@ -26,5 +26,9 @@ defmodule Dennis.Cause do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+
+  def user_causes(user_id) do
+    Dennis.Repo.all(from(c in Dennis.Cause, where: c.user_id == ^user_id))
   end
 end

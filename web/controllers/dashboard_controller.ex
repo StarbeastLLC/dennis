@@ -3,6 +3,7 @@ defmodule Dennis.DashboardController do
 
   alias Dennis.User
   alias Dennis.AthleteController, as: Athlete
+  alias Dennis.OrgController, as: Org
 
 
   def index(conn, _params) do

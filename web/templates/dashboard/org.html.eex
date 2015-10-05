@@ -1,0 +1,3 @@
+<a href="/dashboard/cause">CREATE A NEW CAUSE!</a>
+
+<%= inspect(@causes) %>

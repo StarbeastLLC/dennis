@@ -1,4 +1,4 @@
-defmodule Dennis.CauseView do
+defmodule Dennis.OrgView do
   use Dennis.Web, :view
 
   def tweet_cause(conn, cause) do

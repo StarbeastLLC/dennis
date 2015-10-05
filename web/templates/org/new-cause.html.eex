@@ -1,0 +1,18 @@
+<h1>Create a new cause here!</h1>
+<%= form_tag("/dashboard/cause", method: :post) do %>
+
+	<label>Name your cause</label>
+	<%= text_input :cause, :name, class: "form-control" %>
+	<label>Description</label>
+	<%= textarea :cause, :description, class: "form-control" %>
+	<label>More info</label>
+	<%= textarea :cause, :more_info, class: "form-control" %>
+	<label>Country</label>
+	<%= text_input :cause, :country, class: "form-control" %>
+	<label>State</label>
+	<%= text_input :cause, :state, class: "form-control" %>
+
+	<br>
+	<%= submit "Create challenge" %>
+
+<% end %>

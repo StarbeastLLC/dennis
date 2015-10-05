@@ -3,7 +3,7 @@ defmodule Dennis.AthleteController do
 
 	alias Dennis.Challenge
 
-	plug :scrub_params, "challenge" when action in [:create, :update]
+	plug :scrub_params, "challenge" when action in [:create_challenge]
 
 	def show(conn, _params) do
 		user_id = get_session(conn, :current_user)
@@ -36,6 +36,4 @@ defmodule Dennis.AthleteController do
     render(conn, "show.html", challenge: challenge)
   end
 
-
-	
 end
