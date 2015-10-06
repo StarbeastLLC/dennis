@@ -1,0 +1,36 @@
+<h2>Listing causes</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>Description</th>
+      <th>More info</th>
+      <th>Photo video</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for cause <- @causes do %>
+    <tr>
+      <td><%= cause.name %></td>
+      <td><%= cause.country %></td>
+      <td><%= cause.state %></td>
+      <td><%= cause.description %></td>
+      <td><%= cause.more_info %></td>
+      <td><%= cause.photo_video %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: admin_cause_path(@conn, :show, cause), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: admin_cause_path(@conn, :edit, cause), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: admin_cause_path(@conn, :delete, cause), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New cause", to: admin_cause_path(@conn, :new) %>

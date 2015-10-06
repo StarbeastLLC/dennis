@@ -1,0 +1,18 @@
+<h2>Show race</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @race.name %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @race.date %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: admin_race_path(@conn, :edit, @race) %>
+<%= link "Back", to: admin_race_path(@conn, :index) %>

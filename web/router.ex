@@ -41,10 +41,11 @@ defmodule Dennis.Router do
     get "/dashboard/cause/:id", OrgController, :show_cause
 
     get "/cause/:id", CauseController, :show
+    get "/challenge/:id", ChallengeController, :show
 
   end
 
-  scope "/admin", Dennis do
+  scope "/admin", Dennis.Admin, as: :admin do
     pipe_through :browser # Use the default browser stack
 
     resources "/users",       UserController

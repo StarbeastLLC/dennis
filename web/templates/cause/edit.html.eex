@@ -1,6 +1,0 @@
-<h2>Edit cause</h2>
-
-<%= render "form.html", changeset: @changeset,
-                        action: cause_path(@conn, :update, @cause) %>
-
-<%= link "Back", to: cause_path(@conn, :index) %>

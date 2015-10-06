@@ -1,0 +1,62 @@
+<h2>Listing users</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Hash</th>
+      <th>Reset token</th>
+      <th>Is admin</th>
+      <th>Is active</th>
+      <th>Fb</th>
+      <th>Fb token</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Description</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>Address</th>
+      <th>Stripe id</th>
+      <th>User type</th>
+      <th>Website</th>
+      <th>Organization name</th>
+      <th>Logo</th>
+      <th>Photo video</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.hashed_pswd %></td>
+      <td><%= user.reset_token %></td>
+      <td><%= user.is_admin %></td>
+      <td><%= user.is_active %></td>
+      <td><%= user.fb_id %></td>
+      <td><%= user.fb_token %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.description %></td>
+      <td><%= user.country %></td>
+      <td><%= user.state %></td>
+      <td><%= user.address %></td>
+      <td><%= user.stripe_id %></td>
+      <td><%= user.user_type %></td>
+      <td><%= user.website %></td>
+      <td><%= user.org_name %></td>
+      <td><%= user.logo %></td>
+      <td><%= user.photo_video %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: admin_user_path(@conn, :show, user), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: admin_user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: admin_user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New user", to: admin_user_path(@conn, :new) %>

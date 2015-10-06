@@ -1,6 +1,0 @@
-<h2>Edit donation</h2>
-
-<%= render "form.html", changeset: @changeset,
-                        action: donation_path(@conn, :update, @donation) %>
-
-<%= link "Back", to: donation_path(@conn, :index) %>
