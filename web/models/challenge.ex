@@ -31,6 +31,7 @@ defmodule Dennis.Challenge do
   end
 
   def user_challenges(user_id) do
-    Dennis.Repo.all(from(c in Dennis.Challenge, where: c.user_id == ^user_id))
+    Dennis.Repo.all from challenge in Dennis.Challenge,
+      where: challenge.user_id == ^user_id
   end
 end

@@ -29,6 +29,6 @@ defmodule Dennis.Cause do
   end
 
   def user_causes(user_id) do
-    Dennis.Repo.all(from(c in Dennis.Cause, where: c.user_id == ^user_id))
+    Dennis.Repo.all(from(cause in Dennis.Cause, where: cause.user_id == ^user_id))
   end
 end

@@ -8,7 +8,7 @@ defmodule Dennis.OrgController do
 
 	def show(conn, _params) do
 		user_id = get_session(conn, :current_user)
-    	causes = Cause.user_causes(user_id)
+    causes = Cause.user_causes(user_id)
 		render(conn, "org.html", causes: causes)
 	end
 
