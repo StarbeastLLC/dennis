@@ -33,7 +33,8 @@ defmodule Dennis.OrgController do
   end
 
   def show_cause(conn, %{"id" => id}) do
-    cause = Repo.get!(Cause, id)
+    cause = Repo.get(Cause, id)
+    # cause = Repo.preload cause, :challenges
     render(conn, "cause-preview.html", cause: cause)
   end
 	

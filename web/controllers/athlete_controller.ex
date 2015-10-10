@@ -11,24 +11,33 @@ defmodule Dennis.AthleteController do
 		render(conn, "athlete.html", challenges: challenges)
 	end
 
-	def new_challenge(conn, _params) do
-		changeset = Challenge.changeset(%Challenge{})
-	  render(conn, "new-challenge.html", changeset: changeset)
-	end
+	# def new_challenge(conn, _params) do
+	# 	changeset = Challenge.changeset(%Challenge{})
+	#   render(conn, "new-challenge.html", changeset: changeset)
+	# end
 
-	def create_challenge(conn, %{"challenge" => challenge_params}) do
-    user_id = get_session(conn, :current_user)
+  def new_challenge(conn, cause) do
+    changeset = Ecto.Model.build(cause, :challenges)
+    render(conn, "new-challenge.html", changeset: changeset)
+  end
 
-    changeset = Challenge.changeset(%Challenge{user_id: user_id}, challenge_params)
+ # def create_challenge(conn, %{"challenge" => challenge_params}) do
+ #    user_id = get_session(conn, :current_user)
 
-    case Repo.insert(changeset) do
-      {:ok, challenge} ->
-        conn
-        |> put_flash(:info, "Challenge created successfully.")
-        |> redirect(to: "/dashboard")
-      {:error, changeset} ->
-        text conn, inspect(changeset)
-    end
+ #    changeset = Challenge.changeset(%Challenge{user_id: user_id}, challenge_params)
+
+ #    case Repo.insert(changeset) do
+ #      {:ok, challenge} ->
+ #        conn
+ #        |> put_flash(:info, "Challenge created successfully.")
+ #        |> redirect(to: "/dashboard")
+ #      {:error, changeset} ->
+ #        text conn, inspect(changeset)
+ #    end
+ #  end
+
+  def create_challenge(conn, _) do
+    
   end
 
   def show_challenge(conn, %{"id" => id}) do

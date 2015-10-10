@@ -29,6 +29,12 @@ defmodule Dennis.Cause do
   end
 
   def user_causes(user_id) do
-    Dennis.Repo.all(from(cause in Dennis.Cause, where: cause.user_id == ^user_id))
+    Dennis.Repo.all from cause in Dennis.Cause,
+     where: cause.user_id == ^user_id,
+     preload: [:challenges, :user]
+  end
+
+  def challenge_cause(cause_id) do
+    Dennis.Repo.get_by(Cause, id: cause_id)
   end
 end
