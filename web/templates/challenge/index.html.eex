@@ -1,0 +1,29 @@
+<h2>Listing challenges</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Photo</th>
+      <th>Shares count</th>
+      <th>Mile price</th>
+      <th>Is active</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for challenge <- @challenges do %>
+    <tr>
+      <td><%= challenge.name %></td>
+      <td><%= challenge.description %></td>
+      <td><%= challenge.photo %></td>
+      <td><%= challenge.shares_count %></td>
+      <td><%= challenge.mile_price %></td>
+      <td><%= challenge.is_active %></td>
+
+    </tr>
+<% end %>
+  </tbody>
+</table>

@@ -35,6 +35,7 @@ defmodule Dennis.Mixfile do
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:comeonin, "~> 1.0"}]
+     {:comeonin, "~> 1.0"},
+     {:mailgun, "~> 0.1.1"}]
   end
 end

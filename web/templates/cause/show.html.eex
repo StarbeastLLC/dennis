@@ -1,0 +1,35 @@
+<h2>Show cause</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @cause.name %>
+  </li>
+
+  <li>
+    <strong>Country:</strong>
+    <%= @cause.country %>
+  </li>
+
+  <li>
+    <strong>State:</strong>
+    <%= @cause.state %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @cause.description %>
+  </li>
+
+  <li>
+    <strong>More info:</strong>
+    <%= @cause.more_info %>
+  </li>
+
+  <li>
+    <strong>Photo video:</strong>
+    <%= @cause.photo_video %>
+  </li>
+
+</ul>

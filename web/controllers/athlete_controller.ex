@@ -18,11 +18,6 @@ defmodule Dennis.AthleteController do
 	  render(conn, "new-challenge.html", [changeset: changeset, causes: causes])
 	end
 
-  # def new_challenge(conn, _params) do
-  #   changeset = Ecto.Model.build(cause, :challenges)
-  #   render(conn, "new-challenge.html", changeset: changeset)
-  # end
-
   def create_challenge(conn, %{"challenge" => challenge_params}) do
     user_id = get_session(conn, :current_user)
 
@@ -43,5 +38,10 @@ defmodule Dennis.AthleteController do
     challenge = Repo.preload challenge, :donations
     render(conn, "challenge-preview.html", challenge: challenge)
   end
+
+  def invite(conn, _params) do
+    
+  end
+  
 
 end

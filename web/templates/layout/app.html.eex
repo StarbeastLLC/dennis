@@ -15,6 +15,8 @@
     <div class="container" role="main">
       <div class="header">
         <ul class="nav nav-pills pull-right">
+          <li><%= link "Causes", to: "/causes" %></li>
+          <li><%= link "Challenges", to: "/challenges" %></li>
           <%= if logged_in?(@conn) do %>
             <li><%= link "Dashboard", to: "/dashboard" %></li>
             <li><%= current_user(@conn).email %></li>
