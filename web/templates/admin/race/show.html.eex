@@ -12,6 +12,11 @@
     <%= @race.date %>
   </li>
 
+  <li>
+    <strong>Miles:</strong>
+    <%= @race.miles %>
+  </li>
+
 </ul>
 
 <%= link "Edit", to: admin_race_path(@conn, :edit, @race) %>

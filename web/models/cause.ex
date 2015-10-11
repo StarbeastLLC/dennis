@@ -37,4 +37,10 @@ defmodule Dennis.Cause do
   def challenge_cause(cause_id) do
     Dennis.Repo.get_by(Cause, id: cause_id)
   end
+
+  def global_causes do
+    Dennis.Repo.all from cause in Dennis.Cause,
+    preload: [:challenges, :user]
+  end
+  
 end

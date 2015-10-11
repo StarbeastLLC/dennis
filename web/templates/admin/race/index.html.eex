@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Date</th>
+      <th>Miles</th>
 
       <th></th>
     </tr>
@@ -14,6 +15,7 @@
     <tr>
       <td><%= race.name %></td>
       <td><%= race.date %></td>
+      <td><%= race.miles %></td>
 
       <td class="text-right">
         <%= link "Show", to: admin_race_path(@conn, :show, race), class: "btn btn-default btn-xs" %>

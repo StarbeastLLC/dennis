@@ -16,6 +16,11 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :miles, "Miles", class: "control-label" %>
+    <%= text_input f, :miles, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :date, "Date", class: "control-label" %>
     <%= datetime_select f, :date, class: "form-control" %>
   </div>
