@@ -1,30 +1,22 @@
-<h2>Listing causes</h2>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Country</th>
-      <th>State</th>
-      <th>Description</th>
-      <th>More info</th>
-      <th>Photo video</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for cause <- @causes do %>
-    <tr>
-      <td><%= cause.name %></td>
-      <td><%= cause.country %></td>
-      <td><%= cause.state %></td>
-      <td><%= cause.description %></td>
-      <td><%= cause.more_info %></td>
-      <td><%= cause.photo_video %></td>
-
-      
-    </tr>
-<% end %>
-  </tbody>
-</table>
+<div id="body">
+  <div class="partners">
+    <div class="container">
+      <h1>CAUSES</h1>
+      <div class="masonry">
+      <%= for cause <- @causes do %>
+        <a href="/causes/<%= cause.id %>">
+        <div class="item">
+          <div class="holder">
+            <img src="images/i1.jpg" alt="<%= cause.name %>">
+            <p><%= cause.description %></p>
+            <p class="more"><a href="http://<%= cause.more_info %>"><%= cause.more_info %></a></p>
+          </div>
+        </div>
+        </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- / container -->
+</div>
+<!-- / body -->

@@ -62,4 +62,10 @@ defmodule Dennis.User do
     |> validate_format(:email, ~r/@/)
   end
 
+  def full_name(user_id) do
+    user = Dennis.Repo.one! from user in Dennis.User,
+      where: user.id == ^user_id
+    full_name = "#{user.first_name} #{user.last_name}"
+  end
+  
 end

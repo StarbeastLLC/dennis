@@ -1,29 +1,25 @@
-<h2>Listing challenges</h2>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Photo</th>
-      <th>Shares count</th>
-      <th>Mile price</th>
-      <th>Is active</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for challenge <- @challenges do %>
-    <tr>
-      <td><%= challenge.name %></td>
-      <td><%= challenge.description %></td>
-      <td><%= challenge.photo %></td>
-      <td><%= challenge.shares_count %></td>
-      <td><%= challenge.mile_price %></td>
-      <td><%= challenge.is_active %></td>
-
-    </tr>
-<% end %>
-  </tbody>
-</table>
+<div id="body">
+  <div class="challenge-list">
+    <h1>CHALLENGES</h1>
+    <div class="masonry-list">
+    <%= for challenge <- @challenges do %>
+      <a href="/challenges/<%= challenge.id %>">
+      <div class="item">
+        <div class="holder">
+          <h3>MARATHON</h3>
+          <img src="images/c1.jpg" alt="">
+          <h2 style="text-transform: uppercase"><%= challenge.name %></h2>
+          <h4>Asia Hope</h4>
+          <p><%= challenge.mile_price %></p>
+          <div class="bar">
+            <div class="inner" style="width: 50%"></div>
+          </div>
+          <div class="percent">50%</div>
+        </div>
+      </div>
+      </a>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- / body -->

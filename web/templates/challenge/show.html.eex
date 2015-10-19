@@ -1,32 +1,109 @@
-<h2>Show challenge</h2>
-
-<ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @challenge.name %>
-  </li>
-
-  <li>
-    <strong>Description:</strong>
-    <%= @challenge.description %>
-  </li>
-
-  <li>
-    <strong>Photo:</strong>
-    <%= @challenge.photo %>
-  </li>
-
-  <li>
-    <strong>Shares count:</strong>
-    <%= @challenge.shares_count %>
-  </li>
-
-
-  <li>
-    <strong>Mile price:</strong>
-    <%= @challenge.mile_price %>
-  </li>
-
-
-</ul>
+<div id="body">
+  <div class="run-head">
+    <h2><%= @challenge.name %></h2>
+    <div class="cols">
+      <div class="col">
+        <div class="holder">
+          <div class="gallery-slider">
+            <img src="/images/s1.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="holder">
+          <h3>HISTORY</h3>
+          <div class="history">
+            <h4>BENEFITING: <strong>Flashes of Hope</strong></h4>
+            <p>Paul Schwarz is running the Austin Half Marathon on 15/02/15.</p>
+            <p>He is selling a total of 13 miles for charity, and his challenge is to raise of $ 300 dollars.</p>
+            <ul>
+              <li><a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us/challenges/<%= @challenge.id %>" target="_blank" class="ico-tw"></a></li>
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=mymiles.us/challenges/<%= @challenge.id %>" target="_blank" class="ico-fb"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <a href="#" class="btn red">DONATE NOW!</a>
+        <div class="holder">
+          <div class="collected">
+            <div class="total">
+              <strong>$ 150</strong> OF $ 300
+            </div>
+            <div class="bar">
+              <div class="inner" style="width: 50%"></div>
+            </div>
+            <div class="raised">
+              Raised by 20 people
+            </div>
+            <ul>
+              <li>Mom &amp; Dad <span class="right">$ 50</span></li>
+              <li>Gino <span class="right">$ 20</span></li>
+              <li>Braga <span class="right">$ 15</span></li>
+              <li>Anonymus <span class="right">$ 15</span></li>
+              <li>Mom &amp; Dad <span class="right">$ 50</span></li>
+              <li>Gino <span class="right">$ 20</span></li>
+              <li>Braga <span class="right">$ 15</span></li>
+              <li>Anonymus <span class="right">$ 15</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="run-challenge">
+    <div class="head">
+      <h2>RUN FORREST RUN</h2>
+      <p>AUSTIN HALF MARATHON <br><span>FLASHES OF HOPE</span></p>
+    </div>
+    <div class="right">
+      <img src="/images/a1.png" alt="">
+    </div>
+    <div class="row">
+      <div class="bar">
+        <div class="handler" style="width: 49%">
+          <div class="tip">
+            <img src="/images/ico_man.png" alt="">
+            <p>7 MILES</p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <strong>FINISH</strong>
+        13 MILES
+      </div>
+      <div class="left">
+        <strong>START</strong>
+        0 MILES
+      </div>
+    </div>
+    <div class="row">
+      <div class="bar">
+        <div class="handler" style="width: 49%">
+          <div class="tip">
+            <img src="/images/ico_money.png" alt="">
+            <p>150 DLS</p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <strong>FINISH</strong>
+        13 MILES
+      </div>
+      <div class="left">
+        <strong>START</strong>
+        0 MILES
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="left">
+        45 Days left
+      </div>
+      <div class="right">
+        Goal = <span>300 DLS</span>
+      </div>
+      <a href="#" class="btn red">promote challenge</a>
+    </div>
+  </div>
+</div>
+<!-- / body -->

@@ -1,35 +1,17 @@
-<h2>Show cause</h2>
-
-<ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @cause.name %>
-  </li>
-
-  <li>
-    <strong>Country:</strong>
-    <%= @cause.country %>
-  </li>
-
-  <li>
-    <strong>State:</strong>
-    <%= @cause.state %>
-  </li>
-
-  <li>
-    <strong>Description:</strong>
-    <%= @cause.description %>
-  </li>
-
-  <li>
-    <strong>More info:</strong>
-    <%= @cause.more_info %>
-  </li>
-
-  <li>
-    <strong>Photo video:</strong>
-    <%= @cause.photo_video %>
-  </li>
-
-</ul>
+<div id="body" class="joy-body">
+  <div class="container">
+    <h1>CAUSE</h1>
+    <div class="left-col">
+      <img src="/images/logoy.png" alt="">
+    </div>
+    <div class="right-col">
+      <a href="#" class="btn"><%= @cause.name %></a>
+      <div class="text">
+        <h3>DESCRIPTION</h3>
+        <p><%= @cause.description %></p>
+      </div>
+      <a href="http://<%= @cause.more_info %>" class="btn-blue"><%= @cause.more_info %></a>
+    </div>
+  </div>
+</div>
+<!-- / body -->

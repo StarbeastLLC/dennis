@@ -1,0 +1,37 @@
+<div id="body">
+	<div class="profile-con">
+		<div class="container">
+			<div class="title">
+				<h1>PROFILE</h1>
+			</div>
+		</div>
+		<form action="#">
+			<div class="profile-holder">
+				<div class="container">
+					<div class="photo">
+						<img src="images/4.png" alt="">
+						<a class="btn small" href="#">UNPLOAD PICTURE</a>
+					</div>
+					<div class="right-bar">
+						<input placeholder="FIRST NAME" type="text" value="<%= @user.first_name %>">
+						<input placeholder="LAST NAME" type="text" value="<%= @user.last_name %>">
+						<input placeholder="ABOUT ME" type="text" value="<%= @user.description %>">
+						<input placeholder="COUNTRY" type="text" value="<%= @user.country %>">
+						<input placeholder="STATE" type="text" value="<%= @user.state %>">
+						<div class="social-box">
+							<ul>
+								<li class="twitter"><a href="#">SHARE TO TWITTER</a></li>
+								<li class="facebook"><a href="#">SHARE TO FACEBOOK</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btn-holder">
+				<button class="btn red" type="submit">UPDATE</button>
+			</div>
+		</form>
+	</div>
+	<!-- / container -->
+</div>
+<!-- / body -->

@@ -1,3 +1,55 @@
+<div id="body">
+	<div class="start-challenge">
+		<%= form_tag("/dashboard/challenge", method: :post) do %>
+			<div class="container">
+				<div class="content">
+					<div class="left-col">
+						<h2>START YOUR <br>CHALLENGE</h2>
+						<fieldset>
+							<%= text_input :challenge, :name, class: "form-control", placeholder: "NAME" %>
+						</fieldset>
+						<fieldset>
+							<%= select :challenge, :cause_id, ["BE A GOOD PERSON": 1, "RED CROSS": 2] %>
+						</fieldset>
+						<fieldset>
+							<%= textarea :challenge, :description, class: "form-control", placeholder: "DESCRIPTION" %>
+						</fieldset>
+						<fieldset>
+							<%= text_input :challenge, :mile_price, class: "form-control", placeholder: "PRICE PER MILE" %>
+						</fieldset>
+						<fieldset>
+							<%= select :challenge, :race_id, ["A Famous Race": 1, "Another Well-Known Race": 2, "Your Local Marathon": 3] %>
+						</fieldset>
+						<fieldset>
+							<%= checkbox :challenge, :is_active, value: "true" %>
+						</fieldset>
+					</div>
+					<div class="right-col">
+						<h2>UPLOAD <br>PHOTOS &amp; VIDEO</h2>
+						<div class="photo">
+							<div class="frame">
+								<img src="/images/sample.jpg" alt="">
+							</div>
+							<a href="#" class="btn red">BROWSE</a>
+							<a href="#" class="btn">UPLOAD</a>
+						</div>
+						<div class="video">
+							<div class="frame">
+								<img src="/images/video.jpg" alt="">
+							</div>
+							<a href="#" class="btn red">BROWSE</a>
+							<a href="#" class="btn">UPLOAD</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%= submit "CREATE CHALLENGE", class: "btn red"%>
+		<% end %>
+	</div>
+	<!-- / container -->
+</div>
+<!-- / body -->
+
 <h1>Create a new challenge here!</h1>
 <%= form_tag("/dashboard/challenge", method: :post) do %>
 

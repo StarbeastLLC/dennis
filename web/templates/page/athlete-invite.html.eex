@@ -1,0 +1,16 @@
+<div id="body">
+	<div class="container">
+		<div class="charity-con">
+			<div class="holder">
+				<h2>RUN FOR THE CHARITY YOU ♥</h2>
+				<p>Tell them about MyMiles!</p>
+				<%= form_tag("/invite/athlete", method: :post) do %>
+					<%= text_input :invitation, :email, placeholder: "CHARITY EMAIL", required: true, pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", title: "Valid email address." %>
+					<%= submit "INVITE", class: "btn red" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<!-- / container -->
+</div>
+<!-- / body -->

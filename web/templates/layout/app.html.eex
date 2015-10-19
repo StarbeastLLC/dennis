@@ -1,41 +1,103 @@
 <!DOCTYPE html>
+<!--[if IE 8]> <html class="ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Hello Phoenix!</title>
+    <title>MyMiles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <!-- <link rel="stylesheet" href="<%= static_path(@conn, "/css/style.css") %>">-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
 
-  <body>
-    <div class="container" role="main">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><%= link "Causes", to: "/causes" %></li>
-          <li><%= link "Challenges", to: "/challenges" %></li>
-          <%= if logged_in?(@conn) do %>
-            <li><%= link "Dashboard", to: "/dashboard" %></li>
-            <li><%= current_user(@conn).email %></li>
-            <li><%= link "Logout", to: session_path(@conn, :delete), method: :delete %></li>
-          <% else %>
-            <li><%= link "Sign in", to: session_path(@conn, :new) %> </li>
-            <li><%= link "Sign up", to: registration_path(@conn, :new) %> </li>
-          <% end %>
-
-        </ul>
-        <span class="logo"></span>
+  <body class="pantalla">
+    <header id="header">
+      <div class="top-info">
+        <a href="/" id="logo" title="mymyles"><h1 style="font-size: 60px text-align: center">MYMILES</h1></a>
+        <div class="social">
+          <p>SHARE</p>
+          <ul>
+            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=mymiles.us" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us" target="_blank"></a></li>
+          </ul>
+        </div>
       </div>
+      <nav id="menu">
+        <ul>
+          <li><%= link "CAUSES", to: "/causes" %></li>
+          <li><%= link "CHALLENGES", to: "/challenges" %></li>
+          <%= if logged_in?(@conn) do %>
+            <li><%= link "DASHBOARD", to: "/dashboard" %></li>
+            <li style="color:white"><%= current_user(@conn).email %></li>
+            <li><%= link "PROFILE", to: "/profile" %></li>
+            <li><%= link "LOGOUT", to: session_path(@conn, :delete), method: :delete %></li>
+          <% else %>
+            <li><%= link "SIGN IN", to: session_path(@conn, :new) %> </li>
+            <li><%= link "SIGN UP", to: registration_path(@conn, :new) %> </li>
+          <% end %>
+        </ul>
+      </nav>
+      <!-- / navigation -->
+    </header>
+    <!-- / header -->
+    
+
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
-      <%= @inner %>
-
     </div> <!-- /container -->
+
+    <%= @inner %>
+
+    <footer id="footer">
+      <div class="container">
+        <section>
+          <article class="col-1">
+            <h3>MY MILES</h3>
+            <ul>
+              <li><a href="#">Participate</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><%= link "How Does It Work?", to: "/how" %></li>
+              <li><%= link "Join as Charity", to: "/request-invite" %></li>
+            </ul>
+          </article>
+          <article class="col-2">
+            <h3>ABOUT</h3>
+            <ul>
+              <li><%= link "Our Story", to: "/our-story" %></li>
+              <li><%= link "Our Team", to: "/our-team" %></li>
+              <li><%= link "Privacy Policy", to: "/privacy" %></li>
+              <li><%= link "Terms of Service", to: "/terms" %></li>
+            </ul>
+          </article>
+          <article class="col-3">
+            <h3>GET SOCIAL</h3>
+            <ul class="social">
+              <li class="facebook"><a href="https://www.facebook.com/JoinMyMiles" target="_blank"></a></li>
+              <li class="twitter"><a href="https://twitter.com/mymiles_ws" target="_blank"></a></li>
+              <li class="google-plus"><a href="https://plus.google.com/+MymilesWs" target="_blank"></a></li>
+              <!-- <li class="linked-in"><a href="#"></a></li> -->
+            </ul>
+          </article>
+          <article class="col-4">
+            <h3>CONTACT US</h3>
+            <p>Mail: <a href="mailto:info@mymiles.us">info@mymiles.ws</a>
+            <br>Phone: <a href="tel:7049200169">704 920 0169</a>
+            <br>17105 Kenton Place
+            <br># 206-C Cornelius, NC</p>
+          </article>
+        </section>
+      </div>
+      <!-- / container -->
+      <p class="copy">COPYRIGHT © 2014 MY MILES</p>
+    </footer>
+  <!-- / footer -->
     <script src="<%= static_path(@conn, "/js/vendor.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>

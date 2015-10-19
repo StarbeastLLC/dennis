@@ -1,0 +1,16 @@
+<div id="body">
+	<div class="container">
+		<div class="charity-con">
+			<div class="holder">
+				<h2>CHARITY</h2>
+				<p>Want to raise funds for your charity? <br>Get involved with My Miles today! <br>We'll contact you soon.</p>
+				<%= form_tag("/request-invite", method: :post) do %>
+					<%= text_input :request, :email, placeholder: "EMAIL", required: true, pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", title: "Valid email address." %>
+					<%= submit "REQUEST INVITE", class: "btn red" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<!-- / container -->
+</div>
+<!-- / body -->

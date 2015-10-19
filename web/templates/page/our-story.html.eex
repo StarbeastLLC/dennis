@@ -1,0 +1,19 @@
+<div id="body">
+	<div class="container">
+		<div id="content">
+			<div class="story-con">
+				<div class="title">
+					<h1>OUR STORY</h1>
+				</div>
+				<div class="holder">
+					<p><span>MY MILES</span> is a community of weekend athletes that helps others while participating in races by selling their miles and raising funds for non profit organizations.</p>
+					<p class="space"><span>ATHLETE ORIENTED PLATFORM</span></p>
+					<p>MyMiles is a platform that allows athletes to raise funds while they are competing in a race.</p>
+				</div>
+			</div>
+		</div>
+		<!-- / content -->
+	</div>
+	<!-- / container -->
+</div>
+<!-- / body -->

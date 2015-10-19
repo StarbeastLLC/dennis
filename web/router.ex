@@ -17,10 +17,19 @@ defmodule Dennis.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/our-story", PageController, :our_story
+    get "/our-team", PageController, :our_team
+    get "/privacy", PageController, :privacy
+    get "/terms", PageController, :terms
+    get "/how", PageController, :how
+
+    get "/request-invite", PageController, :request_invite
+    post "/request-invite", PageController, :send_invite_request
 
     get  "/register", RegistrationController, :new
     post "/register", RegistrationController, :create
     post "/facebook", RegistrationController, :fb_auth
+    get "/register/:token", RegistrationController, :new_org
 
     get    "/login",  SessionController, :new
     post   "/login",  SessionController, :create
@@ -31,6 +40,8 @@ defmodule Dennis.Router do
     get "/org",     OrganizationController, :index
 
     get "/dashboard", DashboardController, :index
+    get "/profile", RegistrationController, :profile
+    post "/profile", RegistrationController, :update_profile
 
     get "/dashboard/challenge", AthleteController, :new_challenge
     post "/dashboard/challenge", AthleteController, :create_challenge
@@ -47,6 +58,8 @@ defmodule Dennis.Router do
     get "/causes", CauseController, :index
 
     get "/invite", PageController, :invite
+    post "/invite/athlete", AthleteController, :invite
+    post "/invite/org", OrgController, :invite
 
   end
 
@@ -59,6 +72,8 @@ defmodule Dennis.Router do
     resources "/causes",      CauseController
     resources "/donations",   DonationController
     resources "/races",       RaceController
+
+    get "/emails/athlete-invite-email", EmailController, :athlete_invite_email
   end
 
   # Other scopes may use custom stacks.

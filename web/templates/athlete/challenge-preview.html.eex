@@ -1,36 +1,57 @@
-<h2>Show challenge</h2>
-
-<ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @challenge.name %>
-  </li>
-
-  <li>
-    <strong>Description:</strong>
-    <%= @challenge.description %>
-  </li>
-
-  <li>
-    <strong>Photo:</strong>
-    <%= @challenge.photo %>
-  </li>
-
-  <li>
-    <strong>Shares count:</strong>
-    <%= @challenge.shares_count %>
-  </li>
-
-
-  <li>
-    <strong>Mile price:</strong>
-    <%= @challenge.mile_price %>
-  </li>
-
-  <li>
-    <strong>Is active:</strong>
-    <%= @challenge.is_active %>
-  </li>
-
-</ul>
+<div id="body">
+  <div class="container">
+    <div id="content">
+      <div class="current-challenge-con">
+        <div class="title">
+          <h1>TRACK CURRENT CHALLENGE</h1>
+        </div>
+        <div class="left-col">
+          <h4>Race: <%= @challenge.name %><br>Charity: St. Judes Hospital</h4>
+          <form>
+            <fieldset>
+              <label>total miles</label><input type="text">
+              <label>price per mile</label><input type="text" value="<%= @challenge.mile_price %>">
+              <label>total challenge</label><input type="text">
+              <label>total miles sold</label><input type="text">
+              <label>total monet sold</label><input type="text">
+            </fieldset>
+            <fieldset>
+              <label>money to raise</label><input type="text">
+              <label>days to go</label><input type="text">
+            </fieldset>
+          </form>
+        </div>
+        <div class="right-col">
+          <div class="graph">
+            <img src="/images/pic_graph.png" alt="">
+          </div>
+          <table>
+            <tr>
+              <th class="col-1">FOUNDERS</th>
+              <th class="col-2">AMOUNT OF..</th>
+              <th class="col-3">TOTAL</th>
+            </tr>
+            <tr>
+              <td class="col-1">Giacomo Guiliz</td>
+              <td class="col-2">1</td>
+              <td class="col-3">$ 26</td>
+            </tr>
+            <tr>
+              <td class="col-1">Marco Botton</td>
+              <td class="col-2">2</td>
+              <td class="col-3">$ 52</td>
+            </tr>
+            <tr>
+              <td class="col-1">Mariah Malach</td>
+              <td class="col-2">1</td>
+              <td class="col-3">$ 26</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- / content -->
+  </div>
+  <!-- / container -->
+</div>
+<!-- / body -->

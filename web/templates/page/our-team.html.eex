@@ -1,0 +1,43 @@
+<div id="body">
+	<div class="team-con">
+		<div class="container">
+			<div class="title">
+				<h1>OUR TEAM</h1>
+			</div>
+			<section>
+				<article>
+					<div class="photo">
+						<a class="photo" href="#"><img src="images/5.png" alt=""></a>
+					</div>
+					<div class="info">
+						<h3>PAUL SCHWARZ</h3>
+						<p>Street and Road Runner, 9 times marathon finisher. PR 3:31<br>@ Chicago Marathon 2011.</p>
+						<p>Hopes to be some day a Stand Up Comedian and a Sports Broadcaster.</p>
+					</div>
+				</article>
+				<article>
+					<div class="photo">
+						<a class="photo" href="#"><img src="images/5.png" alt=""></a>
+					</div>
+					<div class="info">
+						<h3>PAUL SCHWARZ</h3>
+						<p>Street and Road Runner, 9 times marathon finisher. PR 3:31<br>@ Chicago Marathon 2011.</p>
+						<p>Hopes to be some day a Stand Up Comedian and a Sports Broadcaster.</p>
+					</div>
+				</article>
+				<article>
+					<div class="photo">
+						<a class="photo" href="#"><img src="images/5.png" alt=""></a>
+					</div>
+					<div class="info">
+						<h3>PAUL SCHWARZ</h3>
+						<p>Street and Road Runner, 9 times marathon finisher. PR 3:31<br>@ Chicago Marathon 2011.</p>
+						<p>Hopes to be some day a Stand Up Comedian and a Sports Broadcaster.</p>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+	<!-- / container -->
+</div>
+<!-- / body -->

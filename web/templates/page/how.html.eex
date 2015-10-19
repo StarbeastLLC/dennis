@@ -1,0 +1,20 @@
+<div id="body">
+	<div class="container">
+		<div id="content">
+			<div class="work-con">
+				<div class="title">
+					<h1>HOW DOES IT WORK?</h1>
+				</div>
+				<p>Three players involved: Athletes, My Miles (Online Platform) and a Non Profit Organization.</p>
+				<div class="holder">
+					<div class="item first"><img src="images/7.png" alt=""><h3>ATHLETE</h3></div>
+					<div class="item pic"><img src="images/9.png" alt=""></div>
+					<div class="item second"><img src="images/8.png" alt=""><h3>NON PROFIT ORGANIZATIONS</h3></div>
+				</div>
+			</div>
+		</div>
+		<!-- / content -->
+	</div>
+	<!-- / container -->
+</div>
+<!-- / body -->

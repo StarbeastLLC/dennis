@@ -1,3 +1,32 @@
-<a href="/dashboard/cause">CREATE A NEW CAUSE!</a>
+<h2>Listing causes</h2>
 
-<%= inspect(@causes) %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Link</th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>Description</th>
+      <th>More info</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for cause <- @causes do %>
+    <tr>
+      <td><a href="dashboard/cause/<%= cause.id %>"><%= cause.id %></a></td>
+      <td><%= cause.name %></td>
+      <td><%= cause.country %></td>
+      <td><%= cause.state %></td>
+      <td><%= cause.description %></td>
+      <td><%= cause.more_info %></td>
+	
+      
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<button><a href="/dashboard/cause">CREATE A NEW CAUSE!</a></button>

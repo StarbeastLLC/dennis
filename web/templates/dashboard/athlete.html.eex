@@ -1,3 +1,35 @@
-<a href="/dashboard/challenge">CREATE A NEW CHALLENGE!</a>
+<div id="body">
+    <div class="dashboard-con">
+      <div class="container">
+        <div class="title">
+          <h1>DASHBOARD</h1>
+        </div>
+        <center>
+          <a class="btn red" href="/dashboard/challenge">NEW CHALLENGE</a>
+          <a class="btn blue" href="/invite">INVITE CHARITY</a>
+        </center>
+        <br>
 
-<%= inspect(@challenges) %>
+        <section>   
+        <%= for challenge <- @challenges do %>
+          <article>
+            <div class="pic"><img src="images/6.png" alt="<%= challenge.name %>"></div>
+            <div class="info">
+              <h3><%= challenge.name %></h3>
+              <p class="text"><em><%= challenge.description %></em></p>
+              <ul>
+                <li>MILES BOUGHT</li>
+                <li>PRICE PER MILE - $<%= challenge.mile_price %></li>
+                <li>RACE</li>
+                <li>CHARITY</li>
+              </ul>
+              <a class="btn red" href="/dashboard/challenge/<%= challenge.id %>">STATS</a>
+            </div>
+          </article>
+          <% end %>
+        </section>
+      </div>
+    </div>
+    <!-- / container -->
+  </div>
+  <!-- / body -->

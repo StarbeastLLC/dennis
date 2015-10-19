@@ -1,8 +1,12 @@
 defmodule Dennis.AthleteController do
 	use Dennis.Web, :controller
+  import Ecto.UUID
 
   alias Dennis.Cause
 	alias Dennis.Challenge
+  alias Dennis.User
+
+  alias Dennis.Mailer
 
 	plug :scrub_params, "challenge" when action in [:create_challenge]
 
@@ -34,14 +38,23 @@ defmodule Dennis.AthleteController do
   end
 
   def show_challenge(conn, %{"id" => id}) do
-    challenge = Repo.get!(Challenge, id)
-    challenge = Repo.preload challenge, :donations
+    challenge = Repo.get(Challenge, id)
     render(conn, "challenge-preview.html", challenge: challenge)
   end
 
-  def invite(conn, _params) do
-    
+  def write_invite(conn, _params) do
+    render conn, "athlete-invite.html"
+  end
+
+  def invite(conn, %{"invitation" => %{"email" => email}}) do
+    subject = "An athlete wants to raise money for you"
+    user_id = get_session(conn, :current_user)
+    user_name = User.full_name(user_id)
+    token = Ecto.UUID.generate
+    Mailer.send_invitation(subject, user_name, email, token)
+    conn
+    |> put_flash(:info, "Your invitation was sent")
+    |> redirect to: "/dashboard"
   end
   
-
 end
