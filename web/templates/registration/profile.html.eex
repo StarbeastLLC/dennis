@@ -10,7 +10,7 @@
 				<div class="container">
 					<div class="photo">
 						<img src="images/4.png" alt="">
-						<a class="btn small" href="#">UNPLOAD PICTURE</a>
+						<a class="btn small" href="#">UPLOAD PICTURE</a>
 					</div>
 					<div class="right-bar">
 						<input placeholder="FIRST NAME" type="text" value="<%= @user.first_name %>">

@@ -11,11 +11,12 @@
       </div>
       <div class="col">
         <div class="holder">
-          <h3>HISTORY</h3>
+          <h3>STORY</h3>
           <div class="history">
             <h4>BENEFITING: <strong>Flashes of Hope</strong></h4>
             <p>Paul Schwarz is running the Austin Half Marathon on 15/02/15.</p>
             <p>He is selling a total of 13 miles for charity, and his challenge is to raise of $ 300 dollars.</p>
+            <p><em>"<%= @challenge.description %>"</em></p>
             <ul>
               <li><a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us/challenges/<%= @challenge.id %>" target="_blank" class="ico-tw"></a></li>
               <li><a href="https://www.facebook.com/sharer/sharer.php?u=mymiles.us/challenges/<%= @challenge.id %>" target="_blank" class="ico-fb"></a></li>

@@ -1,36 +1,15 @@
-<div class="jumbotron">
-  <h2>Welcome to Phoenix!</h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
-
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="http://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
+<div id="body">
+  <div class="welcome">
+    <div class="ticker">
+      <img src="/images/sticker.png" alt="">
+    </div>
+    <h1>WELCOME TO MY MILES</h1>
+    <h2>A platform for athletes that raise money for Nonprofits, <br>by selling their miles of races in which they are competing.</h2>
+    <%= link "REGISTER", to: registration_path(@conn, :new), class: "btn red" %>
   </div>
-
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+  <div class="how">
+    <h2>HOW IT WORKS</h2>
+    <img src="/images/how.jpg" alt="">
   </div>
 </div>
+<!-- / body -->

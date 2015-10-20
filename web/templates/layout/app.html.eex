@@ -34,12 +34,12 @@
           <li><%= link "CHALLENGES", to: "/challenges" %></li>
           <%= if logged_in?(@conn) do %>
             <li><%= link "DASHBOARD", to: "/dashboard" %></li>
-            <li style="color:white"><%= current_user(@conn).email %></li>
-            <li><%= link "PROFILE", to: "/profile" %></li>
+            <li style="color:white; text-transform:uppercase"><%= current_user(@conn).first_name %></li>
+            <li><%= link "PROFILE", to: registration_path(@conn, :profile) %></li>
             <li><%= link "LOGOUT", to: session_path(@conn, :delete), method: :delete %></li>
           <% else %>
-            <li><%= link "SIGN IN", to: session_path(@conn, :new) %> </li>
-            <li><%= link "SIGN UP", to: registration_path(@conn, :new) %> </li>
+            <li><%= link "SIGN IN", to: session_path(@conn, :new) %></li>
+            <li><%= link "SIGN UP", to: registration_path(@conn, :new) %></li>
           <% end %>
         </ul>
       </nav>
