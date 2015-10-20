@@ -5,7 +5,18 @@
 				<h1>PROFILE</h1>
 			</div>
 		</div>
-		<form action="#">
+		<%= form_for @changeset, registration_path(@conn, :update_profile), fn f -> %>
+            <%= if f.errors != [] do %>
+              <div class="alert alert-danger">
+                <p>Oops, something went wrong! Please check the errors below:</p>
+                <ul>
+                  <%= for {attr, message} <- f.errors do %>
+                    <li><%= humanize(attr) %> <%= message %></li>
+                  <% end %>
+                </ul>
+                <br>
+              </div>
+            <% end %>
 			<div class="profile-holder">
 				<div class="container">
 					<div class="photo">
@@ -13,7 +24,7 @@
 						<a class="btn small" href="#">UPLOAD PICTURE</a>
 					</div>
 					<div class="right-bar">
-						<input placeholder="FIRST NAME" type="text" value="<%= @user.first_name %>">
+						<%= text_input f, :first_name, placeholder: "FIRST NAME" %>
 						<input placeholder="LAST NAME" type="text" value="<%= @user.last_name %>">
 						<input placeholder="ABOUT ME" type="text" value="<%= @user.description %>">
 						<input placeholder="COUNTRY" type="text" value="<%= @user.country %>">
@@ -28,9 +39,9 @@
 				</div>
 			</div>
 			<div class="btn-holder">
-				<button class="btn red" type="submit">UPDATE</button>
+				<%= submit "SIGN UP", class: "btn red" %>
 			</div>
-		</form>
+		<% end %>
 	</div>
 	<!-- / container -->
 </div>

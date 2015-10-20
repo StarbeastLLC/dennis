@@ -41,7 +41,7 @@ defmodule Dennis.Router do
 
     get "/dashboard", DashboardController, :index
     get "/profile", RegistrationController, :profile
-    post "/profile", RegistrationController, :update_profile
+    put "/profile", RegistrationController, :update_profile
 
     get "/dashboard/challenge", AthleteController, :new_challenge
     post "/dashboard/challenge", AthleteController, :create_challenge
