@@ -21,8 +21,5 @@ defmodule Dennis.Mailer do
 			html: Phoenix.View.render_to_string(Dennis.Admin.EmailView, "request-invite-email.html", email: email)
 	end
 
-	def dummy_send(email) do
-		IO.puts email
-	end
 
 end

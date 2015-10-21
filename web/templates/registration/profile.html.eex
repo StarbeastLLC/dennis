@@ -25,21 +25,15 @@
 					</div>
 					<div class="right-bar">
 						<%= text_input f, :first_name, placeholder: "FIRST NAME" %>
-						<input placeholder="LAST NAME" type="text" value="<%= @user.last_name %>">
-						<input placeholder="ABOUT ME" type="text" value="<%= @user.description %>">
-						<input placeholder="COUNTRY" type="text" value="<%= @user.country %>">
-						<input placeholder="STATE" type="text" value="<%= @user.state %>">
-						<div class="social-box">
-							<ul>
-								<li class="twitter"><a href="#">SHARE TO TWITTER</a></li>
-								<li class="facebook"><a href="#">SHARE TO FACEBOOK</a></li>
-							</ul>
-						</div>
+						<%= text_input f, :last_name, placeholder: "LAST NAME" %>
+						<%= text_input f, :description, placeholder: "ABOUT ME" %>
+						<%= text_input f, :country, placeholder: "COUNTRY (ex. US, MX)" %>
+						<%= text_input f, :state, placeholder: "STATE (ex. NY, MTY)" %>
 					</div>
 				</div>
 			</div>
 			<div class="btn-holder">
-				<%= submit "SIGN UP", class: "btn red" %>
+				<%= submit "UPDATE", class: "btn red" %>
 			</div>
 		<% end %>
 	</div>
