@@ -13,9 +13,9 @@
         <div class="holder">
           <h3>STORY</h3>
           <div class="history">
-            <h4>BENEFITING: <strong>Flashes of Hope</strong></h4>
-            <p>Paul Schwarz is running the Austin Half Marathon on 15/02/15.</p>
-            <p>He is selling a total of 13 miles for charity, and his challenge is to raise of $ 300 dollars.</p>
+            <h4>BENEFITING: <strong><%= @challenge.cause.name %></strong></h4>
+            <p><%= @challenge.user.first_name %> <%= @challenge.user.last_name %> is running the <%= @challenge.race.name %> on <%= @challenge.race.date %>.</p>
+            <p>He is selling a total of <%= @challenge.race.miles %> miles for charity, and his challenge is to raise of $ 300 dollars.</p>
             <p><em>"<%= @challenge.description %>"</em></p>
             <ul>
               <li><a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us/challenges/<%= @challenge.id %>" target="_blank" class="ico-tw"></a></li>

@@ -36,4 +36,10 @@ defmodule Dennis.Challenge do
       preload: [:user, :cause, :race]
   end
 
+  def get_challenge(id) do
+    Dennis.Repo.one from challenge in Dennis.Challenge,
+    where: challenge.id == ^id,
+    preload: [:user, :cause, :race]
+  end
+
 end

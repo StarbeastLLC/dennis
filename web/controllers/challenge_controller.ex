@@ -9,7 +9,7 @@ defmodule Dennis.ChallengeController do
   end
 
   def show(conn, %{"id" => id}) do
-    challenge = Repo.get!(Challenge, id)
+    challenge = Challenge.get_challenge(id)
     render(conn, "show.html", challenge: challenge)
   end
 end
