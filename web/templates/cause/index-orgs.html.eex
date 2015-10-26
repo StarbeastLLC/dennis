@@ -1,0 +1,23 @@
+<div id="body">
+  <div class="partners">
+    <div class="container">
+      <h1>CHARITIES</h1>
+      <div class="masonry">
+      <%= for user <- @users do %>
+        <a href="/charities/<%= user.id %>">
+        <div class="item">
+          <div class="holder">
+            <img src="images/i1.jpg" alt="<%= user.org_name %>">
+            <p><%= user.org_name %></p>
+            <p><%= user.description %></p>
+            <p><%= user.website %></p>
+          </div>
+        </div>
+        </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- / container -->
+</div>
+<!-- / body -->

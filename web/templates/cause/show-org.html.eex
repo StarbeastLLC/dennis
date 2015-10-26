@@ -1,0 +1,17 @@
+<div id="body" class="joy-body">
+  <div class="container">
+    <h1>CHARITY</h1>
+    <div class="left-col">
+      <img src="/images/logoy.png" alt="">
+    </div>
+    <div class="right-col">
+      <a href="#" class="btn"><%= @user.org_name %></a>
+      <div class="text">
+        <h3>DESCRIPTION</h3>
+        <p><%= @user.description %></p>
+      </div>
+      <a href="http://<%= @user.website %>" class="btn-blue"><%= @user.website %></a>
+    </div>
+  </div>
+</div>
+<!-- / body -->

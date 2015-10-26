@@ -56,6 +56,8 @@ defmodule Dennis.Router do
 
     get "/causes/:id", CauseController, :show
     get "/causes", CauseController, :index
+    get "/charities", CauseController, :index_orgs
+    get "/charities/:id", CauseController, :show_org
 
     get "/invite", PageController, :invite
     post "/invite/athlete", AthleteController, :invite

@@ -74,4 +74,8 @@ defmodule Dennis.User do
     full_name = "#{user.first_name} #{user.last_name}"
   end
   
+  def get_orgs do
+    Dennis.Repo.all from user in Dennis.User,
+    where: user.user_type == "org"
+  end
 end

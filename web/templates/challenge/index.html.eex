@@ -6,7 +6,7 @@
       <a href="/challenges/<%= challenge.id %>">
       <div class="item">
         <div class="holder">
-          <h3>MARATHON</h3>
+          <h3><%= challenge.race.type %></h3>
           <img src="images/c1.jpg" alt="">
           <h2 style="text-transform: uppercase"><%= challenge.name %></h2>
           <h4><%= challenge.cause.name %></h4>

@@ -30,6 +30,7 @@
       </div>
       <nav id="menu">
         <ul>
+          <li><%= link "CHARITIES", to: "/charities" %></li>
           <li><%= link "CAUSES", to: "/causes" %></li>
           <li><%= link "CHALLENGES", to: "/challenges" %></li>
           <%= if logged_in?(@conn) do %>

@@ -6,12 +6,13 @@ defmodule Dennis.Race do
     field :name, :string
     field :miles, :integer
     field :date, Ecto.DateTime
+    field :type, :string
 
     timestamps
   end
 
   @required_fields ~w(name date miles)
-  @optional_fields ~w()
+  @optional_fields ~w(type)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
