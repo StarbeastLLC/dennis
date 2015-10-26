@@ -1,6 +1,8 @@
 defmodule Dennis.Cause do
   use Dennis.Web, :model
 
+  alias Dennis.User
+
   schema "causes" do
     belongs_to :user, Dennis.User
     has_many :challenges, Dennis.Challenge
@@ -32,6 +34,13 @@ defmodule Dennis.Cause do
     Dennis.Repo.all from cause in Dennis.Cause,
      where: cause.user_id == ^user_id,
      preload: [:challenges, :user]
+  end
+
+  def global_causes_by_user_type(user_type) do
+    Dennis.Repo.all from cause in Dennis.Cause,
+      join: user in User, on: cause.user_id == user.id,
+      where: user.user_type == ^user_type,
+      preload: []
   end
 
   def challenge_cause(cause_id) do

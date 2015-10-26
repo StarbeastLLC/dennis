@@ -1,3 +1,7 @@
+<h1>ORG CAUSES</h1>
+<%= inspect(@org_causes) %>
+<h1>ATHLETE CAUSES</h1>
+<%= inspect(@athlete_causes) %>
 <div id="body">
 	<div class="start-challenge">
 		<%= form_tag("/dashboard/challenge", method: :post) do %>

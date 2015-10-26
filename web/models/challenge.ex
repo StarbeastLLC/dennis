@@ -42,4 +42,9 @@ defmodule Dennis.Challenge do
     preload: [:user, :cause, :race]
   end
 
+  def global_challenges do
+    Dennis.Repo.all from challenge in Dennis.Challenge,
+      preload: [:user, :cause, :race]
+  end
+
 end

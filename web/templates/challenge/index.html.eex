@@ -9,7 +9,7 @@
           <h3>MARATHON</h3>
           <img src="images/c1.jpg" alt="">
           <h2 style="text-transform: uppercase"><%= challenge.name %></h2>
-          <h4>Asia Hope</h4>
+          <h4><%= challenge.cause.name %></h4>
           <p><%= challenge.mile_price %></p>
           <div class="bar">
             <div class="inner" style="width: 50%"></div>

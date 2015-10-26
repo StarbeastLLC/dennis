@@ -4,7 +4,7 @@ defmodule Dennis.ChallengeController do
   alias Dennis.Challenge
 
   def index(conn, _params) do
-    challenges = Repo.all(Challenge)
+    challenges = Challenge.global_challenges
     render(conn, "index.html", challenges: challenges)
   end
 

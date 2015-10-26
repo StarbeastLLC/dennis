@@ -19,8 +19,9 @@ defmodule Dennis.AthleteController do
 
 	def new_challenge(conn, _params) do
 		changeset = Challenge.changeset(%Challenge{})
-    causes = Cause.global_causes
-	  render(conn, "new-challenge.html", [changeset: changeset, causes: causes])
+    org_causes = Cause.global_causes_by_user_type("org")
+    athlete_causes = Cause.global_causes_by_user_type("athlete")
+	  render(conn, "new-challenge.html", [changeset: changeset, org_causes: org_causes, athlete_causes: athlete_causes])
 	end
 
   def create_challenge(conn, %{"challenge" => challenge_params}) do
