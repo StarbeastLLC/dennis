@@ -10,6 +10,7 @@
 						</fieldset>
 						<fieldset>
 							<%= select :challenge, :cause_id, ["BE A GOOD PERSON": 1, "RED CROSS": 2] %>
+							<p><em>Or you can create <a href="/dashboard/cause">your own cause</a> instead.</em></p>
 						</fieldset>
 						<fieldset>
 							<%= textarea :challenge, :description, class: "form-control", placeholder: "DESCRIPTION" %>

@@ -13,7 +13,8 @@ defmodule Dennis.AthleteController do
 	def show(conn, _params) do
 		user_id = get_session(conn, :current_user)
     challenges = Challenge.user_challenges(user_id)
-		render(conn, "athlete.html", challenges: challenges)
+    causes = Cause.user_causes(user_id)
+		render(conn, "athlete.html", challenges: challenges, causes: causes)
 	end
 
 	def new_challenge(conn, _params) do

@@ -9,8 +9,28 @@
           <a class="btn blue" href="/invite">INVITE CHARITY</a>
         </center>
         <br>
+        
+        <section> 
+        <div class="title">
+          <h1>MY CAUSES</h1>
+        </div> 
+        <%= for cause <- @causes do %>
+          <article>
+            <div class="pic"><img src="images/6.png" alt="<%= cause.name %>"></div>
+            <div class="info">
+              <h3><%= cause.name %></h3>
+              <p class="text"><em><%= cause.description %></em></p>
+              <a class="btn red" href="/dashboard/cause/<%= cause.id %>">STATS</a>
+            </div>
+          </article>
+          <% end %>
+        </section>
 
-        <section>   
+        <hr>
+        <section> 
+        <div class="title">
+          <h1>MY CHALLENGES</h1>
+        </div> 
         <%= for challenge <- @challenges do %>
           <article>
             <div class="pic"><img src="images/6.png" alt="<%= challenge.name %>"></div>
