@@ -8,14 +8,14 @@ defmodule Dennis.Mailer do
 		key: Application.get_env(:dennis, :mailgun_key)
 
 	def send_invitation(subject, user_name, email, token) do
-		send_email to: @to,
+		send_email to: email,
 			from: @from,
 			subject: subject,
 			html: Phoenix.View.render_to_string(Dennis.Admin.EmailView, "athlete-invite-email.html", user_name: user_name, email: email, token: token)
 	end
 
 	def send_invite_request(email) do
-		send_email to: @to,
+		send_email to: email, # mymiles
 			from: @from,
 			subject: "Invitation request from charity!",
 			html: Phoenix.View.render_to_string(Dennis.Admin.EmailView, "request-invite-email.html", email: email)

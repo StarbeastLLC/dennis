@@ -10,9 +10,17 @@ defmodule Dennis.RegistrationController do
   end
 
   def new_org(conn, %{"token" => token}) do
-    # TODO Check if token exists on DB, if not ERROR
-    changeset = User.changeset(%User{:user_type => "org"})
-    render conn, "new.html", changeset: changeset
+    user = User.validate_token(token)
+
+    cond do
+      user == nil ->
+        conn
+        |> put_flash(:error, "Your invitation token is invalid, please ask for a new one.")
+        |> redirect(to: "/request-invite")
+      user ->
+        changeset = User.changeset(user)
+        render conn, "new.html", changeset: changeset, user: user
+    end    
   end
   
 
@@ -20,8 +28,6 @@ defmodule Dennis.RegistrationController do
     changeset = User.register_changeset(%User{}, user_params)
 
     if changeset.valid? do
-      # save new user and sign them in
-      # TO-DO: add {:error, user} case
       {:ok, user} = Dennis.Registration.create(changeset)
       conn
       |> put_session(:current_user, user.id)
@@ -31,6 +37,22 @@ defmodule Dennis.RegistrationController do
       conn
       |> put_flash(:info, "Unable to create account")
       |> render("new.html", changeset: changeset)
+    end
+  end
+
+  def create_org(conn, %{"user" => user_params}) do 
+    user = Repo.get! User, user_params["id"]
+    changeset = User.register_org_changeset(user, user_params)
+    case Dennis.Registration.create_org(changeset) do
+      {:ok, user} ->
+        conn
+        |> put_session(:current_user, user.id)
+        |> put_flash(:info, "Welcome to MyMiles.")
+        |> redirect(to: "/dashboard")
+      {:error, changeset} ->
+        conn
+        |> put_flash(:error, "Please check your inputs.")
+        |> render("new.html", changeset: changeset, user: user)
     end
   end
 

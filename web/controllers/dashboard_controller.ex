@@ -8,6 +8,11 @@ defmodule Dennis.DashboardController do
 
   def index(conn, _params) do
   	id = get_session(conn, :current_user)
+    unless id do
+      conn
+      |> put_flash(:error, "Please create an account or log in.")
+      |> redirect(to: "/")
+    end
     user = Repo.get!(User, id)
 
     cond do
@@ -15,13 +20,9 @@ defmodule Dennis.DashboardController do
     		Athlete.show(conn, _params)
     	user.user_type == "org" ->
     		Org.show(conn, _params)
-    	user.user_type ->
+    	:else ->
     		redirect(conn, to: "/")
     end
-
-    text conn, inspect(user)
-    # render(conn, "show.html", user: user)
   end
-
 
 end
