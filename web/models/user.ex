@@ -1,6 +1,9 @@
 defmodule Dennis.User do
   use Dennis.Web, :model
 
+  alias Dennis.Repo
+  alias Dennis.Mailer
+
   schema "users" do
     has_one  :permission, Dennis.Permission
     has_many :challenges, Dennis.Challenge
@@ -36,6 +39,8 @@ defmodule Dennis.User do
   @optional_fields ~w(reset_token fb_id fb_token description state address stripe_id website org_name logo photo_video)
 
   @optional_org_fields ~w(reset_token fb_id fb_token stripe_id logo photo_video)
+
+  
   @doc """
   Creates a changeset based on the `model` and `params`.
 
@@ -98,4 +103,21 @@ defmodule Dennis.User do
     Dennis.Repo.one from user in Dennis.User,
     where: user.reset_token == ^token
   end
+
+  def donor_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(email reset_token), ~w(user_type))
+    |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
+    |> validate_format(:email, ~r/@/)
+  end
+
+  def create_donor(email) do
+    user = Repo.insert! donor_changeset(%Dennis.User{}, %{
+      email: email,
+      reset_token: Ecto.UUID.generate
+    })
+    Mailer.send_donor_invitation(user)
+    user
+  end
+
 end

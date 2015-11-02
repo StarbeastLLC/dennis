@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="col">
-        <a href="#" class="btn red">DONATE NOW!</a>
+        <a href="<%= donation_path(@conn, :new, @challenge.id) %>" class="btn red">DONATE NOW!</a>
         <div class="holder">
           <div class="collected">
             <div class="total">

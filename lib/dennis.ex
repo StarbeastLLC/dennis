@@ -6,6 +6,12 @@ defmodule Dennis do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
+    # TODO: move to config.ex ?
+    stripe_config = %{
+      credentials: {"sk_test_BxsY2JiapXjqgvqxFy9EvVUE", ""},
+      default_currency: "USD"
+    }    
+
     children = [
       # Start the endpoint when the application starts
       supervisor(Dennis.Endpoint, []),
@@ -13,6 +19,7 @@ defmodule Dennis do
       worker(Dennis.Repo, []),
       # Here you could define other workers and supervisors as children
       # worker(Dennis.Worker, [arg1, arg2, arg3]),
+      worker(Commerce.Billing.Worker, [Commerce.Billing.Gateways.Stripe, stripe_config, [name: :stripe]]),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

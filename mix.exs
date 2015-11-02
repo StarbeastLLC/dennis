@@ -18,7 +18,7 @@ defmodule Dennis.Mixfile do
   def application do
     [mod: {Dennis, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :httpoison]]
   end
 
   # Specifies which paths to compile per environment
@@ -36,6 +36,8 @@ defmodule Dennis.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 1.0"},
+     {:httpoison, "~> 0.7.2"},
+     {:commerce_billing, git: "https://github.com/joshnuss/commerce_billing"},
      {:mailgun, "~> 0.1.1"}]
   end
 end

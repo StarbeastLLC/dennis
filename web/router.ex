@@ -64,6 +64,9 @@ defmodule Dennis.Router do
     post "/invite/athlete", AthleteController, :invite
     post "/invite/org", OrgController, :invite
 
+    get "/donate/:challenge_id", DonationController, :new
+    post "/donate/:challenge_id", DonationController, :create
+
   end
 
   scope "/admin", Dennis.Admin, as: :admin do

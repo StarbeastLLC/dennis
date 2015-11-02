@@ -24,6 +24,15 @@ config :dennis,
   mailgun_domain: "https://api.mailgun.net/v3/sandbox9ddf700296ad4bf0a817cedfe2a09d99.mailgun.org",
   mailgun_key: "key-0c056f5ddfd814fe0e9a1b831c26b561"
 
+
+# Configures Stripe
+config :dennis, :stripe, %{
+  credentials: {"sk_test_BQokikJOvBiI2HlWgH4olfQ2", ""},
+  default_currency: "USD",
+  data_key: "pk_test_GonGFcmx47wfCYHhs9Atv1nq",
+  application_fee: 200
+}
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

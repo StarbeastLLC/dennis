@@ -1,0 +1,36 @@
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<%= form_for @donation, donation_path(@conn, :create, @challenge.id), fn f -> %>
+
+	<%= hidden_input f, :transaction_token %>
+	<%= hidden_input f, :email %>
+
+  	<div class="form-group">
+		Price per mile: <%= @challenge.mile_price %>
+	</div>
+
+	<div class="form-group">
+		<%= label f, :miles_bought, "Miles", class: "control-label" %>
+		<%= text_input f, :miles_bought, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= label f, :tip, "Tip", class: "control-label" %>
+		<%= text_input f, :tip, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		Total to donate: <span id="total_to_donate"></span>
+	</div>
+
+    <button id="donate"
+    	data-mile-price="<%= @challenge.mile_price %>"
+    	data-key="<%= data_key %>"
+		data-name="<%= @challenge.name %>"
+		data-description="Benefiting <%= @challenge.cause.name %>"    	
+    	data-image="<%= static_path(@conn, "/images/01.jpg") %>"
+    	>Donate NOW</button>
+
+ 
+<% end %>
+
