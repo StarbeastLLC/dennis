@@ -14,6 +14,7 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <meta name="fb-app-id" content="<%= Application.get_env(:dennis, :facebook)[:app_id] %>">
   </head>
 
   <body class="pantalla">

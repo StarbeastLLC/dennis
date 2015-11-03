@@ -1,27 +1,30 @@
-window.fbAsyncInit = function() {
-	FB.init({
-	  appId      : '974600335935982',
-	  xfbml      : true,
-	  status     : true,
-	  cookie     : true,
-	  version    : 'v2.4'
-	});
-};
+$(function () {
 
-$(document).on('ready', function () {
+	window.fbAsyncInit = function() {
+		FB.init({
+		  appId      : $('meta[name="fb-app-id"]').attr('content'),
+		  xfbml      : true,
+		  status     : true,
+		  cookie     : true,
+		  version    : 'v2.4'
+		});
+	};
+
+	var csrf_token = $('meta[name="fb-csrf-token"]').attr('content');
 
 	// obtains fb current user and creates a session
 	// at our app.
 	function fbAuth(statusResponse) {
 		FB.api('/me', {fields: 'email,first_name,last_name'}, function (response) {
 		  console.log('fb-me', response);
-		  $.post('/facebook', {
-		  	fb_id: response.id,
-		  	fb_token: statusResponse.authResponse.accessToken,
-		  	email: response.email,
-		  	first_name: response.first_name,
-		  	last_name: response.last_name
-		  });
+
+		  $('#fb_auth #user_fb_id').val(response.id);
+		  $('#fb_auth #user_fb_token').val(statusResponse.authResponse.accessToken);
+		  $('#fb_auth #user_email').val(response.email);
+		  $('#fb_auth #user_first_name').val(response.first_name);
+		  $('#fb_auth #user_last_name').val(response.last_name);
+		  $('#fb_auth').submit();
+
 		})
 	}
 

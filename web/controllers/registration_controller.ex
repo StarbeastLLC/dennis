@@ -56,21 +56,33 @@ defmodule Dennis.RegistrationController do
     end
   end
 
-  def fb_auth(conn, %{"user" => user_params}) do
-    changeset = User.register_changeset(%User{}, user_params)
+  defp fb_login_or_create(user_params) do
+    user = User.get_by_email(user_params["email"])
+    cond do
+      user && user.fb_id == user_params["fb_id"] ->
+        {:ok, user}
+      user ->
+        {:cant_fb_login}
+      :else ->
+        Repo.insert User.fb_auth_changeset(%User{}, user_params)
+    end
+  end
 
-    if changeset.valid? do
-      # save new user and sign them in
-      # TO-DO: add {:error, user} case
-      {:ok, user} = Dennis.Registration.create(changeset)
-      conn
-      |> put_session(:current_user, user.id)
-      |> put_flash(:info, "Your account was created")
-      |> redirect(to: "/")
-    else
-      conn
-      |> put_flash(:info, "Unable to create account")
-      |> render("new.html", changeset: changeset)
+  def fb_auth(conn, %{"user" => user_params}) do
+    case fb_login_or_create(user_params) do
+      {:ok, user} ->
+        conn
+        |> put_session(:current_user, user.id)
+        |> put_flash(:info, "Welcome to MyMiles.")
+        |> redirect(to: "/dashboard")
+      {:cant_fb_login} ->
+        conn
+        |> put_flash(:error, "Please login using your password.")
+        |> redirect(to: "/login")
+      {:error, changeset} ->
+        conn
+        |> put_flash(:error, "Unable to create account")
+        |> render("new.html", changeset: changeset)
     end
   end
 

@@ -33,6 +33,11 @@ config :dennis, :stripe, %{
   application_fee: 200
 }
 
+# Facebook Application
+config :dennis, :facebook, %{
+  app_id: 974600335935982
+}
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
