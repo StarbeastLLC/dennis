@@ -83,4 +83,10 @@ defmodule Dennis.Donation do
       description: charge_description)
   end
 
+  def amount_donated_to_challenge(challenge_id) do
+    Dennis.Repo.one from donation in Dennis.Donation,
+    where: donation.challenge_id == ^challenge_id,
+    select: sum(donation.total_donated)
+  end
+
 end

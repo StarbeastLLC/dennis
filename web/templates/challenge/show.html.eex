@@ -15,9 +15,7 @@
           <div class="history">
             <h4>BENEFITING: <strong><%= @challenge.cause.name %></strong></h4>
             <p><%= @challenge.user.first_name %> <%= @challenge.user.last_name %> is running the <%= @challenge.race.name %> on <%= @challenge.race.date %>.</p>
-            <p>He is selling a total of <%= @challenge.race.miles %> miles for charity, and his challenge is to raise of $ 300 dollars.</p>
-
-            <!-- Agregar al modelo fun para sacar meta en dólares ! -->
+            <p>This athlete is selling a total of <%= @challenge.race.miles %> miles for charity, and his challenge is to raise $<%= amount_to_raise(@challenge.race.miles, @challenge.mile_price) %> dollars.</p>
             
             <p><em>"<%= @challenge.description %>"</em></p>
             <ul>
@@ -32,23 +30,18 @@
         <div class="holder">
           <div class="collected">
             <div class="total">
-              <strong>$ 150</strong> OF $ 300
+              <strong>$<%= amount_donated(@challenge.id) %></strong> OF $<%= amount_to_raise(@challenge.race.miles, @challenge.mile_price) %>
             </div>
             <div class="bar">
               <div class="inner" style="width: 50%"></div>
             </div>
             <div class="raised">
-              Raised by 20 people
+              Raised by <%= length(@challenge.donations) %> people
             </div>
             <ul>
-              <li>Mom &amp; Dad <span class="right">$ 50</span></li>
-              <li>Gino <span class="right">$ 20</span></li>
-              <li>Braga <span class="right">$ 15</span></li>
-              <li>Anonymus <span class="right">$ 15</span></li>
-              <li>Mom &amp; Dad <span class="right">$ 50</span></li>
-              <li>Gino <span class="right">$ 20</span></li>
-              <li>Braga <span class="right">$ 15</span></li>
-              <li>Anonymus <span class="right">$ 15</span></li>
+              <%= for donation <- @challenge.donations do %>
+              <li><%= donor(donation.user_id) %><span class="right">$<%= donation.total_donated %></span></li>
+              <% end %>
             </ul>
           </div>
         </div>

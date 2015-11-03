@@ -18,10 +18,10 @@ defmodule Dennis.DonationController do
 				conn
 				|> put_flash(:info, "Thanks for your donation!")
 				|> redirect(to: challenge_path(conn, :show, challenge_id))
-			{:error, message} ->
+			{:error, message, donation_changeset} ->
 				conn
 				|> put_flash(:error, "The donation was unsuccessful. #{message}")
-				|> render("new.html", challenge: challenge)
+				|> render("new.html", challenge: challenge, donation: donation_changeset)
 		end
 	end
 end

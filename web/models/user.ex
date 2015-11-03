@@ -87,16 +87,15 @@ defmodule Dennis.User do
     |> unique_constraint(:fb_id, on: Dennis.Repo)
     |> validate_format(:email, ~r/@/)
   end
-
-  def full_name(user_id) do
-    user = Dennis.Repo.one! from user in Dennis.User,
-      where: user.id == ^user_id
-    full_name = "#{user.first_name} #{user.last_name}"
-  end
   
   def get_orgs do
     Dennis.Repo.all from user in Dennis.User,
     where: user.user_type == "org"
+  end
+  
+  def donor_identity(user_id) do
+    Dennis.Repo.one from user in Dennis.User,
+    where: user.id == ^user_id
   end
 
   def validate_token(token) do
