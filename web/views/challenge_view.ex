@@ -4,6 +4,14 @@ defmodule Dennis.ChallengeView do
   alias Dennis.User
   alias Dennis.Donation
 
+  def challenge_main_photo(challenge) do
+    if challenge.photo1 do
+      Dennis.ChallengePhoto.url({challenge.photo1, challenge})
+    else
+      "/images/c1.jpg"
+    end
+  end
+
   def donor(user_id) do
     user = User.donor_identity(user_id)
 

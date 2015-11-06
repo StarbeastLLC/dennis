@@ -33,7 +33,7 @@
         </div> 
         <%= for challenge <- @challenges do %>
           <article>
-            <div class="pic"><img src="images/6.png" alt="<%= challenge.name %>"></div>
+            <div class="pic"><img src="<%= challenge_main_photo(challenge) %>" alt="<%= challenge.name %>"></div>
             <div class="info">
               <h3><%= challenge.name %></h3>
               <p class="text"><em><%= challenge.description %></em></p>

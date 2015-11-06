@@ -1,51 +1,51 @@
 <h1>ORG CAUSES</h1>
-<%= inspect(@org_causes) %>
+<%# inspect(@org_causes) %>
 <h1>ATHLETE CAUSES</h1>
-<%= inspect(@athlete_causes) %>
+<%# inspect(@athlete_causes) %>
 <div id="body">
 	<div class="start-challenge">
-		<%= form_tag("/dashboard/challenge", method: :post) do %>
+		<%= form_for @changeset, athlete_path(@conn, :create_challenge), [multipart: true], fn f -> %>
+            <%= if f.errors != [] do %>
+              <div class="alert alert-danger">
+                <p>Oops, something went wrong! Please check the errors below:</p>
+                <ul>
+                  <%= for {attr, message} <- f.errors do %>
+                    <li><%= humanize(attr) %> <%= message %></li>
+                  <% end %>
+                </ul>
+                <br>
+              </div>
+            <% end %>
+
 			<div class="container">
 				<div class="content">
 					<div class="left-col">
 						<h2>START YOUR <br>CHALLENGE</h2>
 						<fieldset>
-							<%= text_input :challenge, :name, class: "form-control", placeholder: "NAME" %>
+							<%= text_input f, :name, class: "form-control", placeholder: "NAME" %>
 						</fieldset>
 						<fieldset>
-							<%= select :challenge, :cause_id, ["BE A GOOD PERSON": 1, "RED CROSS": 2] %>
+							<%= select f, :cause_id, ["BE A GOOD PERSON": 1, "RED CROSS": 2] %>
 							<p><em>Or you can create <a href="/dashboard/cause">your own cause</a> instead.</em></p>
 						</fieldset>
 						<fieldset>
-							<%= textarea :challenge, :description, class: "form-control", placeholder: "DESCRIPTION" %>
+							<%= textarea f, :description, class: "form-control", placeholder: "DESCRIPTION" %>
 						</fieldset>
 						<fieldset>
-							<%= text_input :challenge, :mile_price, class: "form-control", placeholder: "PRICE PER MILE" %>
+							<%= text_input f, :mile_price, class: "form-control", placeholder: "PRICE PER MILE" %>
 						</fieldset>
 						<fieldset>
-							<%= select :challenge, :race_id, ["A Famous Race": 1, "Another Well-Known Race": 2, "Your Local Marathon": 3] %>
+							<%= select f, :race_id, ["A Famous Race": 1, "Another Well-Known Race": 2, "Your Local Marathon": 3] %>
 						</fieldset>
 						<fieldset>
-							<%= checkbox :challenge, :is_active, value: "true" %>
+							<%= checkbox f, :is_active, value: "true" %>
 						</fieldset>
+						
+							<label>PHOTOS</label>
+							<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]"] %>
+						
 					</div>
-					<div class="right-col">
-						<h2>UPLOAD <br>PHOTOS &amp; VIDEO</h2>
-						<div class="photo">
-							<div class="frame">
-								<img src="/images/sample.jpg" alt="">
-							</div>
-							<a href="#" class="btn red">BROWSE</a>
-							<a href="#" class="btn">UPLOAD</a>
-						</div>
-						<div class="video">
-							<div class="frame">
-								<img src="/images/video.jpg" alt="">
-							</div>
-							<a href="#" class="btn red">BROWSE</a>
-							<a href="#" class="btn">UPLOAD</a>
-						</div>
-					</div>
+				
 				</div>
 			</div>
 			<%= submit "CREATE CHALLENGE", class: "btn red"%>

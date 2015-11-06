@@ -7,7 +7,7 @@
       <div class="item">
         <div class="holder">
           <h3><%= challenge.race.type %></h3>
-          <img src="images/c1.jpg" alt="">
+          <img src="<%= challenge_main_photo(challenge) %>" alt="">
           <h2 style="text-transform: uppercase"><%= challenge.name %></h2>
           <h4><%= challenge.cause.name %></h4>
           <p><%= challenge.mile_price %></p>

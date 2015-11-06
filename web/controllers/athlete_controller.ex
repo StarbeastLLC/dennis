@@ -18,24 +18,36 @@ defmodule Dennis.AthleteController do
 	end
 
 	def new_challenge(conn, _params) do
-		changeset = Challenge.changeset(%Challenge{})
+		render_new_challenge conn, Challenge.changeset(%Challenge{})
+ 	end
+
+  defp render_new_challenge(conn, challenge_changeset) do
     org_causes = Cause.global_causes_by_user_type("org")
     athlete_causes = Cause.global_causes_by_user_type("athlete")
-	  render(conn, "new-challenge.html", [changeset: changeset, org_causes: org_causes, athlete_causes: athlete_causes])
-	end
+    render(conn, "new-challenge.html", [changeset: challenge_changeset, org_causes: org_causes, athlete_causes: athlete_causes])
+  end
 
   def create_challenge(conn, %{"challenge" => challenge_params}) do
     user_id = get_session(conn, :current_user)
 
     changeset = Challenge.changeset(%Challenge{user_id: user_id}, challenge_params)
+    photos = Map.get(challenge_params, "photos", [])
 
-    case Repo.insert(changeset) do
-      {:ok, challenge} ->
+    full_changeset = 
+      changeset
+      |> Challenge.changeset_photos(photos)
+
+    if full_changeset.valid? do
+        changeset
+        |> Repo.insert!
+        |> Challenge.changeset_photos(photos)
+        |> Repo.update
+
         conn
         |> put_flash(:info, "Challenge created successfully.")
         |> redirect(to: "/dashboard")
-      {:error, changeset} ->
-        text conn, inspect(changeset)
+    else
+        render_new_challenge conn, full_changeset
     end
   end
 
