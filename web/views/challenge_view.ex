@@ -13,7 +13,7 @@ defmodule Dennis.ChallengeView do
   end
 
   def donor(user_id) do
-    user = User.donor_identity(user_id)
+    user = User.find_by_id(user_id)
 
     cond do
     	user.user_type == "org" ->

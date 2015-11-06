@@ -13,6 +13,15 @@ defmodule Dennis.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :admin do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_flash
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+    plug Dennis.AdminPlug
+  end
+
   scope "/", Dennis do
     pipe_through :browser # Use the default browser stack
 
@@ -70,7 +79,7 @@ defmodule Dennis.Router do
   end
 
   scope "/admin", Dennis.Admin, as: :admin do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :admin
 
     resources "/users",       UserController
     resources "/permissions", PermissionController

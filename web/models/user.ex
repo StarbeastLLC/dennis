@@ -110,7 +110,7 @@ defmodule Dennis.User do
     where: user.email == ^email  
   end
   
-  def donor_identity(user_id) do
+  def find_by_id(user_id) do
     Dennis.Repo.one from user in Dennis.User,
     where: user.id == ^user_id
   end
