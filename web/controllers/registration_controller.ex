@@ -40,10 +40,11 @@ defmodule Dennis.RegistrationController do
     end
   end
 
-  def create_org(conn, %{"user" => user_params}) do 
+  def create_org(conn, %{"user" => user_params} = params) do 
+    cause_photos = Map.get(params, "cause_photos", [])
     user = Repo.get! User, user_params["id"]
     changeset = User.register_org_changeset(user, user_params)
-    case Dennis.Registration.create_org(changeset) do
+    case Dennis.Registration.create_org(changeset, cause_photos) do
       {:ok, user} ->
         conn
         |> put_session(:current_user, user.id)

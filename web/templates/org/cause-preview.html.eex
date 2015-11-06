@@ -28,8 +28,10 @@
   </li>
 
   <li>
-    <strong>Photo video:</strong>
-    <%= @cause.photo_video %>
+    <strong>Photos:</strong>
+    <%= for url <- cause_photo_urls(@cause) do %>
+      <img src="<%= url %>">
+    <% end %>
   </li>
 
 </ul>

@@ -1,5 +1,6 @@
 defmodule Dennis.Cause do
   use Dennis.Web, :model
+  use Arc.Ecto.Model
 
   alias Dennis.User
 
@@ -11,13 +12,21 @@ defmodule Dennis.Cause do
     field :state, :string
     field :description, :string
     field :more_info, :string
-    field :photo_video, :binary
+
+    field :photo1,  Dennis.CausePhoto.Type
+    field :photo2,  Dennis.CausePhoto.Type
+    field :photo3,  Dennis.CausePhoto.Type
+    field :photo4,  Dennis.CausePhoto.Type
+    field :photo5,  Dennis.CausePhoto.Type
 
     timestamps
   end
 
   @required_fields ~w(name country state description more_info user_id)
-  @optional_fields ~w(photo_video)
+  @optional_fields ~w()
+
+  @required_file_fields ~w(photo1)
+  @optional_file_fields ~w(photo2 photo3 photo4 photo5)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -29,6 +38,25 @@ defmodule Dennis.Cause do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  @doc """
+  Creates a changeset for saving a cause uploaded photos.
+
+  `cause_photos` must be a list of Plug.Upload structs.
+  A maximum of 5 photos will be allowed.
+  """
+  def changeset_photos(model, cause_photos) do
+    params = 
+      cause_photos
+      |> Enum.take(5)
+      |> Enum.with_index
+      |> Enum.reduce(%{}, fn({photo, index}, params) ->
+        Dict.put(params, "photo#{index+1}", photo)
+      end)
+
+    model
+    |> cast_attachments(params, @required_file_fields, @optional_file_fields)
+  end  
 
   def user_causes(user_id) do
     Dennis.Repo.all from cause in Dennis.Cause,
@@ -45,7 +73,7 @@ defmodule Dennis.Cause do
 
   def challenge_cause(cause_id) do
     Dennis.Repo.get_by(Cause, id: cause_id)
-  end
+  end  
 
   def global_causes do
     Dennis.Repo.all from cause in Dennis.Cause,

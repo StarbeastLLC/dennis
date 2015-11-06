@@ -42,7 +42,7 @@ defmodule Dennis.User do
   @optional_file_fields ~w()
 
 
-  @optional_org_fields ~w(reset_token fb_id fb_token stripe_id logo photo_video)
+  @optional_org_fields ~w(reset_token fb_id fb_token stripe_id)
 
   
   @doc """
@@ -71,6 +71,7 @@ defmodule Dennis.User do
     |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 5)
+    |> cast_attachments(params, @required_file_fields, @optional_file_fields)    
   end
 
   def invited_org_changeset(model, params \\ :empty) do
@@ -91,6 +92,12 @@ defmodule Dennis.User do
     |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
     |> unique_constraint(:fb_id, on: Dennis.Repo)
     |> validate_format(:email, ~r/@/)
+  end
+
+  def full_name(user_id) do
+    user = Dennis.Repo.one! from user in Dennis.User,
+      where: user.id == ^user_id
+    full_name = "#{user.first_name} #{user.last_name}"
   end
   
   def get_orgs do
