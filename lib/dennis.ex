@@ -22,10 +22,13 @@ defmodule Dennis do
       worker(Commerce.Billing.Worker, [Commerce.Billing.Gateways.Stripe, stripe_config, [name: :stripe]]),
     ]
 
+
+ 
+
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Dennis.Supervisor]
-    Supervisor.start_link(children, opts)
+    Supervisor.start_link(children, opts)  
   end
 
   # Tell Phoenix to update the endpoint configuration

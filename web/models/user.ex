@@ -1,5 +1,6 @@
 defmodule Dennis.User do
   use Dennis.Web, :model
+  use Arc.Ecto.Model
 
   alias Dennis.Repo
   alias Dennis.Mailer
@@ -29,14 +30,17 @@ defmodule Dennis.User do
     field :user_type,     :string, default: "athlete"
     field :website,       :string
     field :org_name,      :string
-    field :logo,          :binary
-    field :photo_video,   :binary
+    field :avatar,        Dennis.Avatar.Type
 
     timestamps
   end
 
   @required_fields ~w(email hashed_pswd is_admin is_active first_name last_name country user_type)
-  @optional_fields ~w(reset_token fb_id fb_token description state address stripe_id website org_name logo photo_video)
+  @optional_fields ~w(reset_token fb_id fb_token description state address stripe_id website org_name)
+
+  @required_file_fields ~w(avatar)
+  @optional_file_fields ~w()
+
 
   @optional_org_fields ~w(reset_token fb_id fb_token stripe_id logo photo_video)
 
@@ -58,6 +62,7 @@ defmodule Dennis.User do
     |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
     |> validate_format(:email, ~r/@/)
     |> validate_length(:password, min: 5)
+    |> cast_attachments(params, @required_file_fields, @optional_file_fields)
   end
 
   def register_org_changeset(model, params \\ :empty) do

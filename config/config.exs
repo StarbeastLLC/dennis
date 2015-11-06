@@ -38,6 +38,13 @@ config :dennis, :facebook, %{
   app_id: 974600335935982
 }
 
+# Amazon S3 
+config :arc,
+  access_key_id: "AKIAINRH74724VKXSUQQ",
+  secret_access_key: "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",
+  bucket: "mymiles",
+  asset_host: "https://mymiles.s3.amazonaws.com"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

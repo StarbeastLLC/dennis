@@ -36,4 +36,5 @@ defmodule Dennis.Endpoint do
     signing_salt: "28dY8N1f"
 
   plug Dennis.Router
+  
 end

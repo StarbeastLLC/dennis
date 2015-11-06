@@ -20,7 +20,9 @@
 			<div class="profile-holder">
 				<div class="container">
 					<div class="photo">
-						<img src="images/4.png" alt="">
+
+						<img src="<%= avatar_url(@changeset) %>" alt="">
+
 						<a class="btn small" href="#">UPLOAD PICTURE</a>
 					</div>
 					<div class="right-bar">
