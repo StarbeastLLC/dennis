@@ -27,11 +27,6 @@
     <%= @cause.more_info %>
   </li>
 
-  <li>
-    <strong>Photo video:</strong>
-    <%= @cause.photo_video %>
-  </li>
-
 </ul>
 
 <%= link "Edit", to: admin_cause_path(@conn, :edit, @cause) %>

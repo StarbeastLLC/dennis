@@ -87,16 +87,6 @@
     <%= @user.org_name%>
   </li>
 
-  <li>
-    <strong>Logo:</strong>
-    <%= @user.logo %>
-  </li>
-
-  <li>
-    <strong>Photo video:</strong>
-    <%= @user.photo_video %>
-  </li>
-
 </ul>
 
 <%= link "Edit", to: admin_user_path(@conn, :edit, @user) %>

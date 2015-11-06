@@ -20,8 +20,6 @@
       <th>User type</th>
       <th>Website</th>
       <th>Organization name</th>
-      <th>Logo</th>
-      <th>Photo video</th>
 
       <th></th>
     </tr>
@@ -46,8 +44,6 @@
       <td><%= user.user_type %></td>
       <td><%= user.website %></td>
       <td><%= user.org_name %></td>
-      <td><%= user.logo %></td>
-      <td><%= user.photo_video %></td>
 
       <td class="text-right">
         <%= link "Show", to: admin_user_path(@conn, :show, user), class: "btn btn-default btn-xs" %>

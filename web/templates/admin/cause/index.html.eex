@@ -8,7 +8,6 @@
       <th>State</th>
       <th>Description</th>
       <th>More info</th>
-      <th>Photo video</th>
 
       <th></th>
     </tr>
@@ -21,7 +20,6 @@
       <td><%= cause.state %></td>
       <td><%= cause.description %></td>
       <td><%= cause.more_info %></td>
-      <td><%= cause.photo_video %></td>
 
       <td class="text-right">
         <%= link "Show", to: admin_cause_path(@conn, :show, cause), class: "btn btn-default btn-xs" %>
