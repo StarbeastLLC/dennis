@@ -16,7 +16,7 @@
         </div> 
         <%= for cause <- @causes do %>
           <article>
-            <div class="pic"><img src="images/6.png" alt="<%= cause.name %>"></div>
+            <div class="pic"><img src="<%= cause_main_photo(cause) %>" alt="<%= cause.name %>"></div>
             <div class="info">
               <h3><%= cause.name %></h3>
               <p class="text"><em><%= cause.description %></em></p>

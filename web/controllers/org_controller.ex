@@ -21,14 +21,21 @@ defmodule Dennis.OrgController do
     user_id = get_session(conn, :current_user)
 
     changeset = Cause.changeset(%Cause{user_id: user_id}, cause_params)
+    photos = Map.get(cause_params, "photos", [])
 
-    case Repo.insert(changeset) do
-      {:ok, cause} ->
+    full_changeset = Cause.changeset_photos(changeset, photos)
+
+    if full_changeset.valid? do
+        changeset
+        |> Repo.insert!
+        |> Cause.changeset_photos(photos)
+        |> Repo.update
+
         conn
         |> put_flash(:info, "Cause created successfully.")
         |> redirect(to: "/dashboard")
-      {:error, changeset} ->
-        text conn, inspect(changeset)
+    else
+        render(conn, "new-cause.html", changeset: full_changeset)
     end
   end
 

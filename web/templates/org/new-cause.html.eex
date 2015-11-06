@@ -1,16 +1,31 @@
 <h1>Create a new cause here!</h1>
-<%= form_tag("/dashboard/cause", method: :post) do %>
+<%= form_for @changeset, org_path(@conn, :create_cause), [multipart: true], fn f -> %>
+
+	<%= if f.errors != [] do %>
+      <div class="alert alert-danger">
+        <p>Oops, something went wrong! Please check the errors below:</p>
+        <ul>
+          <%= for {attr, message} <- f.errors do %>
+            <li><%= humanize(attr) %> <%= message %></li>
+          <% end %>
+        </ul>
+        <br>
+      </div>
+    <% end %>
 
 	<label>Name your cause</label>
-	<%= text_input :cause, :name, class: "form-control" %>
+	<%= text_input f, :name, class: "form-control" %>
 	<label>Description</label>
-	<%= textarea :cause, :description, class: "form-control" %>
+	<%= textarea f, :description, class: "form-control" %>
 	<label>More info</label>
-	<%= textarea :cause, :more_info, class: "form-control" %>
+	<%= textarea f, :more_info, class: "form-control" %>
 	<label>Country</label>
-	<%= text_input :cause, :country, class: "form-control" %>
+	<%= text_input f, :country, class: "form-control" %>
 	<label>State</label>
-	<%= text_input :cause, :state, class: "form-control" %>
+	<%= text_input f, :state, class: "form-control" %>
+
+	<label>Photos</label>
+	<%= file_input f, :photos, multiple: true, name: "cause[photos][]" %>
 
 	<br>
 	<%= submit "Create challenge" %>
