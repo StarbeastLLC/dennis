@@ -1,15 +1,54 @@
 <div id="body">
   <div class="welcome">
-    <div class="ticker">
-      <img src="/images/sticker.png" alt="">
+    <div class="video">
+      <video loop autoplay muted>
+        <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        <source src="http://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+      </video>
     </div>
     <h1>WELCOME TO MY MILES</h1>
-    <h2>A platform for athletes that raise money for Nonprofits, <br>by selling their miles of races in which they are competing.</h2>
-    <%= link "REGISTER", to: registration_path(@conn, :new), class: "btn red" %>
-  </div>
-  <div class="how">
-    <h2>HOW IT WORKS</h2>
-    <img src="/images/how.jpg" alt="">
+    <h2>Sell every mile you race for charity</h2>
+    <div class="bottom">
+      <div class="form">
+        <%= form_for @conn, session_path(@conn, :create), [as: :session], fn f -> %>
+          <%= text_input f, :email, placeholder: "EMAIL" %>
+          <%= password_input f, :password, placeholder: "PASSWORD" %>
+          
+          <%= submit "LOG IN", class: "btn" %>
+
+        <% end %>
+        <div class="links">
+          <a href="#" class="btn red">REGISTER</a>
+          <p>DON’T HAVE AN ACCOUNT?</p>
+          <p>Charity? Request an invite <a href="#chart" class="fancybox-open">HERE</a></p>
+        </div>
+      </div>
+      <div class="or">
+        <span>OR</span>
+      </div>
+      <div class="fb">
+        <a href="" class="btn fb fb-login">SIGN IN WITH FACEBOOK</a>
+        <%= form_for @conn, registration_path(@conn, :fb_auth), [as: :user, id: "fb_auth"], fn f -> %>
+          <%= hidden_input f, :fb_id %>
+          <%= hidden_input f, :fb_token %>
+          <%= hidden_input f, :email %>
+          <%= hidden_input f, :first_name %>
+          <%= hidden_input f, :last_name %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 <!-- / body -->
+
+<div class="chat-modal" id="chart">
+  <div class="box">
+    <h2>CHARITIES</h2>
+    <%= form_tag("/request-invite", method: :post) do %>
+      <fieldset>
+        <label>Want to rise funds for you charity?<br>Get involved with MY MILES today!</label>
+        <%= text_input :request, :email, placeholder: "E-mail", required: true, pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", title: "Valid email address." %>
+      </fieldset>
+      <%= submit "REQUEST AN INVITE", class: "btn" %>
+    <% end %>  </div>
+</div>

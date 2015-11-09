@@ -16,6 +16,7 @@ exports.config = {
       order: {
          before: [
            'bower_components/jquery/dist/jquery.js',
+           'web/static/vendor/plugins.js',
          ]
       }
     },

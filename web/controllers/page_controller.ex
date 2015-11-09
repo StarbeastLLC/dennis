@@ -52,7 +52,7 @@ defmodule Dennis.PageController do
   def send_invite_request(conn, %{"request" => %{"email" => email}}) do
     Mailer.send_invite_request(email)
     conn
-    |> put_flash(:info, "You requested an invite. Take a look at our current challenges!")
-    |> redirect(to: "/challenges")
+    |> put_flash(:info, "You requested an invite.")
+    |> redirect(to: "/")
   end
 end

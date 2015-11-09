@@ -17,39 +17,36 @@
     <meta name="fb-app-id" content="<%= Application.get_env(:dennis, :facebook)[:app_id] %>">
   </head>
 
-  <body class="pantalla">
-    <header id="header">
-      <div class="top-info">
-        <a href="/" id="logo" title="mymyles"><h1 style="font-size: 60px text-align: center">MYMILES</h1></a>
-        <div class="social">
-          <p>SHARE</p>
-          <ul>
-            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=mymiles.us" target="_blank"></a></li>
-            <li class="twitter"><a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us" target="_blank"></a></li>
-          </ul>
-        </div>
-      </div>
-      <nav id="menu">
+  <body class="home">
+  <header id="header">
+    <div class="top-info">
+      <a href="/" class="fancy-sign-in" id="logo" title="mymyles">MYMILES</a>
+      <div class="social">
+        <p>SHARE</p>
         <ul>
-          <li><%= link "CHARITIES", to: "/charities" %></li>
-          <li><%= link "CAUSES", to: "/causes" %></li>
-          <li><%= link "CHALLENGES", to: "/challenges" %></li>
-          <%= if logged_in?(@conn) do %>
-            <li><%= link "DASHBOARD", to: "/dashboard" %></li>
-            <li style="color:white; text-transform:uppercase"><%= current_user(@conn).first_name %></li>
-            <li><%= link "PROFILE", to: registration_path(@conn, :profile) %></li>
-            <li><%= link "LOGOUT", to: session_path(@conn, :delete), method: :delete %></li>
-          <% else %>
-            <li><%= link "SIGN IN", to: session_path(@conn, :new) %></li>
-            <li><%= link "SIGN UP", to: registration_path(@conn, :new) %></li>
-          <% end %>
+          <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=mymiles.us" target="_blank" class="fancy-sign-in"></a></li>
+          <li class="twitter"><a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us" target="_blank" class="fancy-sign-in"></a></li>
         </ul>
-      </nav>
-      <!-- / navigation -->
-    </header>
-    <!-- / header -->
-    
-
+      </div>
+    </div>
+    <nav id="menu">
+      <ul>
+        <li><%= link "CHARITIES", to: "/charities" %></li>
+        <li><%= link "CAUSES", to: "/causes" %></li>
+        <li><%= link "CHALLENGES", to: "/challenges" %></li>
+        <%= if logged_in?(@conn) do %>
+          <li><%= link "DASHBOARD", to: "/dashboard" %></li>
+          <li><%= link "PROFILE", to: registration_path(@conn, :profile) %></li>
+          <li><%= link "LOGOUT", to: session_path(@conn, :delete), method: :delete %></li>
+        <% else %>
+          <li><%= link "REGISTER", to: registration_path(@conn, :new) %></li>
+        <% end %>
+        <li><a href="#">BLOG</a></li>
+      </ul>
+    </nav>
+    <!-- / navigation -->
+  </header>
+  <!-- / header -->
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
@@ -57,49 +54,51 @@
 
     <%= @inner %>
 
-    <footer id="footer">
-      <div class="container">
-        <section>
-          <article class="col-1">
-            <h3>MY MILES</h3>
-            <ul>
-              <li><a href="#">Participate</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><%= link "How Does It Work?", to: "/how" %></li>
-              <li><%= link "Join as Charity", to: "/request-invite" %></li>
-            </ul>
-          </article>
-          <article class="col-2">
-            <h3>ABOUT</h3>
-            <ul>
-              <li><%= link "Our Story", to: "/our-story" %></li>
-              <li><%= link "Our Team", to: "/our-team" %></li>
+  <footer id="footer">
+    <div class="container">
+      <section>
+        <article class="col-1">
+          <h3>MY MILES</h3>
+          <ul>
+            <li><%= link "Join as Charity", to: "/request-invite" %></li>
+            <li><%= link "How Does It Work?", to: "/how" %></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </article>
+        <article class="col-2">
+          <h3>ABOUT</h3>
+          <ul>
+            <li><%= link "Our Story", to: "/our-story" %></li>
+            <li><%= link "Our Team", to: "/our-team" %></li>
               <li><%= link "Privacy Policy", to: "/privacy" %></li>
               <li><%= link "Terms of Service", to: "/terms" %></li>
-            </ul>
-          </article>
-          <article class="col-3">
-            <h3>GET SOCIAL</h3>
-            <ul class="social">
-              <li class="facebook"><a href="https://www.facebook.com/JoinMyMiles" target="_blank"></a></li>
-              <li class="twitter"><a href="https://twitter.com/mymiles_ws" target="_blank"></a></li>
-              <li class="google-plus"><a href="https://plus.google.com/+MymilesWs" target="_blank"></a></li>
-              <!-- <li class="linked-in"><a href="#"></a></li> -->
-            </ul>
-          </article>
-          <article class="col-4">
-            <h3>CONTACT US</h3>
+          </ul>
+        </article>
+        <article class="col-3">
+          <h3>GET SOCIAL</h3>
+          <ul class="social">
+            <li class="facebook"><a href="https://www.facebook.com/JoinMyMiles" target="_blank"></a></li>
+            <li class="twitter"><a href="https://twitter.com/mymiles_ws" target="_blank"></a></li>
+            <li class="google-plus"><a href="https://plus.google.com/+MymilesWs" target="_blank"></a></li>
+            <li class="linked-in"><a href="#"></a></li>
+          </ul>
+        </article>
+        <article class="col-4">
+          <h3>CONTACT US</h3>
             <p>Mail: <a href="mailto:info@mymiles.us">info@mymiles.ws</a>
             <br>Phone: <a href="tel:7049200169">704 920 0169</a>
             <br>17105 Kenton Place
             <br># 206-C Cornelius, NC</p>
-          </article>
-        </section>
-      </div>
-      <!-- / container -->
-      <p class="copy">COPYRIGHT © 2014 MY MILES</p>
-    </footer>
+        </article>
+      </section>
+    </div>
+    <!-- / container -->
+    <p class="copy">COPYRIGHT © 2015 MY MILES</p>
+  </footer>
   <!-- / footer -->
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>
     <script src="<%= static_path(@conn, "/js/vendor.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
