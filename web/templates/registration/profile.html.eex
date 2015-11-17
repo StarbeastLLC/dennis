@@ -18,6 +18,15 @@
             <% end %>
 				<div class="left-form">
 					<h3><%= @changeset.model.first_name %> <%= @changeset.model.last_name %></h3>
+					<%= if is_fb_user(@changeset) do %>
+					  <img style="max-height:250px; max-height:250px"src="<%= fb_avatar_url(@changeset) %>">
+					  <br>
+					<% else %>
+					  <img style="max-height:250px; max-height:250px"src="<%= avatar_url(@changeset) %>">
+					  <a href="#" class="add">+</a>
+					  <%= file_input f, :avatar, placeholder: "LOGO" %>
+					<% end %>
+					<br>
 					<fieldset>
 						<label>First Name</label>
 						<div class="text">
@@ -38,40 +47,44 @@
 					</fieldset>
 
 					<%= submit "UPDATE", class: "btn" %>
-					<button type="submit" class="btn">Stripe Connect</button>
+					
+					<% end %>
 				</div>
 			
 				<div class="left-form rr">
-					<img style="max-height:250px; max-height:250px"src="<%= avatar_url(@changeset) %>">
-						<a href="#" class="add">+</a>
-						<%= file_input f, :avatar, placeholder: "LOGO" %>
-						<p>CURRENT PHOTO</p>
+					<%= if is_fb_user(@changeset) do %>
+					<% else %>
+						<h4>CHANGE PASSWORD</h4>
+						<%= form_tag("/password", method: :put) do %>
+						<fieldset>
+							<label>Current Password</label>
+							<div class="text">
+								<%= password_input :pswd_params, :old_password %>
+							</div>
+						</fieldset>
+						<fieldset>
+							<label>New Password</label>
+							<div class="text">
+								<%= password_input :pswd_params, :password %>
+							</div>
+						</fieldset>
+						<fieldset>
+							<label>Confirm Password</label>
+							<div class="text">
+								<%= password_input :pswd_params, :password_conf %>
+							</div>
+						</fieldset>
+						<%= submit "CHANGE PASSWORD", class: "btn" %>
+						<% end %>
 					<% end %>
-					<h4>CHANGE PASSWORD</h4>
-					<%= form_tag("/password", method: :put) do %>
-					<fieldset>
-						<label>Current Password</label>
-						<div class="text">
-							<%= password_input :pswd_params, :old_password %>
-						</div>
-					</fieldset>
-					<fieldset>
-						<label>New Password</label>
-						<div class="text">
-							<%= password_input :pswd_params, :password %>
-						</div>
-					</fieldset>
-					<fieldset>
-						<label>Confirm Password</label>
-						<div class="text">
-							<%= password_input :pswd_params, :password_conf %>
-						</div>
-					</fieldset>
-					<button type="submit" class="btn">UPDATE PROFILE</button>
+
+					<h4>STRIPE</h4>
+					<button type="submit" class="btn">
+					  <a class="stripe-btn" href="<%= stripe_connect_url %>" target="_blank">CONNECT</a>
+					</button>
+					<br>
 				</div>
-			<% end %>
-		</div>
-		<a href="<%= stripe_connect_url %>" target="_blank">STRIPE CONNECT</a>
+					</div>
 	</div>
 </div>
 <!-- / body -->

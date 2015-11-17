@@ -56,6 +56,11 @@ defmodule Dennis.User do
     |> cast(params, @required_fields, @optional_fields)
   end
 
+  def stripe_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(stripe_id), ~w())
+  end
+
   def register_changeset(model, params \\ :empty) do
     model
     |> cast(params, ~w(email password password_conf first_name last_name country user_type), @optional_fields)
@@ -67,7 +72,7 @@ defmodule Dennis.User do
 
   def change_password_changeset(model, params \\ :empty) do
     model
-    |> cast(params, ~w(password password_conf), ~w()) # pending
+    |> cast(params, ~w(password hashed_pswd), ~w()) # pending
     |> validate_length(:password, min: 5)
   end
 

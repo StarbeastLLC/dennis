@@ -152,7 +152,7 @@ input, textarea, select, button {
 	font-family: 'Montserrat', sans-serif;
 }
 
-input[type=text] {
+input[type=text], input[type=email], input[type=password] {
 	border: 1px solid #cdcdcd;
 	background-color: #fff;
 	height: 40px;
@@ -5214,4 +5214,12 @@ a.btn-white {
 .ifrm {
 	position: relative;
 	z-index: 9;
+}
+
+.stripe-btn {
+	color: #02A8D3 !important;
+}
+
+.stripe-btn:hover {
+	text-decoration: none;
 }

@@ -104,12 +104,19 @@ defmodule Dennis.RegistrationController do
     user = Repo.get!(User, id)
 
     case Session.authenticate(user, password_params["old_password"]) do
-      true -> 
-        changeset = User.change_password_changeset(User, password_params)
-        changeset
-        |> put_change(:hashed_pswd, Registration.hashed_password(changeset.params["password"]))
-        |> Dennis.Repo.update
+      true ->
+        hashed_pswd = Registration.hashed_password(password_params["password"])
+        password_params = %{"password" => password_params["password"], "hashed_pswd" => hashed_pswd} 
+        changeset = User.change_password_changeset(user, password_params)
+        Dennis.Repo.update(changeset)
+
+        conn
+        |> put_flash(:info, "Password changed successfully.")
+        |> redirect(to: "/profile")
       _    ->
+        conn
+        |> put_flash(:info, "Current password seems invalid. Try again.")
+        |> redirect(to: "/profile")
     end
 
   end
@@ -130,4 +137,25 @@ defmodule Dennis.RegistrationController do
         |> render("profile.html", user: user, changeset: changeset)
     end
   end
+
+  def connect_stripe(conn, params) do
+    id = get_session(conn, :current_user)
+    user = Repo.get!(User, id)
+
+    if params["error"] == nil do
+      stripe_params = %{"stripe_id" => params["code"]}
+      changeset = User.stripe_changeset(user, stripe_params)
+      Repo.update(changeset)
+
+      conn
+      |> put_flash(:info, "Stripe was connected successfully.")
+      |> redirect(to: "/profile")
+    else
+      conn
+      |> put_flash(:error, "Please try again to connect Stripe.")
+      |> redirect(to: "/profile")
+    end
+  end
+
+  
 end

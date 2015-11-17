@@ -7,6 +7,14 @@ defmodule Dennis.RegistrationView do
     States.us_states
   end
 
+  def fb_avatar_url(user_changeset) do
+    "http://avatars.io/facebook/#{user_changeset.model.fb_id}?size=large"
+  end
+
+  def is_fb_user(user_changeset) do
+    user_changeset.model.fb_id != nil
+  end
+
   def cookie(conn, cookie_name) do
     conn.cookie[cookie_name]
   end

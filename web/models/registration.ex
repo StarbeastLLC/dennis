@@ -50,7 +50,7 @@ defmodule Dennis.Registration do
     end
   end
 
-  defp hashed_password(password) do
+  def hashed_password(password) do
     Comeonin.Bcrypt.hashpwsalt(password)
   end
 end
