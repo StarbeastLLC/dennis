@@ -12,9 +12,10 @@ defmodule Dennis.AthleteController do
 
 	def show(conn, _params) do
 		user_id = get_session(conn, :current_user)
+    user = Repo.get!(User, user_id)
     challenges = Challenge.user_challenges(user_id)
     causes = Cause.user_causes(user_id)
-		render(conn, "athlete.html", challenges: challenges, causes: causes)
+		render(conn, "athlete.html", challenges: challenges, causes: causes, user: user)
 	end
 
 	def new_challenge(conn, _params) do
@@ -60,7 +61,7 @@ defmodule Dennis.AthleteController do
     render conn, "athlete-invite.html"
   end
 
-  def invite(conn, %{"invitation" => %{"email" => email}}) do
+  def invite(conn, %{"invitation" => %{"email" => email, "message" => message, "org_name" => org_name}}) do
     subject = "An athlete wants to raise money for you"
     user_id = get_session(conn, :current_user)
     user_name = User.full_name(user_id)
@@ -70,7 +71,7 @@ defmodule Dennis.AthleteController do
     changeset = User.invited_org_changeset(%User{}, user_params)
     if changeset.valid? do
       {:ok, user} = Repo.insert(changeset)
-      Mailer.send_invitation(subject, user_name, email, token)
+      Mailer.send_invitation(subject, user_name, email, token, message, org_name)
       conn
       |> put_flash(:info, "Your invitation was sent")
       |> redirect to: "/dashboard"

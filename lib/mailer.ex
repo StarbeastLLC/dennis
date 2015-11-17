@@ -7,11 +7,11 @@ defmodule Dennis.Mailer do
 		domain: Application.get_env(:dennis, :mailgun_domain),
 		key: Application.get_env(:dennis, :mailgun_key)
 
-	def send_invitation(subject, user_name, email, token) do
+	def send_invitation(subject, user_name, email, token, message, org_name) do
 		send_email to: email,
 			from: @from,
 			subject: subject,
-			html: Phoenix.View.render_to_string(Dennis.Admin.EmailView, "athlete-invite-email.html", user_name: user_name, email: email, token: token)
+			html: Phoenix.View.render_to_string(Dennis.Admin.EmailView, "athlete-invite-email.html", user_name: user_name, email: email, token: token, message: message, org_name: org_name)
 	end
 
 	def send_invite_request(email) do

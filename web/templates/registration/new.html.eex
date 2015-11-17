@@ -29,7 +29,7 @@
               <%= text_input f, :org_name, placeholder: "NAME" %>
               <%= email_input f, :email, placeholder: "EMAIL" %>
               <%= text_input f, :website, placeholder: "WEBSITE" %>
-              <%= text_input f, :description, placeholder: "DESCRIPTION" %>
+              <%= textarea f, :description, placeholder: "DESCRIPTION" %>
               <%= select f, :state, us_states() %>
               <%= text_input f, :address, placeholder: "ADDRESS" %>
               <%= password_input f, :password, placeholder: "PASSWORD" %>
@@ -59,7 +59,7 @@
               <label>Avatar</label><%= file_input f, :avatar, placeholder: "AVATAR" %>
               <%= text_input f, :first_name, placeholder: "FIRST NAME" %>
               <%= text_input f, :last_name, placeholder: "LAST NAME" %>
-              <%= text_input f, :description, placeholder: "ABOUT ME" %>
+              <%= textarea f, :description, placeholder: "ABOUT ME" %>
               <%= select f, :state, us_states() %>
               <%= email_input f, :email, placeholder: "EMAIL" %>
               <%= password_input f, :password, placeholder: "PASSWORD" %>

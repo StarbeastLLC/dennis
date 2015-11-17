@@ -38,7 +38,7 @@
 					<fieldset>
 						<label>Description</label>
 						<div class="text">
-							<%= text_input f, :description, placeholder: "DESCRIPTION" %>
+							<%= textarea f, :description, placeholder: "DESCRIPTION" %>
 						</div>
 					</fieldset>
 					<fieldset>
@@ -91,7 +91,7 @@
 					<fieldset>
 						<label>About Me</label>
 						<div class="text">
-							<%= text_input f, :description, placeholder: "ABOUT ME" %>
+							<%= textarea f, :description, placeholder: "ABOUT ME" %>
 						</div>
 					</fieldset>
 

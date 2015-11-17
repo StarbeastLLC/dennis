@@ -5,8 +5,12 @@
   <div class="user-details">
     <div class="container">
       <div class="left">
-        <img src="../images/1.png" alt="">
-        <span class="name">PAUL SCHWARZ</span>
+      <%= if is_fb_user(@user) do %>
+        <img src="<%= fb_avatar_url(@user) %>" alt="">
+      <% else %>
+        <img src="<%= avatar_url(@user) %>" alt="">
+      <% end %>
+        <span class="name" style="text-transform:uppercase"><%= @user.first_name %> <%= @user.last_name %></span>
       </div>
       <div class="global">
         <div class="label">
@@ -70,10 +74,24 @@
       </div>
       </div>
       <div class="btns">
-        <a href="/invite" class="btn">INVITE ORG</a>
+        <a href="#chart" class="btn fancybox-open">INVITE CHARITY</a>
         <a href="/dashboard/challenge" class="btn">NEW CHALLENGE</a>
       </div>
     </div>
   </div>
 </div>
 <!-- / body -->
+
+<div class="chat-modal" id="chart">
+  <div class="box">
+    <h2>INVITE</h2>
+    <%= form_tag("/invite/athlete", method: :post) do %>
+      <fieldset>
+        <label>RUN FOR THE CHARITY YOU ♥<br>Tell them about MyMiles!</label>
+        <%= text_input :invitation, :org_name, placeholder: "CHARITY NAME", required: true %>
+        <%= text_input :invitation, :email, placeholder: "CHARITY EMAIL", required: true, pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", title: "Valid email address." %>
+        <%= textarea :invitation, :message, placeholder: "TELL THE CHARITY WHY DO YOU WANT TO RUN FOR THEM", required: true %>
+      </fieldset>
+      <%= submit "SEND", class: "btn" %>
+    <% end %>  </div>
+</div>
