@@ -30,8 +30,7 @@
               <%= email_input f, :email, placeholder: "EMAIL" %>
               <%= text_input f, :website, placeholder: "WEBSITE" %>
               <%= text_input f, :description, placeholder: "DESCRIPTION" %>
-              <%= text_input f, :country, placeholder: "COUNTRY (ex. US, MX)" %>
-              <%= text_input f, :state, placeholder: "STATE (ex. NY, MTY)" %>
+              <%= select f, :state, us_states() %>
               <%= text_input f, :address, placeholder: "ADDRESS" %>
               <%= password_input f, :password, placeholder: "PASSWORD" %>
               <%= password_input f, :password_conf, placeholder: "CONFIRM PASSWORD" %>
@@ -61,7 +60,6 @@
               <%= text_input f, :first_name, placeholder: "FIRST NAME" %>
               <%= text_input f, :last_name, placeholder: "LAST NAME" %>
               <%= text_input f, :description, placeholder: "ABOUT ME" %>
-              <%# text_input f, :state, placeholder: "STATE (ex. NY, MTY)" %>
               <%= select f, :state, us_states() %>
               <%= email_input f, :email, placeholder: "EMAIL" %>
               <%= password_input f, :password, placeholder: "PASSWORD" %>
@@ -70,7 +68,7 @@
               <%= submit "SIGN UP", class: "btn red" %>
             <% end %>
 
-          <% end %>
+          
         </div>
       </div>
       
@@ -87,9 +85,12 @@
               <%= hidden_input f, :first_name %>
               <%= hidden_input f, :last_name %>
           <% end %>
+
+      <% end %> 
       </div>
     </div>
     <!-- / content -->
+
   </div>
   <!-- / container -->
 </div>
