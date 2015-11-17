@@ -1,16 +1,30 @@
-<div id="body" class="joy-body">
-  <div class="container">
-    <h1>CAUSE</h1>
-    <div class="left-col">
-      <img src="/images/logoy.png" alt="">
-    </div>
-    <div class="right-col">
-      <a href="#" class="btn"><%= @cause.name %></a>
-      <div class="text">
-        <h3>DESCRIPTION</h3>
-        <p><%= @cause.description %></p>
+<div id="body">
+  <div class="select-op">
+    <h4>CHARITY</h4>
+  </div>
+  <div class="pro-details">
+    <div class="container">
+      <div class="image">
+        <img src="../images/c0.jpg" alt="">
       </div>
-      <a href="http://<%= @cause.more_info %>" class="btn-blue"><%= @cause.more_info %></a>
+      <div class="text">
+        <h2><%= @cause.name %></h2>
+
+        <div class="scroll scroll1">
+                <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+                <div class="viewport">
+                     <div class="overview">
+              <div class="ovrel">
+                <p><%= @cause.description %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="more">
+          <a href="http://<%= @cause.more_info%>"><%= @cause.more_info%></a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -23,7 +23,7 @@ defmodule Dennis.User do
     field :first_name,    :string
     field :last_name,     :string
     field :description,   :string
-    field :country,       :string
+    field :country,       :string, default: "US"
     field :state,         :string
     field :address,       :string
     field :stripe_id,     :string
@@ -65,6 +65,12 @@ defmodule Dennis.User do
     |> cast_attachments(params, @required_file_fields, @optional_file_fields)
   end
 
+  def change_password_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(password password_conf), ~w()) # pending
+    |> validate_length(:password, min: 5)
+  end
+
   def register_org_changeset(model, params \\ :empty) do
     model
     |> cast(params, ~w(email password password_conf org_name country user_type description website address state), @optional_org_fields)
@@ -80,10 +86,17 @@ defmodule Dennis.User do
     |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
   end
 
+  def profile_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(email first_name last_name user_type), @optional_fields)
+    |> validate_format(:email, ~r/@/)
+  end
+
   def update_changeset(model, params \\ :empty) do
     model
-    |> cast(params, ~w(email first_name last_name country user_type), @optional_fields)
+    |> cast(params, ~w(email first_name last_name user_type), @optional_fields)
     |> validate_format(:email, ~r/@/)
+    |> cast_attachments(params, ~w(), ~w(avatar))
   end
 
   def fb_auth_changeset(model, params \\ :empty) do

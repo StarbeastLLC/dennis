@@ -18,7 +18,7 @@
 
         <% end %>
         <div class="links">
-          <a href="#" class="btn red">REGISTER</a>
+          <a href="/register" class="btn red">REGISTER</a>
           <p>DON’T HAVE AN ACCOUNT?</p>
           <p>Charity? Request an invite <a href="#chart" class="fancybox-open">HERE</a></p>
         </div>

@@ -1,12 +1,11 @@
 <div id="body">
-	<div class="profile-con">
+	<div class="select-op type-2">
+		<h4>PROFILE</h4>
+	</div>
+	<div class="form-create user-profile">
 		<div class="container">
-			<div class="title">
-				<h1>PROFILE</h1>
-			</div>
-		</div>
-		<%= form_for @changeset, registration_path(@conn, :update_profile), fn f -> %>
-            <%= if f.errors != [] do %>
+			<%= form_for @changeset, registration_path(@conn, :update_profile), [multipart: true], fn f -> %>
+           	<%= if f.errors != [] do %>
               <div class="alert alert-danger">
                 <p>Oops, something went wrong! Please check the errors below:</p>
                 <ul>
@@ -17,28 +16,62 @@
                 <br>
               </div>
             <% end %>
-			<div class="profile-holder">
-				<div class="container">
-					<div class="photo">
+				<div class="left-form">
+					<h3><%= @changeset.model.first_name %> <%= @changeset.model.last_name %></h3>
+					<fieldset>
+						<label>First Name</label>
+						<div class="text">
+							<%= text_input f, :first_name, placeholder: "FIRST NAME" %>
+						</div>
+					</fieldset>
+					<fieldset>
+						<label>Last Name</label>
+						<div class="text">
+							<%= text_input f, :last_name, placeholder: "LAST NAME" %>
+						</div>
+					</fieldset>
+					<fieldset>
+						<label>About Me</label>
+						<div class="text">
+							<%= text_input f, :description, placeholder: "ABOUT ME" %>
+						</div>
+					</fieldset>
 
-						<img src="<%= avatar_url(@changeset) %>" alt="">
-
-						<a class="btn small" href="#">UPLOAD PICTURE</a>
-					</div>
-					<div class="right-bar">
-						<%= text_input f, :first_name, placeholder: "FIRST NAME" %>
-						<%= text_input f, :last_name, placeholder: "LAST NAME" %>
-						<%= text_input f, :description, placeholder: "ABOUT ME" %>
-						<%= text_input f, :country, placeholder: "COUNTRY (ex. US, MX)" %>
-						<%= text_input f, :state, placeholder: "STATE (ex. NY, MTY)" %>
-					</div>
+					<%= submit "UPDATE", class: "btn" %>
+					<button type="submit" class="btn">Stripe Connect</button>
 				</div>
-			</div>
-			<div class="btn-holder">
-				<%= submit "UPDATE", class: "btn red" %>
-			</div>
-		<% end %>
+			
+				<div class="left-form rr">
+					<img style="max-height:250px; max-height:250px"src="<%= avatar_url(@changeset) %>">
+						<a href="#" class="add">+</a>
+						<%= file_input f, :avatar, placeholder: "LOGO" %>
+						<p>CURRENT PHOTO</p>
+					<% end %>
+					<h4>CHANGE PASSWORD</h4>
+					<%= form_tag("/password", method: :put) do %>
+					<fieldset>
+						<label>Current Password</label>
+						<div class="text">
+							<%= password_input :pswd_params, :old_password %>
+						</div>
+					</fieldset>
+					<fieldset>
+						<label>New Password</label>
+						<div class="text">
+							<%= password_input :pswd_params, :password %>
+						</div>
+					</fieldset>
+					<fieldset>
+						<label>Confirm Password</label>
+						<div class="text">
+							<%= password_input :pswd_params, :password_conf %>
+						</div>
+					</fieldset>
+					<button type="submit" class="btn">UPDATE PROFILE</button>
+				</div>
+			<% end %>
+		</div>
+		<a href="<%= stripe_connect_url %>" target="_blank">STRIPE CONNECT</a>
 	</div>
-	<!-- / container -->
 </div>
 <!-- / body -->

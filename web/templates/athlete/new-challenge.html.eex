@@ -1,7 +1,144 @@
-<h1>ORG CAUSES</h1>
-<%# inspect(@org_causes) %>
-<h1>ATHLETE CAUSES</h1>
-<%# inspect(@athlete_causes) %>
+<div id="body">
+	<div class="select-op">
+		<h4>Select the cause you are going to support</h4>
+	</div>
+	<div class="cols-2-haf">
+		<div class="col">
+			<div class="inside">
+			<div class="head">
+				<h3>Existing <br>Non Profits</h3>
+				<p>Select from existing<br>Non Profits or include<br>one of your preference.</p>
+			</div>
+			<div class="scroll scroll1">
+	            <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+	            <div class="viewport">
+	                 <div class="overview">
+						<div class="ovrel">
+							<ul>
+							  <%= for org_cause <- @org_causes do %>
+							    <li>
+							      <a href="#"><img src="../images/n1.png" alt=""><span class="titles" style="text-transform:uppercase"><%= org_cause.name %> </span></a>
+							    </li>
+							  <% end %>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btn-holder0">
+				<a href="/invite" class="btn-white">ADD A CHARITY</a>
+			</div>
+			</div>
+		</div>
+		<div class="col blue">
+			<div class="inside">
+			<div class="head">
+				<h3 class="one">Own Causes</h3>
+				<p>Select from our list of causes or create your own local cause or personal cause to support.</p>
+			</div>
+
+			<div class="scroll scroll2 round">
+	            <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+	            <div class="viewport">
+	                 <div class="overview">
+						<div class="ovrel">
+							<ul>
+							  <%= for athlete_cause <- @athlete_causes do %>
+							    <li>
+							      <a href="#"><img src="../images/m.png" alt=""><span class="mask" style="text-transform:uppercase"><%= athlete_cause.name %> <br>—<br>$ 320 USD</span></a>
+							    </li>
+							  <% end %>
+
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btn-holder0">
+				<a href="/dashboard/cause" class="btn-white">CREATE YOUR OWN CAUSE</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- / select-cause -->
+
+<div id="body">
+	<div class="select-op red">
+		<h4>CREATE YOUR CHALLENGE</h4>
+	</div>
+	<div class="create-content">
+		<div class="left-box ww">
+		<%= form_for @changeset, athlete_path(@conn, :create_challenge), [multipart: true], fn f -> %>
+            <%= if f.errors != [] do %>
+              <div class="alert alert-danger">
+                <p>Oops, something went wrong! Please check the errors below:</p>
+                <ul>
+                  <%= for {attr, message} <- f.errors do %>
+                    <li><%= humanize(attr) %> <%= message %></li>
+                  <% end %>
+                </ul>
+                <br>
+              </div>
+            <% end %>
+				<fieldset class="hal">
+					<label>Please enter your price per mile</label>
+					<select><option>$ 25</option></select>
+					<%= text_input f, :mile_price, class: "form-control", placeholder: "PRICE PER MILE" %>
+				</fieldset>
+				<fieldset>
+					<%= text_input f, :name, class: "form-control", placeholder: "CHALLENGE NAME" %>
+					<input type="text" placeholder="RACE NAME">
+					<select><option>RACE DATE: DD/MM/YYYY</option></select>
+					<br>
+					<%= textarea f, :description, class: "form-control", placeholder: "MESSAGE TO DONORS" %>
+				</fieldset>
+				<div class="checkbox">
+					<input type="checkbox" checked>
+					<label>Yes, I want to redeem my race fee!</label>
+				</div>
+				<a href="#red" class="submit fancybox-open">SUBMIT</a>
+		</div>
+		<div class="right-box ww kids">
+			<img src="../images/kids.png" alt="">
+			<h4>UPLOAD YOUR FILES</h4>
+			<div class="file-set">
+				<p>Background Image File</p>
+				<input type="file" title="No file chosen" id="file">
+				<label for="file"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
+				<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]"] %>
+			</div>
+			<div class="file-set">
+				<p class="ss">Video file</p>
+				<input type="file" title="No file chosen" id="file3">
+				<label for="file3"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>
+<!-- / body -->
+
+<div class="reddem-modal" id="red">
+	<h4>HOW TO REDEEM RACE FEE</h4>
+	<div class="list scroll scroll1">
+        <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+        <div class="viewport">
+             <div class="overview">
+				<div class="ovrel">
+					<p>List of redemption, rules and conditions:<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="checkbox">
+		<input type="checkbox" checked>
+		<label>I have read and agree with the above terms and conditions.</label>
+	</div>
+	<a href="#red" class="submit">CONTINUE</a>
+</div>
+
 <div id="body">
 	<div class="start-challenge">
 		<%= form_for @changeset, athlete_path(@conn, :create_challenge), [multipart: true], fn f -> %>

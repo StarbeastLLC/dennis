@@ -1,4 +1,55 @@
 <div id="body">
+  <div class="select-op red">
+    <h4><%= @challenge.name %></h4>
+  </div>
+  <div class="donate-content"> <!-- pending -->
+      <div class="box-w">
+        <div class="images">
+          <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)">
+            <img src="../images/1.jpg" alt="">
+          </a>
+          <div class="hide">
+          <a class="fancybox2" rel="gallery1" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
+            <img src="http://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
+          </a>
+          <a class="fancybox2" rel="gallery1" href="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_b.jpg" title="Codirosso spazzacamino (Massimo Greco _Foligno)">
+            <img src="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_m.jpg" alt="" />
+          </a>
+          </div>
+          <div class="ifrm">
+            <iframe width="488" height="318" src="https://www.youtube.com/embed/kqL2G9YLB1c" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="text">
+          <p><strong style=" text-transform:uppercase"><%= @challenge.user.first_name %> <%= @challenge.user.last_name %></strong> is running the <span style=" text-transform:uppercase"><%= @challenge.race.name %></span> <br>to benefit <span class="blue" style=" text-transform:uppercase"><%= @challenge.cause.name %></span> <br>in <span class="blue" style=" text-transform:uppercase"><%= @challenge.race.date %></span>.</p>
+          <p>Support them with your donation!</p>
+          <div class="social">
+            <a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us/challenges/<%= @challenge.id %>" target="_blank"><img src="../images/tw.png" alt=""></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=mymiles.us/challenges/<%= @challenge.id %>" target="_blank"><img src="../images/fb.png" alt=""></a>
+          </div>
+        </div>
+        <div class="right">
+          <a href="<%= donation_path(@conn, :new, @challenge.id) %>" class="btn-donate">DONATE <br>NOW!</a>
+          <h4>DONORS</h4>
+          <div class="slider-v">
+            <div class="slides">
+              <div class="item">
+                <ul>
+                  <%= for donation <- @challenge.donations do %>
+                    <li><%= donor(donation.user_id) %><span class="righty">$ <%= donation.total_donated %></span></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- / body -->
+
+
+<div id="body">
   <div class="run-head">
     <h2><%= @challenge.name %></h2>
     <div class="cols">

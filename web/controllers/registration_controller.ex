@@ -1,6 +1,11 @@
 defmodule Dennis.RegistrationController do
   use Dennis.Web, :controller
+
+  import Ecto.Changeset, only: [put_change: 3]
+
   alias Dennis.User
+  alias Dennis.Session
+  alias Dennis.Registration
 
   plug :scrub_params, "user" when action in [:create, :update]
 
@@ -90,8 +95,23 @@ defmodule Dennis.RegistrationController do
   def profile(conn, _params) do
     id = get_session(conn, :current_user)
     user = Repo.get!(User, id)
-    changeset = User.update_changeset(user)
+    changeset = User.profile_changeset(user)
     render(conn, "profile.html", user: user, changeset: changeset)
+  end
+
+  def change_password(conn, %{"pswd_params" => password_params}) do
+    id = get_session(conn, :current_user)
+    user = Repo.get!(User, id)
+
+    case Session.authenticate(user, password_params["old_password"]) do
+      true -> 
+        changeset = User.change_password_changeset(User, password_params)
+        changeset
+        |> put_change(:hashed_pswd, Registration.hashed_password(changeset.params["password"]))
+        |> Dennis.Repo.update
+      _    ->
+    end
+
   end
 
   def update_profile(conn, %{"user" => user_params}) do

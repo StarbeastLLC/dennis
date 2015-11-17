@@ -1,55 +1,79 @@
 <div id="body">
-    <div class="dashboard-con">
-      <div class="container">
-        <div class="title">
-          <h1>DASHBOARD</h1>
+  <div class="select-op type-2">
+    <h4>DASHBOARD</h4>
+  </div>
+  <div class="user-details">
+    <div class="container">
+      <div class="left">
+        <img src="../images/1.png" alt="">
+        <span class="name">PAUL SCHWARZ</span>
+      </div>
+      <div class="global">
+        <div class="label">
+          GLOBAL<br> ACUMULATED
         </div>
-        <center>
-          <a class="btn red" href="/dashboard/challenge">NEW CHALLENGE</a>
-          <a class="btn blue" href="/invite">INVITE CHARITY</a>
-        </center>
-        <br>
-        
-        <section> 
-        <div class="title">
-          <h1>MY CAUSES</h1>
-        </div> 
-        <%= for cause <- @causes do %>
-          <article>
-            <div class="pic"><img src="<%= cause_main_photo(cause) %>" alt="<%= cause.name %>"></div>
-            <div class="info">
-              <h3><%= cause.name %></h3>
-              <p class="text"><em><%= cause.description %></em></p>
-              <a class="btn red" href="/dashboard/cause/<%= cause.id %>">STATS</a>
-            </div>
-          </article>
-          <% end %>
-        </section>
-
-        <hr>
-        <section> 
-        <div class="title">
-          <h1>MY CHALLENGES</h1>
-        </div> 
-        <%= for challenge <- @challenges do %>
-          <article>
-            <div class="pic"><img src="<%= challenge_main_photo(challenge) %>" alt="<%= challenge.name %>"></div>
-            <div class="info">
-              <h3><%= challenge.name %></h3>
-              <p class="text"><em><%= challenge.description %></em></p>
+        <div class="digits">
+          $ 18,290
+        </div>
+      </div>
+      <div class="dash-list">
+      <div class="scroll scroll1">
+              <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+              <div class="viewport">
+                   <div class="overview">
+            <div class="ovrel">
               <ul>
-                <li>MILES BOUGHT</li>
-                <li>PRICE PER MILE - $<%= challenge.mile_price %></li>
-                <li>RACE</li>
-                <li>CHARITY</li>
+                <%= for cause <- @causes do %>
+                  <li>
+                    <div class="box active">
+                      <a href="/dashboard/cause/<%= cause.id %>"><img src="<%= cause_main_photo(cause) %>" alt="<%= cause.name %>"></a>
+                      <div class="text">
+                        <%= cause.name %><br>—<br>$ 7000
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
+
+                <%= for challenge <- @challenges do %>
+                  <li>
+                    <div class="box active">
+                      <a href="/dashboard/challenge/<%= challenge.id %>"><img src="<%= challenge_main_photo(challenge) %>" alt="<%= challenge.name %>"></a>
+                      <div class="text">
+                        <%= challenge.name %><br>—<br>$ 7000
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
+
+                <li>
+                  <div class="box active">
+                    <a href="#"><img src="../images/d1.jpg" alt=""></a>
+                    <div class="text">
+                      Save the whales<br>—<br>$ 7000
+                    </div>
+                  </div>
+                </li>
+                
+                <li>
+                  <div class="box finished">
+                    <a href="#"><img src="../images/d3.jpg" alt=""></a>
+                    <div class="text">
+                      My dog <br>is sick<br>—<br>$ 1290
+                    </div>
+                  </div>
+                </li>
+
               </ul>
-              <a class="btn red" href="/dashboard/challenge/<%= challenge.id %>">STATS</a>
             </div>
-          </article>
-          <% end %>
-        </section>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="btns">
+        <a href="/invite" class="btn">INVITE ORG</a>
+        <a href="/dashboard/challenge" class="btn">NEW CHALLENGE</a>
       </div>
     </div>
-    <!-- / container -->
   </div>
-  <!-- / body -->
+</div>
+<!-- / body -->

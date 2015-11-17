@@ -279,7 +279,10 @@ a:hover {
 #menu .current a,
 #menu a:hover {
 	text-decoration: none;
+	/*
 	border-bottom: 2px solid #ed4d4e;
+	*/
+
 }
 
 
@@ -2316,7 +2319,7 @@ a.btn.red,
 	width: 221px;
 	height: 68px;
 	line-height: normal;
-	color: #02A8D3;
+	color: #02A8D3 !important;
 	font-family: "Montserrat";
 	font-size: 33px;
 	font-weight: 700;
@@ -2332,7 +2335,7 @@ a.btn.red,
 	width: 291px;
 	height: 61px;
 	line-height: normal;
-	color: #02A8D3;
+	color: #02A8D3 !important;
 	font-family: "Montserrat";
 	font-size: 25px;
 	font-weight: 700;
@@ -2522,7 +2525,7 @@ a.btn.red,
 }
 
 .form-create {
-	background: url(../img/bg_blue.png);
+	background: url(../images/bg_blue.png);
 	text-align: center;
 	overflow: hidden;
 	padding: 70px 0;
@@ -2590,7 +2593,7 @@ a.btn.red,
 .user-details {
 	overflow: hidden;
 	padding: 62px 0 0;
-	background: url(../img/bg_grey.png);
+	background: url(../images/bg_grey.png);
 }
 
 .user-details .container {
@@ -2704,7 +2707,7 @@ a.btn.red,
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: url(../img/bg_fin.png) no-repeat;
+	background: url(../images/bg_fin.png) no-repeat;
 	background-size: cover;
 	position: absolute;
 }
