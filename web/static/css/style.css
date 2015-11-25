@@ -1676,6 +1676,7 @@ a.btn.red,
 	display: block;
 	color: #FFF;
 	font-family: "Montserrat";
+	text-decoration: none;
 	line-height: 64px;
 	text-align: center;
 	padding: 25px;
@@ -2858,6 +2859,30 @@ a.btn.red,
 	height: 1129px;
 }
 
+.height2.full .scroll .scrollbar {
+	right: 15px;
+}
+.full.cols-2-haf.height2 {
+	background: url(../images/bg_blue.png);
+	padding-bottom: 90px;
+}
+.policy-text {
+	padding: 8px 40px 0;
+}
+.full.cols-2-haf.height2 .inside {
+	padding: 37px 0 0;
+	border-bottom: 1px solid #acacac;
+	border-top: 1px solid #acacac;
+}
+.full.cols-2-haf.height2 .scroll .viewport {
+	height: 620px;
+}
+.full.cols-2-haf.height2 p {
+	font-size: 25px;
+	line-height: 37px;
+	padding-bottom: 39px;
+}
+
 .full.cols-2-haf ul {
 	margin-left: -54px;
 }
@@ -2996,6 +3021,7 @@ a.btn-white {
 	padding: 0 20px;
 	margin: auto;
 	display: inline-block;
+	right: 0;
 	line-height: 50px;
 	height: 54px;
 	background-color: #FFF;
@@ -3108,9 +3134,11 @@ a.btn-white {
 .create-content .crf-s:before {
 	width: 63px;
 	height: 61px;
+	z-index: 9;
 }
 
 .create-content .crf-s:after {
+	z-index: 10;
 	margin: 8px 5px;
 	border-width: 23px 14px 0 14px;
 }
@@ -3532,6 +3560,8 @@ a.btn-white {
 	text-align: right;
 	float: left;
 }
+
+.input-check .plus,
 .form-donation .counting .row .plus {
 	width: 30px;
 	background: #ed4d4e;
@@ -3542,6 +3572,7 @@ a.btn-white {
 	height: 29px;
 	text-indent: -99em;
 }
+.input-check .plus:after,
 .form-donation .counting .row .plus:after {
 	content: "";
 	position: absolute;
@@ -3554,6 +3585,7 @@ a.btn-white {
 	border-width: 0 7px 11px 7px;
 	border-color: transparent transparent #fff transparent;
 }
+.input-check .minus:after,
 .form-donation .counting .row .minus:after {
 	content: "";
 	position: absolute;
@@ -3566,6 +3598,7 @@ a.btn-white {
 	border-width: 11px 7px 0 7px;
 	border-color: #fff transparent transparent transparent;
 }
+.input-check .minus,
 .form-donation .counting .row .minus {
 	width: 30px;
 	background: #ed4d4e;
@@ -3576,11 +3609,31 @@ a.btn-white {
 	height: 29px;
 	text-indent: -99em;
 }
+.input-check,
 .form-donation .counting .row .input {
 	width: 150px;
 	height: 61px;
 	float: right;
 	position: relative;
+}
+.input-check {
+	margin-right: -10px;
+}
+.input-check input {
+	border-width: 1px;
+	width: 150px;
+	height: 61px;
+	float: right;
+	line-height: normal;
+	text-align: center;
+	color: #00002B;
+	margin-right: 10px;
+	font-family: "Montserrat";
+	font-size: 38px;
+	font-weight: 400;
+	background-color: #FFF;
+	border: 1px solid #CDCDCD;
+	overflow: hidden;
 }
 .form-donation .counting .row input {
 	border-width: 1px;
@@ -3601,6 +3654,67 @@ a.btn-white {
 	font-weight: bold;
 	color: #ed4d4e;
 }
+.select-op.not {
+	border-bottom: 0;
+	background: url(../img/bg_white.png);
+	padding-top: 10px;
+}
+.blue-bg {
+	padding: 67px 0;
+	background: url(../img/bg_blue.png);
+}
+.blue-bg .container {
+	width: auto;
+	padding: 0;
+	max-width: 1600px;
+}
+.blue-bg .image {
+	width: 283px;
+	text-align: right;
+	float: left;
+}
+.blue-bg h3 {
+	color: #FEFEFF;
+	font-size: 29px;
+	font-weight: 700;
+	text-transform: uppercase;
+	background: #02a8d3;
+	padding: 0 15px;
+	display: inline-block;
+	line-height: 50px;
+}
+.blue-bg article p {
+	padding: 17px;
+}
+.blue-bg article:nth-child(even) .text p {
+	padding: 20px 10px 13px;
+}
+.blue-bg article:nth-child(even) .text {
+	text-align: right;
+	padding-left: 60px;
+}
+.blue-bg article:nth-child(even) .image {
+	float: right;
+	width: 215px;
+}
+.blue-bg article:last-child {
+	border-bottom: 0;
+	padding-bottom: 40px;
+	margin-bottom: 0;
+}
+.blue-bg article {
+	overflow: hidden;
+	color: #00002B;
+	font-size: 25px;
+	line-height: 37px;
+	font-weight: 400;
+	padding-bottom: 50px;
+	margin-bottom: 46px;
+	border-bottom: 1px solid #acacac;
+}
+.blue-bg .text {
+	overflow: hidden;
+}
 
 /* Media
 ------------------------------------------------------------------------------*/ 
@@ -3613,6 +3727,14 @@ a.btn-white {
 	.full.cols-2-haf .inside {
 		padding: 0 100px 0 20px;
 		width: auto;
+	}
+
+}
+
+@media screen and (max-width: 1920px) {
+	.cols-2-haf li .titles {
+		font-size: 18px;
+		line-height: normal;
 	}
 
 }
@@ -3913,6 +4035,27 @@ a.btn-white {
 
 }
 @media screen and (max-width: 1020px) {
+
+	.full.cols-2-haf.height2 .inside {
+		border: 0;
+		padding: 0;
+	}
+	.full.cols-2-haf.height2 {
+		padding-bottom: 0;
+	}
+	.full.cols-2-haf.height2 .scroll .viewport {
+		height: auto;
+	}
+	.blue-bg article .image,
+	.blue-bg article:nth-child(even) .image {
+		width: 150px;
+	}
+	.blue-bg article {
+		padding: 0 20px;
+	}
+	.blue-bg article .image img {
+		width: 100%;
+	}
 
 	.pro-details {
 		padding: 20px 0;
@@ -4737,6 +4880,75 @@ a.btn-white {
 
 @media screen and (max-width: 767px) {
 
+	.policy-text {
+		padding: 20px;
+	}
+	.full.cols-2-haf.height2 p {
+		padding: 0 0 15px;
+		font-size: 15px;
+		line-height: 21px;
+	}
+	.blue-bg article {
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	.blue-bg article:nth-child(even) .text {
+		text-align: center;
+		padding: 0;
+	}
+	.blue-bg article .image {
+		padding-left: 25px;
+		width: auto;
+		margin-bottom: 0;
+		text-align: center;
+	}
+	.blue-bg article .image img {
+		height: 70px;
+		width: auto;
+	}
+	.blue-bg article:nth-child(even) .image {
+		padding-right: 25px;
+		width: auto;
+		margin-bottom: 0;
+		text-align: center;
+	}
+	.blue-bg article p {
+		padding: 15px 0;
+		font-size: 11px;
+		line-height: 14px;
+	}
+	.blue-bg {
+		padding: 15px 0;
+	}
+	.blue-bg article .image, .blue-bg article:nth-child(even) .image {
+		float: none;
+		margin: 0 auto 10px;
+	}
+	.blue-bg h3 {
+		font-size: 14px;
+		line-height: 30px;
+		height: auto;
+		display: inline-block;
+	}
+	.input-check input {
+		float: none;
+		width: 100%;
+		margin: 0;
+	}
+	.input-check a {
+		right: 1px !important; 
+	}
+	.input-check {
+		float: none;
+		margin: 0;
+		width: auto;
+		clear: both;
+	}
+	.input-check input {
+		font-size: 16px;
+		text-align: left;
+	}
+
 	.form-donation fieldset {
 		margin-bottom: 15px;
 		padding-bottom: 15px;
@@ -5031,6 +5243,132 @@ a.btn-white {
 		width: 100%;
 	}
 }
+
+@media screen and (min-width: 1400px) and (max-width: 1700px) {
+	.create-content .ww {
+		float: left;
+		width: 46%;
+		margin: 0 0 0 3%;
+	}
+	.create-content .ww + .ww {
+		margin-right: 3%;
+		margin-left: 0;
+		float: right;
+		clear: none;
+	}
+	.create-content .file-set .url {
+		font-size: 14px;
+	}
+	.create-content .hal label {
+		font-size: 20px;
+	}
+}
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+	.create-content .ww {
+		float: left;
+		width: 46%;
+		padding: 15px 15px 45px;
+		margin: 0 0 0 3%;
+	}
+	.create-content .checkbox label {
+		margin: 15px 0;
+		font-size: 20px;
+	}
+	.create-content img {
+		max-width: 300px;
+	}
+	.create-content .file-set .url {
+		clear: both;
+		margin-left: 185px;
+		padding-top: 10px;
+	}
+	.create-content .file-set {
+		padding-bottom: 35px;
+	}
+	.create-content .ww + .ww {
+		margin-right: 3%;
+		margin-left: 0;
+		float: right;
+		clear: none;
+	}
+	.create-content .file-set .url {
+		font-size: 12px;
+		line-height: 30px;
+	}
+	.create-content .file-set .btn {
+		font-size: 16px;
+		width: 160px;
+		height: 30px;
+		line-height: 30px;
+	}
+	.create-content .file-set p.ss,
+	.create-content .file-set p {
+		width: 200px;
+		font-size: 14px;
+		line-height: 30px;
+		padding-left: 20px;
+	}
+	.create-content .hal label {
+		font-size: 15px;
+		padding-top: 5px;
+		margin-bottom: -15px;
+	}
+	.create-content .kids h4 {
+		margin-bottom: 28px;
+	}
+	.form-create .photo {
+		margin-top: -40px;
+	}
+	.form-create.user-profile .left-form.rr {
+		padding-left: 20px;
+	}
+	.form-create.user-profile h4,
+	.form-create.user-profile h3 {
+		font-size: 35px;
+		padding-bottom: 20px;
+	}
+	.form-create.user-profile h3 {
+		padding-bottom: 58px;
+	}
+	.form-create .left-form {
+		float: left;
+		width: 50%;
+		padding-right: 20px;
+	}
+	.form-create fieldset input {
+		font-size: 14px;
+	}
+	.form-create fieldset textarea {
+		padding: 7px 0;
+		font-size: 14px;
+	}
+	.form-create .left-form label {
+		font-size: 16px;
+	}
+	.form-create .right-upload {
+		float: right;
+		width: 50%;
+		padding-left: 20px;
+	}
+	.form-create .file-set .url {
+		font-size: 14px;
+	}
+	.form-create .right-upload h3 {
+		margin-top: 0;
+	}
+	.form-create .file-set p {
+		width: 80px;
+		font-size: 14px;
+	}
+	.form-create .file-set .btn {
+		width: 100px;
+		height: 40px;
+		line-height: 40px;
+		margin-top: 7px;
+		font-size: 12px;
+	}
+}
+
 @media screen and (max-width: 600px) {
 
 	.dash-list .box .text {
@@ -5460,4 +5798,31 @@ a.btn-white {
 
 .stripe-btn:hover {
 	text-decoration: none;
+}
+
+.datapicker  {
+	color: #02A8D3 !important;			
+	position: relative;
+}
+.datapicker  input {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 177px;
+	border: 0;
+	background: #fff;
+	right: 0;
+	width: 100%;
+	padding: 0;
+	height: 100%;
+}
+.touch-device  .scroll .viewport {
+	height: auto !important;
+	max-width: none !important;
+}
+.touch-device .scroll .overview {
+	position: static;
+}
+.touch-device .scrollbar {
+	display: none;
 }

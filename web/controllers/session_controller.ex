@@ -10,11 +10,11 @@ defmodule Dennis.SessionController do
       {:ok, user} ->
         conn
         |> put_session(:current_user, user.id)
-        |> put_flash(:info, "Logged in")
+        |> put_flash(:info, "Welcome!")
         |> redirect(to: "/dashboard")
       :error ->
         conn
-        |> put_flash(:info, "Wrong email or password")
+        |> put_flash(:info, "Oops! Your email and/or password may be invalid, please try again.")
         |> render("new.html")
     end
   end
@@ -22,7 +22,7 @@ defmodule Dennis.SessionController do
   def delete(conn, _) do
     conn
     |> delete_session(:current_user)
-    |> put_flash(:info, "Logged out")
+    |> put_flash(:info, "Succesfully logged out.")
     |> redirect(to: "/")
   end
 end

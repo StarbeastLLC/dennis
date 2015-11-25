@@ -17,13 +17,13 @@ defmodule Dennis.AthleteController do
     causes = Cause.user_causes(user_id)
 		render(conn, "athlete.html", challenges: challenges, causes: causes, user: user)
 	end
-
-  def new_challenge(conn, _params) do
-    render_new_challenge conn, Challenge.changeset(%Challenge{})
-  end
   
   def new_challenge(conn, %{"cause_id" => id}) do
     render_new_challenge conn, Challenge.changeset(%Challenge{cause_id: id})
+  end
+
+  def new_challenge(conn, _params) do
+    render_new_challenge conn, Challenge.changeset(%Challenge{})
   end
 
   defp render_new_challenge(conn, challenge_changeset) do
@@ -49,7 +49,7 @@ defmodule Dennis.AthleteController do
         |> Repo.update
 
         conn
-        |> put_flash(:info, "Challenge created successfully.")
+        |> put_flash(:info, "Your challenge has been created successfully!")
         |> redirect(to: "/dashboard")
     else
         render_new_challenge conn, full_changeset
@@ -77,11 +77,11 @@ defmodule Dennis.AthleteController do
       {:ok, user} = Repo.insert(changeset)
       Mailer.send_invitation(subject, user_name, email, token, message, org_name)
       conn
-      |> put_flash(:info, "Your invitation was sent")
+      |> put_flash(:info, "Great! Your invitation was sent to the charity.")
       |> redirect to: "/dashboard"
     else
       conn
-      |> put_flash(:error, "This charity has already been invited.")
+      |> put_flash(:error, "Oops! This charity has already been invited.")
     end
   
   end

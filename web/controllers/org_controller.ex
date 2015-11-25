@@ -32,7 +32,7 @@ defmodule Dennis.OrgController do
         |> Repo.update
 
         conn
-        |> put_flash(:info, "Cause created successfully.")
+        |> put_flash(:info, "Great! Now your cause will be able to receive donations.")
         |> redirect(to: "/dashboard")
     else
         render(conn, "new-cause.html", changeset: full_changeset)

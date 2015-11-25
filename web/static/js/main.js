@@ -1,6 +1,81 @@
+function is_touch_device() {
+  return 'ontouchstart' in window // works on most browsers 
+      || 'onmsgesturechange' in window; // works on ie10
+};
+
 $(document).ready(function() {
+
+    $('.minus, .plus').click(function(e){
+        e.preventDefault();
+        
+        type      = $(this).attr('class');
+        var input = $(".input input");
+        var currentVal = parseInt(input.val());
+        if (!isNaN(currentVal)) {
+            if(type == 'minus') {
+                
+                if(currentVal > input.attr('min')) {
+                    input.val(currentVal - 1).change();
+                } 
+                if(parseInt(input.val()) == input.attr('min')) {
+                    $(this).attr('disabled', true);
+                }
+            } else if(type == 'plus') {
+                if(currentVal < input.attr('max')) {
+                    input.val(currentVal + 1).change();
+                }
+                if(parseInt(input.val()) == input.attr('max')) {
+                    $(this).attr('disabled', true);
+                }
+            }
+        } else {
+            input.val(0);
+        }
+    });
+    // $.getScript("/demo/demo.js");
+    $('.input input').focusin(function(){
+       $(this).data('oldValue', $(this).val());
+    });
+    $('.input input').change(function() {
+        
+        minValue =  parseInt($(this).attr('min'));
+        maxValue =  parseInt($(this).attr('max'));
+        valueCurrent = parseInt($(this).val());
+        
+        name = $(this).attr('name');
+        if(valueCurrent >= minValue) {
+            $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+        } else {
+            alert('Sorry, the minimum value was reached');
+            $(this).val($(this).data('oldValue'));
+        }
+        if(valueCurrent <= maxValue) {
+            $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+        } else {
+            alert('Sorry, the maximum value was reached');
+            $(this).val($(this).data('oldValue'));
+        }
+        $(".total input").val("$ "+valueCurrent*$(".default").val().replace("$ ", ""));
+        
+        
+    });
+    $('.input input').keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                 // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) || 
+                 // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                     // let it happen, don't do anything
+                     return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
     $("select").crfs();
-    $(".create-content .checkbox input, .reddem-modal .checkbox input").crfi();
+    $(".create-content .checkbox input, .reddem-modal .checkbox input, .form-donation input[type=checkbox]").crfi();
     $('.bxslider').bxSlider();
 
     $(".file-set input[type=file]").change(function() {
@@ -67,11 +142,23 @@ $(window).load(function() {
         pager: false
     });
 
+    $( "#datepicker" ).datepicker({
+        dateFormat: "dd/mm/yy"
+    });
+    if (is_touch_device()) {
+        $("body").addClass("touch-device")
+    } else {
+
     var $scrollbar6 = $('.scroll1');
     if ($(".dash-list").length) {
         $scrollbar6.tinyscrollbar({
             thumbSize: 21,
             trackSize: 640
+        });
+    } else if ($(".cols-2-haf.full.height2").length) {
+        $scrollbar6.tinyscrollbar({
+            thumbSize: 21,
+            trackSize: 570
         });
     } else if ($(".cols-2-haf.full").length) {
         $scrollbar6.tinyscrollbar({
@@ -127,7 +214,7 @@ $(window).load(function() {
         };
         return false;
     });
-
+};
     window.setTimeout(function() {
         $(".welcome .video").addClass("loaded")
     }, 1000);

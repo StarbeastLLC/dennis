@@ -20,7 +20,7 @@ defmodule Dennis.RegistrationController do
     cond do
       user == nil ->
         conn
-        |> put_flash(:error, "Your invitation token is invalid, please ask for a new one.")
+        |> put_flash(:error, "It appears your invitation token has expired, please request a new one.")
         |> redirect(to: "/request-invite")
       user ->
         changeset = User.changeset(user)
@@ -36,11 +36,11 @@ defmodule Dennis.RegistrationController do
       {:ok, user} = Dennis.Registration.create(changeset)
       conn
       |> put_session(:current_user, user.id)
-      |> put_flash(:info, "Your account was created")
+      |> put_flash(:info, "Welcome, #{Map.get(user_params, "first_name")}! Please start a challenge.")
       |> redirect(to: "/")
     else
       conn
-      |> put_flash(:info, "Unable to create account")
+      |> put_flash(:info, "Oops! Something went wrong, please try again.")
       |> render("new.html", changeset: changeset)
     end
   end
@@ -53,11 +53,11 @@ defmodule Dennis.RegistrationController do
       {:ok, user} ->
         conn
         |> put_session(:current_user, user.id)
-        |> put_flash(:info, "Welcome to MyMiles.")
+        |> put_flash(:info, "Amazing, #{Map.get(user_params, "first_name")}! You can now be part of a challenge and start receiving donations.")
         |> redirect(to: "/dashboard")
       {:error, changeset} ->
         conn
-        |> put_flash(:error, "Please check your inputs.")
+        |> put_flash(:error, "Oops! Something went wrong, please try again.")
         |> render("new.html", changeset: changeset, user: user)
     end
   end
@@ -79,15 +79,15 @@ defmodule Dennis.RegistrationController do
       {:ok, user} ->
         conn
         |> put_session(:current_user, user.id)
-        |> put_flash(:info, "Welcome to MyMiles.")
+        |> put_flash(:info, "Welcome, #{Map.get(user_params, "first_name")}! Please start a challenge.")
         |> redirect(to: "/dashboard")
       {:cant_fb_login} ->
         conn
-        |> put_flash(:error, "Please login using your password.")
+        |> put_flash(:error, "It appears your account is not linked to Facebook, please login using your email and password.")
         |> redirect(to: "/login")
       {:error, changeset} ->
         conn
-        |> put_flash(:error, "Unable to create account")
+        |> put_flash(:error, "Oops! Something went wrong, please try again.")
         |> render("new.html", changeset: changeset)
     end
   end
@@ -111,11 +111,11 @@ defmodule Dennis.RegistrationController do
         Dennis.Repo.update(changeset)
 
         conn
-        |> put_flash(:info, "Password changed successfully.")
+        |> put_flash(:info, "Your new password has been set correctly.")
         |> redirect(to: "/profile")
       _    ->
         conn
-        |> put_flash(:info, "Current password seems invalid. Try again.")
+        |> put_flash(:info, "Password mismatch.")
         |> redirect(to: "/profile")
     end
 
@@ -129,11 +129,11 @@ defmodule Dennis.RegistrationController do
     case Repo.update(changeset) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "User updated successfully.")
+        |> put_flash(:info, "Your profile has been updated.")
         |> redirect(to: "/profile")
       {:error, changeset} ->
         conn
-        |> put_flash(:error, "The data entered is invalid.")
+        |> put_flash(:error, "Oops! Something went wrong, please try again.")
         |> render("profile.html", user: user, changeset: changeset)
     end
   end

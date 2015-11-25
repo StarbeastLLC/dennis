@@ -10,7 +10,7 @@ defmodule Dennis.DashboardController do
   	id = get_session(conn, :current_user)
     unless id do
       conn
-      |> put_flash(:error, "Please create an account or log in.")
+      |> put_flash(:error, "You need to login to continue.")
       |> redirect(to: "/")
     end
     user = Repo.get!(User, id)

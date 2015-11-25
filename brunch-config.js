@@ -16,6 +16,9 @@ exports.config = {
       order: {
          before: [
            'bower_components/jquery/dist/jquery.js',
+           'bower_components/bxslider-4/jquery.bxslider-4.js',
+           'bower_components/fancybox/source/jquery.fancybox.js',
+           'bower_components/TinyScrollbar/jquery.tinyscrollbar.js',
            'web/static/vendor/plugins.js',
          ]
       }
