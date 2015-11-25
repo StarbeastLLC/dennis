@@ -1,6 +1,12 @@
 defmodule Dennis.OrgView do
   use Dennis.Web, :view
 
+  alias Dennis.States
+
+  def us_states do
+    States.us_states
+  end
+
   def tweet_cause(conn, cause) do
   	"https://twitter.com/intent/tweet?text=#{cause.name}&url=#{org_path(conn, :show_cause, cause)}"
   end

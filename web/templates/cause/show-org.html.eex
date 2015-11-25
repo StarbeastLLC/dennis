@@ -5,7 +5,7 @@
   <div class="pro-details">
     <div class="container">
       <div class="image">
-        <img src="../images/c0.jpg" alt="">
+        <img style="min-height:600px; min-width:600px; max-width:600px; max-height:600px" src="<%= avatar_url(@user) %>" alt="">
       </div>
       <div class="text">
         <h2><%= @user.org_name %></h2>

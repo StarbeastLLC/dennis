@@ -6,9 +6,9 @@
     <div class="container">
       <div class="left">
       <%= if is_fb_user(@user) do %>
-        <img src="<%= fb_avatar_url(@user) %>" alt="">
+        <img style="max-height:250px; max-width:250px" src="<%= fb_avatar_url(@user) %>" alt="">
       <% else %>
-        <img src="<%= avatar_url(@user) %>" alt="">
+        <img style="max-height:250px; max-width:250px" src="<%= avatar_url(@user) %>" alt="">
       <% end %>
         <span class="name" style="text-transform:uppercase"><%= @user.first_name %> <%= @user.last_name %></span>
       </div>
@@ -30,9 +30,9 @@
                 <%= for cause <- @causes do %>
                   <li>
                     <div class="box active">
-                      <a href="/dashboard/cause/<%= cause.id %>"><img src="<%= cause_main_photo(cause) %>" alt="<%= cause.name %>"></a>
+                      <a href="/causes/<%= cause.id %>"><img style="max-width:400px; max-height:300px; min-width:200px"src="<%= cause_main_photo(cause) %>" alt="<%= cause.name %>"></a>
                       <div class="text">
-                        <%= cause.name %><br>—<br>$ 7000
+                        <%= cause.name %>
                       </div>
                     </div>
                   </li>
@@ -40,8 +40,8 @@
 
                 <%= for challenge <- @challenges do %>
                   <li>
-                    <div class="box active">
-                      <a href="/dashboard/challenge/<%= challenge.id %>"><img src="<%= challenge_main_photo(challenge) %>" alt="<%= challenge.name %>"></a>
+                    <div class="box">
+                      <a href="/challenges/<%= challenge.id %>"><img src="<%= challenge_main_photo(challenge) %>" alt="<%= challenge.name %>"></a>
                       <div class="text">
                         <%= challenge.name %><br>—<br>$ 7000
                       </div>

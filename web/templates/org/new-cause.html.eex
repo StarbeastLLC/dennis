@@ -24,19 +24,8 @@
 								<%= text_input f, :name, class: "form-control" %>
 							</div>
 						</fieldset>
-						<fieldset>
-							<label>Country</label>
-							<div class="text">
-								<%= text_input f, :country, class: "form-control" %>
-							</div>
-						</fieldset>
-						<fieldset>
-							<label>State</label>
-							<div class="text">
-								<%= text_input f, :state, class: "form-control" %>
-							</div>
-						</fieldset>
-
+						<label>State</label>
+                          <%= select f, :state, us_states() %>
 
 						<fieldset>
 							<label>Description</label>
@@ -54,12 +43,12 @@
 					<div class="right-upload">
 						<h3><span>UPLOAD</span></h3>
 						<div class="file-set">
-							<p>PICTUREs</p>
+							<p>VIDEO</p>
 							<input type="file" title="No file chosen" id="file">
 							<label for="file"><span class="btn">CHOOSE FILE</span><span class="url">Choose Files</span></label>
 						</div>
 						<div class="file-set">
-							<p>video</p>
+							<p>PICTURES</p>
 							<input type="file" title="No file chosen" id="file">
 							<label for="file"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
 							<%= file_input f, :photos, multiple: true, name: "cause[photos][]" %>

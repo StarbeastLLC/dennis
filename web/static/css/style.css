@@ -3439,6 +3439,169 @@ a.btn-white {
 	box-shadow: none;
 }
 
+.form-donation {
+	overflow: hidden;
+	padding: 55px 0 55px;
+	text-align: center;
+	background: url(../images/bg_grey.png);
+}
+.form-donation .btn {
+	width: 372px;
+	height: 63px;
+	margin: auto;
+	font-size: 33px;
+	background: #02a8d3;
+	border-radius: 10px;
+}
+.form-donation .container {
+	max-width: 100%;
+	padding: 0 10px;
+	width: 1545px;
+}
+.form-donation .thank {
+	margin-bottom: 40px;
+	font-size: 37px;
+	color: #00002b;
+	line-height: normal;
+	padding: 0 0 57px;
+	border-bottom: 1px solid #959595;
+}
+.form-donation label {
+	vertical-align: top;
+	display: inline-block;
+	font-size: 29px;
+	line-height: 57px;
+	font-weight: 400;
+	color: #00002B;
+}
+.form-donation fieldset {
+	vertical-align: top;
+	display: inline-block;
+	padding-bottom: 50px;
+}
+.form-donation .or {
+	vertical-align: top;
+	display: inline-block;
+	line-height: 57px;
+	font-size: 29px;
+	padding: 0 65px;
+	color: #00002B;
+}
+.form-donation .crf.checked:before {
+	background: url(../images/bg_check.png) no-repeat #C9C9C9 50% 50%;
+}
+.form-donation .crf:before {
+	width: 29px;
+	display: inline-block;
+	vertical-align: top;
+	content: "";
+	margin: 18px 28px 0 0;
+	height: 29px;
+	background-color: #C9C9C9;
+}
+.form-donation input {
+	vertical-align: top;
+	display: inline-block;
+	font-size: 29px;
+	width: 343px;
+	height: 57px;
+	margin: 0 10px;
+	background-color: #FFF;
+	border: 2px solid #CCC;
+	font-weight: 400;
+	color: #646466;
+}
+.form-donation .counting {
+	padding: 50px 0 26px;
+	margin-bottom: 48px;
+	border-top: 1px solid #959595;
+	border-bottom: 1px solid #959595;
+}
+.form-donation .counting .row {
+	overflow: hidden;
+	margin: auto;
+	padding-bottom: 19px;
+	width: 800px;
+}
+.form-donation .counting .row.total label {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.form-donation .counting .row label {
+	width: 600px;
+	text-align: right;
+	float: left;
+}
+.form-donation .counting .row .plus {
+	width: 30px;
+	background: #ed4d4e;
+	display: block;
+	position: absolute;
+	top: 1px;
+	right: 11px;
+	height: 29px;
+	text-indent: -99em;
+}
+.form-donation .counting .row .plus:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 8px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 7px 11px 7px;
+	border-color: transparent transparent #fff transparent;
+}
+.form-donation .counting .row .minus:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 2px;
+	margin: 8px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 11px 7px 0 7px;
+	border-color: #fff transparent transparent transparent;
+}
+.form-donation .counting .row .minus {
+	width: 30px;
+	background: #ed4d4e;
+	display: block;
+	position: absolute;
+	top: 31px;
+	right: 11px;
+	height: 29px;
+	text-indent: -99em;
+}
+.form-donation .counting .row .input {
+	width: 150px;
+	height: 61px;
+	float: right;
+	position: relative;
+}
+.form-donation .counting .row input {
+	border-width: 1px;
+	width: 150px;
+	height: 61px;
+	float: right;
+	line-height: normal;
+	text-align: center;
+	color: #00002B;
+	font-family: "Montserrat";
+	font-size: 38px;
+	font-weight: 400;
+	background-color: #FFF;
+	border: 1px solid #CDCDCD;
+	overflow: hidden;
+}
+.form-donation .thank strong {
+	font-weight: bold;
+	color: #ed4d4e;
+}
+
 /* Media
 ------------------------------------------------------------------------------*/ 
 @media screen and (max-width: 1780px) {
@@ -3455,6 +3618,13 @@ a.btn-white {
 }
 
 @media screen and (max-width: 1660px) {
+
+	.form-donation .or {
+		display: block;
+		line-height: normal;
+		padding: 0;
+		margin: -30px 0 0;
+	}
 
 	.dash-list .box .text {
 		padding: 30px;
@@ -4099,7 +4269,29 @@ a.btn-white {
 }
 
 
-@media screen and (max-width: 900px) {	
+@media screen and (max-width: 900px) {
+
+    .form-donation .counting .row {
+		width: auto;
+	}
+	.form-donation .counting .row label {
+		float: none;
+		display: block;
+		padding: 0;
+		text-align: center;
+		width: auto;
+		line-height: normal;
+	}
+	.form-donation .counting .row input,
+	.form-donation .counting .row .input {
+		margin: 5px auto 15px;
+		float: none;
+		display: block;
+	}
+	.form-donation .counting .row .minus,
+	.form-donation .counting .row .plus{
+		margin-right: -10px;
+	}	
 
 	.pro-details .image {
 		float: none;
@@ -4544,6 +4736,52 @@ a.btn-white {
 }
 
 @media screen and (max-width: 767px) {
+
+	.form-donation fieldset {
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+	}
+	.form-donation {
+		padding: 15px 0;
+	}
+	.form-donation .btn {
+		max-width: 100%;
+		font-size: 24px;
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+	.form-donation .counting {
+		padding: 20px 0 0;
+	}
+	.form-donation .counting .row {
+		padding-bottom: 20px;
+	}
+	.form-donation .counting .row label {
+		width: auto;display: block;
+		float: none;
+		text-align: center;
+	}
+	.form-donation .or {
+		font-size: 16px;
+		margin-top: -10px;
+	}
+	.form-donation input {
+		width: 80%;
+		font-size: 20px;
+		float: none;
+		margin: 0;
+		height: 30px;
+		line-height: normal;
+	}
+	.form-donation label {
+		font-size: 16px;
+	}
+	.form-donation .thank {
+		font-size: 20px;
+		line-height: normal;
+		padding: 0 0 15px;
+		margin-bottom: 15px;
+	}
 
 	.pro-details .scroll {padding: 10px 0;
 		margin-bottom: 15px;}

@@ -16,12 +16,13 @@ defmodule Dennis.Donation do
     field :tip, :integer
     field :total_donated, :integer
     field :is_anonymous, :boolean, default: false
+    field :name, :string
 
     timestamps
   end
 
-  @required_fields ~w(miles_bought tip total_donated transaction_token challenge_id)
-  @optional_fields ~w(authorization_token user_id)
+  @required_fields ~w(miles_bought total_donated transaction_token challenge_id)
+  @optional_fields ~w(authorization_token user_id name tip)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

@@ -6,8 +6,8 @@
 		<div class="col">
 			<div class="inside">
 			<div class="head">
-				<h3>Existing <br>Non Profits</h3>
-				<p>Select from existing<br>Non Profits or include<br>one of your preference.</p>
+				<h3>Existing <br>Charities</h3>
+				<p>Select from existing<br>Charities or invite<br>one of your preference.</p>
 			</div>
 			<div class="scroll scroll1">
 	            <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
@@ -17,7 +17,8 @@
 							<ul>
 							  <%= for org_cause <- @org_causes do %>
 							    <li>
-							      <a href="#"><img src="../images/n1.png" alt=""><span class="titles" style="text-transform:uppercase"><%= org_cause.name %> </span></a>
+							      <a href="?cause_id=<%= org_cause.id %>#form"><img src="<%= avatar_url(org_cause.user) %>" alt=""><span class="titles" style="text-transform:uppercase"><%= org_cause.name %> </span></a>
+							      <span style="display:none"><%= org_cause.id %></span>
 							    </li>
 							  <% end %>
 
@@ -27,7 +28,7 @@
 				</div>
 			</div>
 			<div class="btn-holder0">
-				<a href="/invite" class="btn-white">ADD A CHARITY</a>
+				<a href="#chart" class="btn-white fancybox-open">ADD A CHARITY</a>
 			</div>
 			</div>
 		</div>
@@ -46,7 +47,7 @@
 							<ul>
 							  <%= for athlete_cause <- @athlete_causes do %>
 							    <li>
-							      <a href="#"><img src="../images/m.png" alt=""><span class="mask" style="text-transform:uppercase"><%= athlete_cause.name %> <br>—<br>$ 320 USD</span></a>
+							      <a href="?cause_id=<%= athlete_cause.id %>#form"><img style="max-height:300px; max-width:300px; min-height:150px"src="<%= photo_url(athlete_cause) %>" alt=""><span class="mask" style="text-transform:uppercase"><%= athlete_cause.name %> <br>—<br>$ 320 USD</span></a>
 							    </li>
 							  <% end %>
 
@@ -65,7 +66,7 @@
 <!-- / select-cause -->
 
 <div id="body">
-	<div class="select-op red">
+	<div class="select-op red" id="form">
 		<h4>CREATE YOUR CHALLENGE</h4>
 	</div>
 	<div class="create-content">
@@ -82,6 +83,7 @@
                 <br>
               </div>
             <% end %>
+                <%= hidden_input f, :cause_id, class: "form-control", value: "12" %>
 				<fieldset class="hal">
 					<label>Please enter your price per mile</label>
 					<select><option>$ 25</option></select>
@@ -89,31 +91,54 @@
 				</fieldset>
 				<fieldset>
 					<%= text_input f, :name, class: "form-control", placeholder: "CHALLENGE NAME" %>
-					<input type="text" placeholder="RACE NAME">
-					<select><option>RACE DATE: DD/MM/YYYY</option></select>
-					<br>
+					<!-- race -->
+					<%= inputs_for f, :race, fn i -> %>
+  						<div class="form-group">
+	    					<%= label i, :name, "Race Name", class: "control-label" %>
+	    					<%= text_input i, :name, class: "form-control" %>
+	    					<%= if message = i.errors[:name] do %>
+	      						<span class="help-block"><%= message %></span>
+	    					<% end %>
+	    					<%= label i, :date, "Race Date", class: "control-label" %>
+	    					<%= datetime_select i, :date, class: "form-control" %>
+	    					<%= if message = i.errors[:date] do %>
+	      						<span class="help-block"><%= message %></span>
+	    					<% end %>
+	    					<%= label i, :miles, "Race Miles", class: "control-label" %>
+	    					<%= text_input i, :miles, class: "form-control" %>
+	    					<%= if message = i.errors[:miles] do %>
+	      						<span class="help-block"><%= message %></span>
+	    					<% end %>
+  						</div>
+					<% end %>
 					<%= textarea f, :description, class: "form-control", placeholder: "MESSAGE TO DONORS" %>
 				</fieldset>
 				<div class="checkbox">
 					<input type="checkbox" checked>
 					<label>Yes, I want to redeem my race fee!</label>
 				</div>
-				<a href="#red" class="submit fancybox-open">SUBMIT</a>
+				<a href="#red" class="submit fancybox-open">TERMS</a>
+				<br><br><br><br>
+
 		</div>
 		<div class="right-box ww kids">
-			<img src="../images/kids.png" alt="">
+	    <%= if @changeset.model.cause_id do %>
+	    <img src="<%= cause_photo(@changeset.model.cause_id) %>" alt="">
+	    <% else %>
+	    <% end %>
 			<h4>UPLOAD YOUR FILES</h4>
 			<div class="file-set">
 				<p>Background Image File</p>
-				<input type="file" title="No file chosen" id="file">
-				<label for="file"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
-				<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]"] %>
+				<fieldset>
+					<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]"] %>
+				</fieldset>
+				
 			</div>
-			<div class="file-set">
+			<fieldset>
 				<p class="ss">Video file</p>
-				<input type="file" title="No file chosen" id="file3">
-				<label for="file3"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
-			</div>
+				<%= text_input f, :video, class: "form-control", placeholder: "Youtube URL" %>
+			</fieldset>
+			<%= submit "CREATE CHALLENGE", class: "submit" %>
 		</div>
 		<% end %>
 	</div>
@@ -127,7 +152,13 @@
         <div class="viewport">
              <div class="overview">
 				<div class="ovrel">
-					<p>List of redemption, rules and conditions:<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—</p>
+					<p><strong>Glossary of Terms</strong><br>
+<em>Race Fee </em> The amount in usd$ a Mymiles’ User pays for the registration in a race of their convenience. It may be a 5K, 10K, Half Marathon, or any preferred race. <br><em>Race Date </em>The date the race will be held.<br><em>Race </em> Any running, cycling, swimming or combined event chosen by the User.<br><em>Mymiles </em> Web and mobile platform for athletes that want to raise funds for any cause of their preference.<br><em>Challenge </em>Event created by the User in Mymiles platform, that contains all the info about the Race he/she will be running, the Cause chosen, its Price per Mile, Race Date.<br><em>Cause </em>The beneficiary of the Donations received by the User’s Challenge.<br><em>Price per Mile </em>The amount the User has chosen as a selling price for each of the miles he/she will be running as part of this specific Challenge.<br><em>Reimbursement Limit </em>The amount resulting of multiplying 6 times the amount paid for the User as a Race Fee for an individual Race.<br>
+<strong>Conditions</strong><br>
+1.- Given that a Mymiles’ user has decided to create a Challenge, he/she could choose to apply for the reimbursement of the applicable Race Fee.<br>2.- If the User chooses to apply for said reimbursement, he/she needs to read understand and accept these Terms and Conditions by ticking the respective checkbox while creating the Challenge.<br>3.- The User agrees that in order to be eligible for the Race Fee reimbursement, his/her Challenge needs to collect in benefit of the selected Cause, at least 6 times the amount paid as a Race Fee.
+ ie. Race Fee for the Chicago Marathon as in its 2015 edition: usd$250.00  Limit in which the user is eligible for Reimbursement: usd$250.00 x 6 = usd$1,500.00  ( This amount will be called Reimbursement Limit ).<br>
+4.- The User agrees that up until the moment said Challenge has reached the mentioned Reimbursement Limit, he/she is not eligible for any Reimbursement of any kind.<br>5.- Once the Challenge’s Donations reach the Reimbursement Limit, all the individual Donations received from this moment on by said Challenge, that represent an equal or smaller amount than the Race Fee paid by the User, will be redirected to the User’s bank account via Stripe, as partial payments.<br>6.- All individual Donations that represent a bigger amount than the Fee paid by the User, will not be eligible for this.<br>7.- Once the partial payments have totalled and amount equal to the paid Race Fee, all the next consecutive Donations received by the Challenge will be once again redirected to the selected Cause as in the beginning.<br>8.- The User understands that this doesn’t represent an obligation acquired by Mymiles to Reimburse the User for the FULL amount paid by the User as Race Fee, as there could be instances of the Donations that are not eligible for the partial payments of the Reimbursement of the Race Fee, as indicated in 6.<br>9.- This represents, however, the best effort from Mymiles to try and help the User to receive as reimbursement, as much as possible of the Race Fee.<br>10.- Once the Race Date has been reached, Challenges can’t accept any more Donations, therefore, no more Donations could be eligible for Partial Payments on Reimbursement of the Race Fee, even when said Partial Payments have not totalled an amount equal to the paid Race Fee.<br>11.- By ticking the checkbox mark on this page, the User fully agrees with these Terms and Conditions.
+</p>
 				</div>
 			</div>
 		</div>
@@ -138,81 +169,20 @@
 	</div>
 	<a href="#red" class="submit">CONTINUE</a>
 </div>
+<!-- / race fee popup -->
 
-<div id="body">
-	<div class="start-challenge">
-		<%= form_for @changeset, athlete_path(@conn, :create_challenge), [multipart: true], fn f -> %>
-            <%= if f.errors != [] do %>
-              <div class="alert alert-danger">
-                <p>Oops, something went wrong! Please check the errors below:</p>
-                <ul>
-                  <%= for {attr, message} <- f.errors do %>
-                    <li><%= humanize(attr) %> <%= message %></li>
-                  <% end %>
-                </ul>
-                <br>
-              </div>
-            <% end %>
-
-			<div class="container">
-				<div class="content">
-					<div class="left-col">
-						<h2>START YOUR <br>CHALLENGE</h2>
-						<fieldset>
-							<%= text_input f, :name, class: "form-control", placeholder: "NAME" %>
-						</fieldset>
-						<fieldset>
-							<%= select f, :cause_id, ["BE A GOOD PERSON": 1, "RED CROSS": 2] %>
-							<p><em>Or you can create <a href="/dashboard/cause">your own cause</a> instead.</em></p>
-						</fieldset>
-						<fieldset>
-							<%= textarea f, :description, class: "form-control", placeholder: "DESCRIPTION" %>
-						</fieldset>
-						<fieldset>
-							<%= text_input f, :mile_price, class: "form-control", placeholder: "PRICE PER MILE" %>
-						</fieldset>
-						<fieldset>
-							<%= select f, :race_id, ["A Famous Race": 1, "Another Well-Known Race": 2, "Your Local Marathon": 3] %>
-						</fieldset>
-						<fieldset>
-							<%= checkbox f, :is_active, value: "true" %>
-						</fieldset>
-						
-							<label>PHOTOS</label>
-							<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]"] %>
-						
-					</div>
-				
-				</div>
-			</div>
-			<%= submit "CREATE CHALLENGE", class: "btn red"%>
-		<% end %>
-	</div>
-	<!-- / container -->
+<div class="chat-modal" id="chart">
+  <div class="box">
+    <h2>INVITE</h2>
+    <%= form_tag("/invite/athlete", method: :post) do %>
+      <fieldset>
+        <label>RUN FOR THE CHARITY YOU ♥<br>Tell them about MyMiles!</label>
+        <%= text_input :invitation, :org_name, placeholder: "CHARITY NAME", required: true %>
+        <%= text_input :invitation, :email, placeholder: "CHARITY EMAIL", required: true, pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", title: "Valid email address." %>
+        <%= textarea :invitation, :message, placeholder: "TELL THE CHARITY WHY DO YOU WANT TO RUN FOR THEM", required: true %>
+      </fieldset>
+      <%= submit "SEND", class: "btn" %>
+    <% end %>  </div>
 </div>
-<!-- / body -->
 
-<h1>Create a new challenge here!</h1>
-<%= form_tag("/dashboard/challenge", method: :post) do %>
-
-	<label>Select your cause</label>
-	<br>
-	<%= select :challenge, :cause_id, ["Save The Puppies": 1, "Save The Satanic Puppies": 2] %>
-	<br>
-	<label>Name your challenge</label>
-	<%= text_input :challenge, :name, class: "form-control" %>
-	<label>Description</label>
-	<%= textarea :challenge, :description, class: "form-control" %>
-	<label>Which race are you running</label>
-	<br>
-	<%= select :challenge, :race_id, ["A Famous Race": 1, "Another Well-Known Race": 2, "Your Local Marathon": 3] %>
-	<br>
-	<label>Price per mile</label>
-	<%= text_input :challenge, :mile_price, class: "form-control" %>
-
-	<%= checkbox :challenge, :is_active, value: "true" %>
-
-	<br>
-	<%= submit "Create challenge" %>
-
-<% end %>
+<!-- /invite charity popup -->

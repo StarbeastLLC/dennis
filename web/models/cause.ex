@@ -8,7 +8,7 @@ defmodule Dennis.Cause do
     belongs_to :user, Dennis.User
     has_many :challenges, Dennis.Challenge
     field :name, :string
-    field :country, :string
+    field :country, :string, default: "US"
     field :state, :string
     field :description, :string
     field :more_info, :string
@@ -22,8 +22,8 @@ defmodule Dennis.Cause do
     timestamps
   end
 
-  @required_fields ~w(name country state description more_info user_id)
-  @optional_fields ~w()
+  @required_fields ~w(name country state description user_id)
+  @optional_fields ~w(more_info)
 
   @required_file_fields ~w(photo1)
   @optional_file_fields ~w(photo2 photo3 photo4 photo5)
@@ -68,7 +68,7 @@ defmodule Dennis.Cause do
     Dennis.Repo.all from cause in Dennis.Cause,
       join: user in User, on: cause.user_id == user.id,
       where: user.user_type == ^user_type,
-      preload: []
+      preload: [:user]
   end
 
   def challenge_cause(cause_id) do

@@ -1,11 +1,11 @@
 <div id="body">
   <div class="select-op">
-    <h4>CHARITY</h4>
+    <h4>PERSONAL CAUSE</h4>
   </div>
   <div class="pro-details">
     <div class="container">
       <div class="image">
-        <img src="../images/c0.jpg" alt="">
+        <img style="min-height:600px; min-width:600px; max-width:600px; max-height:600px" src="<%= photo_url(@cause) %>"alt="">
       </div>
       <div class="text">
         <h2><%= @cause.name %></h2>

@@ -2,7 +2,7 @@ defmodule Dennis.Race do
   use Dennis.Web, :model
 
   schema "races" do
-    has_many :challenges, Dennis.Challenge
+    belongs_to :challenge, Dennis.Challenge
     field :name, :string
     field :miles, :integer
     field :date, Ecto.DateTime

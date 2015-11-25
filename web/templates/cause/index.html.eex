@@ -12,7 +12,7 @@
         <div class="ovrel">
           <ul>
             <%= for cause <- @causes do %>
-              <li><a href="/causes/<%= cause.id %>"><img src="../images/i1.jpg" alt="<%= cause.name %>"><span class="titles" style="text-transform:uppercase"><%= cause.name %></span></a></li>
+              <li><a href="/causes/<%= cause.id %>"><img src="<%= photo_url(cause) %>" alt="<%= cause.name %>"><span class="titles" style="text-transform:uppercase"><%= cause.name %></span></a></li>
             <% end %>
           </ul>
         </div>

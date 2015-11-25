@@ -5,7 +5,7 @@ defmodule Dennis.Challenge do
   schema "challenges" do
     belongs_to :user, Dennis.User
     belongs_to :cause, Dennis.Cause
-    belongs_to :race, Dennis.Race
+    has_one :race, Dennis.Race
     has_many :donations, Dennis.Donation
     field :name, :string
     field :description, :string
@@ -18,12 +18,13 @@ defmodule Dennis.Challenge do
     field :photo3,  Dennis.ChallengePhoto.Type
     field :photo4,  Dennis.ChallengePhoto.Type
     field :photo5,  Dennis.ChallengePhoto.Type
+    field :video, :string
 
     timestamps
   end
 
-  @required_fields ~w(name description mile_price is_active race_id cause_id user_id)
-  @optional_fields ~w(shares_count)
+  @required_fields ~w(name description mile_price is_active race cause_id user_id)
+  @optional_fields ~w(video)
 
   @required_file_fields ~w(photo1)
   @optional_file_fields ~w(photo2 photo3 photo4 photo5)  

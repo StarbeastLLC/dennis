@@ -18,9 +18,13 @@ defmodule Dennis.AthleteController do
 		render(conn, "athlete.html", challenges: challenges, causes: causes, user: user)
 	end
 
-	def new_challenge(conn, _params) do
-		render_new_challenge conn, Challenge.changeset(%Challenge{})
- 	end
+  def new_challenge(conn, _params) do
+    render_new_challenge conn, Challenge.changeset(%Challenge{})
+  end
+  
+  def new_challenge(conn, %{"cause_id" => id}) do
+    render_new_challenge conn, Challenge.changeset(%Challenge{cause_id: id})
+  end
 
   defp render_new_challenge(conn, challenge_changeset) do
     org_causes = Cause.global_causes_by_user_type("org")
