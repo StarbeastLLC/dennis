@@ -5,7 +5,9 @@
   <div class="pro-details">
     <div class="container">
       <div class="image">
-        <img style="min-height:600px; min-width:600px; max-width:600px; max-height:600px" src="<%= photo_url(@cause) %>"alt="">
+        <a class="fancybox2" rel="gallery1" href="<%= photo_url(@cause) %>" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)"><img src="<%= photo_url(@cause) %>" alt=""></a>
+        <a class="fancybox2" rel="gallery1" href="<%= photo_url(@cause) %>" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)"></a>
+        <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)"></a>
       </div>
       <div class="text">
         <h2><%= @cause.name %></h2>

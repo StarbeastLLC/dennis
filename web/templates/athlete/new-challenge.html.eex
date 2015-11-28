@@ -66,6 +66,52 @@
 <!-- / select-cause -->
 
 <div id="body">
+	<div class="select-op red">
+		<h4>CREATE YOUR CHALLENGE</h4>
+	</div>
+	<div class="create-content">
+		<div class="left-box ww">
+			<form action="#">
+				<fieldset class="hal">
+					<label>Please enter your price per mile</label>
+					<div class="input input-check">
+						<a href="#" class="plus"></a>
+						<a href="#" class="minus"></a>
+						<input type="text" value="6" min="0" max="1000">
+					</div>
+				</fieldset>
+				<fieldset>
+					<input type="text" placeholder="CHALLENGE NAME">
+					<input type="text" placeholder="RACE NAME">
+					<span class="crf-s datapicker"><input type="text" id="datepicker" value="DD/MM/YYYY"><span class="option">RACE DATE: DD/MM/YYYY</span></span>
+				</fieldset>
+				<div class="checkbox">
+					<input type="checkbox" checked>
+					<label>Yes, I want to redeem my race fee!</label>
+				</div>
+				<a href="#red" class="submit fancybox-open">SUBMIT</a>
+			</form>
+		</div>
+		<div class="right-box ww kids">
+			<img src="images/kids.png" alt="">
+			<h4>UPLOAD YOUR FILES</h4>
+			<div class="file-set">
+				<p>Background Image File</p>
+				<input type="file" title="No file chosen" id="file">
+				<label for="file"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
+			</div>
+			<div class="file-set">
+				<p class="ss">Video file</p>
+				<input type="file" title="No file chosen" id="file3">
+				<label for="file3"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- / body -->
+
+
+<div id="body">
 	<div class="select-op red" id="form">
 		<h4>CREATE YOUR CHALLENGE</h4>
 	</div>
@@ -83,6 +129,7 @@
                 <br>
               </div>
             <% end %>
+                <!-- fix this -->
                 <%= hidden_input f, :cause_id, class: "form-control", value: "12" %>
 				<fieldset class="hal">
 					<label>Please enter your price per mile</label>
@@ -100,7 +147,11 @@
 	      						<span class="help-block"><%= message %></span>
 	    					<% end %>
 	    					<%= label i, :date, "Race Date", class: "control-label" %>
-	    					<%= datetime_select i, :date, class: "form-control" %>
+	    					<%# datetime_select i, :date, class: "form-control" %>
+                            <fieldset>
+                            	<span class="crf-s datapicker"><input type="text" id="datepicker challenge_race_date" name="challenge[race][date]" value="DD/MM/YYYY"><span class="option">RACE DATE: DD/MM/YYYY</span></span>
+                            </fieldset>
+
 	    					<%= if message = i.errors[:date] do %>
 	      						<span class="help-block"><%= message %></span>
 	    					<% end %>

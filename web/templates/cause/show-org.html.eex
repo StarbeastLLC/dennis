@@ -5,6 +5,40 @@
   <div class="pro-details">
     <div class="container">
       <div class="image">
+        <a class="fancybox2" rel="gallery1" href="<%= avatar_url(@user) %>" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)"><img src="<%= avatar_url(@user) %>" alt=""></a>
+        <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)"></a>
+        <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)"></a>
+      </div>
+      <div class="text">
+        <h2><%= @user.org_name %></h2>
+
+        <div class="scroll scroll1">
+                <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+                <div class="viewport">
+                     <div class="overview">
+              <div class="ovrel">
+                <p><%= @user.description %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="more">
+          <a href="http://<%= @user.website %>"><%= @user.website %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / body -->
+
+<div id="body">
+  <div class="select-op">
+    <h4>CHARITY</h4>
+  </div>
+  <div class="pro-details">
+    <div class="container">
+      <div class="image">
         <img style="min-height:600px; min-width:600px; max-width:600px; max-height:600px" src="<%= avatar_url(@user) %>" alt="">
       </div>
       <div class="text">

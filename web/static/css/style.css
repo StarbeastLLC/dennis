@@ -3656,12 +3656,12 @@ a.btn-white {
 }
 .select-op.not {
 	border-bottom: 0;
-	background: url(../img/bg_white.png);
+	background: url(../images/bg_white.png);
 	padding-top: 10px;
 }
 .blue-bg {
 	padding: 67px 0;
-	background: url(../img/bg_blue.png);
+	background: url(../images/bg_blue.png);
 }
 .blue-bg .container {
 	width: auto;

@@ -1,18 +1,28 @@
 <div id="body">
-	<div class="container">
-		<div id="content">
-			<div class="text-con">
-				<div class="title">
-					<h1>TERMS OF SERVICE</h1>
-				</div>
-				<div class="holder">
-					<p>Integer vitae lectus nec risus vestibulum pellentesque. Fusce lacus odio, suscipit non lectus vitae, sollicitudin iaculis turpis. Vivamus mattis vehicula justo, a congue diam iaculis ac. Sed porttitor erat tincidunt turpis ultrices, sit amet facilisis tellus tincidunt. Donec sed risus et dolor blandit vehicula. Proin nec elit sed libero laoreet dictum non ac mi. Mauris nec semper ante. Cras gravida tortor ac consequat tincidunt.</p>
-					<p>Praesent metus orci, dignissim in sollicitudin pharetra, dapibus in purus. Duis vel tristique nisi. Vestibulum bibendum ultricies nisl a auctor. Duis nec sagittis dui, in iaculis libero. Aenean ultrices quam eu turpis ultricies, id dictum odio aliquam. Pellentesque pellentesque luctus erat, non rhoncus lectus sodales a. Aenean fermentum justo magna. Quisque sagittis arcu ipsum, non volutpat odio auctor quis. Nullam et erat ut velit cursus sollicitudin. Aliquam dolor dui, fringilla vitae velit et, luctus tempor dolor. Nulla rutrum aliquet urna, at elementum lorem. Proin ipsum nulla, suscipit id cursus ut, vehicula id dui.</p>
+	<div class="select-op not">
+		<h4>Terms of Service</h4>
+	</div>
+	<div class="cols-2-haf full height2">
+		
+	<div class="inside">
+	<div class="scroll scroll1">
+        <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+        <div class="viewport">
+             <div class="overview">
+				<div class="ovrel">
+					<div class="policy-text">
+						<p>Integer vitae lectus nec risus vestibulum pellentesque. Fusce lacus odio, suscipit non lectus vitae, sollicitudin iaculis turpis. Vivamus mattis vehicula justo, a congue diam iaculis ac. Sed porttitor erat tincidunt turpis ultrices, sit amet facilisis tellus tincidunt. Donec sed risus et dolor blandit vehicula. Proin nec elit sed libero laoreet dictum non ac mi. Mauris nec semper ante. Cras gravida tortor ac consequat tincidunt.</p>
+						<p>Praesent metus orci, dignissim in sollicitudin pharetra, dapibus in purus. Duis vel tristique nisi. Vestibulum bibendum ultricies nisl a auctor. Duis nec sagittis dui, in iaculis libero. Aenean ultrices quam eu turpis ultricies, id dictum odio aliquam. Pellentesque pellentesque luctus erat, non rhoncus lectus sodales a. Aenean fermentum justo magna. Quisque sagittis arcu ipsum, non volutpat odio auctor quis. Nullam et erat ut velit cursus sollicitudin. Aliquam dolor dui, fringilla vitae velit et, luctus tempor dolor. Nulla rutrum aliquet urna, at elementum lorem. Proin ipsum nulla, suscipit id cursus ut, vehicula id dui.</p>
+						<p>Integer vitae lectus nec risus vestibulum pellentesque. Fusce lacus odio, suscipit non lectus vitae, sollicitudin iaculis turpis. Vivamus mattis vehicula justo, a congue diam iaculis ac. Sed porttitor erat tincidunt turpis ultrices, sit amet facilisis tellus tincidunt. Donec sed risus et dolor blandit vehicula. Proin nec elit sed libero laoreet dictum non ac mi. Mauris nec semper ante. Cras gravida tortor ac consequat tincidunt.</p>
+						<p>Integer vitae lectus nec risus vestibulum pellentesque. Fusce lacus odio, suscipit non lectus vitae, sollicitudin iaculis turpis. Vivamus mattis vehicula justo, a congue diam iaculis ac. Sed porttitor erat tincidunt turpis ultrices, sit amet facilisis tellus tincidunt. Donec sed risus et dolor blandit vehicula. Proin nec elit sed libero laoreet dictum non ac mi. Mauris nec semper ante. Cras gravida tortor ac consequat tincidunt.</p>
+						<p>Praesent metus orci, dignissim in sollicitudin pharetra, dapibus in purus. Duis vel tristique nisi. Vestibulum bibendum ultricies nisl a auctor. Duis nec sagittis dui, in iaculis libero. Aenean ultrices quam eu turpis ultricies, id dictum odio aliquam. Pellentesque pellentesque luctus erat, non rhoncus lectus sodales a. Aenean fermentum justo magna. Quisque sagittis arcu ipsum, non volutpat odio auctor quis. Nullam et erat ut velit cursus sollicitudin. Aliquam dolor dui, fringilla vitae velit et, luctus tempor dolor. Nulla rutrum aliquet urna, at elementum lorem. Proin ipsum nulla, suscipit id cursus ut, vehicula id dui.</p>
+						<p>Integer vitae lectus nec risus vestibulum pellentesque. Fusce lacus odio, suscipit non lectus vitae, sollicitudin iaculis turpis. Vivamus mattis vehicula justo, a congue diam iaculis ac. Sed porttitor erat tincidunt turpis ultrices, sit amet facilisis tellus tincidunt. Donec sed risus et dolor blandit vehicula. Proin nec elit sed libero laoreet dictum non ac mi. Mauris nec semper ante. Cras gravida tortor ac consequat tincidunt.</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		<!-- / content -->
 	</div>
-	<!-- / container -->
+	</div>
+	</div>
 </div>
 <!-- / body -->

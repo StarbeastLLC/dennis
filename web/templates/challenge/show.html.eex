@@ -17,8 +17,7 @@
           </a>
           </div>
           <div class="ifrm">
-            <iframe width="488" height="318" src="<% @challenge.video %>" frameborder="0" allowfullscreen></iframe>
-            <%= inspect(@challenge.video)%>
+            <iframe width="488" height="318" src="<%= inspect(@challenge.video)%>" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
         <div class="text">

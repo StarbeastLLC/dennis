@@ -1,20 +1,57 @@
 <div id="body">
-	<div class="container">
-		<div id="content">
-			<div class="work-con">
-				<div class="title">
-					<h1>HOW DOES IT WORK?</h1>
-				</div>
-				<p>Three players involved: Athletes, My Miles (Online Platform) and a Non Profit Organization.</p>
-				<div class="holder">
-					<div class="item first"><img src="images/7.png" alt=""><h3>ATHLETE</h3></div>
-					<div class="item pic"><img src="images/9.png" alt=""></div>
-					<div class="item second"><img src="images/8.png" alt=""><h3>NON PROFIT ORGANIZATIONS</h3></div>
-				</div>
-			</div>
-		</div>
-		<!-- / content -->
+	<div class="select-op not">
+		<h4>HOW IT WORKS?</h4>
 	</div>
-	<!-- / container -->
+	<div class="blue-bg">
+		<div class="container">
+			<section>
+				<article>
+					<div class="image">
+						<img src="images/i1.png" alt="">
+					</div>
+					<div class="text">
+						<h3>Create an account</h3>
+						<p>Log in with Facebook, or take 30 seconds to fill your name and password right in our home page.<br>It’s easy.</p>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<img src="images/i2.png" alt="">
+					</div>
+					<div class="text">
+						<h3>Request an email invitation</h3>
+						<p>If you are part of a Charity, and want to receive donations from Mymiles users, please request an invite by clicking on the appropiate button in our home page.</p>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<img src="images/i3.png" alt="">
+					</div>
+					<div class="text">
+						<h3>Create a challenge</h3>
+						<p>What race will you be racing? When? How much are your running miles worth? Choose a beneficiary of the donations you colllect here. Don’t see the one you prefer? You can invite them to join Mymiles.</p>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<img src="images/i4.png" alt="">
+					</div>
+					<div class="text">
+						<h3>Share and collect</h3>
+						<p>You can share your challenge on your social media network and start collecting funds for the selected cause.</p>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<img src="images/i5.png" alt="">
+					</div>
+					<div class="text">
+						<h3>You are in control</h3>
+						<p>See what challenges are still active and which ones are finished, check the total donations you collected for them, and so on. So much info.</p>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
 </div>
 <!-- / body -->
