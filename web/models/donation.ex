@@ -35,8 +35,8 @@ defmodule Dennis.Donation do
     |> cast(params, @required_fields, @optional_fields)
   end
 
-  defp total_donated(challenge, %{"tip" => tip, "miles_bought" => miles_bought}) do
-    total = String.to_integer(miles_bought) * challenge.mile_price + String.to_integer(tip)
+  defp total_donated(challenge, %{"miles_bought" => miles_bought}) do
+    total = String.to_integer(miles_bought) * challenge.mile_price
     total
   end
 

@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('.minus, .plus').click(function(e){
         e.preventDefault();
         
-        type      = $(this).attr('class');
+        var type      = $(this).attr('class');
         var input = $(".input input");
         var currentVal = parseInt(input.val());
         if (!isNaN(currentVal)) {

@@ -7,32 +7,32 @@
 	<div class="form-donation">
 		<div class="container">
 			<div class="thank">
-				Thanks for buying some miles for <strong>PAUL SCHWARZ</strong>
+				Thanks for buying some miles for <strong style="text-transform:uppercase"><%= @challenge.user.first_name %> <%= @challenge.user.last_name %></strong>
 			</div>
 			<%= form_for @donation, donation_path(@conn, :create, @challenge.id), fn f -> %>
 			    <%= hidden_input f, :transaction_token %>
 				<%= hidden_input f, :email %>
 				<fieldset>
 					<label>Please tell us your</label>
-					<input type="text" placeholder="FIRST & LAST NAME">
+					<%= text_input f, :name, class: "form-control", placeholder: "FULL NAME" %>
 				</fieldset>
 				<div class="or">
 					or
 				</div>
 				<fieldset>
-					<input type="checkbox" checked>
-					<label>I want to remain annonymus</label>
+					<%= checkbox f, :is_anonymous %>
+					<label>I want to remain anonymous</label>
 				</fieldset>
 				<div class="counting">
 					<div class="row">
-						<label>Each of Paul’s Miles is</label>
+						<label>Each of <%= @challenge.user.first_name %>’s miles is</label>
 						<input type="text" class="default" readonly value="$ <%= @challenge.mile_price %>">
 					</div>
 					<div class="row">
 						<label>How many miles do you want to buy?</label>
 						<div class="input">
-							<a href="#" class="plus"></a>
-							<a href="#" class="minus"></a>
+							<a class="plus"></a>
+							<a class="minus"></a>
 							<%= text_input f, :miles_bought, class: "form-control" %>
 						</div>
 					</div>
@@ -53,42 +53,3 @@
 	</div>
 </div>
 <!-- / body -->
-
-
-
-<script src="https://checkout.stripe.com/checkout.js"></script>
-
-<%= form_for @donation, donation_path(@conn, :create, @challenge.id), fn f -> %>
-
-	<%= hidden_input f, :transaction_token %>
-	<%= hidden_input f, :email %>
-
-  	<div class="form-group">
-		Price per mile: <%= @challenge.mile_price %>
-	</div>
-
-	<div class="form-group">
-		<%= label f, :miles_bought, "Miles", class: "control-label" %>
-		<%= text_input f, :miles_bought, class: "form-control" %>
-	</div>
-
-	<div class="form-group">
-		<%= label f, :tip, "Tip", class: "control-label" %>
-		<%= text_input f, :tip, class: "form-control" %>
-	</div>
-
-	<div class="form-group">
-		Total to donate: <span id="total_to_donate"></span>
-	</div>
-
-    <button id="donate"
-    	data-mile-price="<%= @challenge.mile_price %>"
-    	data-key="<%= data_key %>"
-		data-name="<%= @challenge.name %>"
-		data-description="Benefiting <%= @challenge.cause.name %>"    	
-    	data-image="<%= static_path(@conn, "/images/01.jpg") %>"
-    	>Donate NOW</button>
-
- 
-<% end %>
-

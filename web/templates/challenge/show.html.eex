@@ -31,12 +31,13 @@
         <div class="right">
           <a href="<%= donation_path(@conn, :new, @challenge.id) %>" class="btn-donate">DONATE <br>NOW!</a>
           <h4>DONORS</h4>
+          <p>Total donated <strong>$<%= amount_donated(@challenge.id) %></strong></p>
           <div class="slider-v">
             <div class="slides">
               <div class="item">
                 <ul>
                   <%= for donation <- @challenge.donations do %>
-                    <li><%= donor(donation.user_id) %><span class="righty">$ <%= donation.total_donated %></span></li>
+                    <li><%= donation.name %><span class="righty">$ <%= donation.total_donated %></span></li>
                   <% end %>
                 </ul>
               </div>
@@ -44,114 +45,6 @@
           </div>
         </div>
       </div>
-  </div>
-</div>
-<!-- / body -->
-
-
-<div id="body">
-  <div class="run-head">
-    <h2><%= @challenge.name %></h2>
-    <div class="cols">
-      <div class="col">
-        <div class="holder">
-          <div class="gallery-slider">
-            <img src="/images/s1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="holder">
-          <h3>STORY</h3>
-          <div class="history">
-            <h4>BENEFITING: <strong><%= @challenge.cause.name %></strong></h4>
-            <p><%= @challenge.user.first_name %> <%= @challenge.user.last_name %> is running the <%= @challenge.race.name %> on <%= @challenge.race.date %>.</p>
-            <p>This athlete is selling a total of <%= @challenge.race.miles %> miles for charity, and his challenge is to raise $<%= amount_to_raise(@challenge.race.miles, @challenge.mile_price) %> dollars.</p>
-            
-            <p><em>"<%= @challenge.description %>"</em></p>
-            <ul>
-              <li><a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us/challenges/<%= @challenge.id %>" target="_blank" class="ico-tw"></a></li>
-              <li><a href="https://www.facebook.com/sharer/sharer.php?u=mymiles.us/challenges/<%= @challenge.id %>" target="_blank" class="ico-fb"></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <a href="<%= donation_path(@conn, :new, @challenge.id) %>" class="btn red">DONATE NOW!</a>
-        <div class="holder">
-          <div class="collected">
-            <div class="total">
-              <strong>$<%= amount_donated(@challenge.id) %></strong> OF $<%= amount_to_raise(@challenge.race.miles, @challenge.mile_price) %>
-            </div>
-            <div class="bar">
-              <div class="inner" style="width: 50%"></div>
-            </div>
-            <div class="raised">
-              Raised by <%= length(@challenge.donations) %> people
-            </div>
-            <ul>
-              <%= for donation <- @challenge.donations do %>
-              <li><%= donor(donation.user_id) %><span class="right">$<%= donation.total_donated %></span></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="run-challenge">
-    <div class="head">
-      <h2>RUN FORREST RUN</h2>
-      <p>AUSTIN HALF MARATHON <br><span>FLASHES OF HOPE</span></p>
-    </div>
-    <div class="right">
-      <img src="/images/a1.png" alt="">
-    </div>
-    <div class="row">
-      <div class="bar">
-        <div class="handler" style="width: 49%">
-          <div class="tip">
-            <img src="/images/ico_man.png" alt="">
-            <p>7 MILES</p>
-          </div>
-        </div>
-      </div>
-      <div class="right">
-        <strong>FINISH</strong>
-        13 MILES
-      </div>
-      <div class="left">
-        <strong>START</strong>
-        0 MILES
-      </div>
-    </div>
-    <div class="row">
-      <div class="bar">
-        <div class="handler" style="width: 49%">
-          <div class="tip">
-            <img src="/images/ico_money.png" alt="">
-            <p>150 DLS</p>
-          </div>
-        </div>
-      </div>
-      <div class="right">
-        <strong>FINISH</strong>
-        13 MILES
-      </div>
-      <div class="left">
-        <strong>START</strong>
-        0 MILES
-      </div>
-    </div>
-    <div class="bottom">
-      <div class="left">
-        45 Days left
-      </div>
-      <div class="right">
-        Goal = <span>300 DLS</span>
-      </div>
-      <a href="#" class="btn red">promote challenge</a>
-    </div>
   </div>
 </div>
 <!-- / body -->
