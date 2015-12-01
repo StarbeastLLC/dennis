@@ -17,6 +17,7 @@
     "jquery": "~2.1.4",
     "bxslider-4": "bxSlider#4.1.2",
     "fancybox": "2.1.4",
-    "TinyScrollbar": "2.4.2"
+    "TinyScrollbar": "2.4.2",
+    "moment": "~2.10.6"
   }
 }

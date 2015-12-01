@@ -4,6 +4,15 @@ defmodule Dennis.ChallengeView do
   alias Dennis.User
   alias Dennis.Donation
 
+  def race_date_as_iso(date) do
+    Ecto.DateTime.to_iso8601(date)
+  end
+
+  def parse_video_url do
+   # "https://www.youtube.com/watch?v=12coz7_iffE" = "https://www.youtube.com/watch?v=" <> video_id
+    # "https://youtube.com/embed/" <> video_id
+  end
+
   def challenge_main_photo(challenge) do
     if challenge.photo1 do
       Dennis.ChallengePhoto.url({challenge.photo1, challenge})

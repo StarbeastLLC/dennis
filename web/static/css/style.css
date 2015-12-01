@@ -2381,11 +2381,17 @@ a.btn.red,
 	font-family: "Montserrat";
 	font-size: 25px;
 	font-weight: 700;
+	overflow: hidden;
 	margin-top: -104px;
 	position: relative;
 	height: 200px;
 	background-color: #E1E1E1;
 }
+
+.form-create .photo img {
+	width: 100%;
+	height: auto;
+}		}
 
 .form-create .file-set {
 	margin: 0 -106px;
@@ -2610,6 +2616,8 @@ a.btn.red,
 }
 
 .user-details .left img {
+	max-width: 142px;
+	border-radius: 50%;
 	float: left;
 	margin-right: 30px;
 }
@@ -3048,6 +3056,7 @@ a.btn-white {
 .scroll .overview {
   list-style: none;
   position: absolute;
+  right: 0;
   left: 0;
   top: 0;
   padding: 0;

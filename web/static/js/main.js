@@ -5,6 +5,13 @@ function is_touch_device() {
 
 $(document).ready(function() {
 
+    // Parse date with Moment.js
+    var raceDate = $('#iso-race-date').html();
+    var raceDateParsed = moment(raceDate);
+    $('#iso-race-date').text(raceDateParsed);
+    console.log(raceDateParsed);
+
+
     $('.minus, .plus').click(function(e){
         e.preventDefault();
         

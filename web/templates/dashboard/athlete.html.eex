@@ -6,9 +6,9 @@
     <div class="container">
       <div class="left">
       <%= if is_fb_user(@user) do %>
-        <img style="max-height:250px; max-width:250px" src="<%= fb_avatar_url(@user) %>" alt="">
+        <img src="<%= fb_avatar_url(@user) %>" alt="">
       <% else %>
-        <img style="max-height:250px; max-width:250px" src="<%= avatar_url(@user) %>" alt="">
+        <img src="<%= avatar_url(@user) %>" alt="">
       <% end %>
         <span class="name" style="text-transform:uppercase"><%= @user.first_name %> <%= @user.last_name %></span>
       </div>
