@@ -8,9 +8,9 @@ defmodule Dennis.ChallengeView do
     Ecto.DateTime.to_iso8601(date)
   end
 
-  def parse_video_url do
-   # "https://www.youtube.com/watch?v=12coz7_iffE" = "https://www.youtube.com/watch?v=" <> video_id
-    # "https://youtube.com/embed/" <> video_id
+  def parse_video_url(watch_url) do
+    [video_id] = String.split watch_url, "https://www.youtube.com/watch?v=", trim: true
+    "https://youtube.com/embed/" <> video_id
   end
 
   def challenge_main_photo(challenge) do
