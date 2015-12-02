@@ -56,7 +56,13 @@ defmodule Dennis.Challenge do
   def user_challenges(user_id) do
     Dennis.Repo.all from challenge in Dennis.Challenge,
       where: challenge.user_id == ^user_id,
-      preload: [:user, :cause, :race]
+      preload: [:user, :cause, :race, :donations]
+  end
+
+  def cause_challenges(cause_id) do
+    Dennis.Repo.all from challenge in Dennis.Challenge,
+      where: challenge.cause_id == ^cause_id,
+      preload: [:user, :cause, :race, :donations]
   end
 
   def get_challenge(id) do

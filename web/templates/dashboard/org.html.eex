@@ -1,32 +1,65 @@
-<h2>Listing causes</h2>
+<div id="body">
+  <div class="select-op type-2">
+    <h4>DASHBOARD</h4>
+  </div>
+  <div class="user-details">
+    <div class="container">
+      <div class="left">
+        <img src="<%= avatar_url(@user) %>" alt="">
+        <span class="name" style="text-transform:uppercase"><%= @user.org_name %> </span>
+      </div>
+      <div class="global">
+        <div class="label">
+          GLOBAL<br> ACUMULATED
+        </div>
+        <div class="digits">
+          $ 777<%# global_accumulated(@challenges) %>
+        </div>
+      </div>
+      <div class="dash-list">
+      <div class="scroll scroll1">
+              <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+              <div class="viewport">
+                   <div class="overview">
+            <div class="ovrel">
+              <ul>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Link</th>
-      <th>Name</th>
-      <th>Country</th>
-      <th>State</th>
-      <th>Description</th>
-      <th>More info</th>
+                <%= for challenge <- @challenges do %>
+                  <li>
+                    <div class="box">
+                      <a href="/challenges/<%= challenge.id %>"><img src="<%= challenge_main_photo(challenge) %>" alt="<%= challenge.name %>"></a>
+                      <div class="text">
+                        <%= challenge.name %><br>—<br>$ 7000
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for cause <- @causes do %>
-    <tr>
-      <td><a href="dashboard/cause/<%= cause.id %>"><%= cause.id %></a></td>
-      <td><%= cause.name %></td>
-      <td><%= cause.country %></td>
-      <td><%= cause.state %></td>
-      <td><%= cause.description %></td>
-      <td><%= cause.more_info %></td>
-	
-      
-    </tr>
-<% end %>
-  </tbody>
-</table>
+                <li>
+                  <div class="box active">
+                    <a href="#"><img src="../images/d1.jpg" alt=""></a>
+                    <div class="text">
+                      Save the whales<br>—<br>$ 7000
+                    </div>
+                  </div>
+                </li>
+                
+                <li>
+                  <div class="box finished">
+                    <a href="#"><img src="../images/d3.jpg" alt=""></a>
+                    <div class="text">
+                      My dog <br>is sick<br>—<br>$ 1290
+                    </div>
+                  </div>
+                </li>
 
-<button><a href="/dashboard/cause">CREATE A NEW CAUSE!</a></button>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / body -->

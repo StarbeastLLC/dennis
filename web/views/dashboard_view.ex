@@ -1,9 +1,17 @@
 defmodule Dennis.DashboardView do
   use Dennis.Web, :view
 
-  def global_accumulated(challenges) do
-    
-  end
+  alias Dennis.Donation
+
+  #def global_accumulated(challenges) do
+   # Enum.each(challenges, fn(challenge) ->
+    #    challenge_raised_money = Donation.amount_donated_to_challenge(challenge.id)
+     
+     #   IO.puts "LALALALALA GASGASFAFGFASFA #{challenge_raised_money}"
+      #  total = challenge_raised_money + total
+      #end
+     # )
+  #end
 
   def challenge_main_photo(challenge) do
   	if challenge.photo1 do
