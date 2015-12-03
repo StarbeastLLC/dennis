@@ -10,8 +10,8 @@ defmodule Dennis.CauseController do
   end
 
   def index_orgs(conn, _params) do
-    users = User.get_orgs
-    render(conn, "index-orgs.html", users: users)
+    causes = Cause.global_causes_by_user_type("org")
+    render(conn, "index-orgs.html", causes: causes)
   end
 
   def show(conn, %{"id" => id}) do
@@ -20,7 +20,7 @@ defmodule Dennis.CauseController do
   end
 
   def show_org(conn, %{"id" => id}) do
-    user = Repo.get!(User, id)
-    render(conn, "show-org.html", user: user)
+    cause = Cause.get_cause_with_user(id)
+    render(conn, "show-org.html", cause: cause)
   end
 end

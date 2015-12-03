@@ -5,7 +5,7 @@ defmodule Dennis.Race do
     belongs_to :challenge, Dennis.Challenge
     field :name, :string
     field :miles, :integer
-    field :date, Ecto.DateTime
+    field :date, Ecto.Date
     field :type, :string
 
     timestamps

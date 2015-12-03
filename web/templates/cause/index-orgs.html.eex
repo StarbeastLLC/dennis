@@ -11,8 +11,8 @@
                <div class="overview">
         <div class="ovrel">
           <ul>
-            <%= for user <- @users do %>
-              <li><a href="/charities/<%= user.id %>"><img src="<%= avatar_url(user) %>" alt="<%= user.org_name %>"><span class="titles" style="text-transform:uppercase"><%= user.org_name %></span></a></li>
+            <%= for cause <- @causes do %>
+              <li><a href="/charities/<%= cause.id %>"><img src="<%= avatar_url(cause.user) %>" alt="<%= cause.name %>"><span class="titles" style="text-transform:uppercase"><%= cause.name %></span></a></li>
             <% end %>
           </ul>
         </div>

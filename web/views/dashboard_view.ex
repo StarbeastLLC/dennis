@@ -13,6 +13,14 @@ defmodule Dennis.DashboardView do
      # )
   #end
 
+  def amount_donated(challenge_id) do
+    amount = Donation.amount_donated_to_challenge(challenge_id)
+    if amount == nil do
+    else
+      "$ #{amount}"
+    end
+  end
+
   def challenge_main_photo(challenge) do
   	if challenge.photo1 do
   		Dennis.ChallengePhoto.url({challenge.photo1, challenge})

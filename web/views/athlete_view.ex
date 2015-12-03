@@ -15,7 +15,11 @@ defmodule Dennis.AthleteView do
   def cause_photo(id) do
     cause = Repo.get!(Cause, id)
     Dennis.CausePhoto.url({cause.photo1, cause})
-  	
+  end
+
+  def cause_name(id) do
+    cause = Repo.get!(Cause, id)
+    cause.name
   end
   
 end

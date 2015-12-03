@@ -66,52 +66,6 @@
 <!-- / select-cause -->
 
 <div id="body">
-	<div class="select-op red">
-		<h4>CREATE YOUR CHALLENGE</h4>
-	</div>
-	<div class="create-content">
-		<div class="left-box ww">
-			<form action="#">
-				<fieldset class="hal">
-					<label>Please enter your price per mile</label>
-					<div class="input input-check">
-						<a href="#" class="plus"></a>
-						<a href="#" class="minus"></a>
-						<input type="text" value="6" min="0" max="1000">
-					</div>
-				</fieldset>
-				<fieldset>
-					<input type="text" placeholder="CHALLENGE NAME">
-					<input type="text" placeholder="RACE NAME">
-					<span class="crf-s datapicker"><input type="text" id="datepicker" value="DD/MM/YYYY"><span class="option">RACE DATE: DD/MM/YYYY</span></span>
-				</fieldset>
-				<div class="checkbox">
-					<input type="checkbox" checked>
-					<label>Yes, I want to redeem my race fee!</label>
-				</div>
-				<a href="#red" class="submit fancybox-open">SUBMIT</a>
-			</form>
-		</div>
-		<div class="right-box ww kids">
-			<img src="images/kids.png" alt="">
-			<h4>UPLOAD YOUR FILES</h4>
-			<div class="file-set">
-				<p>Background Image File</p>
-				<input type="file" title="No file chosen" id="file">
-				<label for="file"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
-			</div>
-			<div class="file-set">
-				<p class="ss">Video file</p>
-				<input type="file" title="No file chosen" id="file3">
-				<label for="file3"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- / body -->
-
-
-<div id="body">
 	<div class="select-op red" id="form">
 		<h4>CREATE YOUR CHALLENGE</h4>
 	</div>
@@ -130,11 +84,9 @@
               </div>
             <% end %>
                 <!-- fix this -->
-                <%= hidden_input f, :cause_id, class: "form-control", value: "12" %>
+                <%= hidden_input f, :cause_id, class: "form-control" %>
 				<fieldset class="hal">
-					<label>Please enter your price per mile</label>
-					<select><option>$ 25</option></select>
-					<%= text_input f, :mile_price, class: "form-control", placeholder: "PRICE PER MILE" %>
+		    		<%= text_input f, :mile_price, class: "form-control", placeholder: "PRICE PER MILE" %>
 				</fieldset>
 				<fieldset>
 					<%= text_input f, :name, class: "form-control", placeholder: "CHALLENGE NAME" %>
@@ -149,7 +101,7 @@
 	    					<%= label i, :date, "Race Date", class: "control-label" %>
 	    					<%# datetime_select i, :date, class: "form-control" %>
                             <fieldset>
-                            	<span class="crf-s datapicker"><input type="text" id="datepicker challenge_race_date" name="challenge[race][date]" value="DD/MM/YYYY"><span class="option">RACE DATE: DD/MM/YYYY</span></span>
+                            	<%= date_select i, :date, class: "form-control" %>
                             </fieldset>
 
 	    					<%= if message = i.errors[:date] do %>
@@ -174,14 +126,15 @@
 		</div>
 		<div class="right-box ww kids">
 	    <%= if @changeset.model.cause_id do %>
-	    <img src="<%= cause_photo(@changeset.model.cause_id) %>" alt="">
+	      <center><h4 style="text-transform:uppercase"><%= cause_name(@changeset.model.cause_id) %></h4></center>
+	      <img src="<%= cause_photo(@changeset.model.cause_id) %>" alt="">
 	    <% else %>
 	    <% end %>
 			<h4>UPLOAD YOUR FILES</h4>
 			<div class="file-set">
 				<p>Background Image File</p>
 				<fieldset>
-					<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]"] %>
+					<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]", style: "position:inherit; opacity:100; left:inherit"] %>
 				</fieldset>
 				
 			</div>

@@ -29,12 +29,12 @@
                     <div class="box">
                       <a href="/challenges/<%= challenge.id %>"><img src="<%= challenge_main_photo(challenge) %>" alt="<%= challenge.name %>"></a>
                       <div class="text">
-                        <%= challenge.name %><br>—<br>$ 7000
+                        <%= challenge.name %><br>—<br><%= amount_donated(challenge.id) %>
                       </div>
                     </div>
                   </li>
                 <% end %>
-
+<!--
                 <li>
                   <div class="box active">
                     <a href="#"><img src="../images/d1.jpg" alt=""></a>
@@ -52,7 +52,7 @@
                     </div>
                   </div>
                 </li>
-
+-->
               </ul>
             </div>
           </div>

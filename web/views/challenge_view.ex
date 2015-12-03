@@ -5,7 +5,7 @@ defmodule Dennis.ChallengeView do
   alias Dennis.Donation
 
   def race_date_as_iso(date) do
-    Ecto.DateTime.to_iso8601(date)
+    Ecto.Date.to_iso8601(date)
   end
 
   def parse_video_url(watch_url) do
