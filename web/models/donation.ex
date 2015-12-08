@@ -72,11 +72,11 @@ defmodule Dennis.Donation do
   defp stripe_billing(challenge, donation_changeset, stripe_email) do
     import Ecto.Changeset, only: [get_field: 2]
     application_fee = Application.get_env(:dennis, :stripe)[:application_fee]
-    org_stripe_id = "acct_16mDLzBh7FULNkbj" # TODO: obtain stripe from org
+    org_stripe_id = challenge.cause.user.stripe_id # not ruby, tho
     charge_description = "MYMYLES // #{challenge.name}"
 
     Billing.authorize(:stripe, 
-      get_field(donation_changeset, :total_donated) * 100, # stripe uses cents
+      get_field(donation_changeset, :total_donated) * 100, # Stripe uses cents
       get_field(donation_changeset, :transaction_token), 
       capture: true,
       destination: org_stripe_id,

@@ -141,9 +141,12 @@ defmodule Dennis.RegistrationController do
   def connect_stripe(conn, params) do
     id = get_session(conn, :current_user)
     user = Repo.get!(User, id)
+    code = params["code"]
 
     if params["error"] == nil do
-      stripe_params = %{"stripe_id" => params["code"]}
+      stripe_id = get_stripe_account_id(code)
+
+      stripe_params = %{"stripe_id" => stripe_id}
       changeset = User.stripe_changeset(user, stripe_params)
       Repo.update(changeset)
 
@@ -155,6 +158,15 @@ defmodule Dennis.RegistrationController do
       |> put_flash(:error, "Please try again to connect Stripe.")
       |> redirect(to: "/profile")
     end
+  end
+
+  defp get_stripe_account_id(code) do
+    stripe_auth_url = "https://connect.stripe.com/oauth/token"
+    body = {:form, [client_secret: "sk_test_BxsY2JiapXjqgvqxFy9EvVUE", code: code, grant_type: "authorization_code"]}
+    {:ok, response} = HTTPoison.post(stripe_auth_url, body)
+
+    stripe_response = Poison.Parser.parse!(response.body)
+    stripe_user_id = stripe_response["stripe_user_id"]
   end
 
   
