@@ -21,8 +21,8 @@
           </div>
         </div>
         <div class="text">
-          <p><strong style=" text-transform:uppercase"><%= @challenge.user.first_name %> <%= @challenge.user.last_name %></strong> is running the <span style=" text-transform:uppercase"><%= @challenge.race.name %></span> <br>to benefit <span class="blue" style=" text-transform:uppercase"><%= @challenge.cause.name %></span> <br>in <span id="iso-race-date" class="blue" style=" text-transform:uppercase"><%= race_date_as_iso(@challenge.race.date) %></span>.</p>
-          <p>Support them with your donation!</p>
+          <p><strong style=" text-transform:uppercase"><%= @challenge.user.first_name %> <%= @challenge.user.last_name %></strong> <br>will run the <br><span style=" text-transform:uppercase"><%= @challenge.race.name %></span> <br>on <span id="iso-race-date" class="blue" style=" text-transform:uppercase"><%= race_date_as_iso(@challenge.race.date) %></span> <br>to raise money for <br><span class="blue" style=" text-transform:uppercase"><%= @challenge.cause.name %></span> </p>
+          <p>Help <%= @challenge.user.first_name %><br> by buying some miles!</p>
           <div class="social">
             <a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us/challenges/<%= @challenge.id %>" target="_blank"><img src="../images/tw.png" alt=""></a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=mymiles.us/challenges/<%= @challenge.id %>" target="_blank"><img src="../images/fb.png" alt=""></a>

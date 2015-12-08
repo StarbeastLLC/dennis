@@ -64,6 +64,12 @@ defmodule Dennis.Cause do
      preload: [:challenges, :user]
   end
 
+  def cause_with_user(cause_id) do
+    Dennis.Repo.one from cause in Dennis.Cause,
+      where: cause.id == ^cause_id,
+      preload: [:user]
+  end
+
   def global_causes_by_user_type(user_type) do
     Dennis.Repo.all from cause in Dennis.Cause,
       join: user in User, on: cause.user_id == user.id,

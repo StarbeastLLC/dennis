@@ -21,13 +21,6 @@
   <header id="header">
     <div class="top-info">
       <a href="/" class="fancy-sign-in" id="logo" title="mymyles">MYMILES</a>
-      <div class="social">
-        <p>SHARE</p>
-        <ul>
-          <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=mymiles.us" target="_blank" class="fancy-sign-in"></a></li>
-          <li class="twitter"><a href="https://twitter.com/home?status=MyMiles%20allows%20athletes%20to%20raise%20funds%20for%20charity%20while%20running%20marathons%3A%20www.mymiles.us" target="_blank" class="fancy-sign-in"></a></li>
-        </ul>
-      </div>
     </div>
     <nav id="menu">
       <ul>
@@ -39,9 +32,8 @@
           <li><%= link "PROFILE", to: registration_path(@conn, :profile) %></li>
           <li><%= link "LOGOUT", to: session_path(@conn, :delete), method: :delete %></li>
         <% else %>
-          <li><%= link "REGISTER", to: registration_path(@conn, :new) %></li>
         <% end %>
-        <li><a href="#">BLOG</a></li>
+        <li><a target="_blank" href="http://mymiles.ghost.io/">BLOG</a></li>
       </ul>
     </nav>
     <!-- / navigation -->

@@ -47,7 +47,7 @@
 							<ul>
 							  <%= for athlete_cause <- @athlete_causes do %>
 							    <li>
-							      <a href="?cause_id=<%= athlete_cause.id %>#form"><img style="max-height:300px; max-width:300px; min-height:150px"src="<%= photo_url(athlete_cause) %>" alt=""><span class="mask" style="text-transform:uppercase"><%= athlete_cause.name %> <br>—<br>$ 320 USD</span></a>
+							      <a href="?cause_id=<%= athlete_cause.id %>#form"><img style="max-height:300px; max-width:300px; min-height:150px"src="<%= photo_url(athlete_cause) %>" alt=""><span class="mask" style="text-transform:uppercase"><%= athlete_cause.name %></a>
 							    </li>
 							  <% end %>
 
@@ -127,7 +127,11 @@
 		<div class="right-box ww kids">
 	    <%= if @changeset.model.cause_id do %>
 	      <center><h4 style="text-transform:uppercase"><%= cause_name(@changeset.model.cause_id) %></h4></center>
-	      <img src="<%= cause_photo(@changeset.model.cause_id) %>" alt="">
+	      <%= if is_athlete?(@changeset.model.cause_id) do %>
+	      	<img src="<%= cause_photo(@changeset.model.cause_id) %>" alt="">
+	      <% else %>
+	      	<img src="<%# org_photo(@changeset.model.cause_id) %>" alt="">
+	      <% end %>
 	    <% else %>
 	    <% end %>
 			<h4>UPLOAD YOUR FILES</h4>

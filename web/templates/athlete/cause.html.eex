@@ -1,16 +1,15 @@
 <div id="body">
   <div class="select-op type-2">
-    <h4>DASHBOARD</h4>
+    <h4><%= @cause.name %></h4>
   </div>
   <div class="user-details">
     <div class="container">
       <div class="left">
-      <%= if is_fb_user(@user) do %>
-        <img src="<%= fb_avatar_url(@user) %>" alt="">
-      <% else %>
-        <img src="<%= avatar_url(@user) %>" alt="">
-      <% end %>
-        <span class="name" style="text-transform:uppercase"><%= @user.first_name %> <%= @user.last_name %></span>
+     	<div class="box active">
+          <a href="/causes/<%= @cause.id %>"><img style="max-width:400px; max-height:300px; min-width:200px"src="<%= cause_main_photo(@cause) %>" alt="<%= @cause.name %>"></a>
+          <div class="text">
+          </div>
+        </div>
       </div>
       <div class="global">
         <%= if @challenges == [] do %>
@@ -19,13 +18,14 @@
           </div>
           <% else %>
             <div class="label">
-              GLOBAL<br> ACUMULATED
+              CAUSE TOTAL<br> ACUMULATED
             </div>
             <div class="digits">
               $ 777<%# global_accumulated(@challenges) %>
             </div>
           <% end %>
       </div>
+
       <div class="dash-list">
       <div class="scroll scroll1">
               <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
@@ -33,23 +33,12 @@
                    <div class="overview">
             <div class="ovrel">
               <ul>
-                <%= for cause <- @causes do %>
-                  <li>
-                    <div class="box active">
-                      <a href="/dashboard/cause/<%= cause.id %>"><img style="max-width:400px; max-height:300px; min-width:200px"src="<%= cause_main_photo(cause) %>" alt="<%= cause.name %>"></a>
-                      <div class="text">
-                        <%= cause.name %>
-                      </div>
-                    </div>
-                  </li>
-                <% end %>
-
                 <%= for challenge <- @challenges do %>
                   <li>
                     <div class="box">
                       <a href="/challenges/<%= challenge.id %>"><img src="<%= challenge_main_photo(challenge) %>" alt="<%= challenge.name %>"></a>
                       <div class="text">
-                        <%= challenge.name %><br>—<br><%= amount_donated(challenge.id) %>
+                        <%= challenge.name %><br>—<br>$ 7000
                       </div>
                     </div>
                   </li>

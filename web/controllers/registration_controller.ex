@@ -36,8 +36,8 @@ defmodule Dennis.RegistrationController do
       {:ok, user} = Dennis.Registration.create(changeset)
       conn
       |> put_session(:current_user, user.id)
-      |> put_flash(:info, "Welcome, #{Map.get(user_params, "first_name")}! Please start a challenge.")
-      |> redirect(to: "/")
+      |> put_flash(:info, "Welcome, #{Map.get(user_params, "first_name")}! Please start your challenge.")
+      |> redirect(to: "/dashboard/challenge")
     else
       conn
       |> put_flash(:info, "Oops! Something went wrong, please try again.")
@@ -79,7 +79,7 @@ defmodule Dennis.RegistrationController do
       {:ok, user} ->
         conn
         |> put_session(:current_user, user.id)
-        |> put_flash(:info, "Welcome, #{Map.get(user_params, "first_name")}! Please start a challenge.")
+        |> put_flash(:info, "Welcome, #{Map.get(user_params, "first_name")}!")
         |> redirect(to: "/dashboard")
       {:cant_fb_login} ->
         conn

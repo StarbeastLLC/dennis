@@ -54,7 +54,8 @@ defmodule Dennis.Router do
     put "/profile", RegistrationController, :update_profile
     put "/password", RegistrationController, :change_password
     get "/stripe", RegistrationController, :connect_stripe #change
-
+    
+    get "/dashboard/cause/:id", AthleteController, :show_cause_challenges
     get "/dashboard/challenge", AthleteController, :new_challenge
     post "/dashboard/challenge", AthleteController, :create_challenge
     get "/dashboard/challenge/:id", AthleteController, :show_challenge

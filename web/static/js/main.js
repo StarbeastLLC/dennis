@@ -7,9 +7,8 @@ $(document).ready(function() {
 
     // Parse date with Moment.js
     var raceDate = $('#iso-race-date').html();
-    var raceDateParsed = moment(raceDate);
+    var raceDateParsed = moment(raceDate).format('MMMM Do YYYY');
     $('#iso-race-date').text(raceDateParsed);
-    console.log(raceDateParsed);
 
 
     $('.minus, .plus').click(function(e){

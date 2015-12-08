@@ -17,6 +17,14 @@ defmodule Dennis.AthleteController do
     causes = Cause.user_causes(user_id)
 		render(conn, "athlete.html", challenges: challenges, causes: causes, user: user)
 	end
+
+  def show_cause_challenges(conn, %{"id" => cause_id}) do
+    user_id = get_session(conn, :current_user)
+    user = Repo.get!(User, user_id)
+    cause = Repo.get!(Cause, cause_id)
+    challenges = Challenge.cause_challenges(cause_id)
+    render(conn, "cause.html", challenges: challenges, cause: cause, user: user)
+  end
   
   def new_challenge(conn, %{"cause_id" => id}) do
     render_new_challenge conn, Challenge.changeset(%Challenge{cause_id: id})

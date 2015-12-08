@@ -46,7 +46,7 @@
     				data-key="<%= data_key %>"
 					data-name="<%= @challenge.name %>"
 					data-description="Benefiting <%= @challenge.cause.name %>"    	
-			    	data-image="<%= static_path(@conn, "/images/01.jpg") %>"
+			    	data-image="<%= static_path(@conn, "/images/logo_mymiles.png") %>"
 			    >PAY WITH CARD</button>
 			<% end %>
 		</div>
