@@ -60,8 +60,6 @@
         <article class="col-2">
           <h3>ABOUT</h3>
           <ul>
-            <li><%= link "Our Story", to: "/our-story" %></li>
-            <li><%= link "Our Team", to: "/our-team" %></li>
               <li><%= link "Privacy Policy", to: "/privacy" %></li>
               <li><%= link "Terms of Service", to: "/terms" %></li>
           </ul>
@@ -77,10 +75,11 @@
         </article>
         <article class="col-4">
           <h3>CONTACT US</h3>
-            <p>Mail: <a href="mailto:info@mymiles.us">info@mymiles.ws</a>
-            <br>Phone: <a href="tel:7049200169">704 920 0169</a>
-            <br>17105 Kenton Place
-            <br># 206-C Cornelius, NC</p>
+            <p>Mail: <a href="mailto:info@mymiles.us">info@mymiles.us</a>
+            <br>Phone: <a href="tel:7049200169">704 765 1230</a>
+            <br>2407 S Congress Ave.
+            <br>Suite #134 
+            <br>Austin, TX 78704</p>
         </article>
       </section>
     </div>

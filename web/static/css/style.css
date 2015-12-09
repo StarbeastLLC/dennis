@@ -5809,6 +5809,13 @@ a.btn-white {
 	text-decoration: none;
 }
 
+.alert {
+	background-color: #02A1CB;
+	text-transform: uppercase;
+	color: white;
+	text-align: center;
+}
+
 .datapicker  {
 	color: #02A8D3 !important;			
 	position: relative;

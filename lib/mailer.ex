@@ -21,11 +21,11 @@ defmodule Dennis.Mailer do
 			html: Phoenix.View.render_to_string(Dennis.Admin.EmailView, "request-invite-email.html", email: email)
 	end
 
-	def send_donor_invitation(user) do
-		send_email to: user.email,
+	def send_donor_invitation(donor_email) do
+		send_email to: donor_email,
 			from: @from,
 			subject: "Thanks for your donation!",
-			html: Phoenix.View.render_to_string(Dennis.Admin.EmailView, "donor-invite-email.html", user: user)
+			html: Phoenix.View.render_to_string(Dennis.Admin.EmailView, "donor-invite-email.html", donor_email: donor_email)
 	end
 
 

@@ -26,8 +26,6 @@ defmodule Dennis.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/our-story", PageController, :our_story
-    get "/our-team", PageController, :our_team
     get "/privacy", PageController, :privacy
     get "/terms", PageController, :terms
     get "/how", PageController, :how

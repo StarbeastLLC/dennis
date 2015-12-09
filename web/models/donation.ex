@@ -8,7 +8,6 @@ defmodule Dennis.Donation do
 
   schema "donations" do
     belongs_to :challenge, Dennis.Challenge
-    belongs_to :user, Dennis.User
 
     field :transaction_token, :string
     field :authorization_token, :string
@@ -16,13 +15,13 @@ defmodule Dennis.Donation do
     field :tip, :integer
     field :total_donated, :integer
     field :is_anonymous, :boolean, default: false
-    field :name, :string
+    field :name, :string, default: "Anonymous"
 
     timestamps
   end
 
   @required_fields ~w(miles_bought total_donated transaction_token challenge_id)
-  @optional_fields ~w(authorization_token user_id name tip)
+  @optional_fields ~w(authorization_token name tip)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -62,9 +61,7 @@ defmodule Dennis.Donation do
   end
 
   defp create!(challenge, donation_changeset, stripe_email, authorization_token) do
-    user = Repo.get_by(User, email: stripe_email) || User.create_donor(stripe_email)
     Repo.insert! changeset(donation_changeset, %{
-      user_id: user.id,
       authorization_token: authorization_token
     })
   end

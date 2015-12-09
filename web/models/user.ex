@@ -152,13 +152,5 @@ defmodule Dennis.User do
     |> validate_format(:email, ~r/@/)
   end
 
-  def create_donor(email) do
-    user = Repo.insert! donor_changeset(%Dennis.User{}, %{
-      email: email,
-      reset_token: Ecto.UUID.generate
-    })
-    Mailer.send_donor_invitation(user)
-    user
-  end
 
 end

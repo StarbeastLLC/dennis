@@ -10,6 +10,14 @@ $(document).ready(function() {
     var raceDateParsed = moment(raceDate).format('MMMM Do YYYY');
     $('#iso-race-date').text(raceDateParsed);
 
+    // Hide flash messages after some seconds
+    $('document').ready(function() {
+      setTimeout(function() {
+      $(".alert").animate({opacity:'0'}, 1500);
+      $('.alert').slideUp();
+      }, 3000);
+    });
+
 
     $('.minus, .plus').click(function(e){
         e.preventDefault();
