@@ -21,6 +21,12 @@
   <header id="header">
     <div class="top-info">
       <a href="/" class="fancy-sign-in" id="logo" title="mymyles">MYMILES</a>
+      <div class="social">
+        <ul>
+          <li class="facebook"><a href="http://www.facebook.com/JoinMyMiles" class="fancy-sign-in"></a></li>
+          <li class="twitter"><a href="http://www.twitter.com/mymiles_ws" class="fancy-sign-in"></a></li>
+        </ul>
+      </div>
     </div>
     <nav id="menu">
       <ul>
