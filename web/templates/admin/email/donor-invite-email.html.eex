@@ -121,14 +121,20 @@ div, p, a, li, td { -webkit-text-size-adjust:none; }
             <td align="center" valign="top" style="margin:0;padding:0 20px;border:0;width:100%!important" id="paddings">
                 <table border="0" cellpadding="0" cellspacing="0" width="490" style="width:490px;border-collapse:collapse!important" class="templateColumns">
                     <tr>
-                        <td height="84" valign="bottom" style="padding-bottom: 4px" align="center"><a href="#"><img src="logo.png" style="display:block;line-height: 50%;border:0" class="image" width="173" height="57" alt=""></a></td>
+                        <td height="84" valign="bottom" style="padding-bottom: 4px" align="center"><a href="http://mymiles.us"><img src="https://mymiles.s3.amazonaws.com/email-assets/logo.png" style="display:block;line-height: 50%;border:0" class="image" width="173" height="57" alt=""></a></td>
                     </tr>
                 </table>
                 <table border="0" cellpadding="0" cellspacing="0" width="490" style="width:490px;border-collapse:collapse!important" class="templateColumns">
                     <tr>
                         <td valign="top" class="hide2" width="1" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
                         <td valign="top" class="small" width="205" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
-                        <td rowspan="3" width="78" valign="top" height="78"><img src="1.png" style="display:block;line-height: 50%;border:0" class="image" width="78" height="78" alt=""></td>
+                        <td rowspan="3" width="78" valign="top" height="78">
+                          <%= if is_fb_user(@athlete) do %>
+                            <img src="<%= fb_avatar_url(@athlete) %>" style="display:block;line-height: 50%;border:0;border-radius: 50%;" class="image" width="78" height="78" alt="">    
+                          <% else %>
+                            <img src="<%= avatar_url(@athlete) %>" style="display:block;line-height: 50%;border:0;border-radius: 50%;" class="image" width="78" height="78" alt="">
+                          <% end %>
+                        </td>
                         <td valign="top" class="small" width="205" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
                         <td valign="top" class="hide2" width="1" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
                     </tr>
@@ -154,25 +160,25 @@ div, p, a, li, td { -webkit-text-size-adjust:none; }
                                     <td align="left">
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse!important">
                                             <tr>
-                                                <td valign="top" align="center" style="padding-top:16px;padding-right:0;padding-bottom:0;padding-left:0;color:#00a7d2;font-family:Helvetica, Arial;font-size:14px;line-height:125%;font-weight:bold;text-align:center">Thanks for you donation!</td>
+                                                <td valign="top" align="center" style="padding-top:16px;padding-right:0;padding-bottom:0;padding-left:0;color:#00a7d2;font-family:Helvetica, Arial;font-size:14px;line-height:125%;font-weight:bold;text-align:center">Thanks for your donation!<br><br></td>
                                             </tr>
                                             <tr>
-                                                <td valign="top" align="left" style="padding-top:14px;padding-right:0;padding-bottom:14px;padding-left:0;color:#7b7b7b;font-family:Helvetica, Arial;font-size:10px;line-height:14px;font-weight:normal;text-align:left">Nulla facilisi. Suspendisse potenti. Donec scelerisque pharetra purus, vel efficitur velit sollicitudin sit amet. Nam laoreet imperdiet arcu. Maecenas et augue nisi. Praesent quis lectus sit amet sapien iaculis tempus eu nec augue.<br><br>Aliquam ultrices, nunc nec posuere efficitur, lorem elit iaculis ipsum, eu venenatis elit lectus vitae orci. Ut accumsan erat porta libero tempus auctor. Nulla non nisi ac ex suscipit ullamcorper.</td>
+                                                <td valign="top" align="left" style="padding-top:14px;padding-right:0;padding-bottom:14px;padding-left:0;color:#7b7b7b;font-family:Helvetica, Arial;font-size:10px;line-height:14px;font-weight:normal;text-align:left"><%= @challenge.description %></td>
                                             </tr>
                                             <tr>
-                                                <td valign="top" align="center" style="padding-top:0;padding-right:0;padding-bottom:23px;padding-left:0;color:#7b7b7b;font-family:Helvetica, Arial;font-size:12px;line-height:14px;font-weight:bold;text-align:center">— Paul S.</td>
+                                                <td valign="top" align="center" style="padding-top:0;padding-right:0;padding-bottom:23px;padding-left:0;color:#7b7b7b;font-family:Helvetica, Arial;font-size:12px;line-height:14px;font-weight:bold;text-align:center">—<%= @athlete.first_name %> <%= @athlete.last_name %></td>
                                             </tr>
                                             <tr>
                                                 <td valign="top" align="center" style="padding-bottom: 7px">
                                                     <table border="0" cellpadding="0" cellspacing="0" width="182" style="border-collapse:collapse!important">
                                                         <tr>
-                                                            <td class="quote" align="left" height="30" valign="middle" style="color:#ffffff;font-family:Helvetica, Arial;font-size:12px;line-height:14px;font-weight:normal;text-align:center;background:#00A7D2"><a href="#" style="color: #ffffff;text-decoration: none;display:block">VISIT PAUL’S CHALLENGE</a></td>
+                                                            <td class="quote" align="left" height="30" valign="middle" style="color:#ffffff;font-family:Helvetica, Arial;font-size:12px;line-height:14px;font-weight:normal;text-align:center;background:#00A7D2"><a href="http://mymiles.us/challenges/<%= @challenge.id %>" style="color: #ffffff;text-decoration: none;display:block">Visit <%= @athlete.first_name %>’s challenge!</a></td>
                                                         </tr>
                                                     </table>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td valign="top" align="center" style="padding-top:18px;padding-right:0;padding-bottom:33px;padding-left:0;color:#7b7b7b;font-family:Helvetica, Arial;font-size:10px;line-height:14px;font-weight:normal;text-align:center">You can learn more about <span style="color: #00a7d2;text-decoration:none"><strong>MY MILES</strong></span> <a href="#" style="color: #ed4d4e;text-decoration:none"><font color="#ed4d4e">HERE</font></a>.</td>
+                                                <td valign="top" align="center" style="padding-top:18px;padding-right:0;padding-bottom:33px;padding-left:0;color:#7b7b7b;font-family:Helvetica, Arial;font-size:10px;line-height:14px;font-weight:normal;text-align:center">You can learn more about <span style="color: #00a7d2;text-decoration:none"><strong>MY MILES</strong></span> <a href="http://mymiles.us" style="color: #ed4d4e;text-decoration:none"><font color="#ed4d4e">HERE</font></a>.</td>
                                             </tr>
                                         </table>
                                     </td>
@@ -196,9 +202,9 @@ div, p, a, li, td { -webkit-text-size-adjust:none; }
                             <table border="0" cellpadding="0" cellspacing="0" width="490" style="width:490px;border-collapse:collapse!important;" class="templateColumns">
                                 <tr>
                                     <td style="font-size: 1px; line-height: 1px;" class="hide" width="61">&nbsp;</td>
-                                    <td width="84" valign="middle" align="left"><a href="#"><img src="mymiles.png" style="display:block;line-height: 50%;border:0" class="image" width="84" height="14" alt=""></a></td>
-                                    <td valign="middle" align="center"><a href="#"><img src="fb.png" style="display:inline-block;line-height: 50%;border:0;vertical-align: middle;" class="image" width="32" height="20" alt=""></a><a href="#"><img src="tw.png" style="display:inline-block;vertical-align: middle;line-height: 50%;border:0" class="image" width="32" height="20" alt=""></a></td>
-                                     <td width="88" align="right" valign="middle" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;color:#ed4d4e;font-family:Helvetica, Arial;font-size:8px;line-height:14px;font-weight:normal;text-align:right;text-transform: uppercase"><a style="color: #ed4d4e;text-decoration: none" href="#">Contact</a></td>
+                                    <td width="84" valign="middle" align="left"><a href="http://mymiles.us"><img src="https://mymiles.s3.amazonaws.com/email-assets/mymiles.png" style="display:block;line-height: 50%;border:0" class="image" width="84" height="14" alt=""></a></td>
+                                    <td valign="middle" align="center"><a href="https://www.facebook.com/JoinMyMiles"><img src="https://mymiles.s3.amazonaws.com/email-assets/fb.png" style="display:inline-block;line-height: 50%;border:0;vertical-align: middle;" class="image" width="32" height="20" alt=""></a><a href="https://twitter.com/mymiles_ws"><img src="https://mymiles.s3.amazonaws.com/email-assets/tw.png" style="display:inline-block;vertical-align: middle;line-height: 50%;border:0" class="image" width="32" height="20" alt=""></a></td>
+                                     <td width="88" align="right" valign="middle" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;color:#ed4d4e;font-family:Helvetica, Arial;font-size:8px;line-height:14px;font-weight:normal;text-align:right;text-transform: uppercase"><a style="color: #ed4d4e;text-decoration: none" href="mailto:info@mymiles.us">Contact</a></td>
                                     <td style="font-size: 1px; line-height: 1px;" class="hide" width="57">&nbsp;</td>
                                 </tr>
                             </table>
@@ -214,153 +220,5 @@ div, p, a, li, td { -webkit-text-size-adjust:none; }
     </table>
  
 
-</body>
-</html>
-
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width"/>
-
-    <!-- For development, pass document through inliner
-    <link rel="stylesheet" href="css/simple.css"> -->
-
-    <style type="text/css">
-
-    * {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  font-family: 'Avenir Next', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  line-height: 1.65; }
-
-img {
-  max-width: 100%;
-  margin: 0 auto;
-  display: block; }
-
-body,
-.body-wrap {
-  width: 100% !important;
-  height: 100%;
-  background: #efefef;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: none; }
-
-a {
-  color: #71bc37;
-  text-decoration: none; }
-
-.text-center {
-  text-align: center; }
-
-.text-right {
-  text-align: right; }
-
-.text-left {
-  text-align: left; }
-
-.button {
-  display: inline-block;
-  color: white;
-  background: #71bc37;
-  border: solid #71bc37;
-  border-width: 10px 20px 8px;
-  font-weight: bold;
-  border-radius: 4px; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 20px;
-  line-height: 1.25; }
-
-h1 {
-  font-size: 32px; }
-
-h2 {
-  font-size: 28px; }
-
-h3 {
-  font-size: 24px; }
-
-h4 {
-  font-size: 20px; }
-
-h5 {
-  font-size: 16px; }
-
-p, ul, ol {
-  font-size: 16px;
-  font-weight: normal;
-  margin-bottom: 20px; }
-
-.container {
-  display: block !important;
-  clear: both !important;
-  margin: 0 auto !important;
-  max-width: 580px !important; }
-  .container table {
-    width: 100% !important;
-    border-collapse: collapse; }
-  .container .masthead {
-    padding: 80px 0;
-    background: #71bc37;
-    color: white; }
-    .container .masthead h1 {
-      margin: 0 auto !important;
-      max-width: 90%;
-      text-transform: uppercase; }
-  .container .content {
-    background: white;
-    padding: 30px 35px; }
-    .container .content.footer {
-      background: none; }
-      .container .content.footer p {
-        margin-bottom: 0;
-        color: #888;
-        text-align: center;
-        font-size: 14px; }
-      .container .content.footer a {
-        color: #888;
-        text-decoration: none;
-        font-weight: bold; }
-
-
-    </style>
-</head>
-<body>
-<table class="body-wrap">
-    <tr>
-        <td class="container">
-
-            <!-- Message start -->
-            <table>
-                <tr>
-                    <td align="center" class="masthead">
-
-                        <img src="https://pbs.twimg.com/profile_images/519879432241020928/dRDEvjKv.png"width="200" alt="logo">
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="content">
-
-                        <p>Thanks for your donation!
-
-                        Are you a runner? Make those miles matter and create your own challenges! Follow this link for a quick registration:</p>
-                        <a href="http://localhost:4000/register/<%= @user.reset_token %>">http://localhost:4000/register/<%= @user.reset_token %></a>
-                        <p><em><a href="http://localhost:4000/request-invite">Prefer to join as a charity?</a></em></p>
-
-                    </td>
-                </tr>
-            </table>
-
-        </td>
-    </tr>
-    
-</table>
 </body>
 </html>

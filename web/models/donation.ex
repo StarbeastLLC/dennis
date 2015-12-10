@@ -3,6 +3,7 @@ defmodule Dennis.Donation do
 
   alias Dennis.Repo
   alias Dennis.User
+  alias Dennis.Mailer
   alias Commerce.Billing
   alias Commerce.Billing.Response, as: BillingResponse  
 
@@ -49,6 +50,8 @@ defmodule Dennis.Donation do
       case stripe_billing(challenge, donation_changeset, stripe_email) do
         {:ok, %BillingResponse{authorization: authorization_token}} ->
           donation = create!(challenge, donation_changeset, stripe_email, authorization_token)
+          athlete = Repo.get_by(User, id: challenge.user_id)
+          Mailer.thank_donor(athlete, stripe_email, challenge)
           {:ok, donation}
 
         {:error, %BillingResponse{reason: reason}} = error ->
