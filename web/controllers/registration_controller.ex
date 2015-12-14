@@ -79,8 +79,8 @@ defmodule Dennis.RegistrationController do
       {:ok, user} ->
         conn
         |> put_session(:current_user, user.id)
-        |> put_flash(:info, "Welcome, #{Map.get(user_params, "first_name")}!")
-        |> redirect(to: "/dashboard")
+        |> put_flash(:info, "Welcome, #{Map.get(user_params, "first_name")}! Please start your challenge.")
+        |> redirect(to: "/dashboard/challenge")
       {:cant_fb_login} ->
         conn
         |> put_flash(:error, "It appears your account is not linked to Facebook, please login using your email and password.")

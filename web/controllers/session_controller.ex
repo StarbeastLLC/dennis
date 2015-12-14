@@ -8,10 +8,17 @@ defmodule Dennis.SessionController do
   def create(conn, %{"session" => session_params}) do
     case Dennis.Session.login(session_params["email"], session_params["password"]) do
       {:ok, user} ->
-        conn
-        |> put_session(:current_user, user.id)
-        |> put_flash(:info, "Welcome!")
-        |> redirect(to: "/dashboard")
+        if user.user_type == "org" do
+          conn
+          |> put_session(:current_user, user.id)
+          |> put_flash(:info, "Welcome!")
+          |> redirect(to: "/dashboard")
+        else
+          conn
+          |> put_session(:current_user, user.id)
+          |> put_flash(:info, "Welcome, #{user.first_name}! Please start your challenge.")
+          |> redirect(to: "/dashboard/challenge")
+        end
       :error ->
         conn
         |> put_flash(:info, "Oops! Your email and/or password may be invalid, please try again.")
