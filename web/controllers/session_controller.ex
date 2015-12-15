@@ -7,18 +7,24 @@ defmodule Dennis.SessionController do
 
   def create(conn, %{"session" => session_params}) do
     case Dennis.Session.login(session_params["email"], session_params["password"]) do
+      {:ok, user = %{user_type: "org", stripe_id: nil}} ->
+        conn
+        |> put_session(:current_user, user.id)
+        |> put_flash(:info, "Welcome back! Please connect a Stripe account so you can be part of a challenge and start receiving donations.")
+        |> redirect(to: "/profile")
+
+      {:ok, user = %{user_type: "org"}} ->
+        conn
+        |> put_session(:current_user, user.id)
+        |> put_flash(:info, "Welcome!")
+        |> redirect(to: "/dashboard")
+
       {:ok, user} ->
-        if user.user_type == "org" do
-          conn
-          |> put_session(:current_user, user.id)
-          |> put_flash(:info, "Welcome!")
-          |> redirect(to: "/dashboard")
-        else
-          conn
-          |> put_session(:current_user, user.id)
-          |> put_flash(:info, "Welcome, #{user.first_name}! Please start your challenge.")
-          |> redirect(to: "/dashboard/challenge")
-        end
+        conn
+        |> put_session(:current_user, user.id)
+        |> put_flash(:info, "Welcome, #{user.first_name}! Please start your challenge.")
+        |> redirect(to: "/dashboard/challenge")
+
       :error ->
         conn
         |> put_flash(:info, "Oops! Your email and/or password may be invalid, please try again.")

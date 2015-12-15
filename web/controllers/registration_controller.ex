@@ -53,8 +53,8 @@ defmodule Dennis.RegistrationController do
       {:ok, user} ->
         conn
         |> put_session(:current_user, user.id)
-        |> put_flash(:info, "Amazing, #{Map.get(user_params, "first_name")}! You can now be part of a challenge and start receiving donations.")
-        |> redirect(to: "/dashboard")
+        |> put_flash(:info, "Amazing, #{Map.get(user_params, "org_name")}! Now please connect a Stripe account so you can be part of a challenge and start receiving donations.")
+        |> redirect(to: "/profile")
       {:error, changeset} ->
         conn
         |> put_flash(:error, "Oops! Something went wrong, please try again.")

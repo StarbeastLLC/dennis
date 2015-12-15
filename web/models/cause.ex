@@ -73,7 +73,7 @@ defmodule Dennis.Cause do
   def global_causes_by_user_type(user_type) do
     Dennis.Repo.all from cause in Dennis.Cause,
       join: user in User, on: cause.user_id == user.id,
-      where: user.user_type == ^user_type,
+      where: user.user_type == ^user_type and user.stripe_id != "",
       preload: [:user]
   end
 

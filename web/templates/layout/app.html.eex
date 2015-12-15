@@ -34,7 +34,9 @@
         <li><%= link "CAUSES", to: "/causes" %></li>
         <li><%= link "CHALLENGES", to: "/challenges" %></li>
         <%= if logged_in?(@conn) do %>
-          <li><%= link "DASHBOARD", to: "/dashboard" %></li>
+          <%= if has_org_stripe?(@conn) do %>
+            <li><%= link "DASHBOARD", to: "/dashboard" %></li>
+          <% end %>
           <li><%= link "PROFILE", to: registration_path(@conn, :profile) %></li>
           <li><%= link "LOGOUT", to: session_path(@conn, :delete), method: :delete %></li>
         <% else %>

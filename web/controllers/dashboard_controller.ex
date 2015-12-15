@@ -18,6 +18,10 @@ defmodule Dennis.DashboardController do
     cond do
     	user.user_type == "athlete" ->
     		Athlete.show(conn, _params)
+      user.user_type == "org" && user.stripe_id == nil ->
+        conn
+        |> put_flash(:info, "Please connect a Stripe account to start receiving donations.")
+        |> redirect(to: "/profile")
     	user.user_type == "org" ->
     		Org.show(conn, _params)
     	:else ->
