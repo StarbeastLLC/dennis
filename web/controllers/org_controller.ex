@@ -3,7 +3,7 @@ defmodule Dennis.OrgController do
 
 	alias Dennis.Challenge
 	alias Dennis.Cause
-    alias Dennis.User
+  alias Dennis.User
 
 	plug :scrub_params, "cause" when action in [:create_cause]
 

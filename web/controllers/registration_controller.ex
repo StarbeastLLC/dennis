@@ -124,17 +124,33 @@ defmodule Dennis.RegistrationController do
   def update_profile(conn, %{"user" => user_params}) do
     id = get_session(conn, :current_user)
     user = Repo.get!(User, id)
-    changeset = User.update_changeset(user, user_params)
+    cond do
+      user.user_type == "athlete" ->
+        changeset = User.update_changeset(user, user_params)
 
-    case Repo.update(changeset) do
-      {:ok, user} ->
-        conn
-        |> put_flash(:info, "Your profile has been updated.")
-        |> redirect(to: "/profile")
-      {:error, changeset} ->
-        conn
-        |> put_flash(:error, "Oops! Something went wrong, please try again.")
-        |> render("profile.html", user: user, changeset: changeset)
+        case Repo.update(changeset) do
+          {:ok, user} ->
+            conn
+            |> put_flash(:info, "Your profile has been updated.")
+            |> redirect(to: "/profile")
+          {:error, changeset} ->
+            conn
+            |> put_flash(:error, "Oops! Something went wrong, please try again.")
+            |> render("profile.html", user: user, changeset: changeset)
+        end
+      user.user_type == "org" ->
+        changeset = User.update_org_changeset(user, user_params)
+
+        case Repo.update(changeset) do
+          {:ok, user} ->
+            conn
+            |> put_flash(:info, "Your profile has been updated.")
+            |> redirect(to: "/profile")
+          {:error, changeset} ->
+            conn
+            |> put_flash(:error, "Oops! Something went wrong, please try again.")
+            |> render("profile.html", user: user, changeset: changeset)
+        end
     end
   end
 

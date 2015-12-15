@@ -105,6 +105,13 @@ defmodule Dennis.User do
     |> cast_attachments(params, ~w(), ~w(avatar))
   end
 
+  def update_org_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(email org_name state description website address), @optional_org_fields)
+    |> validate_format(:email, ~r/@/)
+    |> cast_attachments(params, ~w(), ~w(avatar))
+  end
+
   def fb_auth_changeset(model, params \\ :empty) do
     model
     |> cast(params, ~w(email fb_id first_name last_name), ~w(fb_token))
