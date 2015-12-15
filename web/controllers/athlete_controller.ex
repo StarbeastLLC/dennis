@@ -35,9 +35,11 @@ defmodule Dennis.AthleteController do
   end
 
   defp render_new_challenge(conn, challenge_changeset) do
+    user_id = get_session(conn, :current_user)
+    user = Repo.get!(User, user_id)
     org_causes = Cause.global_causes_by_user_type("org")
     athlete_causes = Cause.global_causes_by_user_type("athlete")
-    render(conn, "new-challenge.html", [changeset: challenge_changeset, org_causes: org_causes, athlete_causes: athlete_causes])
+    render(conn, "new-challenge.html", [changeset: challenge_changeset, org_causes: org_causes, athlete_causes: athlete_causes, user: user])
   end
 
   def create_challenge(conn, %{"challenge" => challenge_params}) do

@@ -149,11 +149,18 @@ defmodule Dennis.RegistrationController do
       stripe_params = %{"stripe_id" => stripe_id}
       changeset = User.stripe_changeset(user, stripe_params)
       Repo.update(changeset)
-
-      conn
-      |> put_flash(:info, "Stripe was connected successfully.")
-      |> redirect(to: "/profile")
-    else
+      
+      cond do
+        user.user_type == "org" ->
+          conn
+          |> put_flash(:info, "Stripe was connected successfully.")
+          |> redirect(to: "/profile")
+        user.user_type == "athlete" ->
+          conn
+          |> put_flash(:info, "Stripe was connected successfully.")
+          |> redirect(to: "/dashboard/cause")
+      end
+          else
       conn
       |> put_flash(:error, "Please try again to connect Stripe.")
       |> redirect(to: "/profile")
