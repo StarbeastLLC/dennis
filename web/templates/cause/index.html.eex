@@ -3,7 +3,7 @@
     <h4>CAUSES</h4>
   </div>
   <div class="cols-2-haf full">
-    
+
   <div class="inside">
   <div class="scroll scroll1">
           <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
@@ -11,9 +11,11 @@
                <div class="overview">
         <div class="ovrel">
           <ul>
+
             <%= for cause <- @causes do %>
               <li><a href="/causes/<%= cause.id %>"><img src="<%= photo_url(cause) %>" alt="<%= cause.name %>"><span class="titles" style="text-transform:uppercase"><%= cause.name %></span></a></li>
-            <% end %>
+            <% end %>   
+
           </ul>
         </div>
       </div>

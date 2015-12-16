@@ -5,9 +5,9 @@
   <div class="pro-details">
     <div class="container">
       <div class="image">
-        <a class="fancybox2" rel="gallery1" href="<%= avatar_url(@cause.user) %>" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)"><img src="<%= avatar_url(@cause.user) %>" alt=""></a>
-        <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)"></a>
-        <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)"></a>
+        <a class="fancybox2" rel="gallery1" href="<%= avatar_url(@cause.user) %>" title="<%= @cause.name %>"><img src="<%= avatar_url(@cause.user) %>" alt=""></a>
+        <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="<%= @cause.name %>"></a>
+        <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="<%= @cause.name %>"></a>
       </div>
       <div class="text">
         <h2><%= @cause.name %></h2>
@@ -25,7 +25,6 @@
 
         <div class="more">
           <a href="http://<%= @cause.more_info %>"><%= @cause.more_info %></a>
-        </div>
       </div>
     </div>
   </div>

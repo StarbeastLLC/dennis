@@ -1,4 +1,64 @@
 <div id="body">
+  <div class="select-op type-2 small">
+    <h4>CHARITY’S PROFILE</h4>
+  </div>
+  <div class="profile-form">
+    <div class="container">
+      <form action="#">
+        <div class="col-l">
+          <fieldset>
+            <input type="text" placeholder="NP’s Official Name:">
+          </fieldset>
+          <fieldset>
+            <textarea placeholder="Please describe the Non Profit’s porpose (what’s the story behind it)"></textarea>
+          </fieldset>
+          <fieldset>
+            <textarea placeholder="Please describe how the non profit works (brief description on why people should help you)"></textarea>
+          </fieldset>
+          <div class="half">
+            <fieldset>
+              <input type="text" placeholder="NP’s Official Website:">
+            </fieldset>
+            <fieldset>
+              <select class="small2"><option>STATE</option></select>
+            </fieldset>
+          </div>
+          <fieldset>
+            <input type="text" placeholder="Contact E-mail:">
+          </fieldset>
+          <div class="upload">
+            <h4>upload images</h4>
+            <label>File</label>
+            <input type="file">
+            <a href="#" class="remove">Remove file</a>
+          </div>
+        </div>
+        <div class="col-r">
+          <div class="logo-holder">
+            <a href="#" class="add"><img src="img/ico_add.png" alt=""></a>
+            <p>LOGO</p>
+          </div>
+          <h4>change password</h4>
+          <fieldset>
+            <input type="text" placeholder="Current Password:">
+          </fieldset>
+          <fieldset>
+            <input type="text" placeholder="New Password:">
+          </fieldset>
+          <fieldset>
+            <input type="text" placeholder="Confirm the New Password:">
+          </fieldset>
+          <a href="#" class="btn btn-blue left">STRIPE CONNECT</a>
+          <a href="#" class="btn btn-blue right">UPDATE PROFILE</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- / body -->
+
+
+<div id="body">
   <div class="container">
     <div id="content">
       <div class="connect-con">

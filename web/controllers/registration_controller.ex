@@ -24,7 +24,7 @@ defmodule Dennis.RegistrationController do
         |> redirect(to: "/request-invite")
       user ->
         changeset = User.changeset(user)
-        render conn, "new.html", changeset: changeset, user: user
+        render conn, "new-org.html", changeset: changeset, user: user
     end    
   end
   

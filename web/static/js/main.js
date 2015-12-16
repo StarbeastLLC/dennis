@@ -22,7 +22,7 @@ $(document).ready(function() {
     $('.minus, .plus').click(function(e){
         e.preventDefault();
         
-        var type      = $(this).attr('class');
+        type      = $(this).attr('class');
         var input = $(".input input");
         var currentVal = parseInt(input.val());
         if (!isNaN(currentVal)) {
@@ -46,7 +46,7 @@ $(document).ready(function() {
             input.val(0);
         }
     });
-    // $.getScript("/demo/demo.js");
+    
     $('.input input').focusin(function(){
        $(this).data('oldValue', $(this).val());
     });
@@ -143,6 +143,24 @@ $(document).ready(function() {
             }
         }
     });
+
+    $('.reddem-modal .checkbox input').change(function() {      
+        if ($(this).is(":checked")) {       
+            $(".open-modal input").prop("checked", true);       
+            $(".open-modal label").addClass("checked");     
+        } else {        
+            $(".open-modal input").prop("checked", false);      
+            $(".open-modal label").removeClass("checked");      
+        };      
+    });     
+    $('.reddem-modal .submit').click(function() {       
+        $(".fancybox-close").trigger("click")       
+        return false;       
+    });     
+    $('.open-modal').click(function() {     
+        $(".fancybox-open").trigger("click")        
+        return false;       
+    });
 });
 
 $(window).load(function() {
@@ -196,6 +214,10 @@ $(window).load(function() {
         } else {
             scrollbar6.update(-$(".scroll1 .overview").position().top-40);
         };
+        return false;       
+    });     
+    $('.datapicker').click(function() {     
+        $(".datapicker input").trigger("focus")
         return false;
     });
     $('.scroll1 .arrow-down').click(function() {

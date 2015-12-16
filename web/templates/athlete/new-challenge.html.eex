@@ -75,6 +75,109 @@
 	</div>
 	<div class="create-content">
 		<div class="left-box ww">
+			<%= form_for @changeset, athlete_path(@conn, :create_challenge), [multipart: true], fn f -> %>
+	            <%= if f.errors != [] do %>
+	              <div class="alert alert-danger">
+	                <p>Oops, something went wrong! Please check the errors below:</p>
+	                <ul>
+	                  <%= for {attr, message} <- f.errors do %>
+	                    <li><%= humanize(attr) %> <%= message %></li>
+	                  <% end %>
+	                </ul>
+	                <br>
+	              </div>
+	            <% end %>
+	            <%= hidden_input f, :cause_id, class: "form-control" %>
+				<fieldset class="hal">
+					<label>Please enter your price per mile</label>
+					<div class="input input-check">
+						<a href="#" class="plus"></a>
+						<a href="#" class="minus"></a>
+						<!-- <input type="text" value="6" min="0" max="1000"> -->
+						<%= text_input f, :mile_price, class: "form-control" %>
+					</div>
+				</fieldset>
+				<fieldset>
+					<%= text_input f, :name, class: "form-control", placeholder: "CHALLENGE NAME" %>
+					<!-- race -->
+					<%= inputs_for f, :race, fn i -> %>
+  						<div class="form-group">
+	    					<%= text_input i, :name, class: "form-control", placeholder: "RACE NAME" %>
+	    					<%= if message = i.errors[:name] do %>
+	      						<span class="help-block"><%= message %></span>
+	    					<% end %>
+	    					<span class="crf-s datapicker"><%= text_input i, :date, class: "form-control", placeholder: "RACE DATE" %><input type="text" id="datepicker" value="DD/MM/YYYY"><span class="option">RACE DATE: DD/MM/YYYY</span></span>
+	    					<%= if message = i.errors[:date] do %>
+	      						<span class="help-block"><%= message %></span>
+	    					<% end %>
+	    					<%= label i, :miles, "Race Miles", class: "control-label" %>
+	    					<%= text_input i, :miles, class: "form-control" %>
+	    					<%= if message = i.errors[:miles] do %>
+	      						<span class="help-block"><%= message %></span>
+	    					<% end %>
+  						</div>
+					<% end %>
+					<%= textarea f, :description, class: "form-control", placeholder: "MESSAGE TO DONORS" %>
+				</fieldset>
+				<div class="checkbox open-modal">
+					<input type="checkbox">
+					<label>Yes, I want to redeem my race fee!</label>
+				</div>
+				<a href="#red" class="hide fancybox-open">SUBMIT</a>
+				<a href="#" class="submit">SUBMIT</a>
+		</div>
+		<div class="right-box ww kids">
+			<%= if @changeset.model.cause_id do %>
+		      <center><h4 style="text-transform:uppercase"><%= cause_name(@changeset.model.cause_id) %></h4></center>
+		      <%= if is_athlete?(@changeset.model.cause_id) do %>
+		      	<img src="<%= cause_photo(@changeset.model.cause_id) %>" alt="">
+		      <% else %>
+		      	<img src="<%# org_photo(@changeset.model.cause_id) %>" alt="">
+		      <% end %>
+		    <% else %>
+		    <% end %>
+			<h4>UPLOAD YOUR FILES</h4>
+			<div class="file-set">
+				<p>Background Image File</p>
+				<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]", style: "position:inherit; opacity:100; left:inherit"] %>
+			</div>
+			<fieldset>
+				<p class="ss">Youtube URL</p>
+				<%= text_input f, :video, class: "form-control" %>
+			</fieldset>
+			<%= submit "CREATE CHALLENGE", class: "submit" %>
+		</div>
+		<% end %>
+	</div>
+</div>
+<!-- / body -->
+
+<div class="reddem-modal" id="red">
+	<h4>HOW TO REDEEM RACE FEE</h4>
+	<div class="list scroll scroll1">
+        <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+        <div class="viewport">
+             <div class="overview">
+				<div class="ovrel">
+					<p>List of redemption, rules and conditions:<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—<br>—</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="checkbox">
+		<input type="checkbox">
+		<label>I have read and agree with the above terms and conditions.</label>
+	</div>
+	<a href="#red" class="submit">CONTINUE</a>
+</div>
+<!-- /pop up -->
+
+<div id="body">
+	<div class="select-op red">
+		<h4>CREATE YOUR CHALLENGE</h4>
+	</div>
+	<div class="create-content">
+		<div class="left-box ww">
 		<%= form_for @changeset, athlete_path(@conn, :create_challenge), [multipart: true], fn f -> %>
             <%= if f.errors != [] do %>
               <div class="alert alert-danger">
