@@ -1,57 +1,64 @@
 <div id="body">
 	<div class="select-op type-2 small">
-		<h4>CHARITY’S PROFILE</h4>
+		<h4>SIGN UP AS CHARITY</h4>
 	</div>
 	<div class="profile-form">
 		<div class="container">
-			<form action="#">
+			<%= form_for @changeset, registration_path(@conn, :create_org), [multipart: true], fn f -> %>
+              <%= if f.errors != [] do %>
+                <div class="alert alert-danger">
+                  <p>Oops, something went wrong! Please check the errors below:</p>
+                  <ul>
+                    <%= for {attr, message} <- f.errors do %>
+                      <li><%= humanize(attr) %> <%= message %></li>
+                    <% end %>
+                  </ul>
+                  <br>
+                </div>
+              <% end %>
+
+              <%= hidden_input f, :id %>
 				<div class="col-l">
 					<fieldset>
-						<input type="text" placeholder="NP’s Official Name:">
+						<%= text_input f, :org_name, placeholder: "Charity official name" %>	
 					</fieldset>
 					<fieldset>
-						<textarea placeholder="Please describe the Non Profit’s porpose (what’s the story behind it)"></textarea>
+					 	<%= textarea f, :description, placeholder: "Please describe the Non Profit’s porpose (what’s the story behind it)" %>
 					</fieldset>
 					<fieldset>
 						<textarea placeholder="Please describe how the non profit works (brief description on why people should help you)"></textarea>
 					</fieldset>
+					<fieldset>
+						<%= textarea f, :address, placeholder: "Charity official address" %>
+					</fieldset>
 					<div class="half">
 						<fieldset>
-							<input type="text" placeholder="NP’s Official Website:">
+							<%= text_input f, :website, placeholder: "Charity official website" %>
 						</fieldset>
 						<fieldset>
-							<select class="small2"><option>STATE</option></select>
+							<%= select f, :state, us_states() %>
 						</fieldset>
 					</div>
 					<fieldset>
-						<input type="text" placeholder="Contact E-mail:">
+						<%= email_input f, :email, placeholder: "Contact email" %>
 					</fieldset>
-					<div class="upload">
-						<h4>upload images</h4>
-						<label>File</label>
-						<input type="file">
-						<a href="#" class="remove">Remove file</a>
-					</div>
 				</div>
 				<div class="col-r">
-					<div class="logo-holder">
-						<a href="#" class="add"><img src="img/ico_add.png" alt=""></a>
-						<p>LOGO</p>
-					</div>
-					<h4>change password</h4>
+					<h4>logo</h4>
+					<%= file_input f, :avatar, placeholder: "LOGO" %>
+
+              		<h4>photos</h4>
+              		<%= file_input f, :photos, placeholder: "PHOTOS", multiple: true, name: "cause_photos[]" %>
+					<h4>password</h4>
 					<fieldset>
-						<input type="text" placeholder="Current Password:">
+						<%= password_input f, :password, placeholder: "Password" %>
 					</fieldset>
 					<fieldset>
-						<input type="text" placeholder="New Password:">
+						<%= password_input f, :password_conf, placeholder: "Confirm password" %>
 					</fieldset>
-					<fieldset>
-						<input type="text" placeholder="Confirm the New Password:">
-					</fieldset>
-					<a href="#" class="btn btn-blue left">STRIPE CONNECT</a>
-					<a href="#" class="btn btn-blue right">UPDATE PROFILE</a>
+					<%= submit "SIGN UP", class: "btn-blue"%>
 				</div>
-			</form>
+			<% end %>
 		</div>
 	</div>
 </div>

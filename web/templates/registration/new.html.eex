@@ -1,137 +1,61 @@
 <div id="body">
   <div class="select-op type-2 small">
-    <h4>CHARITY’S PROFILE</h4>
+    <h4>SIGN UP</h4>
   </div>
   <div class="profile-form">
     <div class="container">
-      <form action="#">
+      <%= form_for @changeset, registration_path(@conn, :create), [multipart: true], fn f -> %>
+          <%= if f.errors != [] do %>
+            <div class="alert alert-danger">
+              <p>Oops, something went wrong! Please check the errors below:</p>
+              <ul>
+                <%= for {attr, message} <- f.errors do %>
+                  <li><%= humanize(attr) %> <%= message %></li>
+                <% end %>
+              </ul>
+              <br>
+            </div>
+          <% end %>
         <div class="col-l">
           <fieldset>
-            <input type="text" placeholder="NP’s Official Name:">
+            <%= text_input f, :first_name, placeholder: "First name" %>
           </fieldset>
           <fieldset>
-            <textarea placeholder="Please describe the Non Profit’s porpose (what’s the story behind it)"></textarea>
+            <%= text_input f, :last_name, placeholder: "Last name" %>
           </fieldset>
           <fieldset>
-            <textarea placeholder="Please describe how the non profit works (brief description on why people should help you)"></textarea>
+            <%= textarea f, :description, placeholder: "Tell us about you" %>
           </fieldset>
           <div class="half">
             <fieldset>
-              <input type="text" placeholder="NP’s Official Website:">
+              <%= text_input f, :website, placeholder: "Website" %>
             </fieldset>
             <fieldset>
-              <select class="small2"><option>STATE</option></select>
+              <%= select f, :state, us_states() %>
             </fieldset>
           </div>
           <fieldset>
-            <input type="text" placeholder="Contact E-mail:">
+            <%= email_input f, :email, placeholder: "Contact email" %>
           </fieldset>
           <div class="upload">
-            <h4>upload images</h4>
-            <label>File</label>
-            <input type="file">
-            <a href="#" class="remove">Remove file</a>
+            <h4>profile picture</h4>
+            <%= file_input f, :avatar, placeholder: "AVATAR" %>
           </div>
         </div>
         <div class="col-r">
-          <div class="logo-holder">
-            <a href="#" class="add"><img src="img/ico_add.png" alt=""></a>
-            <p>LOGO</p>
-          </div>
-          <h4>change password</h4>
           <fieldset>
-            <input type="text" placeholder="Current Password:">
+            <%= password_input f, :password, placeholder: "Password" %>
           </fieldset>
           <fieldset>
-            <input type="text" placeholder="New Password:">
+            <%= password_input f, :password_conf, placeholder: "Confirm password" %>
           </fieldset>
-          <fieldset>
-            <input type="text" placeholder="Confirm the New Password:">
-          </fieldset>
-          <a href="#" class="btn btn-blue left">STRIPE CONNECT</a>
-          <a href="#" class="btn btn-blue right">UPDATE PROFILE</a>
+          <%= submit "SIGN UP", class: "btn-blue"%>
         </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- / body -->
+      <% end %>
 
+      <br>
+      <br>
 
-<div id="body">
-  <div class="container">
-    <div id="content">
-      <div class="connect-con">
-        <div class="form-hold">
-          <%= if "org" == Ecto.Changeset.get_field(@changeset, :user_type) do %>
-            <div class="title">
-              <h1>SIGN UP AS CHARITY</h1>
-            </div>
-            <%= form_for @changeset, registration_path(@conn, :create_org), [multipart: true], fn f -> %>
-            <%= if f.errors != [] do %>
-              <div class="alert alert-danger">
-                <p>Oops, something went wrong! Please check the errors below:</p>
-                <ul>
-                  <%= for {attr, message} <- f.errors do %>
-                    <li><%= humanize(attr) %> <%= message %></li>
-                  <% end %>
-                </ul>
-                <br>
-              </div>
-            <% end %>
-
-              <%= hidden_input f, :id %>
-
-              <label>Logo</label><%= file_input f, :avatar, placeholder: "LOGO" %>
-
-              <label>Photos</label><%= file_input f, :photos, placeholder: "PHOTOS", multiple: true, name: "cause_photos[]" %>
-
-              <%= text_input f, :org_name, placeholder: "NAME" %>
-              <%= email_input f, :email, placeholder: "EMAIL" %>
-              <%= text_input f, :website, placeholder: "WEBSITE" %>
-              <%= textarea f, :description, placeholder: "DESCRIPTION" %>
-              <%= select f, :state, us_states() %>
-              <%= text_input f, :address, placeholder: "ADDRESS" %>
-              <%= password_input f, :password, placeholder: "PASSWORD" %>
-              <%= password_input f, :password_conf, placeholder: "CONFIRM PASSWORD" %>
-            
-              <%= submit "SIGN UP", class: "btn red" %>
-            <% end %>
-
-          <% else %>
-
-          <div class="title">
-            <h1>SIGN UP</h1>
-          </div>
-          <%= form_for @changeset, registration_path(@conn, :create), [multipart: true], fn f -> %>
-            <%= if f.errors != [] do %>
-              <div class="alert alert-danger">
-                <p>Oops, something went wrong! Please check the errors below:</p>
-                <ul>
-                  <%= for {attr, message} <- f.errors do %>
-                    <li><%= humanize(attr) %> <%= message %></li>
-                  <% end %>
-                </ul>
-                <br>
-              </div>
-            <% end %>
-
-              <label>Avatar</label><%= file_input f, :avatar, placeholder: "AVATAR" %>
-              <%= text_input f, :first_name, placeholder: "FIRST NAME" %>
-              <%= text_input f, :last_name, placeholder: "LAST NAME" %>
-              <%= textarea f, :description, placeholder: "ABOUT ME" %>
-              <%= select f, :state, us_states() %>
-              <%= email_input f, :email, placeholder: "EMAIL" %>
-              <%= password_input f, :password, placeholder: "PASSWORD" %>
-              <%= password_input f, :password_conf, placeholder: "CONFIRM PASSWORD" %>
-            
-              <%= submit "SIGN UP", class: "btn red" %>
-            <% end %>
-
-          
-        </div>
-      </div>
-      
       <div class="social-connects">
         <h3>Sign up with</h3>
         <ul>
@@ -145,13 +69,10 @@
               <%= hidden_input f, :first_name %>
               <%= hidden_input f, :last_name %>
           <% end %>
-
-      <% end %> 
       </div>
-    </div>
-    <!-- / content -->
 
+
+    </div>
   </div>
-  <!-- / container -->
 </div>
 <!-- / body -->

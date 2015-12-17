@@ -5,11 +5,11 @@
   <div class="user-details">
     <div class="container">
       <div class="left">
-      <%= if is_fb_user(@user) do %>
-        <img src="<%= fb_avatar_url(@user) %>" alt="">
-      <% else %>
-        <img src="<%= avatar_url(@user) %>" alt="">
-      <% end %>
+        <%= if is_fb_user(@user) do %>
+          <img src="<%= fb_avatar_url(@user) %>" alt="">
+        <% else %>
+          <img src="<%= avatar_url(@user) %>" alt="">
+        <% end %>
         <span class="name" style="text-transform:uppercase"><%= @user.first_name %> <%= @user.last_name %></span>
       </div>
       <div class="global">
@@ -17,14 +17,14 @@
           <div class="label">
             RAISE MONEY,<br>CREATE A CHALLENGE
           </div>
-          <% else %>
-            <div class="label">
-              GLOBAL<br> ACUMULATED
-            </div>
-            <div class="digits">
-              $ 777<%# global_accumulated(@challenges) %>
-            </div>
-          <% end %>
+        <% else %>
+          <div class="label">
+            GLOBAL<br> ACUMULATED
+          </div>
+          <div class="digits">
+            $ 777<%# global_accumulated(@challenges) %>
+          </div>
+        <% end %>
       </div>
       <div class="dash-list">
       <div class="scroll scroll1">

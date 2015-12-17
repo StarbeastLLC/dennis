@@ -1,110 +1,57 @@
-	<div id="body">
-		<div class="select-op">
-			<h4>Create your cause</h4>
-		</div>
-		<div class="form-create">
-			<div class="container">
-				<%= form_for @changeset, org_path(@conn, :create_cause), [multipart: true], fn f -> %>
+<div id="body">
+	<div class="select-op">
+		<h4>Create your cause</h4>
+	</div>
+	<div class="form-create">
+		<div class="container">
+			<%= form_for @changeset, org_path(@conn, :create_cause), [multipart: true], fn f -> %>
 
-					<%= if f.errors != [] do %>
-				      <div class="alert alert-danger">
-				        <p>Oops, something went wrong! Please check the errors below:</p>
-				        <ul>
-				          <%= for {attr, message} <- f.errors do %>
-				            <li><%= humanize(attr) %> <%= message %></li>
-				          <% end %>
-				        </ul>
-				        <br>
-				      </div>
-				    <% end %>
-    					<div class="left-form">
-						<fieldset>
-							<label>Name of your cause</label>
-							<div class="text">
-								<%= text_input f, :name, class: "form-control" %>
-							</div>
-						</fieldset>
-						<label>State</label>
-                          <%= select f, :state, us_states() %>
-
-						<fieldset>
-							<label>Description</label>
-							<div class="text">
-								<%= textarea f, :description, class: "form-control" %>
-							</div>
-						</fieldset>
-						<fieldset>
-							<label>Website</label>
-							<div class="text">
-								<%= text_input f, :more_info, class: "form-control" %>
-							</div>
-						</fieldset>
-					</div>
-					<div class="right-upload">
-						<h3><span>UPLOAD</span></h3>
-						<div class="file-set">
-							<p>VIDEO</p>
-							<input type="file" title="No file chosen" id="file">
-							<label for="file"><span class="btn">CHOOSE FILE</span><span class="url">Choose Files</span></label>
+				<%= if f.errors != [] do %>
+			      <div class="alert alert-danger">
+			        <p>Oops, something went wrong! Please check the errors below:</p>
+			        <ul>
+			          <%= for {attr, message} <- f.errors do %>
+			            <li><%= humanize(attr) %> <%= message %></li>
+			          <% end %>
+			        </ul>
+			        <br>
+			      </div>
+			    <% end %>
+				<div class="left-form">
+					<fieldset>
+						<label>Name of your cause</label>
+						<div class="text">
+							<%= text_input f, :name, class: "form-control" %>
 						</div>
-						<div class="file-set">
-							<p>PICTURES</p>
-							<input type="file" title="No file chosen" id="file">
-							<label for="file"><span class="btn">CHOOSE FILE</span><span class="url">No file chosen</span></label>
-							<%= file_input f, :photos, multiple: true, name: "cause[photos][]" %>
+					</fieldset>
+					<fieldset>
+						<label>Description</label>
+						<div class="text">
+							<%= textarea f, :description, class: "form-control" %>
 						</div>
-						<hr>
-						<button type="submit" class="btn">FINISH</button>
+					</fieldset>
+					<fieldset>
+						<label>Website</label>
+						<div class="text">
+							<%= text_input f, :more_info, class: "form-control" %>
+						</div>
+					</fieldset>
+				</div>
+				<div class="right-upload">
+					<h3><span>UPLOAD</span></h3>
+					<div class="file-set">
+						<p>PICTURES</p>
+						<%= file_input f, :photos, multiple: true, name: "cause[photos][]" %>
 					</div>
-				<% end %>
-			</div>
+					<div class="file-set">
+						<p>video</p>
+						<%= text_input f, :video, class: "form-control" %>
+					</div>
+					<hr>
+					<%= submit "FINISH", class: "btn" %>
+				</div>
+			<% end %>
 		</div>
 	</div>
-	<!-- / body -->
-
-	<div class="chat-modal" id="chart">
-		<div class="box">
-			<h2>CHARITIES</h2>
-			<form action="#">
-				<fieldset>
-					<label>Want to rise funds for you charity?<br>Get involved with MY MILES today!</label>
-					<input type="text" placeholder="E-maill">
-				</fieldset>
-				<button type="submit" class="btn">REQUEST AN INVITE</button>
-			</form>
-		</div>
-	</div>
-
-<h1>Create a new cause here!</h1>
-<%= form_for @changeset, org_path(@conn, :create_cause), [multipart: true], fn f -> %>
-
-	<%= if f.errors != [] do %>
-      <div class="alert alert-danger">
-        <p>Oops, something went wrong! Please check the errors below:</p>
-        <ul>
-          <%= for {attr, message} <- f.errors do %>
-            <li><%= humanize(attr) %> <%= message %></li>
-          <% end %>
-        </ul>
-        <br>
-      </div>
-    <% end %>
-
-	<label>Name your cause</label>
-	<%= text_input f, :name, class: "form-control" %>
-	<label>Description</label>
-	<%= textarea f, :description, class: "form-control" %>
-	<label>More info</label>
-	<%= textarea f, :more_info, class: "form-control" %>
-	<label>Country</label>
-	<%= text_input f, :country, class: "form-control" %>
-	<label>State</label>
-	<%= text_input f, :state, class: "form-control" %>
-
-	<label>Photos</label>
-	<%= file_input f, :photos, multiple: true, name: "cause[photos][]" %>
-
-	<br>
-	<%= submit "Create challenge" %>
-
-<% end %>
+</div>
+<!-- / body -->

@@ -31,8 +31,8 @@
 					<div class="row">
 						<label>How many miles do you want to buy?</label>
 						<div class="input">
-							<a class="plus"></a>
-							<a class="minus"></a>
+							<a href="#" class="plus"></a>
+							<a href="#" class="minus"></a>
 							<%= text_input f, :miles_bought, class: "form-control" %>
 						</div>
 					</div>

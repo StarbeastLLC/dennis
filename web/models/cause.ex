@@ -12,6 +12,7 @@ defmodule Dennis.Cause do
     field :state, :string
     field :description, :string
     field :more_info, :string
+    field :video, :string
 
     field :photo1,  Dennis.CausePhoto.Type
     field :photo2,  Dennis.CausePhoto.Type
@@ -22,8 +23,8 @@ defmodule Dennis.Cause do
     timestamps
   end
 
-  @required_fields ~w(name country state description user_id)
-  @optional_fields ~w(more_info)
+  @required_fields ~w(name description user_id)
+  @optional_fields ~w(more_info video state country)
 
   @required_file_fields ~w(photo1)
   @optional_file_fields ~w(photo2 photo3 photo4 photo5)

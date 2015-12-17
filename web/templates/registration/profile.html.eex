@@ -88,6 +88,15 @@
 							<%= text_input f, :last_name, placeholder: "LAST NAME" %>
 						</div>
 					</fieldset>
+					<%= if is_fb_user(@changeset) do %>
+					<% else %>
+						<fieldset>
+							<label>Email</label>
+							<div class="text">
+								<%= text_input f, :email, placeholder: "EMAIL" %>
+							</div>
+						</fieldset>
+					<% end %>
 					<fieldset>
 						<label>About Me</label>
 						<div class="text">
