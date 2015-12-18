@@ -21,6 +21,14 @@ defmodule Dennis.ChallengeView do
     end
   end
 
+  def challenge_support_photos(challenge) do
+    challenge
+    |> Map.take([:photo2, :photo3, :photo4])
+    |> Map.values
+    |> Enum.filter(fn p -> p end)
+    |> Enum.map(fn p -> Dennis.ChallengePhoto.url({p, challenge}) end)
+  end
+
   def donor(user_id) do
     user = User.find_by_id(user_id)
 

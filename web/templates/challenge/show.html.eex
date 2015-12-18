@@ -5,16 +5,16 @@
   <div class="donate-content"> <!-- pending -->
       <div class="box-w">
         <div class="images">
-          <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="Sgwd Ddwli Uchaf, Brecon Waterfalls (technodean2000)">
+          <a class="fancybox2" rel="gallery1" href="<%= challenge_main_photo(@challenge) %>" title="<%= @challenge.name %>">
             <img src="<%= challenge_main_photo(@challenge) %>" alt="">
           </a>
           <div class="hide">
-          <a class="fancybox2" rel="gallery1" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
-            <img src="http://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
-          </a>
-          <a class="fancybox2" rel="gallery1" href="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_b.jpg" title="Codirosso spazzacamino (Massimo Greco _Foligno)">
-            <img src="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_m.jpg" alt="" />
-          </a>
+            <%= for photo <- challenge_support_photos(@challenge) do %>
+              <%= IO.puts photo %>
+              <a class="fancybox2" rel="gallery1" href="<%= photo %>" title="<%= @challenge.name %>">
+                <img src="<%= photo %>" alt="" />
+              </a>
+            <% end %>
           </div>
           <div class="ifrm">
             <iframe width="488" height="318" src="<%= parse_video_url(@challenge.video)%>" frameborder="0" allowfullscreen></iframe>
@@ -31,7 +31,13 @@
         <div class="right">
           <a href="<%= donation_path(@conn, :new, @challenge.id) %>" class="btn-donate">DONATE <br>NOW!</a>
           <h4>DONORS</h4>
-          <p>Total donated <strong>$<%= amount_donated(@challenge.id) %></strong></p>
+          <%= if @challenge.donations != [] do %>
+            <p>Total donated <strong>$<%= amount_donated(@challenge.id) %></strong></p>
+          <% else %>
+            <center>
+              <p>Earn some dharma points,<br>be the first to donate!</p>
+            </center>
+          <% end %>
           <div class="slider-v">
             <div class="slides">
               <div class="item">

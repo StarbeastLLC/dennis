@@ -19,13 +19,13 @@
 			    <% end %>
 				<div class="left-form">
 					<fieldset>
-						<label>Name of your cause</label>
+						<label>Name your cause</label>
 						<div class="text">
 							<%= text_input f, :name, class: "form-control" %>
 						</div>
 					</fieldset>
 					<fieldset>
-						<label>Description</label>
+						<label>Why this matters</label>
 						<div class="text">
 							<%= textarea f, :description, class: "form-control" %>
 						</div>
@@ -40,11 +40,11 @@
 				<div class="right-upload">
 					<h3><span>UPLOAD</span></h3>
 					<div class="file-set">
-						<p>PICTURES</p>
+						<p>Photos (min. 1)</p>
 						<%= file_input f, :photos, multiple: true, name: "cause[photos][]" %>
 					</div>
 					<div class="file-set">
-						<p>video</p>
+						<p>Related Youtube video</p>
 						<%= text_input f, :video, class: "form-control" %>
 					</div>
 					<hr>
