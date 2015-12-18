@@ -94,7 +94,7 @@
 						<a href="#" class="plus"></a>
 						<a href="#" class="minus"></a>
 						<!-- <input type="text" value="6" min="0" max="1000"> -->
-						<%= text_input f, :mile_price, class: "form-control" %>
+						<%= text_input f, :mile_price, class: "form-control", type: "number" %>
 					</div>
 				</fieldset>
 				<fieldset>
@@ -106,7 +106,8 @@
 	    					<%= if message = i.errors[:name] do %>
 	      						<span class="help-block"><%= message %></span>
 	    					<% end %>
-	    					<span class="crf-s datapicker"><%= text_input i, :date, class: "form-control", placeholder: "RACE DATE" %><input type="text" id="datepicker" value="DD/MM/YYYY"><span class="option">RACE DATE: DD/MM/YYYY</span></span>
+	    					<!-- <span class="crf-s datapicker"><%# text_input i, :date, class: "form-control", placeholder: "RACE DATE", id: "datepicker", type: "date" %><span class="option">RACE DATE: DD/MM/YYYY</span></span> -->
+	    					<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date" %>
 	    					<%= if message = i.errors[:date] do %>
 	      						<span class="help-block"><%= message %></span>
 	    					<% end %>
