@@ -11,7 +11,7 @@ defmodule Dennis.Race do
     timestamps
   end
 
-  @required_fields ~w(name date miles)
+  @required_fields ~w(name date)
   @optional_fields ~w(type)
 
   @doc """
