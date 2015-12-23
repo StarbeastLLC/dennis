@@ -10,7 +10,17 @@ defmodule Dennis.ChallengeController do
 
   def show(conn, %{"id" => id}) do
     challenge = Challenge.get_challenge(id)
-    donations = Enum.chunk(challenge.donations, 4, 1)
+    donations = challenge.donations
+    cond do
+      Enum.count(challenge.donations) >= 4 ->
+        donations = Enum.chunk(challenge.donations, 4, 1)
+      Enum.count(challenge.donations) == 3 ->
+        donations = Enum.chunk(challenge.donations, 3)
+      Enum.count(challenge.donations) == 2 ->
+        donations = Enum.chunk(challenge.donations, 2)
+      Enum.count(challenge.donations) == 1 ->
+        donations = Enum.chunk(challenge.donations, 1)
+    end
     render(conn, "show.html", challenge: challenge, donations: donations)
   end
 end

@@ -2904,6 +2904,17 @@ a.btn.red,
 	position: absolute;
 }
 
+.dash-list .box.active-challenge a:before {
+	content: "";
+	top: 0;
+	z-index: 9;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border: 6px solid #02A8D3;
+	position: absolute;
+}
+
 .dash-list .box.finished a:before {
 	content: "";
 	top: 0;

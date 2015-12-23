@@ -13,7 +13,13 @@
           <ul>
 
             <%= for challenge <- @challenges do %>
-              <li><a href="/challenges/<%= challenge.id %>"><img src="<%= challenge_main_photo(challenge) %>" alt=""><span class="titles" style= "text-transform: uppercase"><%= challenge.name %> <br><br> <em><%= challenge.cause.name %> </em></span></a></li>
+              <%= if challenge.status == "active-challenge" do %>
+                <li>
+                  <a href="/challenges/<%= challenge.id %>">
+                    <img src="<%= challenge_main_photo(challenge) %>" alt=""><span class="titles" style= "text-transform: uppercase"><%= challenge.name %> <br><br> <em><%= challenge.cause.name %> </em></span>
+                  </a>
+                </li>
+              <% end %>
             <% end %>
 
 
