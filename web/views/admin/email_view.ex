@@ -6,7 +6,7 @@ defmodule Dennis.Admin.EmailView do
   end
 
   def fb_avatar_url(user) do
-    "http://avatars.io/facebook/#{user.fb_id}?size=large"
+    "http://avatars.io/facebook/#{user.fb_id}/medium"
   end
 
   def is_fb_user(user) do

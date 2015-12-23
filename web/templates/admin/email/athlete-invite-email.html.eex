@@ -137,7 +137,13 @@ div, p, a, li, td { -webkit-text-size-adjust:none; }
                     <tr>
                         <td valign="top" class="hide2" width="1" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
                         <td valign="top" class="small" width="205" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
-                        <td rowspan="3" width="78" valign="top" height="78"><img src="1.png" style="display:block;line-height: 50%;border:0" class="image" width="78" height="78" alt=""></td>
+                        <td rowspan="3" width="78" valign="top" height="78">
+                        <%= if is_fb_user(@athlete) do %>
+                          <img src="<%= fb_avatar_url(@athlete) %>" style="display:block;line-height: 50%;border-radius:50%; border-color:white;" class="image" alt="">
+                        <% else %>
+                          <img src="<%= avatar_url(@athlete) %>" style="display:block;line-height: 50%;border-radius:50%; border-color:white;" class="image" alt="">
+                        <% end %>
+                        </td>
                         <td valign="top" class="small" width="205" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
                         <td valign="top" class="hide2" width="1" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
                     </tr>
@@ -188,10 +194,10 @@ div, p, a, li, td { -webkit-text-size-adjust:none; }
                                                 <td valign="top" align="left" style="padding-top:16px;padding-right:0;padding-bottom:0;padding-left:0;color:#00a7d2;font-family:Helvetica, Arial;font-size:14px;line-height:125%;font-weight:bold;text-align:left">"Hello, <%= @org_name %>,</td>
                                             </tr>
                                             <tr>
-                                                <td valign="top" align="left" style="padding-top:14px;padding-right:0;padding-bottom:15px;padding-left:0;color:#7b7b7b;font-family:Helvetica, Arial;font-size:10px;line-height:14px;font-weight:normal;text-align:left"><%= @user_name %> will be soon running a marathon and wants to donate his earnings in this event to your cause.<br><br>All you have to do is click this <a href="http://localhost:4000/register/<%= @token %>" style="color: #ed4d4e;text-decoration:none">LINK</a> and create an account in <span style="color: #00a7d2;text-decoration:none"><strong>MY MILES</strong></span>, the platform that helps athletes to sell the miles they run for non profit organizations.<br><br>Here's a personal message from the athlete:</td>
+                                                <td valign="top" align="left" style="padding-top:14px;padding-right:0;padding-bottom:15px;padding-left:0;color:#7b7b7b;font-family:Helvetica, Arial;font-size:10px;line-height:14px;font-weight:normal;text-align:left"><%= @athlete.first_name %> <%= @athlete.last_name %> will be soon running a marathon and wants to donate the earnings in this event to your cause.<br><br>All you have to do is click this <a href="http://localhost:4000/register/<%= @token %>" style="color: #ed4d4e;text-decoration:none">LINK</a> and create an account in <span style="color: #00a7d2;text-decoration:none"><strong>MY MILES</strong></span>, the platform that helps athletes to sell the miles they run for non profit organizations.<br><br>Here's a personal message from the athlete:</td>
                                             </tr>
                                             <tr>
-                                                <td valign="top" class="quote" align="left" style="padding-top:23px;padding-right:32px;padding-bottom:17px;padding-left:32px;color:#7b7b7b;font-family:Helvetica, Arial;font-size:10px;line-height:14px;font-weight:normal;text-align:center;background:#e5f6fa">"<%= @message %>"<br><span style="color:#23b1d7">— <%= @user_name %></span></td>
+                                                <td valign="top" class="quote" align="left" style="padding-top:23px;padding-right:32px;padding-bottom:17px;padding-left:32px;color:#7b7b7b;font-family:Helvetica, Arial;font-size:10px;line-height:14px;font-weight:normal;text-align:center;background:#e5f6fa">"<%= @message %>"<br><span style="color:#23b1d7">— <%= @athlete.first_name %></span></td>
                                             </tr>
                                             <tr>
                                                 <td valign="top" align="left" style="padding-top:18px;padding-right:0;padding-bottom:33px;padding-left:0;color:#7b7b7b;font-family:Helvetica, Arial;font-size:10px;line-height:14px;font-weight:normal;text-align:left">You can learn more about <span style="color: #00a7d2;text-decoration:none"><strong>MY MILES</strong></span> <a href="http://mymiles.us" style="color: #ed4d4e;text-decoration:none">HERE</a>.</td>
