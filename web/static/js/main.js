@@ -5,6 +5,10 @@ function is_touch_device() {
 
 $(document).ready(function() {
 
+    // Prevent athlete to create challenges before the current day
+    var date = new Date().toJSON().slice(0, 10)
+    $('#today').attr('min', date)
+
     // Preview images before uploading them to S3
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -35,7 +39,7 @@ $(document).ready(function() {
       }, 3000);
     });
 
-
+    // Welcome to the argentinian void
     $('.minus, .plus').click(function(e){
         e.preventDefault();
         
