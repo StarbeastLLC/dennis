@@ -1,17 +1,13 @@
 # Dennis
 
 ## INSTALL DEPENDENCIES
-  1. RVM & Ruby - `gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3` and `\curl -sSL https://get.rvm.io | bash -s stable --ruby`
+  _You need Ruby installed_
   2. Brew - `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
   3. Node & NPM - https://nodejs.org/en/download/
   4. Erlang & Elixir - `brew install elixir`
   5. Bower - `npm install -g bower`
   6. Phoenix - http://www.phoenixframework.org/docs/installation#section-phoenix
-  7. Postgres - http://postgresapp.com/
-
-## POSTGRES CONFIG (no `psql` required)
-  1. Add credentials - `createuser -P -s -e *usernamegoeshere*`
-  _You can change them at /config/dev.exs_
+  7. Postgres - http://postgresapp.com/ _Add Postgres account_
 
 ## INSTALL PROJECT DEPENDENCIES (inside project's folder)
   1. Hex - `mix local.hex`
