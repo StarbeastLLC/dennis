@@ -21,7 +21,7 @@
 				<div class="col-l">
 				    <div class="photo">
 						<center>
-							<img src="/images/logo_mymiles.png" alt="" id="preview-photo" style= "max-width:400px;">
+							<img src="/images/logo_mymiles.png" alt="" id="preview-photo" style= "max-width:200px; max-height:200px;">
 						</center> 
 		            </div>
 		            <br>
