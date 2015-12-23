@@ -2622,7 +2622,7 @@ a.btn.red,
 	border: 2px solid #02a1cb;
 }
 .profile-form {
-	background: url(../img/bg_blue.png);
+	background: url(../images/bg_blue.png);
 	padding: 40px 0;
 	overflow: hidden;
 }
@@ -6081,4 +6081,11 @@ a.btn-white {
 }
 .touch-device .scrollbar {
 	display: none;
+}
+
+.fb-login {
+	border: none;
+	background: no-repeat url("http://campusglobe.co.in/images/fb.png") 0 0;
+	width: 100px;
+	height: 46px;
 }

@@ -39,10 +39,17 @@
           </fieldset>
           <div class="upload">
             <h4>profile picture</h4>
-            <%= file_input f, :avatar, placeholder: "AVATAR" %>
+            <%= file_input f, :avatar, placeholder: "AVATAR", id: "preview-photo-load" %>
           </div>
         </div>
         <div class="col-r">
+          <div class="photo">
+            <center>
+              <img src="/images/i1.png" alt="" id="preview-photo" style= "max-width:400px;">
+            </center>
+          </div>
+          <br>
+          <br>
           <fieldset>
             <%= password_input f, :password, placeholder: "Password" %>
           </fieldset>
@@ -53,13 +60,17 @@
         </div>
       <% end %>
 
-      <br>
-      <br>
+    </div>
 
+  <div class="container" style="margin-top:400px !important;">
+    <center>
+      <div class="or">
+          or
+      </div>
+      <br>
       <div class="social-connects">
-        <h3>Sign up with</h3>
         <ul>
-          <li class="facebook"><button class="fb-login">Facebook</button></li>
+          <li class="facebook"><button class="fb-login"></button></li>
         </ul>
 
           <%= form_for @conn, registration_path(@conn, :fb_auth), [as: :user, id: "fb_auth"], fn f -> %>
@@ -70,9 +81,10 @@
               <%= hidden_input f, :last_name %>
           <% end %>
       </div>
+    </center>
+  </div>
 
 
-    </div>
   </div>
 </div>
 <!-- / body -->

@@ -3,15 +3,16 @@ defmodule Dennis.DashboardView do
 
   alias Dennis.Donation
 
-  #def global_accumulated(challenges) do
-   # Enum.each(challenges, fn(challenge) ->
-    #    challenge_raised_money = Donation.amount_donated_to_challenge(challenge.id)
-     
-     #   IO.puts "LALALALALA GASGASFAFGFASFA #{challenge_raised_money}"
-      #  total = challenge_raised_money + total
-      #end
-     # )
-  #end
+  def global_accumulated(challenges) do
+    Enum.map(challenges, fn (challenge) ->
+      Donation.amount_donated_to_challenge(challenge.id)
+    end)
+    |> Enum.sum()
+  end
+
+  defp get_last_index(list) do
+    Enum.count(list) - 1
+  end
 
   def amount_donated(challenge_id) do
     amount = Donation.amount_donated_to_challenge(challenge_id)
