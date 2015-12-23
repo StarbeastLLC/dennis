@@ -4,6 +4,18 @@ defmodule Dennis.AthleteView do
   alias Dennis.Cause
   alias Dennis.Repo
   alias Dennis.User
+  alias Dennis.Donation
+
+  def global_accumulated(challenges) do
+    Enum.map(challenges, fn (challenge) ->
+      Donation.amount_donated_to_challenge(challenge.id)
+    end)
+    |> Enum.sum()
+  end
+
+  defp get_last_index(list) do
+    Enum.count(list) - 1
+  end
 
   def avatar_url(user) do
     Dennis.Avatar.url({user.avatar, user})

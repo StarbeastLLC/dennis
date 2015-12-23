@@ -22,7 +22,7 @@
             GLOBAL<br> ACUMULATED
           </div>
           <div class="digits">
-            $ 777<%# global_accumulated(@challenges) %>
+            $ <%= global_accumulated(@challenges) %>
           </div>
         <% end %>
       </div>

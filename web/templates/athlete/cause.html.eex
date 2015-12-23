@@ -16,14 +16,14 @@
           <div class="label">
             RAISE MONEY,<br>CREATE A CHALLENGE
           </div>
-          <% else %>
-            <div class="label">
-              CAUSE TOTAL<br> ACUMULATED
-            </div>
-            <div class="digits">
-              $ 777<%# global_accumulated(@challenges) %>
-            </div>
-          <% end %>
+        <% else %>
+          <div class="label">
+            CAUSE TOTAL<br> ACUMULATED
+          </div>
+          <div class="digits">
+            $ <%= global_accumulated(@challenges) %>
+          </div>
+        <% end %>
       </div>
 
       <div class="dash-list">

@@ -9,12 +9,18 @@
         <span class="name" style="text-transform:uppercase"><%= @user.org_name %> </span>
       </div>
       <div class="global">
-        <div class="label">
-          GLOBAL<br> ACUMULATED
-        </div>
-        <div class="digits">
-          $ 777<%# global_accumulated(@challenges) %>
-        </div>
+        <%= if @challenges == [] do %>
+          <div class="label">
+            RAISE MONEY,<br>PROMOTE YOUR CAUSE
+          </div>
+        <% else %>
+          <div class="label">
+            TOTAL<br> ACUMULATED
+          </div>
+          <div class="digits">
+            $ <%= global_accumulated(@challenges) %>
+          </div>
+        <% end %>
       </div>
       <div class="dash-list">
       <div class="scroll scroll1">
