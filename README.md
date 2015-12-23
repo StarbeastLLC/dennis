@@ -1,30 +1,26 @@
 # Dennis
 
-*INSTALL DEPENDENCIES*
-  RVM & Ruby - `gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3` and `\curl -sSL https://get.rvm.io | bash -s stable --ruby`
-  Brew - `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-  Node & NPM - https://nodejs.org/en/download/
-  Erlang & Elixir - `brew install elixir`
-  Bower - `npm install -g bower`
-  Phoenix - http://www.phoenixframework.org/docs/installation#section-phoenix
-  Postgres - http://postgresapp.com/
+## INSTALL DEPENDENCIES
+  _You need Ruby installed_
+  2. Brew - `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+  3. Node & NPM - https://nodejs.org/en/download/
+  4. Erlang & Elixir - `brew install elixir`
+  5. Bower - `npm install -g bower`
+  6. Phoenix - http://www.phoenixframework.org/docs/installation#section-phoenix
+  7. Postgres - http://postgresapp.com/ _Add Postgres account_
 
-*POSTGRES CONFIG* (no `psql` required)
-  Add credentials - `createuser -P -s -e *usernamegoeshere*`
-  _You can change them at /config/dev.exs_
+## INSTALL PROJECT DEPENDENCIES (inside project's folder)
+  1. Hex - `mix local.hex`
+  2. Brunch, etc. - `npm install`
+  3. Hexes (Elixir gems) - `mix deps.get`
+  4. Javascript tools - `bower install`
 
-*INSTALL PROJECT DEPENDENCIES* (inside project's folder)
-  Hex - `mix local.hex`
-  Brunch, etc. - `npm install`
-  Hexes (Elixir gems) - `mix deps.get`
-  Javascript tools - `bower install`
-
- *PROJECT SETUP AND RUN*
-  Compile comeonin - `mix deps.compile comeonin`
+## PROJECT SETUP AND RUN
+  1. Compile comeonin - `mix deps.compile comeonin`
   _This dependency needs to be compiled separately_
-  Create DB - `mix ecto.create`
-  Run migrations - `mix ecto.migrate`
-  Run project - `iex -S mix phoenix.server`
+  2. Create DB - `mix ecto.create`
+  3. Run migrations - `mix ecto.migrate`
+  4. Run project - `iex -S mix phoenix.server`
 
 ---
 
