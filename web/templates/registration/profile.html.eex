@@ -19,10 +19,12 @@
             <% end %>
 				<div class="left-form">
 					<h3><%= @changeset.model.org_name %></h3>
-					  <img style="max-height:250px; max-height:250px"src="<%= avatar_url(@changeset) %>">
-					  <a href="#" class="add">+</a>
-					  <%= file_input f, :avatar, placeholder: "LOGO" %>
-					<br>
+					  <img style="max-height:250px; max-width:250px; margin-bottom:25px;"src="<%= avatar_url(@changeset) %>" id="preview-photo">
+					  <br>
+					  <fieldset>
+					  	<label>Logo</label>
+					    <%= file_input f, :avatar, placeholder: "LOGO", id: "preview-photo-load" %>
+					  </fieldset>
 					<fieldset>
 						<label>Name</label>
 						<div class="text">
@@ -48,11 +50,15 @@
 						</div>
 					</fieldset>
 
-					<%= submit "UPDATE", class: "btn" %>
+					<%= submit "UPDATE PROFILE", class: "btn" %>
 					
 					<% end %>
 				</div>
+
+
 		<% else %>
+
+
 			<%= form_for @changeset, registration_path(@conn, :update_profile), [multipart: true], fn f -> %>
            	<%= if f.errors != [] do %>
               <div class="alert alert-danger">
@@ -68,14 +74,17 @@
 				<div class="left-form">
 					<h3><%= @changeset.model.first_name %> <%= @changeset.model.last_name %></h3>
 					<%= if is_fb_user(@changeset) do %>
-					  <img style="max-height:250px; max-height:250px"src="<%= fb_avatar_url(@changeset) %>">
+					  <img style="max-height:250px; max-width:250px"src="<%= fb_avatar_url(@changeset) %>">
+					  <br>
 					  <br>
 					<% else %>
-					  <img style="max-height:250px; max-height:250px"src="<%= avatar_url(@changeset) %>">
-					  <a href="#" class="add">+</a>
-					  <%= file_input f, :avatar, placeholder: "LOGO" %>
+					  <img style="max-height:250px; max-width:250px; margin-bottom:25px;"src="<%= avatar_url(@changeset) %>" id="preview-photo">
+					  <br>
+					  <fieldset>
+					  	<label>Profile picture</label>
+					    <%= file_input f, :avatar, placeholder: "LOGO", id: "preview-photo-load" %>
+					  </fieldset>
 					<% end %>
-					<br>
 					<fieldset>
 						<label>First Name</label>
 						<div class="text">
@@ -104,7 +113,7 @@
 						</div>
 					</fieldset>
 
-					<%= submit "UPDATE", class: "btn" %>
+					<%= submit "UPDATE PROFILE", class: "btn" %>
 					
 					<% end %>
 				</div>
@@ -113,7 +122,7 @@
 				<div class="left-form rr">
 					<%= if is_fb_user(@changeset) do %>
 					<% else %>
-						<h4>CHANGE PASSWORD</h4>
+						<h4>PASSWORD</h4>
 						<%= form_tag("/password", method: :put) do %>
 						<fieldset>
 							<label>Current Password</label>
@@ -133,13 +142,16 @@
 								<%= password_input :pswd_params, :password_conf %>
 							</div>
 						</fieldset>
-						<%= submit "CHANGE PASSWORD", class: "btn" %>
+						<%= submit "CHANGE PASSWORD", class: "password-submit-btn" %>
 						<% end %>
+					<br>
+					<br>
+                    <hr>
+                    <br>
 					<% end %>
-
-					<h4>STRIPE</h4>
+					
 					<button type="submit" class="btn">
-					  <a class="stripe-btn" href="<%= stripe_connect_url %>" target="_blank">CONNECT</a>
+					  <a class="stripe-btn" href="<%= stripe_connect_url %>" target="_blank">STRIPE CONNECT</a>
 					</button>
 					<br>
 				</div>

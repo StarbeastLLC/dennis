@@ -8,7 +8,7 @@ defmodule Dennis.RegistrationView do
   end
 
   def fb_avatar_url(user_changeset) do
-    "http://avatars.io/facebook/#{user_changeset.model.fb_id}?size=large"
+    "http://avatars.io/facebook/#{user_changeset.model.fb_id}/large"
   end
 
   def is_fb_user(user_changeset) do

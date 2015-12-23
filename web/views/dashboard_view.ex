@@ -39,7 +39,7 @@ defmodule Dennis.DashboardView do
   end
 
   def fb_avatar_url(user) do
-    "http://avatars.io/facebook/#{user.fb_id}?size=large"
+    "http://avatars.io/facebook/#{user.fb_id}/large"
   end
 
   def is_fb_user(user) do

@@ -2348,7 +2348,8 @@ a.btn.red,
 }
 
 .form-create.user-profile .left-form >  .btn,
-.form-create.user-profile .right-upload >  .btn {
+.form-create.user-profile .right-upload >  .btn,
+.password-submit-btn {
 	width: 291px;
 	height: 61px;
 	line-height: normal;
@@ -5069,7 +5070,8 @@ a.btn-white {
 	margin-top: -18px;
 }
 
-.chat-modal input {
+.chat-modal input,
+.chat-modal textarea {
 	width: 375px;
 	height: 51px;
 	display: block;
