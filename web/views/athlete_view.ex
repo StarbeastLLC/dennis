@@ -31,8 +31,8 @@ defmodule Dennis.AthleteView do
   end
 
   def org_photo(cause_id) do
-    user = User.get_by_cause(cause_id)
-    Dennis.Avatar.url({user.avatar, user})
+    cause = Cause.cause_with_user(cause_id)
+    Dennis.Avatar.url({cause.user.avatar, cause.user})
   end
 
   def photo_url(cause) do

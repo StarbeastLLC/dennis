@@ -131,12 +131,6 @@ defmodule Dennis.User do
     where: user.user_type == "org"
   end
 
-  def get_by_cause(cause_id) do
-    Dennis.Repo.one from user in Dennis.User,
-      join: cause in Cause, on: user.cause_id == ^cause_id,
-      where: user.user_type == "org"
-  end
-
   def get_by_email(email) do
     Dennis.Repo.one from user in Dennis.User,
     where: user.email == ^email  
