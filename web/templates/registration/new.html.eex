@@ -45,7 +45,7 @@
         <div class="col-r">
           <div class="photo">
             <center>
-              <img src="/images/i1.png" alt="" id="preview-photo" style= "max-width:400px;">
+              <img src="/images/i1.png" alt="" id="preview-photo" style= "max-width:200px; max-height:200px;">
             </center>
           </div>
           <br>
