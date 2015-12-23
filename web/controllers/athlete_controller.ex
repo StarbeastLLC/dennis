@@ -78,14 +78,14 @@ defmodule Dennis.AthleteController do
   def invite(conn, %{"invitation" => %{"email" => email, "message" => message, "org_name" => org_name}}) do
     subject = "An athlete wants to raise money for you"
     user_id = get_session(conn, :current_user)
-    user_name = User.full_name(user_id)
+    athlete  = User.find_by_id(user_id)
 
     token = Ecto.UUID.generate
     user_params = %{"email" => email, "reset_token" => token, "user_type" => "org"}
     changeset = User.invited_org_changeset(%User{}, user_params)
     if changeset.valid? do
       {:ok, user} = Repo.insert(changeset)
-      Mailer.send_invitation(subject, user_name, email, token, message, org_name)
+      Mailer.send_invitation(subject, athlete, email, token, message, org_name)
       conn
       |> put_flash(:info, "Great! Your invitation was sent to the charity.")
       |> redirect to: "/dashboard"

@@ -40,13 +40,16 @@
           <% end %>
           <div class="slider-v">
             <div class="slides">
-              <div class="item">
-                <ul>
-                  <%= for donation <- @challenge.donations do %>
-                    <li><%= donation.name %><span class="righty">$ <%= donation.total_donated %></span></li>
-                  <% end %>
-                </ul>
-              </div>
+              
+              <%= for donations_chunk <- @donations do %>
+                <div class="item">
+                  <ul>
+                    <%= for donation <- donations_chunk do %>
+                      <li><%= donation.name %><span class="righty">$ <%= donation.total_donated %></span></li>
+                    <% end %>       
+                  </ul>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

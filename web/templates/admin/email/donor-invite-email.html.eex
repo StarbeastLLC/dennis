@@ -130,9 +130,9 @@ div, p, a, li, td { -webkit-text-size-adjust:none; }
                         <td valign="top" class="small" width="205" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
                         <td rowspan="3" width="78" valign="top" height="78">
                           <%= if is_fb_user(@athlete) do %>
-                            <img src="<%= fb_avatar_url(@athlete) %>" style="display:block;line-height: 50%;border:0;border-radius: 50%;" class="image" width="78" height="78" alt="">    
+                            <img src="<%= fb_avatar_url(@athlete) %>" style="display:block;line-height: 50%;border-radius: 50%;" class="image" alt="">    
                           <% else %>
-                            <img src="<%= avatar_url(@athlete) %>" style="display:block;line-height: 50%;border:0;border-radius: 50%;" class="image" width="78" height="78" alt="">
+                            <img src="<%= avatar_url(@athlete) %>" style="display:block;line-height: 50%;border-radius: 50%;" class="image" alt="">
                           <% end %>
                         </td>
                         <td valign="top" class="small" width="205" height="34" style="height:34px; background: #ebebeb;font-size:0;line-height:0"></td>
