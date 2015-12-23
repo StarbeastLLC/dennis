@@ -2178,13 +2178,7 @@ a.btn.red,
 	z-index: 8040;
 }
 
-.fancybox-prev {
-	left: 0;
-}
 
-.fancybox-next {
-	right: 0;
-}
 
 .fancybox-tmp {
 	position: absolute;

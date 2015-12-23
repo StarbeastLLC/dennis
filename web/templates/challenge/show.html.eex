@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 <div id="body">
   <div class="select-op red">
     <h4><%= @challenge.name %></h4>

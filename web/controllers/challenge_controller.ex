@@ -20,6 +20,8 @@ defmodule Dennis.ChallengeController do
         donations = Enum.chunk(challenge.donations, 2)
       Enum.count(challenge.donations) == 1 ->
         donations = Enum.chunk(challenge.donations, 1)
+      :else ->
+        []
     end
     render(conn, "show.html", challenge: challenge, donations: donations)
   end
