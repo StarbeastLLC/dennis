@@ -133,7 +133,7 @@
 		      <%= if is_athlete?(@changeset.model.cause_id) do %>
 		      	<img src="<%= cause_photo(@changeset.model.cause_id) %>" alt="">
 		      <% else %>
-		      	<img src="<%# org_photo(@changeset.model.cause_id) %>" alt="">
+		      	<img src="<%= org_photo(@changeset.model.cause_id) %>" alt="">
 		      <% end %>
 		    <% else %>
 		    <% end %>
