@@ -34,9 +34,9 @@ $(document).ready(function() {
     // Hide flash messages after some seconds
     $('document').ready(function() {
       setTimeout(function() {
-      $(".alert").animate({opacity:'0'}, 1500);
+      $(".alert").animate({opacity:'0'}, 3000);
       $('.alert').slideUp();
-      }, 3000);
+      }, 3800);
     });
 
     // Welcome to the argentinian void
@@ -161,7 +161,8 @@ $(document).ready(function() {
         helpers : {
             title : {
                 type : 'over'
-            }
+            },
+            arrows: true
         }
     });
 
@@ -186,6 +187,7 @@ $(document).ready(function() {
 
 $(window).load(function() {
     $(".reddem-modal").addClass("as")
+    // Donations slides
     $('.slider-v .slides').bxSlider({
         mode: 'vertical',
         slideMargin: 0,
@@ -272,6 +274,7 @@ $(window).load(function() {
         return false;
     });
 };
+    // Landing video
     window.setTimeout(function() {
         $(".welcome .video").addClass("loaded")
     }, 1000);
