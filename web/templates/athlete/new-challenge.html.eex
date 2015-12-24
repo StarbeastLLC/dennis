@@ -61,7 +61,7 @@
 			    <%= if @user.stripe_id do %>
 				  <a href="/dashboard/cause" class="btn-white">CREATE YOUR OWN CAUSE</a>
 				<% else %>
-				  <a href="/profile" class="btn-white" style="font-size:15px !important;">CONNECT STRIPE TO CREATE YOUR OWN CAUSE</a>
+				  <a href="/profile" class="btn-white" style="font-size:15px !important;">CREATE YOUR OWN CAUSE</a>
 				<% end %>
 			</div>
 		</div>

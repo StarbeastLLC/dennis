@@ -36,7 +36,7 @@
                 <%= for cause <- @causes do %>
                   <li>
                     <div class="box active">
-                      <a href="/dashboard/cause/<%= cause.id %>"><img style="max-width:400px; max-height:300px; min-width:200px"src="<%= cause_main_photo(cause) %>" alt="<%= cause.name %>"></a>
+                      <a href="/dashboard/cause/<%= cause.id %>"><img src="<%= cause_main_photo(cause) %>" alt="<%= cause.name %>"></a>
                       <div class="text">
                         <%= cause.name %>
                       </div>
