@@ -15,9 +15,9 @@ defmodule Dennis.CausePhoto do
   end
 
   # Define a thumbnail transformation:
-  # def transform(:thumb, _) do
-  #   {:convert, "-strip -thumbnail 250x250^ -gravity center -extent 250x250 -format png"}
-  # end
+  def transform(:original, _) do
+    {:convert, "-gravity Center -resize 250x250^ -crop 250x250+0+0\! -limit area 10MB -limit disk 100MB -format png"}
+  end
 
   # Override the persisted filenames:
   # def filename(version, _) do
