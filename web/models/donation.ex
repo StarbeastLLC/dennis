@@ -17,12 +17,13 @@ defmodule Dennis.Donation do
     field :total_donated, :integer
     field :is_anonymous, :boolean, default: false
     field :name, :string, default: "Anonymous"
+    field :destination_account, :string
 
     timestamps
   end
 
   @required_fields ~w(miles_bought total_donated transaction_token challenge_id)
-  @optional_fields ~w(authorization_token name tip)
+  @optional_fields ~w(authorization_token name tip destination_account)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -64,14 +65,46 @@ defmodule Dennis.Donation do
   end
 
   defp create!(challenge, donation_changeset, stripe_email, authorization_token) do
+    destination_account = get_destination_account(challenge, donation_changeset)
     Repo.insert! changeset(donation_changeset, %{
-      authorization_token: authorization_token
+      authorization_token: authorization_token,
+      destination_account: destination_account
     })
+  end
+
+  defp get_destination_account(challenge, donation_changeset) do
+    cause_user = challenge.cause.user
+    athlete = challenge.user
+    race_fee = challenge.race_fee
+    total_donated = get_field(donation_changeset, :total_donated)
+    if challenge.will_redeem_fee do
+      if can_athlete_redeem_fee?(challenge) do
+        cond do
+          virtual_amount_redeemed(challenge, athlete, donation_changeset) > race_fee ->
+            IO.puts "to cause"
+            cause_user.stripe_id
+          virtual_amount_redeemed(challenge, athlete, donation_changeset) < race_fee ->
+            IO.puts "to athlete"
+            athlete.stripe_id
+        end
+      else
+        IO.puts "to cause"
+        cause_user.stripe_id
+      end
+    else
+      IO.puts "to cause"
+      cause_user.stripe_id
+    end
+  end
+
+  defp can_athlete_redeem_fee?(challenge) do
+    amount_donated_to_challenge(challenge.id) > (challenge.race_fee * 6)
   end
 
   defp stripe_billing(challenge, donation_changeset, stripe_email) do
     import Ecto.Changeset, only: [get_field: 2]
     application_fee = Application.get_env(:dennis, :stripe)[:application_fee]
+    destination_account = get_destination_account(challenge, donation_changeset)
     org_stripe_id = challenge.cause.user.stripe_id # not ruby, tho
     charge_description = "MYMYLES // #{challenge.name}"
 
@@ -79,7 +112,7 @@ defmodule Dennis.Donation do
       get_field(donation_changeset, :total_donated) * 100, # Stripe uses cents
       get_field(donation_changeset, :transaction_token), 
       capture: true,
-      destination: org_stripe_id,
+      destination: destination_account,
       application_fee: application_fee,
       description: charge_description)
   end
@@ -89,6 +122,17 @@ defmodule Dennis.Donation do
         where: donation.challenge_id == ^challenge_id,
         select: sum(donation.total_donated)
     total || 0
+  end
+
+  defp amount_redeemed(challenge, athlete_account) do
+    total = Dennis.Repo.one from donation in Dennis.Donation,
+    where: donation.challenge_id == ^challenge.id and donation.destination_account == ^athlete_account,
+    select: sum(donation.total_donated)
+    total || 0
+  end
+
+  defp virtual_amount_redeemed(challenge, athlete, donation_changeset) do
+    amount_redeemed(challenge, athlete.stripe_id) + get_field(donation_changeset, :total_donated)
   end
 
 end

@@ -14,6 +14,7 @@ defmodule Dennis.Challenge do
     field :is_active, :boolean, default: false
     field :will_redeem_fee, :boolean
     field :status, :string, default: "active-challenge"
+    field :race_fee, :integer
 
     field :photo1,  Dennis.ChallengePhoto.Type
     field :photo2,  Dennis.ChallengePhoto.Type
@@ -26,7 +27,7 @@ defmodule Dennis.Challenge do
   end
 
   @required_fields ~w(name description mile_price is_active race cause_id user_id)
-  @optional_fields ~w(video will_redeem_fee status)
+  @optional_fields ~w(video will_redeem_fee status race_fee)
 
   @required_file_fields ~w(photo1)
   @optional_file_fields ~w(photo2 photo3 photo4 photo5)  
