@@ -6096,3 +6096,7 @@ a.btn-white {
 	width: 100px;
 	height: 46px;
 }
+
+.secret {
+	display:none;
+}

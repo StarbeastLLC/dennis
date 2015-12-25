@@ -122,9 +122,10 @@
 					<%= textarea f, :description, class: "form-control", placeholder: "Write a meaningful message to thank your donors" %>
 				</fieldset>
 				<div class="checkbox open-modal">
-					<input type="checkbox">
+					<%= checkbox f, :will_redeem_fee, class: "redeem-fee-action" %>
 					<label>Yes, I want to redeem my race fee!</label>
 				</div>
+				<%= text_input f, :race_fee, class: "form-control", type: "number", min: "0", max: "9999", id: "race-fee-number", placeholder: "Race fee" %>
 				<a href="#red" class="hide fancybox-open">SUBMIT</a>
 		</div>
 		<div class="right-box ww kids">
@@ -173,7 +174,7 @@
 		</div>
 	</div>
 	<div class="checkbox">
-		<input type="checkbox" checked>
+		<input type="checkbox" unchecked>
 		<label>I have read and agree with the above terms and conditions.</label>
 	</div>
 	<a href="#red" class="submit">CONTINUE</a>
