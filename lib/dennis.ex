@@ -23,7 +23,7 @@ defmodule Dennis do
 
       # Challenge finisher cronjob
       supervisor(Task.Supervisor, [[name: :challenge_finisher]]),
-      worker(Task, [Dennis.ChallengeFinisher, :finish, []]),
+      worker(Task, [Dennis.ChallengeFinisher, :set_finisher, []]),
     ]
 
 
