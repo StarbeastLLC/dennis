@@ -81,18 +81,14 @@ defmodule Dennis.Donation do
       if can_athlete_redeem_fee?(challenge) do
         cond do
           virtual_amount_redeemed(challenge, athlete, donation_changeset) > race_fee ->
-            IO.puts "to cause"
             cause_user.stripe_id
           virtual_amount_redeemed(challenge, athlete, donation_changeset) < race_fee ->
-            IO.puts "to athlete"
             athlete.stripe_id
         end
       else
-        IO.puts "to cause"
         cause_user.stripe_id
       end
     else
-      IO.puts "to cause"
       cause_user.stripe_id
     end
   end
