@@ -20,6 +20,10 @@ defmodule Dennis do
       # Here you could define other workers and supervisors as children
       # worker(Dennis.Worker, [arg1, arg2, arg3]),
       worker(Commerce.Billing.Worker, [Commerce.Billing.Gateways.Stripe, stripe_config, [name: :stripe]]),
+
+      # Challenge finisher cronjob
+      supervisor(Task.Supervisor, [[name: :challenge_finisher]]),
+      worker(Task, [Dennis.ChallengeFinisher, :finish, []]),
     ]
 
 
