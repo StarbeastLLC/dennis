@@ -11,8 +11,8 @@
     <div class="bottom">
       <div class="form">
         <%= form_for @conn, session_path(@conn, :create), [as: :session], fn f -> %>
-          <%= text_input f, :email, placeholder: "EMAIL" %>
-          <%= password_input f, :password, placeholder: "PASSWORD" %>
+          <%= text_input f, :email, placeholder: "EMAIL", pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", required: true %>
+          <%= password_input f, :password, placeholder: "PASSWORD", required: true %>
           
           <%= submit "LOG IN", class: "btn" %>
 

@@ -21,13 +21,13 @@
 					<fieldset>
 						<label>Name your cause</label>
 						<div class="text">
-							<%= text_input f, :name, class: "form-control" %>
+							<%= text_input f, :name, class: "form-control", required: true %>
 						</div>
 					</fieldset>
 					<fieldset>
 						<label>Why this matters</label>
 						<div class="text">
-							<%= textarea f, :description, class: "form-control" %>
+							<%= textarea f, :description, class: "form-control", required: true, maxlength: 255 %>
 						</div>
 					</fieldset>
 					<fieldset>
@@ -40,8 +40,8 @@
 				<div class="right-upload">
 					<h3><span>UPLOAD</span></h3>
 					<div class="file-set">
-						<p>Photos (min. 1)</p>
-						<%= file_input f, :photos, multiple: true, name: "cause[photos][]" %>
+						<p>Photos (1..4)</p>
+						<%= file_input f, :photos, multiple: true, name: "cause[photos][]", required: true %>
 					</div>
 					<div class="file-set">
 						<p>Related Youtube video</p>
