@@ -20,7 +20,7 @@ defmodule Dennis.DonationController do
 				|> redirect(to: challenge_path(conn, :show, challenge_id))
 			{:error, message, donation_changeset} ->
 				conn
-				|> put_flash(:error, "Oops! Something went wrong: #{message}")
+				|> put_flash(:error, "Oops! Something went wrong! Try again, please.")
 				|> render("new.html", challenge: challenge, donation: donation_changeset)
 		end
 	end
