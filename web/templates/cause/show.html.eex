@@ -5,9 +5,13 @@
   <div class="pro-details">
     <div class="container">
       <div class="image">
-        <a class="fancybox2" rel="gallery1" href="<%= photo_url(@cause) %>" title="<%= @cause.name %>"><img src="<%= photo_url(@cause) %>" alt=""></a>
-        <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="<%= @cause.name %>"></a>
-        <a class="fancybox2" rel="gallery1" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="<%= @cause.name %>"></a>
+        <a class="fancybox2" rel="gallery1" href="<%= cause_main_photo(@cause) %>" title="<%= @cause.name %>">
+          <img src="<%= cause_main_photo(@cause) %>" alt="">
+        </a>
+        <%= for photo <- cause_support_photos(@cause) do %>
+          <a class="fancybox2" rel="gallery1" href="<%= photo %>" title="<%= @cause.name %>">
+          </a>
+        <% end %>
       </div>
       <div class="text">
         <h2><%= @cause.name %></h2>
@@ -26,8 +30,20 @@
         <div class="more">
           <a href="http://<%= @cause.more_info%>"><%= @cause.more_info%></a>
         </div>
+
       </div>
     </div>
+    <%= if @cause.video do %>
+      <br>
+      <br>
+      <hr>
+      <br><br>
+      <center>
+      <div class="ifrm">
+        <iframe width="488" height="318" src="<%= parse_video_url(@cause.video)%>" frameborder="0" allowfullscreen></iframe>
+      </div>
+      </center>
+    <% end %>
   </div>
 </div>
 <!-- / body -->

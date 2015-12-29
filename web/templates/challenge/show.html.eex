@@ -11,7 +11,6 @@
           </a>
           <div class="hide">
             <%= for photo <- challenge_support_photos(@challenge) do %>
-              <%= IO.puts photo %>
               <a class="fancybox2" rel="gallery1" href="<%= photo %>" title="<%= @challenge.name %>">
                 <img src="<%= photo %>" alt="" />
               </a>
