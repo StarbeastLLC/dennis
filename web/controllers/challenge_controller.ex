@@ -26,7 +26,4 @@ defmodule Dennis.ChallengeController do
     render(conn, "show.html", challenge: challenge, donations: donations)
   end
 
-  def finish do
-    IO.puts "WASTED"
-  end
 end
