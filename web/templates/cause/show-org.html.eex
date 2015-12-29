@@ -5,10 +5,10 @@
   <div class="pro-details">
     <div class="container">
       <div class="image">
-        <a class="fancybox2" rel="gallery1" href="<%= cause_main_photo(@cause) %>" title="<%= @cause.name %>">
-          <img src="<%= cause_main_photo(@cause) %>" alt="">
+        <a class="fancybox2" rel="gallery1" href="<%= avatar_url(@cause.user) %>" title="<%= @cause.name %>">
+          <img src="<%= avatar_url(@cause.user) %>" alt="">
         </a>
-        <%= for photo <- cause_support_photos(@cause) do %>
+        <%= for photo <- charity_support_photos(@cause) do %>
           <a class="fancybox2" rel="gallery1" href="<%= photo %>" title="<%= @cause.name %>">
           </a>
         <% end %>

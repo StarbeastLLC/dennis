@@ -23,30 +23,30 @@
 					  <br>
 					  <fieldset>
 					  	<label>Logo</label>
-					    <%= file_input f, :avatar, placeholder: "LOGO", id: "preview-photo-load" %>
+					    <%= file_input f, :avatar, placeholder: "LOGO", id: "preview-photo-load", required: true, accept: "image/*" %>
 					  </fieldset>
 					<fieldset>
 						<label>Name</label>
 						<div class="text">
-							<%= text_input f, :org_name, placeholder: "NAME" %>
+							<%= text_input f, :org_name, placeholder: "NAME", required: true %>
 						</div>
 					</fieldset>
 					<fieldset>
 						<label>Website</label>
 						<div class="text">
-							<%= text_input f, :website, placeholder: "WEBSITE" %>
+							<%= text_input f, :website, placeholder: "WEBSITE", required: true %>
 						</div>
 					</fieldset>
 					<fieldset>
 						<label>Description</label>
 						<div class="text">
-							<%= textarea f, :description, placeholder: "DESCRIPTION" %>
+							<%= textarea f, :description, placeholder: "DESCRIPTION", required: true, maxlength: 255 %>
 						</div>
 					</fieldset>
 					<fieldset>
 						<label>Address</label>
 						<div class="text">
-							<%= text_input f, :address, placeholder: "ADDRESS" %>
+							<%= text_input f, :address, placeholder: "ADDRESS", required: true, maxlength: 255 %>
 						</div>
 					</fieldset>
 
@@ -82,19 +82,19 @@
 					  <br>
 					  <fieldset>
 					  	<label>Profile picture</label>
-					    <%= file_input f, :avatar, placeholder: "LOGO", id: "preview-photo-load" %>
+					    <%= file_input f, :avatar, placeholder: "LOGO", id: "preview-photo-load", accept: "image/*" %>
 					  </fieldset>
 					<% end %>
 					<fieldset>
 						<label>First Name</label>
 						<div class="text">
-							<%= text_input f, :first_name, placeholder: "FIRST NAME" %>
+							<%= text_input f, :first_name, placeholder: "FIRST NAME", required: true %>
 						</div>
 					</fieldset>
 					<fieldset>
 						<label>Last Name</label>
 						<div class="text">
-							<%= text_input f, :last_name, placeholder: "LAST NAME" %>
+							<%= text_input f, :last_name, placeholder: "LAST NAME", required: true %>
 						</div>
 					</fieldset>
 					<%= if is_fb_user(@changeset) do %>
@@ -102,14 +102,14 @@
 						<fieldset>
 							<label>Email</label>
 							<div class="text">
-								<%= text_input f, :email, placeholder: "EMAIL" %>
+								<%= text_input f, :email, placeholder: "EMAIL", pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", required: true %>
 							</div>
 						</fieldset>
 					<% end %>
 					<fieldset>
 						<label>About Me</label>
 						<div class="text">
-							<%= textarea f, :description, placeholder: "ABOUT ME" %>
+							<%= textarea f, :description, placeholder: "ABOUT ME", maxlength: 255 %>
 						</div>
 					</fieldset>
 
@@ -127,19 +127,19 @@
 						<fieldset>
 							<label>Current Password</label>
 							<div class="text">
-								<%= password_input :pswd_params, :old_password %>
+								<%= password_input :pswd_params, :old_password, required: true %>
 							</div>
 						</fieldset>
 						<fieldset>
 							<label>New Password</label>
 							<div class="text">
-								<%= password_input :pswd_params, :password %>
+								<%= password_input :pswd_params, :password, required: true %>
 							</div>
 						</fieldset>
 						<fieldset>
 							<label>Confirm Password</label>
 							<div class="text">
-								<%= password_input :pswd_params, :password_conf %>
+								<%= password_input :pswd_params, :password_conf, required: true %>
 							</div>
 						</fieldset>
 						<%= submit "CHANGE PASSWORD", class: "password-submit-btn" %>

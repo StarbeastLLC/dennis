@@ -18,13 +18,13 @@
           <% end %>
         <div class="col-l">
           <fieldset>
-            <%= text_input f, :first_name, placeholder: "First name" %>
+            <%= text_input f, :first_name, placeholder: "First name", required: true %>
           </fieldset>
           <fieldset>
-            <%= text_input f, :last_name, placeholder: "Last name" %>
+            <%= text_input f, :last_name, placeholder: "Last name", required: true %>
           </fieldset>
           <fieldset>
-            <%= textarea f, :description, placeholder: "Tell us about you" %>
+            <%= textarea f, :description, placeholder: "Tell us about you", required: true, maxlength: 255 %>
           </fieldset>
           <div class="half">
             <fieldset>
@@ -35,11 +35,11 @@
             </fieldset>
           </div>
           <fieldset>
-            <%= email_input f, :email, placeholder: "Contact email" %>
+            <%= email_input f, :email, placeholder: "Contact email", pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", required: true %>
           </fieldset>
           <div class="upload">
             <h4>profile picture</h4>
-            <%= file_input f, :avatar, placeholder: "AVATAR", id: "preview-photo-load" %>
+            <%= file_input f, :avatar, placeholder: "AVATAR", id: "preview-photo-load", required: true, accept: "image/*" %>
           </div>
         </div>
         <div class="col-r">
@@ -51,10 +51,10 @@
           <br>
           <br>
           <fieldset>
-            <%= password_input f, :password, placeholder: "Password" %>
+            <%= password_input f, :password, placeholder: "Password", required: true %>
           </fieldset>
           <fieldset>
-            <%= password_input f, :password_conf, placeholder: "Confirm password" %>
+            <%= password_input f, :password_conf, placeholder: "Confirm password", required: true %>
           </fieldset>
           <%= submit "SIGN UP", class: "btn-blue"%>
         </div>
