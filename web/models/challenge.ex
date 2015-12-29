@@ -2,6 +2,9 @@ defmodule Dennis.Challenge do
   use Dennis.Web, :model
   use Arc.Ecto.Model
 
+  alias Ecto.Date
+  alias Dennis.Race
+
   schema "challenges" do
     belongs_to :user, Dennis.User
     belongs_to :cause, Dennis.Cause
@@ -77,6 +80,20 @@ defmodule Dennis.Challenge do
   def global_challenges do
     Dennis.Repo.all from challenge in Dennis.Challenge,
       preload: [:user, :cause, :race]
+  end
+
+  def finish_challenges do
+    expired_challenges = from challenge in Dennis.Challenge,
+    join: race in Race, on: race.challenge_id == challenge.id,
+    where: race.date < date_add(^today, 1, "day") and challenge.status != "finished",
+    # the extra where ensures the update applies to joined rows,
+    # without this, it updates every challenge
+    where: challenge.id == fragment("challenges.id")
+    Dennis.Repo.update_all(expired_challenges, set: [status: "finished"]) 
+  end
+
+  defp today do
+    Date.utc
   end
 
 end
