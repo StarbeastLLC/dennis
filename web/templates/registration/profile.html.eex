@@ -19,7 +19,7 @@
             <% end %>
 				<div class="left-form">
 					<h3><%= @changeset.model.org_name %></h3>
-					  <img style="max-height:250px; max-width:250px; margin-bottom:25px;"src="<%= avatar_url(@changeset) %>" id="preview-photo">
+					  <img style="max-height:250px; max-width:250px; margin-bottom:25px; border-radius:50%;"src="<%= avatar_url(@changeset) %>" id="preview-photo">
 					  <br>
 					  <fieldset>
 					  	<label>Logo</label>
@@ -74,7 +74,7 @@
 				<div class="left-form">
 					<h3><%= @changeset.model.first_name %> <%= @changeset.model.last_name %></h3>
 					<%= if is_fb_user(@changeset) do %>
-					  <img style="max-height:250px; max-width:250px"src="<%= fb_avatar_url(@changeset) %>">
+					  <img style="max-height:250px; max-width:250px; border-radius:50%;"src="<%= fb_avatar_url(@changeset) %>">
 					  <br>
 					  <br>
 					<% else %>
