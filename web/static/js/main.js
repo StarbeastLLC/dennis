@@ -5,14 +5,6 @@ function is_touch_device() {
 
 $(document).ready(function() {
 
-    // Hide flash messages after some seconds
-    $('document').ready(function() {
-      setTimeout(function() {
-      $(".alert").animate({opacity:'0'}, 3000);
-      $('.alert').slideUp();
-      }, 3800);
-    });
-
     // Welcome to the argentinian void
     $('.minus, .plus').click(function(e){
         e.preventDefault();

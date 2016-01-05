@@ -24,5 +24,6 @@ import "./main"
 import "./challenge-date-constraint"
 import "./uploaded-image-preview"
 import "./racedate-parser"
+import "./hide-flash-messages"
 import "./facebook"
 import './donation'
