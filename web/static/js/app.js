@@ -22,5 +22,6 @@ import "deps/phoenix_html/web/static/js/phoenix_html"
 import './fancybox'
 import "./main"
 import "./challenge-date-constraint"
+import "./uploaded-image-preview"
 import "./facebook"
 import './donation'
