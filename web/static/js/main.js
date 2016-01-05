@@ -5,28 +5,6 @@ function is_touch_device() {
 
 $(document).ready(function() {
 
-    // Preview images before uploading them to S3
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-                $('#preview-photo').attr('src', e.target.result);
-            }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-    $("#preview-photo-load").change(function(){
-        readURL(this);
-    });
-
-    // Parse date with Moment.js
-    var raceDate = $('#iso-race-date').html();
-    var raceDateParsed = moment(raceDate).format('MMMM Do YYYY');
-    $('#iso-race-date').text(raceDateParsed);
-
     // Hide flash messages after some seconds
     $('document').ready(function() {
       setTimeout(function() {
