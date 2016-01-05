@@ -1,12 +1,8 @@
 jQuery(function () {
 
-	console.log("DONATION.js")
-
 	// detect if we are in the donation page
 	var donate = $('button#donate');
 	if (donate.length == 0) { return; }
-
-	console.log("DONATION.js PAGE");
 
 	var pricePerMile = donate.data('mile-price');
 	var dataKey = donate.data('key');
@@ -22,8 +18,7 @@ jQuery(function () {
 		  .removeAttr('data-image');
 
 	var milesBought = $('#donation_miles_bought');
-	var tip = $('#donation_tip');
-	var totalToDonate = $('#total_to_donate');
+	var totalToDonate = $('#total-to-donate');
 
 	var handler = StripeCheckout.configure({
 	    key: dataKey,
@@ -33,7 +28,6 @@ jQuery(function () {
 	      // Use the token to create the charge with a server-side script.
 	      // You can access the token ID with `token.id`
 	      handler.close();
-	      console.log("TOOOOK ", token);
 		  $('#donation_transaction_token').val(token.id);
 		  $('#donation_email').val(token.email);
 	      donate.parent('form').submit();
@@ -42,12 +36,10 @@ jQuery(function () {
 
 	donate.on('click', openCheckout);
 	milesBought.on('blur keyup', calculateTotal);
-	tip.on('blur keyup', calculateTotal);
 
 	function calculateTotal() {
-		productAmount = (pricePerMile * milesBought.val()) + 
-					(tip.val() * 1);
-		totalToDonate.text(productAmount);
+		productAmount = (pricePerMile * milesBought.val());
+		totalToDonate.val("$ " + productAmount);
 	}
 	calculateTotal();
 
@@ -55,7 +47,7 @@ jQuery(function () {
 		handler.open({
 	      name: productName,
 	      description: productDesc,
-	      amount: productAmount * 100 // stripe uses cents
+	      amount: productAmount * 100 // Stripe uses cents
 	    });
 	    e.preventDefault();
 	}
@@ -64,5 +56,6 @@ jQuery(function () {
 	$(window).on('popstate', function() {
 	    handler.close();
 	});
+
 
 });
