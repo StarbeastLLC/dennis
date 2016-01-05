@@ -23,5 +23,6 @@ import './fancybox'
 import "./main"
 import "./challenge-date-constraint"
 import "./uploaded-image-preview"
+import "./racedate-parser"
 import "./facebook"
 import './donation'
