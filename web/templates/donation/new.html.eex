@@ -35,12 +35,12 @@
 							<a href="#" class="plus"></a>
 							<a href="#" class="minus"></a>
 						-->
-							<%= text_input f, :miles_bought, class: "form-control", type: "number", value: "7", min: "0", max: "999999" %>
+							<%= text_input f, :miles_bought, class: "form-control", type: "number", value: "7", min: "0", max: "999999", id: "donation_miles_bought" %>
 						</div>
 					</div>
 					<div class="row total">
 						<label>Your donation will be for</label>
-						<input type="text" id="total-to-donate"readonly value="$ 30">
+						<input type="text" id="total-to-donate" readonly value="$ 30">
 					</div>
 				</div>
 				<button type="submit" class="btn btn-blue"id="donate"
