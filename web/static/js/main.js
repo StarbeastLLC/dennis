@@ -240,10 +240,6 @@ $(window).load(function() {
         return false;
     });
 };
-    // Landing video
-    window.setTimeout(function() {
-        $(".welcome .video").addClass("loaded")
-    }, 1000);
-
+    
 });
 
