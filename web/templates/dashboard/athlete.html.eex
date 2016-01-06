@@ -27,8 +27,9 @@
         <% end %>
       </div>
       <div class="dash-list">
-      <div class="scroll scroll1">
-              <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+      <div>
+      <!-- <div class="scroll scroll1">
+              <div class="scrollbar"><a href="#" class="arrow-up"></a><a href="#" class="arrow-down"></a><div class="track"><div class="thumb"><div class="end"></div></div></div></div> -->
               <div class="viewport">
                    <div class="overview">
             <div class="ovrel">
