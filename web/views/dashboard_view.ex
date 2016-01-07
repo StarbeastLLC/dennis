@@ -4,7 +4,7 @@ defmodule Dennis.DashboardView do
   alias Dennis.Donation
 
   def global_accumulated(challenges) do
-    Enum.map(challenges, fn (challenge) ->
+    total = Enum.map(challenges, fn (challenge) ->
       Donation.amount_donated_to_challenge(challenge.id)
     end)
     |> Enum.sum()
