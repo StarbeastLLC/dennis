@@ -5559,7 +5559,7 @@ a.btn-white {
 	}
 	.create-content .file-set p.ss,
 	.create-content .file-set p {
-		width: 200px;
+		width: auto;
 		font-size: 14px;
 		line-height: 30px;
 		padding-left: 20px;

@@ -109,9 +109,9 @@
 	    					<% end %>
 	    					<!-- <span class="crf-s datapicker"><%# text_input i, :date, class: "form-control", placeholder: "RACE DATE", id: "datepicker", type: "date" %><span class="option">RACE DATE: DD/MM/YYYY</span></span> -->
 	    					<fieldset class="hal">
-	    						<label>When will it be held?</label>
+	    						<label>When will you be running?</label>
 	    						<div class="input input-check">
-	    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date", style: "width: 380px;", max: "3000-01-02", min: "2000-01-02", id: "today", required: true %>
+	    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date", style: "width: 280px; font-size:20px;", max: "3000-01-02", min: "2000-01-02", id: "today", required: true %>
 	    						</div>
 	    					</fieldset>
 	    					<%= if message = i.errors[:date] do %>
@@ -119,13 +119,23 @@
 	    					<% end %>
   						</div>
 					<% end %>
-					<%= textarea f, :description, class: "form-control", placeholder: "Write a meaningful message to thank your donors", required: true, maxlenght: 255 %>
+					<%= textarea f, :description, class: "form-control", placeholder: "Write a nice message to thank your donors", required: true, maxlenght: 255, rows: 2, style: "height:auto; font-size:20px; line-height:40px;" %>
 				</fieldset>
 				<div class="checkbox open-modal">
 					<%= checkbox f, :will_redeem_fee, class: "redeem-fee-action" %>
 					<label>Yes, I want to redeem my race fee!</label>
 				</div>
-				<%= text_input f, :race_fee, class: "form-control", type: "number", min: "0", max: "9999", id: "race-fee-number", placeholder: "Race fee" %>
+				<br>
+				<fieldset class="hal">
+					<label style="line-height:18px;">Amount in dollars paid for you <br>to participate in said race</label>
+					<div class="input input-check">
+					    <!--
+						<a href="#" class="plus"></a>
+						<a href="#" class="minus"></a>
+						-->
+						<%= text_input f, :race_fee, class: "form-control", type: "number", min: "0", max: "9999", placeholder: "100" %>
+					</div>
+				</fieldset>
 				<a href="#red" class="hide fancybox-open">SUBMIT</a>
 		</div>
 		<div class="right-box ww kids">
@@ -138,13 +148,13 @@
 		      <% end %>
 		    <% else %>
 		    <% end %>
-			<h4>UPLOAD YOUR FILES</h4>
+			<h4>SHARE SOME PHOTOS</h4>
 			<div class="file-set">
-				<p>Photos of past races (1..4)</p>
-				<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]", style: "position:inherit; opacity:100; left:inherit", required: true, accept: "image/*"] %>
+				<p>Upload up to four photos to share with your challenge</p>
+				<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]", style: "position:inherit; opacity:100; left:inherit; font-size:15px; padding-top:7px;", required: true, accept: "image/*"] %>
 			</div>
 			<fieldset>
-				<p class="ss">Related Youtube video</p>
+				<p style="font-size:14px">Paste a Youtube video link to share with your challenge</p>
 				<%= text_input f, :video, class: "form-control" %>
 			</fieldset>
 			<%= submit "FINISH", class: "submit" %>
