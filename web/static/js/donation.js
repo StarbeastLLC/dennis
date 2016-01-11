@@ -35,7 +35,7 @@ jQuery(function () {
 	});
 
 	donate.on('click', openCheckout);
-	milesBought.on('blur keyup', calculateTotal);
+	milesBought.on('blur keyup click', calculateTotal);
 
 	function calculateTotal() {
 		productAmount = (pricePerMile * milesBought.val());
