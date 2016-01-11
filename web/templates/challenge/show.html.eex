@@ -47,7 +47,7 @@
               <p>Total donated <strong>$<%= amount_donated(@challenge.id) %></strong></p>
             <% else %>
               <center>
-                <p>Earn some dharma points,<br>be the first to donate!</p>
+                <p>Be the first to donate!</p>
               </center>
             <% end %>
           <% else %>

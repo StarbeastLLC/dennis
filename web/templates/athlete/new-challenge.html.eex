@@ -155,7 +155,7 @@
 			</div>
 			<fieldset>
 				<p style="font-size:14px">Paste a Youtube video link to share with your challenge</p>
-				<%= text_input f, :video, class: "form-control" %>
+				<%= text_input f, :video, class: "form-control", style: "font-size:18px;" %>
 			</fieldset>
 			<%= submit "FINISH", class: "submit" %>
 		</div>
