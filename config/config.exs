@@ -30,7 +30,9 @@ config :dennis, :stripe, %{
   credentials: {"sk_test_BQokikJOvBiI2HlWgH4olfQ2", ""},
   default_currency: "USD",
   data_key: "pk_test_GonGFcmx47wfCYHhs9Atv1nq",
-  application_fee: 200
+  # The amount MyMiles gets for each donation
+  # (in cents)
+  application_fee: 0
 }
 
 # Facebook Application
