@@ -1910,15 +1910,16 @@ a.btn.red,
 
 .welcome .video.loaded {
 	opacity: 1;
+	overflow: hidden;
 }
 
 
 .welcome .video {
-	top: 0;
-	opacity: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	top: 0px;
+	opacity: 1;
+	bottom: 0px;
+	left: 0px;
+	right: 1px;
 	position: absolute;
 	z-index: -5;
 }
