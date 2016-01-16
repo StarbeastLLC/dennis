@@ -1677,11 +1677,11 @@ a.btn.red,
 	color: #FFF;
 	font-family: "Montserrat";
 	text-decoration: none;
-	line-height: 64px;
+	line-height: 44px;
 	text-align: center;
 	padding: 25px;
 	margin: 5px 0;
-	font-size: 54px;
+	font-size: 34px;
 	font-weight: 700;
 	background-color: #ED4D4E;
 	background-image: -moz-linear-gradient(277deg, #ED4D4E 0%, #ED4D4E 2%, #AA0C0D 100%);
@@ -4058,6 +4058,13 @@ a.btn-white {
 
 	.box-w .right {
 		width: 30%;
+	}
+
+	.box-w .right h4{
+		font-size: 40px;
+		margin-top: 65px;
+		margin-bottom: 30px;
+		padding-bottom: 40px;
 	}
 
 	.box-w .text .social a {
