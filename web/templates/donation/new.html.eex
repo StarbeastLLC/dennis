@@ -13,8 +13,8 @@
 			    <%= hidden_input f, :transaction_token %>
 				<%= hidden_input f, :email %>
 				<fieldset>
-					<label>Please tell us your name</label>
-					<%= text_input f, :name, class: "form-control", placeholder: "FULL NAME", id: "nominize" %>
+					<label>Please tell us your</label>
+					<%= text_input f, :name, class: "form-control", placeholder: "LAST, FIRST NAME", id: "nominize" %>
 				</fieldset>
 				<div class="or">
 					or

@@ -3472,7 +3472,7 @@ a.btn-white {
 .create-content .file-set {
 	margin: 0 -106px;
 	padding: 0 106px;
-	padding-bottom: 55px;
+	padding-bottom: 25px;
 	position: relative;
 	overflow: hidden;
 }
@@ -3500,6 +3500,7 @@ a.btn-white {
 	position: absolute;
 	left: -9999em;
 	opacity: 0;
+	margin-bottom: 1px;
 }
 
 .create-content .file-set .btn {
@@ -3522,9 +3523,9 @@ a.btn-white {
 
 .create-content .file-set p {
 	float: left;
-	width: 180px;
-	font-size: 23px;
-	margin-left: -14px;
+	width: 495px;
+	font-size: 18px;
+	margin-left: 9px;
 	line-height: 25px;
 }
 
