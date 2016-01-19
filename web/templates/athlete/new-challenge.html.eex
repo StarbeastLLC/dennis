@@ -91,10 +91,8 @@
 				<fieldset class="hal">
 					<label>Price your miles</label>
 					<div class="input input-check">
-					    <!--
 						<a href="#" class="plus"></a>
 						<a href="#" class="minus"></a>
-						-->
 						<%= text_input f, :mile_price, class: "form-control", type: "number", value: "7", min: "0", max: "1000", required: true %>
 					</div>
 				</fieldset>
