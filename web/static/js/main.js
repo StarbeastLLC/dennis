@@ -9,8 +9,8 @@ $(document).ready(function() {
     $('.minus, .plus').click(function(e){
         e.preventDefault();
         
-        type      = $(this).attr('class');
-        var input = $(".input input");
+        var type  = $(this).attr('class');
+        var input = $(this).parent().find('input');
         var currentVal = parseInt(input.val());
         if (!isNaN(currentVal)) {
             if(type == 'minus') {
@@ -39,9 +39,9 @@ $(document).ready(function() {
     });
     $('.input input').change(function() {
         
-        minValue =  parseInt($(this).attr('min'));
-        maxValue =  parseInt($(this).attr('max'));
-        valueCurrent = parseInt($(this).val());
+        var minValue =  parseInt($(this).attr('min'));
+        var maxValue =  parseInt($(this).attr('max'));
+        var valueCurrent = parseInt($(this).val());
         
         name = $(this).attr('name');
         if(valueCurrent >= minValue) {
