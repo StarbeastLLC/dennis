@@ -104,14 +104,11 @@
 	    					<%= text_input i, :name, class: "form-control", placeholder: "Which race will you run?", required: true %>
 	    					<%= if message = i.errors[:name] do %>
 	      						<span class="help-block"><%= message %></span>
-	    					<% end %>
-	    					<!-- <span class="crf-s datapicker"><%# text_input i, :date, class: "form-control", placeholder: "RACE DATE", id: "datepicker", type: "date" %><span class="option">RACE DATE: DD/MM/YYYY</span></span> -->
-	    					<fieldset class="hal">
-	    						<label>When will it be held?</label>
-	    						<div class="input input-check">
-	    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date", style: "width: 380px;", max: "3000-01-02", min: "2000-01-02", id: "today", required: true %>
-	    						</div>
-	    					</fieldset>
+	    					<% end %>					
+	    					<div>When will it be held?</div>
+    						<span class="crf-s datapicker">
+    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date", max: "3000-01-02", min: "2000-01-02", id: "datepicker", required: true %>
+    						</span>
 	    					<%= if message = i.errors[:date] do %>
 	      						<span class="help-block"><%= message %></span>
 	    					<% end %>

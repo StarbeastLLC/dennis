@@ -3410,7 +3410,7 @@ a.btn-white {
 
 .create-content .hal .crf-s {
 	float: right;
-	width: 150px;
+	/*width: 150px;*/
 	clear: none;
 	height: 61px;
 	padding: 0 10px;
@@ -6083,12 +6083,12 @@ a.btn-white {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 177px;
+	/*left: 177px;*/
 	border: 0;
 	background: #fff;
 	right: 0;
 	width: 100%;
-	padding: 0;
+	/*padding: 0;*/
 	height: 100%;
 }
 .touch-device  .scroll .viewport {
