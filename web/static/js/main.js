@@ -57,7 +57,6 @@ $(document).ready(function() {
             $(this).val($(this).data('oldValue'));
         }
 
-        // Still not sure what is this for
         $(".total input").val("$ "+valueCurrent*$(".default").val().replace("$ ", ""));
     });
     $('.input input').keydown(function (e) {
