@@ -107,7 +107,7 @@
 	    					<% end %>					
 	    					<div>When will it be held?</div>
     						<span class="crf-s datapicker">
-    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date", max: "3000-01-02", min: "2000-01-02", id: "datepicker", required: true %>
+    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "text", id: "datepicker", required: true %>
     						</span>
 	    					<%= if message = i.errors[:date] do %>
 	      						<span class="help-block"><%= message %></span>
