@@ -56,9 +56,9 @@ $(document).ready(function() {
             alert('Sorry, the maximum value was reached');
             $(this).val($(this).data('oldValue'));
         }
+
+        // Still not sure what is this for
         $(".total input").val("$ "+valueCurrent*$(".default").val().replace("$ ", ""));
-        
-        
     });
     $('.input input').keydown(function (e) {
             // Allow: backspace, delete, tab, escape, enter and .
@@ -174,26 +174,31 @@ $(window).load(function() {
     if ($(".dash-list").length) {
         $scrollbar6.tinyscrollbar({
             thumbSize: 21,
-            trackSize: 640
+            trackSize: 640,
+            wheelLock: false,
         });
     } else if ($(".cols-2-haf.full.height2").length) {
         $scrollbar6.tinyscrollbar({
             thumbSize: 21,
-            trackSize: 570
+            trackSize: 570,
+            wheelLock: false,
         });
     } else if ($(".cols-2-haf.full").length) {
         $scrollbar6.tinyscrollbar({
             thumbSize: 21,
-            trackSize: 1075
+            trackSize: 1075,
+            wheelLock: false,
         });
     } else if ($(".pro-details").length) {
         $scrollbar6.tinyscrollbar({
             thumbSize: 21,
-            trackSize: 160
+            trackSize: 160,
+            wheelLock: false,
         });
     } else {
         $scrollbar6.tinyscrollbar({
-            thumbSize: 21
+            thumbSize: 21,
+            wheelLock: false,
         });
     };
     var scrollbar6 = $scrollbar6.data("plugin_tinyscrollbar");
