@@ -1,1 +1,11 @@
-<%= inspect(@charities) %>
+<%= for charity <- @charities do %>
+	<div>
+		<p><strong><%= charity.org_name %></strong></p>
+		<p><%= charity.email %></p>
+	</div>
+	<%= form_for @conn, admin_user_path(@conn, :invite_org), [as: :invite], fn f -> %>
+		<%= hidden_input f, :email, class: "form-control", value: charity.email %>
+		<%= hidden_input f, :org_name, class: "form-control", value: charity.org_name %>
+		<%= submit "Invite!" %>
+	<% end %>
+<% end %>
