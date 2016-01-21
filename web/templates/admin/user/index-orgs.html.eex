@@ -1,5 +1,5 @@
 <%= if @charities == [] do %>
-	<p>There are no charities to invite right now!</p>
+	<p id="no-charities">There are no charities to invite right now!</p>
 <% else %>
 	<%= for charity <- @charities do %>
 		<div>
