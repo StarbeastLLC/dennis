@@ -36,6 +36,11 @@ defmodule Dennis.AthleteController do
 
   defp render_new_challenge(conn, challenge_changeset) do
     user_id = get_session(conn, :current_user)
+    unless user_id do
+      conn
+      |> put_flash(:error, "You need to login to continue")
+      |> redirect(to: "/")
+    end
     user = Repo.get!(User, user_id)
     org_causes = Cause.global_causes_by_user_type("org")
     athlete_causes = Cause.global_causes_by_user_type("athlete")
