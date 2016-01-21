@@ -10,6 +10,11 @@ defmodule Dennis.Admin.UserController do
     render(conn, "index.html", users: users)
   end
 
+  def index_orgs(conn, _params) do
+    enqueued_orgs = User.get_enqueued_orgs
+    render(conn, "index-orgs.html", charities: enqueued_orgs)
+  end
+
   def new(conn, _params) do
     changeset = User.changeset(%User{})
     render(conn, "new.html", changeset: changeset)
