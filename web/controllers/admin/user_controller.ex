@@ -18,9 +18,22 @@ defmodule Dennis.Admin.UserController do
 
   def invite_org(conn, user_params) do
     user_params = user_params["invite"]
-    IO.puts inspect user_params
     token = Ecto.UUID.generate
-    #Mailer.send_admin_invitation(user_params[:email], user_params[:org_name], token)
+    user_params = Map.put(user_params, "reset_token", token)
+    user = Repo.get(User, user_params["id"])
+    
+    changeset = User.admin_invited_org_changeset(user, user_params)
+    case Repo.update(changeset) do
+      {:ok, user} ->
+        Mailer.send_admin_invitation(user_params[:email], user_params[:org_name], token)
+        conn
+        |> put_flash(:info, "The charity was successfully invited!")
+        |> redirect(to: "/admin/charities")
+      {:error, changeset} ->
+        conn
+        |> put_flash(:error, "Oops! Something went wrong, please try again.")
+        |> redirect(to: "/admin/charities")
+    end
   end
 
   def new(conn, _params) do
