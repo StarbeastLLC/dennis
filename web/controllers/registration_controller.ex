@@ -108,6 +108,11 @@ defmodule Dennis.RegistrationController do
 
   def profile(conn, _params) do
     id = get_session(conn, :current_user)
+    unless id do
+      conn
+      |> put_flash(:error, "You need to login to continue")
+      |> redirect(to: "/")
+    end
     user = Repo.get!(User, id)
     changeset = User.profile_changeset(user)
     render(conn, "profile.html", user: user, changeset: changeset)
