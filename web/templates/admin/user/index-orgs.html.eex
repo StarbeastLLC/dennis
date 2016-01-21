@@ -7,6 +7,7 @@
 	<%= form_for org_changeset(charity.id), admin_user_path(@conn, :invite_org), [as: :invite], fn f -> %>
 		<%= hidden_input f, :email, class: "form-control", value: charity.email %>
 		<%= hidden_input f, :org_name, class: "form-control", value: charity.org_name %>
+		<%= hidden_input f, :id, class: "form-control", value: charity.id %>
 		<%= submit "Invite!" %>
 	<% end %>
 <% end %>
