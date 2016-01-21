@@ -1,17 +1,20 @@
+<h1 id="invites-title">Total invite requests: <%= Enum.count(@charities) %></h1>
+
 <%= if @charities == [] do %>
 	<p id="no-charities">There are no charities to invite right now!</p>
 <% else %>
+    <div id="charities-container">
 	<%= for charity <- @charities do %>
-		<div>
-			<p><strong><%= charity.org_name %></strong></p>
-			<p><%= charity.email %></p>
-			<p><%= charity.id %></p>
-		</div>
 		<%= form_for org_changeset(charity.id), admin_user_path(@conn, :invite_org), [as: :invite], fn f -> %>
+			<div>
+				<p id="charity-name"><strong><%= charity.org_name %></strong></p>
+				<p id="charity-mail"><%= charity.email %></p>
+			</div>
 			<%= hidden_input f, :email, class: "form-control", value: charity.email %>
 			<%= hidden_input f, :org_name, class: "form-control", value: charity.org_name %>
 			<%= hidden_input f, :id, class: "form-control", value: charity.id %>
-			<%= submit "Invite!" %>
+			<%= submit "Invite!", id: "invite-btn" %>
 		<% end %>
 	<% end %>
+	</div>
 <% end %>
