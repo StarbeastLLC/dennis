@@ -29,7 +29,7 @@ defmodule Dennis.RegistrationController do
   end
 
   def enqueue_org(conn, user_params) do
-    changeset = User.enqueue_org_changeset(%User{}, user_params)
+    changeset = User.enqueue_org_changeset(%User{user_type: "org"}, user_params)
 
     if changeset.valid? do
       {:ok, user} = Dennis.Repo.insert(changeset)
