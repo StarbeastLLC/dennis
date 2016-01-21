@@ -140,7 +140,7 @@ defmodule Dennis.User do
 
   def get_enqueued_orgs do
     Dennis.Repo.all from user in Dennis.User,
-    where: user.user_type == "org" and reset_token != nil
+    where: user.user_type == "org" and is_nil(user.reset_token)
   end
 
   def get_by_email(email) do
