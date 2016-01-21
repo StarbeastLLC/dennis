@@ -75,7 +75,7 @@
         <article class="col-3">
           <h3>GET SOCIAL</h3>
           <ul class="social">
-            <li class="facebook"><a href="https://www.facebook.com/JoinMyMiles" target="_blank"></a></li>
+            <li class="facebook" id="fb-footer"><a href="https://www.facebook.com/JoinMyMiles" target="_blank"></a></li>
             <li class="twitter"><a href="https://twitter.com/mymiles_ws" target="_blank"></a></li>
             <li class="google-plus"><a href="https://plus.google.com/+MymilesWs" target="_blank"></a></li>
           </ul>

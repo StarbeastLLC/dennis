@@ -1,8 +1,7 @@
-<h1 id="invites-title">Total invite requests: <%= Enum.count(@charities) %></h1>
-
 <%= if @charities == [] do %>
 	<p id="no-charities">There are no charities to invite right now!</p>
 <% else %>
+	<h1 id="invites-title">Total invite requests: <%= Enum.count(@charities) %></h1>
     <div id="charities-container">
 	<%= for charity <- @charities do %>
 		<%= form_for org_changeset(charity.id), admin_user_path(@conn, :invite_org), [as: :invite], fn f -> %>
