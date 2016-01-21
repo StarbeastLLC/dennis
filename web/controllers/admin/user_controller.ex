@@ -17,8 +17,9 @@ defmodule Dennis.Admin.UserController do
   end
 
   def invite_org(conn, user_params) do
+    IO.puts inspect user_params
     token = Ecto.UUID.generate
-    Mailer.send_admin_invitation(user_params[:email], user_params[:org_name], token)
+    #Mailer.send_admin_invitation(user_params[:email], user_params[:org_name], token)
   end
 
   def new(conn, _params) do
