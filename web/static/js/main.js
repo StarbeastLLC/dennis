@@ -144,8 +144,10 @@ $(document).ready(function() {
         $(".fancybox-close").trigger("click")       
         return false;       
     });     
-    $('.open-modal').click(function() {     
-        $(".fancybox-open").trigger("click")        
+    $('.open-modal').click(function() {
+        var fancyboxToOpen = $(this).attr("data-fancybox-to-open") || "fancybox-open";
+        fancyboxToOpen = "." + fancyboxToOpen;
+        $(fancyboxToOpen).trigger("click");
         return false;       
     });
 });

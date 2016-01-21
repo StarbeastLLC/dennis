@@ -60,7 +60,7 @@
         <article class="col-1">
           <h3>MY MILES</h3>
           <ul>
-            <!-- <li><a href="#chart" class="fancybox-open">Charity? Join Now!</a></li> -->
+            <li><a href="#chart" class="fancybox-open">Charity? Join Now!</a></li>
             <li><%= link "How Does It Work?", to: "/how" %></li>
             <li><a target="_blank" href="http://mymiles.ghost.io/">Blog</a></li>
           </ul>

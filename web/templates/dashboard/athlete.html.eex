@@ -80,7 +80,7 @@
       </div>
       </div>
       <div class="btns">
-        <a href="#chart" class="btn fancybox-open">INVITE CHARITY</a>
+        <a href="#invite-charity" class="btn fancybox-open">INVITE CHARITY</a>
         <a href="/dashboard/challenge" class="btn">NEW CHALLENGE</a>
       </div>
     </div>
@@ -88,7 +88,7 @@
 </div>
 <!-- / body -->
 
-<div class="chat-modal" id="chart">
+<div class="chat-modal" id="invite-charity">
   <div class="box">
     <h2>INVITE</h2>
     <%= form_tag("/invite/athlete", method: :post) do %>
