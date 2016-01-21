@@ -69,6 +69,12 @@ defmodule Dennis.User do
     |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
   end
 
+  def admin_invited_org_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(email org_name reset_token), ~w())
+    |> validate_format(:email, ~r/@/)
+  end
+
   def register_changeset(model, params \\ :empty) do
     model
     |> cast(params, ~w(email password password_conf first_name last_name country user_type), @optional_fields)
