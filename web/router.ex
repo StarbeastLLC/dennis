@@ -89,6 +89,7 @@ defmodule Dennis.Router do
     resources "/donations",   DonationController
     resources "/races",       RaceController
 
+
     get "/emails/athlete-invite-email", EmailController, :athlete_invite_email
   end
 

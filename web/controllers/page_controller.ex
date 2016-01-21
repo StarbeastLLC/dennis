@@ -4,6 +4,7 @@ defmodule Dennis.PageController do
   alias Dennis.User
   alias Dennis.AthleteController, as: Athlete
   alias Dennis.OrgController, as: Org
+  alias Dennis.RegistrationController
 
   alias Dennis.Mailer
 
@@ -49,10 +50,8 @@ defmodule Dennis.PageController do
     render conn, "request-invite.html"
   end
 
-  def send_invite_request(conn, %{"request" => %{"email" => email}}) do
-    Mailer.send_invite_request(email)
-    conn
-    |> put_flash(:info, "Thanks for your interest in MyMiles, we'll get back to you as soon as possible.")
-    |> redirect(to: "/")
+  def send_invite_request(conn, %{"request" => user_params}) do
+    Mailer.send_invite_request(user_params[:email])
+    RegistrationController.enqueue_org(conn, user_params)
   end
 end

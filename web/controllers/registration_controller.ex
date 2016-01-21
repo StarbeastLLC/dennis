@@ -27,8 +27,22 @@ defmodule Dennis.RegistrationController do
         render conn, "new-org.html", changeset: changeset, user: user
     end    
   end
-  
 
+  def enqueue_org(conn, user_params) do
+    changeset = User.enqueue_org_changeset(%User{}, user_params)
+
+    if changeset.valid? do
+      {:ok, user} = Dennis.Repo.insert(changeset)
+      conn
+      |> put_flash(:info, "Thanks for your interest in MyMiles, we'll get back to you as soon as possible.")
+      |> redirect(to: "/")
+    else
+      conn
+      |> put_flash(:info, "We’ve received your inquiry and will send you a registration link very soon.")
+      |> redirect(to: "/")
+    end
+  end
+  
   def create(conn, %{"user" => user_params}) do
     changeset = User.register_changeset(%User{}, user_params)
 

@@ -62,6 +62,13 @@ defmodule Dennis.User do
     |> cast(params, ~w(stripe_id), ~w())
   end
 
+  def enqueue_org_changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(email org_name), ~w())
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
+  end
+
   def register_changeset(model, params \\ :empty) do
     model
     |> cast(params, ~w(email password password_conf first_name last_name country user_type), @optional_fields)
@@ -131,6 +138,11 @@ defmodule Dennis.User do
     where: user.user_type == "org"
   end
 
+  def get_enqueued_orgs do
+    Dennis.Repo.all from user in Dennis.User,
+    where: user.user_type == "org" and reset_token != nil
+  end
+
   def get_by_email(email) do
     Dennis.Repo.one from user in Dennis.User,
     where: user.email == ^email  
@@ -152,6 +164,7 @@ defmodule Dennis.User do
     |> unique_constraint(:email, on: Dennis.Repo, downcase: true)
     |> validate_format(:email, ~r/@/)
   end
+
 
 
 end
