@@ -2,6 +2,7 @@ defmodule Dennis.Admin.UserController do
   use Dennis.Web, :controller
 
   alias Dennis.User
+  alias Dennis.Mailer
 
   plug :scrub_params, "user" when action in [:create, :update]
 
@@ -13,6 +14,11 @@ defmodule Dennis.Admin.UserController do
   def index_orgs(conn, _params) do
     enqueued_orgs = User.get_enqueued_orgs
     render(conn, "index-orgs.html", charities: enqueued_orgs)
+  end
+
+  def invite_org(conn, user_params) do
+    token = Ecto.UUID.generate
+    Mailer.send_admin_invitation(user_params[:email], user_params[:org_name], token)
   end
 
   def new(conn, _params) do

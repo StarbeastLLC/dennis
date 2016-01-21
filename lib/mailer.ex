@@ -14,7 +14,7 @@ defmodule Dennis.Mailer do
 			html: Phoenix.View.render_to_string(Dennis.Admin.EmailView, "athlete-invite-email.html", athlete: athlete, email: email, token: token, message: message, org_name: org_name)
 	end
 
-	def send_admin_invitation(email, token, org_name) do
+	def send_admin_invitation(email, org_name, token) do
 		send_email to: email,
 		    from: @from, 
 		    subject: "Welcome to MyMiles, #{org_name}!",
