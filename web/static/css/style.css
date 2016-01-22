@@ -72,6 +72,18 @@ input[type=submit]::-moz-focus-inner {
 	border: 0;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
 .hide {
 	position: absolute !important;
 	left: -9999em !important;
@@ -3399,7 +3411,7 @@ a.btn-white {
 
 .create-content .hal .crf-s {
 	float: right;
-	width: 150px;
+	/*width: 150px;*/
 	clear: none;
 	height: 61px;
 	padding: 0 10px;
@@ -6080,12 +6092,12 @@ a.btn-white {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 177px;
+	/*left: 177px;*/
 	border: 0;
 	background: #fff;
 	right: 0;
 	width: 100%;
-	padding: 0;
+	/*padding: 0;*/
 	height: 100%;
 }
 .touch-device  .scroll .viewport {

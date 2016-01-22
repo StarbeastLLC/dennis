@@ -13,13 +13,10 @@
 			    <%= hidden_input f, :transaction_token %>
 				<%= hidden_input f, :email %>
 				<fieldset>
-<<<<<<< HEAD
-					<label>Please tell us your name</label>
-					<%= text_input f, :name, class: "form-control", placeholder: "FULL NAME", id: "nominize" %>
-=======
+
 					<label>Please tell us your</label>
 					<%= text_input f, :name, class: "form-control", placeholder: "LAST, FIRST NAME", id: "nominize" %>
->>>>>>> styles
+
 				</fieldset>
 				<div class="or">
 					or
@@ -36,10 +33,8 @@
 					<div class="row">
 						<label>How many miles do you want to buy?</label>
 						<div class="input">
-						<!--
 							<a href="#" class="plus"></a>
 							<a href="#" class="minus"></a>
-						-->
 							<%= text_input f, :miles_bought, class: "form-control", type: "number", value: "7", min: "0", max: "999999", id: "donation_miles_bought" %>
 						</div>
 					</div>

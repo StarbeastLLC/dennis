@@ -47,6 +47,7 @@
     <%= form_tag("/request-invite", method: :post) do %>
       <fieldset>
         <label>Want to rise funds for you charity?<br>Get involved with MY MILES today!</label>
+        <%= text_input :request, :org_name, placeholder: "Charity Name", required: true,  title: "Valid email address." %>
         <%= text_input :request, :email, placeholder: "E-mail", required: true, pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", title: "Valid email address." %>
       </fieldset>
       <%= submit "REQUEST AN INVITE", class: "btn" %>

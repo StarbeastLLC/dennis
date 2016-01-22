@@ -91,9 +91,9 @@
 				<fieldset class="hal">
 					<label>Price your miles</label>
 					<div class="input input-check">
-					    <!--
 						<a href="#" class="plus"></a>
 						<a href="#" class="minus"></a>
+<<<<<<< HEAD
 						-->
 
 						<%= text_input f, :mile_price, class: "form-control", type: "number", value: "15", min: "1", max: "1000", required: true %>
@@ -108,16 +108,13 @@
 	    					<%= text_input i, :name, class: "form-control", placeholder: "Which race will you run?", required: true %>
 	    					<%= if message = i.errors[:name] do %>
 	      						<span class="help-block"><%= message %></span>
-	    					<% end %>
-	    					<!-- <span class="crf-s datapicker"><%# text_input i, :date, class: "form-control", placeholder: "RACE DATE", id: "datepicker", type: "date" %><span class="option">RACE DATE: DD/MM/YYYY</span></span> -->
-	    					<fieldset class="hal">
-	    						<label>When will you be running?</label>
-	    						<div class="input input-check">
 
-	    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date", style: "width: 220px; font-size:15px;", max: "3000-01-02", min: "2000-01-02", id: "today", required: true %>
+	    					<% end %>					
+	    					<div>When will you be running?</div>
+    						<span class="crf-s datapicker">
+    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "text", id: "datepicker", required: true %>
+    						</span>
 
-	    						</div>
-	    					</fieldset>
 	    					<%= if message = i.errors[:date] do %>
 	      						<span class="help-block"><%= message %></span>
 	    					<% end %>
@@ -127,8 +124,9 @@
 					<%= textarea f, :description, class: "form-control", placeholder: "Write a nice message to thank your donors...", required: true, maxlenght: 500, rows: 1, style: "height:auto; font-size:20px; line-height:40px;" %>
 
 				</fieldset>
-				<br>
-				<div class="checkbox open-modal">
+
+				<div href="#id" class="checkbox open-modal" data-fancybox-to-open="redeem-fee-fancybox">
+
 					<%= checkbox f, :will_redeem_fee, class: "redeem-fee-action" %>
 					<label>Yes, I want to redeem my race fee!</label>
 				</div>
@@ -177,6 +175,7 @@
 		<% end %>
 	</div>
 </div>
+<a href="#red" class="redeem-fee-fancybox fancybox-open" style="display: hidden;"></a>
 <!-- / body -->
 
 

@@ -16,7 +16,7 @@ defmodule Dennis.Donation do
     field :tip, :integer
     field :total_donated, :integer
     field :is_anonymous, :boolean, default: false
-    field :name, :string, default: "Anonymous"
+    field :name, :string
     field :destination_account, :string
 
     timestamps

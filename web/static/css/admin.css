@@ -1,0 +1,43 @@
+#no-charities {
+  text-align: center;
+  color: #01a7d2;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  font-size: 20px;
+  font-family: Montserrat, Helvetica, sans-serif;
+}
+
+#charities-container {
+  text-align:center;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+#charity-name {
+	color: #01a7d2;
+	font-size:20px;
+}
+
+#invites-title {
+	text-align: center;
+	text-transform: uppercase;
+	margin-top:20px;
+	font-size: 30px;
+	color:#ed4d4e;
+}
+
+#charity-mail {
+	font-size: 14px;
+}
+
+#invite-btn {
+  margin-bottom: 60px;
+  margin-top: 10px;
+  border:none;
+  border-radius: 20px;
+  width: 100px;
+  height: 40px;
+  color: white;
+  background-color: #ed4d4e;
+  font-family: Montserrat, Helvetica, sans-serif;
+}

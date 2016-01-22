@@ -17,21 +17,6 @@
         </div>
       </div>
       
-      <div class="social-connects">
-        <h3>Sign in with</h3>
-        <ul>
-
-          <li class="facebook"><button class="fb-login">Facebook</button></li>
-        </ul>
-
-          <%= form_for @conn, registration_path(@conn, :fb_auth), [as: :user, id: "fb_auth"], fn f -> %>
-              <%= hidden_input f, :fb_id %>
-              <%= hidden_input f, :fb_token %>
-              <%= hidden_input f, :email %>
-              <%= hidden_input f, :first_name %>
-              <%= hidden_input f, :last_name %>
-          <% end %>
-      </div>
     </div>
     <!-- / content -->
   </div>
