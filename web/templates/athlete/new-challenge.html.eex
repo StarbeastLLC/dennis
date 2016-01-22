@@ -93,8 +93,7 @@
 					<div class="input input-check">
 						<a href="#" class="plus"></a>
 						<a href="#" class="minus"></a>
-<<<<<<< HEAD
-						-->
+
 
 						<%= text_input f, :mile_price, class: "form-control", type: "number", value: "15", min: "1", max: "1000", required: true %>
 
