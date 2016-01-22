@@ -137,7 +137,7 @@
 							</div>
 						</fieldset>
 						<fieldset>
-							<label>Confirm Password</label>
+							<label>Confirm New Password</label>
 							<div class="text">
 								<%= password_input :pswd_params, :password_conf, required: true %>
 							</div>
@@ -149,7 +149,10 @@
                     <hr>
                     <br>
 					<% end %>
-					
+
+					<br>
+					<br>
+
 					<button type="submit" class="btn">
 					  <a class="stripe-btn" href="<%= stripe_connect_url %>" target="_blank">STRIPE CONNECT</a>
 					</button>

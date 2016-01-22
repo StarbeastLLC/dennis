@@ -41,10 +41,13 @@
         </div>
         <div class="right">
           <%= if @challenge.status == "active-challenge" do %>
-            <a href="<%= donation_path(@conn, :new, @challenge.id) %>" class="btn-donate">DONATE <br>NOW!</a>
+
+            <a href="<%= donation_path(@conn, :new, @challenge.id) %>" class="btn-donate">DONATE NOW !</a>
+  
             <h4>DONORS</h4>
             <%= if @challenge.donations != [] do %>
-              <p>Total donated <strong>$<%= amount_donated(@challenge.id) %></strong></p>
+              <p>Funds accumulated so far: <strong>$<%= amount_donated(@challenge.id) %></strong></p>
+
             <% else %>
               <center>
                 <p>Be the first to donate!</p>
@@ -52,7 +55,10 @@
             <% end %>
           <% else %>
             <%= if @challenge.donations != [] do %>
-              <p>Total donated <strong>$<%= amount_donated(@challenge.id) %></strong></p>
+
+
+              <p>Funds accumulated so far: <strong>$<%= amount_donated(@challenge.id) %></strong></p>
+
             <% else %>
               <center>
                 <p>Be happy,<br>keep running ;)</p>

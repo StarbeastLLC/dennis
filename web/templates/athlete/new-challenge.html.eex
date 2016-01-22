@@ -95,7 +95,9 @@
 						<a href="#" class="plus"></a>
 						<a href="#" class="minus"></a>
 						-->
-						<%= text_input f, :mile_price, class: "form-control", type: "number", value: "7", min: "0", max: "1000", required: true %>
+
+						<%= text_input f, :mile_price, class: "form-control", type: "number", value: "15", min: "1", max: "1000", required: true %>
+
 					</div>
 				</fieldset>
 				<fieldset>
@@ -111,7 +113,9 @@
 	    					<fieldset class="hal">
 	    						<label>When will you be running?</label>
 	    						<div class="input input-check">
-	    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date", style: "width: 280px; font-size:20px;", max: "3000-01-02", min: "2000-01-02", id: "today", required: true %>
+
+	    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date", style: "width: 220px; font-size:15px;", max: "3000-01-02", min: "2000-01-02", id: "today", required: true %>
+
 	    						</div>
 	    					</fieldset>
 	    					<%= if message = i.errors[:date] do %>
@@ -119,21 +123,30 @@
 	    					<% end %>
   						</div>
 					<% end %>
-					<%= textarea f, :description, class: "form-control", placeholder: "Write a nice message to thank your donors", required: true, maxlenght: 255, rows: 2, style: "height:auto; font-size:20px; line-height:40px;" %>
+
+					<%= textarea f, :description, class: "form-control", placeholder: "Write a nice message to thank your donors...", required: true, maxlenght: 500, rows: 1, style: "height:auto; font-size:20px; line-height:40px;" %>
+
 				</fieldset>
+				<br>
 				<div class="checkbox open-modal">
 					<%= checkbox f, :will_redeem_fee, class: "redeem-fee-action" %>
 					<label>Yes, I want to redeem my race fee!</label>
 				</div>
-				<br>
+
 				<fieldset class="hal">
-					<label style="line-height:18px;">Amount in dollars paid for you <br>to participate in said race</label>
+					<label style="line-height:18px;">Amount in dollars paid for you 
+					<br>
+					<br>
+					to participate in said race:</label>
+
 					<div class="input input-check">
 					    <!--
 						<a href="#" class="plus"></a>
 						<a href="#" class="minus"></a>
 						-->
-						<%= text_input f, :race_fee, class: "form-control", type: "number", min: "0", max: "9999", placeholder: "100" %>
+
+						<%= text_input f, :race_fee, class: "form-control", type: "number", min: "1", max: "9999", placeholder: "100" %>
+
 					</div>
 				</fieldset>
 				<a href="#red" class="hide fancybox-open">SUBMIT</a>
@@ -154,7 +167,9 @@
 				<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]", style: "position:inherit; opacity:100; left:inherit; font-size:15px; padding-top:7px;", required: true, accept: "image/*"] %>
 			</div>
 			<fieldset>
-				<p style="font-size:14px">Paste a Youtube video link to share with your challenge</p>
+
+				<p style="font-size:18px">Paste a Youtube video link to share with your challenge</p>
+
 				<%= text_input f, :video, class: "form-control", style: "font-size:18px;" %>
 			</fieldset>
 			<%= submit "FINISH", class: "submit" %>

@@ -264,7 +264,7 @@ a:hover {
 
 #menu li {
 	display: inline-block;
-	padding: 0 36px;	
+	padding: 0 20px;	
 }
 
 #menu a {
@@ -1677,11 +1677,11 @@ a.btn.red,
 	color: #FFF;
 	font-family: "Montserrat";
 	text-decoration: none;
-	line-height: 64px;
+	line-height: 44px;
 	text-align: center;
 	padding: 25px;
 	margin: 5px 0;
-	font-size: 54px;
+	font-size: 34px;
 	font-weight: 700;
 	background-color: #ED4D4E;
 	background-image: -moz-linear-gradient(277deg, #ED4D4E 0%, #ED4D4E 2%, #AA0C0D 100%);
@@ -1910,15 +1910,16 @@ a.btn.red,
 
 .welcome .video.loaded {
 	opacity: 1;
+	overflow: hidden;
 }
 
 
 .welcome .video {
-	top: 0;
-	opacity: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	top: 0px;
+	opacity: 1;
+	bottom: 0px;
+	left: 0px;
+	right: 1px;
 	position: absolute;
 	z-index: -5;
 }
@@ -2562,8 +2563,8 @@ a.btn.red,
 	font-family: "Montserrat";
 	line-height: 40px;
 	padding: 0;
-	margin: -25px 0 0;
-	padding-bottom: 114px;
+	margin: -155px 0 0;
+	padding-bottom: 14px;
 	font-size: 50px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -3471,7 +3472,7 @@ a.btn-white {
 .create-content .file-set {
 	margin: 0 -106px;
 	padding: 0 106px;
-	padding-bottom: 55px;
+	padding-bottom: 25px;
 	position: relative;
 	overflow: hidden;
 }
@@ -3499,6 +3500,7 @@ a.btn-white {
 	position: absolute;
 	left: -9999em;
 	opacity: 0;
+	margin-bottom: 1px;
 }
 
 .create-content .file-set .btn {
@@ -3521,9 +3523,9 @@ a.btn-white {
 
 .create-content .file-set p {
 	float: left;
-	width: 180px;
-	font-size: 23px;
-	margin-left: -14px;
+	width: 495px;
+	font-size: 18px;
+	margin-left: 9px;
 	line-height: 25px;
 }
 
@@ -4057,6 +4059,13 @@ a.btn-white {
 
 	.box-w .right {
 		width: 30%;
+	}
+
+	.box-w .right h4{
+		font-size: 40px;
+		margin-top: 65px;
+		margin-bottom: 30px;
+		padding-bottom: 40px;
 	}
 
 	.box-w .text .social a {
