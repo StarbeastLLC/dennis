@@ -107,7 +107,7 @@
 	    					<% end %>					
 	    					<div>When will it be held?</div>
     						<span class="crf-s datapicker">
-    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "date", max: "3000-01-02", min: "2000-01-02", id: "datepicker", required: true %>
+    							<%= text_input i, :date, class: "form-control", placeholder: "RACE DATE", type: "text", id: "datepicker", required: true %>
     						</span>
 	    					<%= if message = i.errors[:date] do %>
 	      						<span class="help-block"><%= message %></span>
@@ -116,7 +116,7 @@
 					<% end %>
 					<%= textarea f, :description, class: "form-control", placeholder: "Write a meaningful message to thank your donors", required: true, maxlenght: 255 %>
 				</fieldset>
-				<div class="checkbox open-modal">
+				<div href="#id" class="checkbox open-modal" data-fancybox-to-open="redeem-fee-fancybox">
 					<%= checkbox f, :will_redeem_fee, class: "redeem-fee-action" %>
 					<label>Yes, I want to redeem my race fee!</label>
 				</div>
@@ -147,6 +147,7 @@
 		<% end %>
 	</div>
 </div>
+<a href="#red" class="redeem-fee-fancybox fancybox-open" style="display: hidden;"></a>
 <!-- / body -->
 
 
