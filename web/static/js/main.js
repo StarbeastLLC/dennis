@@ -166,7 +166,7 @@ $(window).load(function() {
 
     $( "#datepicker" ).datepicker({
         defaultDate: new Date(),
-        dateFormat: "dd/mm/yy",
+        dateFormat: "yy-mm-dd",
         minDate: new Date()
     });
     if (is_touch_device()) {
