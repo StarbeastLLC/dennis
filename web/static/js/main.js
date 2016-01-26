@@ -165,7 +165,9 @@ $(window).load(function() {
     });
 
     $( "#datepicker" ).datepicker({
-        dateFormat: "dd/mm/yy"
+        defaultDate: new Date(),
+        dateFormat: "dd/mm/yy",
+        minDate: new Date()
     });
     if (is_touch_device()) {
         $("body").addClass("touch-device")
