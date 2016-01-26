@@ -14,7 +14,7 @@
 				<%= hidden_input f, :email %>
 				<fieldset>
 					<label>Please tell us your</label>
-					<%= text_input f, :name, class: "form-control", placeholder: "FULL NAME", id: "nominize" %>
+					<%= text_input f, :name, class: "form-control", placeholder: "FULL NAME", id: "nominize", maxlength: 15 %>
 				</fieldset>
 				<div class="or">
 					or

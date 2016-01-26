@@ -17,7 +17,7 @@
 							<ul>
 							  <%= for org_cause <- @org_causes do %>
 							    <li>
-							      <a href="?cause_id=<%= org_cause.id %>#form"><img src="<%= avatar_url(org_cause.user) %>" alt=""><span class="titles" style="text-transform:uppercase"><%= org_cause.name %> </span></a>
+							      <a href="?cause_id=<%= org_cause.id %>#form"><img src="<%= avatar_url(org_cause.user) %>" alt=""><span class="titles" style="text-transform:uppercase"><%= org_cause.user.org_name %> </span></a>
 							      <span style="display:none"><%= org_cause.id %></span>
 							    </li>
 							  <% end %>
