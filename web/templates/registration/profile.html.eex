@@ -23,7 +23,7 @@
 					  <br>
 					  <fieldset>
 					  	<label>Logo</label>
-					    <%= file_input f, :avatar, placeholder: "LOGO", id: "preview-photo-load", required: true, accept: "image/*" %>
+					    <%= file_input f, :avatar, placeholder: "LOGO", id: "preview-photo-load", accept: "image/*" %>
 					  </fieldset>
 					<fieldset>
 						<label>Name</label>
