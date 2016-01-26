@@ -61,7 +61,7 @@ jQuery(function () {
 		var nominizeInput = $('#nominize');
 		if($(this).is(':checked')) {
 			nominizeInput.val('Anonymous');
-			nominizeInput.prop('disabled', true);
+			nominizeInput.prop('readonly', true);
 		} else {
 			nominizeInput.val('');
 			nominizeInput.prop('disabled', false);
