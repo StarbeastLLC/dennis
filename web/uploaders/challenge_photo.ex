@@ -16,7 +16,7 @@ defmodule Dennis.ChallengePhoto do
 
   # Define a thumbnail transformation:
   def transform(:original, _) do
-    {:convert, "-gravity Center -resize 250x250^ -crop 250x250+0+0\! -limit area 10MB -limit disk 100MB -format png"}
+    {:convert, "-gravity Center -resize 600x600^ -crop 600x600+0+0\! -limit area 10MB -limit disk 100MB -format png"}
   end
 
   # Override the persisted filenames:
