@@ -88,6 +88,10 @@ defmodule Dennis.Router do
     resources "/causes",      CauseController
     resources "/donations",   DonationController
     resources "/races",       RaceController
+    
+    get "/charities", UserController, :index_orgs
+    # the org entry was created on the invite request
+    put "/charities", UserController, :invite_org
 
     get "/emails/athlete-invite-email", EmailController, :athlete_invite_email
   end
