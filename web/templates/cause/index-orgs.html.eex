@@ -13,7 +13,7 @@
           <ul>
 
             <%= for cause <- @causes do %>
-              <li><a href="/charities/<%= cause.id %>"><img src="<%= avatar_url(cause.user) %>" alt="<%= cause.name %>"><span class="titles" style="text-transform:uppercase"><%= cause.name %></span></a></li>
+              <li><a href="/charities/<%= cause.id %>"><img src="<%= avatar_url(cause.user) %>" alt="<%= cause.user.org_name %>"><span class="titles" style="text-transform:uppercase"><%= cause.user.org_name %></span></a></li>
             <% end %>   
 
           </ul>
