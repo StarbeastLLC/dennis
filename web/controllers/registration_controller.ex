@@ -118,6 +118,20 @@ defmodule Dennis.RegistrationController do
     render(conn, "profile.html", user: user, changeset: changeset)
   end
 
+  def must_connect_stripe(conn, _params) do
+    id = get_session(conn, :current_user)
+    unless id do
+      conn
+      |> put_flash(:error, "You need to login to continue")
+      |> redirect(to: "/")
+    end
+    user = Repo.get!(User, id)
+    changeset = User.profile_changeset(user)
+    conn
+    |> put_flash(:info, "First connect Stripe to start accepting donations")
+    |> render("profile.html", user: user, changeset: changeset)
+  end
+
   def change_password(conn, %{"pswd_params" => password_params}) do
     id = get_session(conn, :current_user)
     user = Repo.get!(User, id)

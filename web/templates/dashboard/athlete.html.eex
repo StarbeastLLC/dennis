@@ -97,7 +97,7 @@
         <label>RUN FOR THE CHARITY YOU ♥<br>Tell them about MyMiles!</label>
         <%= text_input :invitation, :org_name, placeholder: "CHARITY NAME", required: true %>
         <%= text_input :invitation, :email, placeholder: "CHARITY EMAIL", required: true, pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", title: "Valid email address." %>
-        <%= textarea :invitation, :message, placeholder: "TELL THE CHARITY WHY DO YOU WANT TO RUN FOR THEM", required: true, style: "min-height:120px; font-size:20px; margin-top:auto;", maxlength: 255 %>
+        <%= textarea :invitation, :message, placeholder: "TELL THE CHARITY WHY DO YOU WANT TO RUN FOR THEM", required: true, style: "font-size:20px; margin-top:auto;", maxlength: 255, rows: 3 %>
       </fieldset>
       <%= submit "SEND", class: "btn" %>
     <% end %>  </div>

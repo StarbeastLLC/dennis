@@ -17,7 +17,7 @@
     <meta name="fb-app-id" content="<%= Application.get_env(:dennis, :facebook)[:app_id] %>">
   </head>
 
-  <body class="home">
+  <body class="home with-fancybox">
   <header id="header">
     <div class="top-info">
       <a href="/" class="fancy-sign-in" id="logo" title="mymyles">MYMILES</a>

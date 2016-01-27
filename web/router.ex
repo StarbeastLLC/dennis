@@ -50,6 +50,7 @@ defmodule Dennis.Router do
     get "/dashboard", DashboardController, :index
     get "/profile", RegistrationController, :profile
     put "/profile", RegistrationController, :update_profile
+    get "/connect-stripe", RegistrationController, :must_connect_stripe
     put "/password", RegistrationController, :change_password
     get "/stripe", RegistrationController, :connect_stripe #change
     

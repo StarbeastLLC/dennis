@@ -17,7 +17,7 @@
 							<ul>
 							  <%= for org_cause <- @org_causes do %>
 							    <li>
-							      <a href="?cause_id=<%= org_cause.id %>#form"><img src="<%= avatar_url(org_cause.user) %>" alt=""><span class="titles" style="text-transform:uppercase"><%= org_cause.name %> </span></a>
+							      <a href="?cause_id=<%= org_cause.id %>#form"><img src="<%= avatar_url(org_cause.user) %>" alt=""><span class="titles" style="text-transform:uppercase"><%= org_cause.user.org_name %> </span></a>
 							      <span style="display:none"><%= org_cause.id %></span>
 							    </li>
 							  <% end %>
@@ -47,7 +47,7 @@
 							<ul>
 							  <%= for athlete_cause <- @athlete_causes do %>
 							    <li>
-							      <a href="?cause_id=<%= athlete_cause.id %>#form"><img style="max-height:300px; max-width:300px; min-height:150px"src="<%= photo_url(athlete_cause) %>" alt=""><span class="mask" style="text-transform:uppercase"><%= athlete_cause.name %></a>
+							      <a href="?cause_id=<%= athlete_cause.id %>#form"><img src="<%= photo_url(athlete_cause) %>" alt=""><span class="mask" style="text-transform:uppercase"><%= athlete_cause.name %></a>
 							    </li>
 							  <% end %>
 
@@ -61,7 +61,7 @@
 			    <%= if @user.stripe_id do %>
 				  <a href="/dashboard/cause" class="btn-white">CREATE YOUR OWN CAUSE</a>
 				<% else %>
-				  <a href="/profile" class="btn-white" style="font-size:15px !important;">CREATE YOUR OWN CAUSE</a>
+				  <a href="/connect-stripe" class="btn-white" style="font-size:15px !important;">CREATE YOUR OWN CAUSE</a>
 				<% end %>
 			</div>
 		</div>

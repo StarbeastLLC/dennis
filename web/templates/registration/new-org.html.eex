@@ -33,9 +33,6 @@
 					 	<%= textarea f, :description, placeholder: "Please describe the Non Profit’s porpose (what’s the story behind it)", required: true, maxlength: 255 %>
 					</fieldset>
 					<fieldset>
-						<textarea placeholder="Please describe how the non profit works (brief description on why people should help you)"></textarea>
-					</fieldset>
-					<fieldset>
 						<%= textarea f, :address, placeholder: "Charity official address", required: true, maxlength: 255 %>
 					</fieldset>
 					<div class="half">

@@ -15,7 +15,8 @@
 				<fieldset>
 
 					<label>Please tell us your</label>
-					<%= text_input f, :name, class: "form-control", placeholder: "LAST, FIRST NAME", id: "nominize" %>
+
+					<%= text_input f, :name, class: "form-control", placeholder: "FULL NAME", id: "nominize", maxlength: 15 %>
 
 				</fieldset>
 				<div class="or">

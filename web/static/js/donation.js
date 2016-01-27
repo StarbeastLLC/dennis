@@ -57,5 +57,16 @@ jQuery(function () {
 	    handler.close();
 	});
 
+	$('input[name="donation[is_anonymous]"]').change(function() {
+		var nominizeInput = $('#nominize');
+		if($(this).is(':checked')) {
+			nominizeInput.val('Anonymous');
+			nominizeInput.prop('readonly', true);
+		} else {
+			nominizeInput.val('');
+			nominizeInput.prop('disabled', false);
+		}
+	});	
+
 
 });
