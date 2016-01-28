@@ -36,7 +36,7 @@
 						<div class="input">
 							<a href="#" class="plus"></a>
 							<a href="#" class="minus"></a>
-							<%= text_input f, :miles_bought, class: "form-control", type: "number", value: "7", min: "0", max: "999999", id: "donation_miles_bought" %>
+							<%= text_input f, :miles_bought, class: "form-control", type: "number", value: "7", min: "1", max: "999999", id: "donation_miles_bought" %>
 						</div>
 					</div>
 					<div class="row total">
