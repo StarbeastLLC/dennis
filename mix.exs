@@ -18,7 +18,10 @@ defmodule Dennis.Mixfile do
   def application do
     [mod: {Dennis, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex, :httpoison, :erlcloud]]
+                    :phoenix_ecto, :postgrex, :httpoison, :erlcloud,
+                    :arc, :arc_ecto, :phoenix_live_reload, :jazz, :meck, 
+                    :ex_doc,:comeonin, :mailgun, :logger_file_backend,
+                    :mock, :commerce_billing]]
   end
 
   # Specifies which paths to compile per environment
@@ -40,6 +43,8 @@ defmodule Dennis.Mixfile do
      {:commerce_billing, git: "https://github.com/joshnuss/commerce_billing"},
      {:mailgun, "~> 0.1.1"},
      {:arc, "~> 0.1.3"},
-     {:arc_ecto, "~> 0.2.0"}]
+     {:arc_ecto, "~> 0.2.0"},
+     {:exrm, "~> 1.0.0-rc7"},
+     {:logger_file_backend, "~> 0.0.6"}]
   end
 end
