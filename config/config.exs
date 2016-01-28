@@ -37,7 +37,8 @@ config :dennis, :stripe, %{
 
 # Facebook Application
 config :dennis, :facebook, %{
-  app_id: 974600335935982
+  #app_id: 974600335935982 TEST APP / Ask Zura for credentials to add testers
+  app_id: 974600135936002
 }
 
 # Amazon S3 
