@@ -7,7 +7,7 @@ use Mix.Config
 
 # Configures the endpoint
 config :dennis, Dennis.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "mymiles.us"],
   root: Path.dirname(__DIR__),
   secret_key_base: "wS/zB3ouaF4Frp8kxeM0TAvvsT9SZLHnAZ7bR1Imbfq9tcMM3GRNDHq5pIpKt5VM",
   render_errors: [accepts: ~w(html json)],
