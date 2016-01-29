@@ -27,9 +27,10 @@ config :dennis,
 
 # Configures Stripe
 config :dennis, :stripe, %{
-  credentials: {"sk_test_BQokikJOvBiI2HlWgH4olfQ2", ""},
+  #credentials: {"sk_test_BQokikJOvBiI2HlWgH4olfQ2", ""}, TEST APP / Ask Zura for credentials
+  credentials: {"sk_live_EGYisHDOgIO2zxNWCJ5qPljL", ""},
   default_currency: "USD",
-  data_key: "pk_test_GonGFcmx47wfCYHhs9Atv1nq",
+  data_key: "pk_live_kmkK33z1ql18FBXc57zQxCnG",
   # The amount MyMiles gets for each donation
   # (in cents)
   application_fee: 0

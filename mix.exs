@@ -19,7 +19,7 @@ defmodule Dennis.Mixfile do
     [mod: {Dennis, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
                     :phoenix_ecto, :postgrex, :httpoison, :erlcloud,
-                    :arc, :arc_ecto, :phoenix_live_reload, :jazz, :meck, 
+                    :arc, :arc_ecto, :jazz, :meck, 
                     :ex_doc,:comeonin, :mailgun, :logger_file_backend,
                     :mock, :commerce_billing]]
   end
@@ -36,7 +36,7 @@ defmodule Dennis.Mixfile do
      {:phoenix_ecto, "~> 1.1"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.1"},
-     {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:phoenix_live_reload, "~> 1.0"},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 1.0"},
      {:httpoison, "~> 0.7.2"},
