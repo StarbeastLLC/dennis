@@ -24,7 +24,7 @@ defmodule Dennis.RegistrationView do
   end
 
   def stripe_connect_url do
-    client_id = "ca_70DpQpxpPLuYLFAGUBw93Jlcm6siFjwe"
+    client_id = "ca_70DpFtTRY50FPaqm58uUSBk51LuELRqQ"
   	"https://connect.stripe.com/oauth/authorize?response_type=code&client_id=" <> client_id <> "&scope=read_write"
   end
 
