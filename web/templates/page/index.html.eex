@@ -1,11 +1,13 @@
 <div id="body">
   <div class="welcome">
+    <!--
     <div class="video">
       <video loop autoplay muted poster="/images/imagen.jpg">
         <source src="/images/movie.mov" type="video/mp4">
         <source src="http://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
       </video>
     </div>
+    -->
     <h1>WELCOME TO MY MILES</h1>
     <h2>Sell every mile you race for charity</h2>
     <div class="bottom">
