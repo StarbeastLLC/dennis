@@ -8,13 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <!-- <link rel="stylesheet" href="<%= static_path(@conn, "/css/style.css") %>">-->
-    <link 
-href='https://fonts.googleapis.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
-    <link 
-href='https://fonts.googleapis.com/css?family=Montserrat:700' 
-rel='stylesheet' type='text/css'>
-    <link 
-href='https://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
     <!--[if lt IE 9]>
       <script 
 src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -114,8 +110,12 @@ src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   </div>
   <!-- pop up -->
 
+<<<<<<< HEAD
     <script 
 src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+=======
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+>>>>>>> 7e9cd05dd52de4673b106cc5242fe4a013d48fd2
     <script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>
     <script src="<%= static_path(@conn, "/js/vendor.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

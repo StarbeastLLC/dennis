@@ -44,6 +44,7 @@ jQuery(function () {
 	calculateTotal();
 
 	function openCheckout(e) {
+		calculateTotal();
 		handler.open({
 	      name: productName,
 	      description: productDesc,

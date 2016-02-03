@@ -4,8 +4,14 @@
 /deps
 /*.ez
 
+# ASDF config file
+.tool-versions
+
 # Generate on crash by the VM
 erl_crash.dump
+
+# NPM error log
+npm-debug.log
 
 # Static artifacts
 /node_modules

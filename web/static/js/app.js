@@ -23,6 +23,7 @@ import './fancybox'
 import "./main"
 import "./challenge-date-constraint"
 import "./uploaded-image-preview"
+import "./uploaded-image-size"
 import "./racedate-parser"
 import "./hide-flash-messages"
 import "./landing-video"

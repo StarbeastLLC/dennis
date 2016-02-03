@@ -41,7 +41,7 @@
 					<h3><span>MEDIA</span></h3>
 					<p>Upload up to four photos</p>
 					<div class="file-set">
-						<%= file_input f, :photos, multiple: true, name: "cause[photos][]", required: true %>
+						<%= file_input f, :photos, multiple: true, name: "cause[photos][]", required: true, id: "multiple-photo-load" %>
 					</div>
 					<p>Youtube video</p>
 					<div class="file-set">
