@@ -19,7 +19,7 @@ defmodule Dennis.Mixfile do
     [mod: {Dennis, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
                     :phoenix_ecto, :postgrex, :httpoison, :erlcloud,
-                    :arc, :arc_ecto,  :jazz, :meck, 
+                    :arc, :arc_ecto,  :jazz, :meck,
                     :ex_doc,:comeonin, :mailgun, :logger_file_backend,
                     :mock, :commerce_billing]]
   end
