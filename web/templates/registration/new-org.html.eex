@@ -52,7 +52,7 @@
 					<%= file_input f, :avatar, placeholder: "LOGO", id: "preview-photo-load", required: true, accept: "image/*" %>
 
               		<h4 style="margin-top:35px;">photos</h4>
-              		<%= file_input f, :photos, placeholder: "PHOTOS", multiple: true, name: "cause_photos[]", required: true, accept: "image/*" %>
+              		<%= file_input f, :photos, placeholder: "PHOTOS", multiple: true, name: "cause_photos[]", required: true, accept: "image/*", id: "multiple-photo-load" %>
 					<h4 style="margin-top:35px;">password</h4>
 					<fieldset>
 						<%= password_input f, :password, placeholder: "Password", required: true %>

@@ -161,7 +161,7 @@
 			<h4>SHARE SOME PHOTOS</h4>
 			<div class="file-set">
 				<p>Upload up to four photos to share with your challenge</p>
-				<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]", style: "position:inherit; opacity:100; left:inherit; font-size:15px; padding-top:7px;", required: true, accept: "image/*"] %>
+				<%= file_input f, "photos", [multiple: true, name: "challenge[photos][]", style: "position:inherit; opacity:100; left:inherit; font-size:15px; padding-top:7px;", id: "multiple-photo-load", required: true, accept: "image/*"] %>
 			</div>
 			<fieldset>
 
