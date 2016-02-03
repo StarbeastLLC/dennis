@@ -110,12 +110,7 @@ src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   </div>
   <!-- pop up -->
 
-<<<<<<< HEAD
-    <script 
-src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-=======
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
->>>>>>> 7e9cd05dd52de4673b106cc5242fe4a013d48fd2
     <script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>
     <script src="<%= static_path(@conn, "/js/vendor.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
